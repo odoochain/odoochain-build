@@ -58,3 +58,9 @@
 [submodule "addons/certificate_planer"]
 	path = addons/certificate_planer
 	url = https://github.com/Mint-System/Certificate-Planer.git
+[submodule "oca/hr-holidays"]
+	path = oca/hr-holidays
+	url = https://github.com/OCA/hr-holidays.git
+[submodule "oca/hr-attendance"]
+	path = oca/hr-attendance
+	url = https://github.com/OCA/hr-attendance.git
