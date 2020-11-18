@@ -46,6 +46,7 @@ enterprise/account_invoice_extract
 enterprise/project_enterprise
 enterprise/mrp_plm
 enterprise/purchase_enterprise
+enterprise/currency_rate_live
 oca/web/web_responsive
 oca/project/project_key
 oca/project/project_stage_closed

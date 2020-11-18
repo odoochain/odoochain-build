@@ -58,6 +58,14 @@ function update-module() {
     cd ..
 }
 
+
+function install-module {
+    cd odoo
+    locale
+    # activate-venv && ./odoo-bin -i $1 -d odoo --db_host=localhost -r odoo -w odoo --stop-after-init
+    cd ..
+}
+
 function scaffold-src() {
     if test -z "$1" 
     then
@@ -130,6 +138,9 @@ case "$1" in
         ;;
     update-module)
         update-module $2
+        ;;
+    install-module)
+        install-module $2
         ;;
     scaffold-src)
         scaffold-src $2
