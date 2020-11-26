@@ -37,9 +37,14 @@ function install-src() {
 }
 
 function start-shell() {
-    cd odoo
-    locale
-    ./odoo-bin shell -d odoo --db_host=localhost -r odoo -w odoo --addons-path='../addons'
+        if test -z "$1" 
+    then
+        echo "\$1 is empty"
+    else
+        cd odoo
+        locale
+        ./odoo-bin shell -d $1 --db_host=localhost -r odoo -w odoo --addons-path='../addons'
+    fi
 }
 
 function init-db() {
@@ -145,7 +150,7 @@ case "$1" in
         start-src
         ;;
     start-shell)
-        start-shell
+        start-shell $2
         ;;
     update-module)
         update-module $2
