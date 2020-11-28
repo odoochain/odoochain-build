@@ -43,7 +43,7 @@ function start-shell() {
     else
         cd odoo
         locale
-        ./odoo-bin shell -d $1 --db_host=localhost -r odoo -w odoo --addons-path='../addons'
+        ./odoo-bin shell -d $1 --db_host=localhost -r odoo -w odoo --addons-path='../addons' --no-http
     fi
 }
 
@@ -62,14 +62,7 @@ function start-src() {
 function update-module() {
     cd odoo
     locale
-    activate-venv && ./odoo-bin -u $1 -d odoo --db_host=localhost -r odoo -w odoo --stop-after-init
-}
-
-
-function install-module {
-    cd odoo
-    locale
-    # activate-venv && ./odoo-bin -i $1 -d odoo --db_host=localhost -r odoo -w odoo --stop-after-init
+    activate-venv && ./odoo-bin  -d $1 -u $2 --db_host=localhost -r odoo -w odoo --stop-after-init --no-http
 }
 
 function scaffold-src() {
@@ -110,7 +103,6 @@ function clear-assets() {
 function upload-module() {
 
     if [ "$1" = "certificate_planer" ]; then
-        
         rsync  -av -e ssh --exclude='.git' addons/certificate_planer hermes.mint-system.com:/usr/share/odoo05/addons/
     fi
 }
@@ -153,10 +145,7 @@ case "$1" in
         start-shell $2
         ;;
     update-module)
-        update-module $2
-        ;;
-    install-module)
-        install-module $2
+        update-module $2 $3
         ;;
     upload-module)
         upload-module $2

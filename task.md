@@ -10,8 +10,7 @@ install-src| |Install Odoo requirements in source folder.
 init-db| |Initialize the Odoo database.
 start-src| |Start Odoo from source folder.
 start-shell|[db]|Start Odoo shell from source folder.
-update-module|[name]|Update target Odoo module.
-install-module|[name]|Install target Odoo module.
+update-module|[db] [name]|Update target Odoo module.
 scaffold-src|[name]|Scaffold new Odoo module from source.
 drop-db|[db]|Drop target Odoo database.
 compile-managed-modules| |Package managed Odoo modules.
