@@ -15,5 +15,6 @@ scaffold-src|[name]|Scaffold new Odoo module from source.
 drop-db|[db]|Drop target Odoo database.
 compile-managed-modules| |Package managed Odoo modules.
 copy-managed-modules| |Copy managed Odoo modules to addon folder.
-remove-managed-modules| |Remove managed Odoo modules from add folder
+remove-managed-modules| |Remove managed Odoo modules from add folder.
 clear-assets|[db]|Clear Odoo assets.
+venv-init| |Initialize python virtual env.
