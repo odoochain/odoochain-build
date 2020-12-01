@@ -43,26 +43,26 @@ function start-shell() {
     else
         cd odoo
         locale
-        ./odoo-bin shell -d $1 --db_host=localhost -r odoo -w odoo --addons-path='../addons' --no-http
+        ./odoo-bin shell -d $1 --config '../config/odoo-src.conf' --no-http
     fi
 }
 
 function init-db() {
     cd odoo
     locale
-    activate-venv && ./odoo-bin --init base -d odoo --db_host=localhost -r odoo -w odoo --stop-after-init
+    activate-venv && ./odoo-bin --init base --config '../config/odoo-src.conf' --stop-after-init --no-http
 }
 
 function start-src() {
     cd odoo
     locale
-    activate-venv && ./odoo-bin --config=../config/odoo-src.conf --db_host=localhost -r odoo -w odoo --dev=all
+    activate-venv && ./odoo-bin --config '../config/odoo-src.conf' --dev all
 }
 
 function update-module() {
     cd odoo
     locale
-    activate-venv && ./odoo-bin  -d $1 -u $2 --db_host=localhost -r odoo -w odoo --stop-after-init --no-http
+    activate-venv && ./odoo-bin  -d $1 -u $2 --config '../config/odoo-src.conf' --stop-after-init --no-http
 }
 
 function scaffold-src() {
