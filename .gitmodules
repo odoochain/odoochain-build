@@ -58,3 +58,6 @@
 [submodule "oca/hr-attendance"]
 	path = oca/hr-attendance
 	url = https://github.com/OCA/hr-attendance.git
+[submodule "addons/gio_payroll_custom"]
+	path = addons/gio_payroll_custom
+	url = https://gitlab.com/mint-system/odoo-app-hr-payroll-share.git
