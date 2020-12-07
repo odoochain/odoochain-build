@@ -61,3 +61,6 @@
 [submodule "addons/gio_payroll_custom"]
 	path = addons/gio_payroll_custom
 	url = https://gitlab.com/mint-system/odoo-app-hr-payroll-share.git
+[submodule "addons/gio_py3o_addon"]
+	path = addons/gio_py3o_addon
+	url = https://gitlab.com/mint-system/odoo-app-hr-payroll-report.git

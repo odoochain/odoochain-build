@@ -32,7 +32,7 @@ function locale() {
 function install-src() {
     cd odoo
     activate-venv
-    pip install setuptools psycopg2-binary watchdog phonenumbers
+    pip install setuptools psycopg2-binary watchdog phonenumbers py3o.template py3o.formats
     pip install -r requirements.txt
 }
 

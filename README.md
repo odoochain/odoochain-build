@@ -113,9 +113,6 @@ task install-src
 If you are using the Py3o report engine additional packages are required:
 
 ```bash
-cd odoo
-pip install py3o.template py3o.formats
-cd ..
 # MacOS
 brew cask install libreoffice
 # Ubuntu
