@@ -18,3 +18,4 @@ copy-managed-modules| |Copy managed Odoo modules to addon folder.
 remove-managed-modules| |Remove managed Odoo modules from add folder.
 clear-assets|[db]|Clear Odoo assets.
 venv-init| |Initialize python virtual env.
+convert-database|[db]|Convert database backup file from postgres 9.5 to latest.

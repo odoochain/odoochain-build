@@ -107,6 +107,20 @@ function upload-module() {
     fi
 }
 
+function convert-database() {
+    if test -z "$1" 
+    then
+        echo "\$1 is empty"
+    else
+        unzip "tmp/$1.zip" -d "./tmp/$1"
+        sed -i '' 's/AS integer//g' "./tmp/$1/dump.sql"
+        grep -i 'as integer' "./tmp/$1/dump.sql"
+        cd "tmp/$1" ; zip -r "../${1}2.zip" . ; cd ../..
+        rm -r "tmp/$1"
+        echo "Converted database file $1 to ${1}2"
+    fi
+}
+
 case "$1" in
     disable-auto-install)
         disable-auto-install
@@ -170,6 +184,9 @@ case "$1" in
         ;;
     clear-assets)
         clear-assets $2
+        ;;
+    convert-database)
+        convert-database $2
         ;;
     *)
         help task
