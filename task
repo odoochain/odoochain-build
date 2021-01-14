@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 function help() {
 echo
@@ -10,9 +10,12 @@ column -t -s"|" ./task.md | tail -n +3
 echo
 }
 
+# load lib functions
+. ./scripts/lib
+
 function disable-auto-install() {
     echo "Disable auto install for all enterprise modules."
-    find ./enterprise -type f -name '__manifest__.py' -exec sed -i '' $'s/\'auto_install\': True,/\'auto_install\': False,/g' {} +
+    find ./enterprise -type f -name '__manifest__.py' -exec sed -i'' $'s/\'auto_install\': True,/\'auto_install\': False,/g' {} +
 }
 
 function venv-init() {
@@ -20,24 +23,15 @@ function venv-init() {
     source venv/bin/activate
 }
 
-function activate-venv() {
-    source ../venv/bin/activate
-}
-
-function locale() {
-    export LC_ALL=en_US.UTF-8
-    export LANG=en_US.UTF-8
-}
-
 function install-src() {
     cd odoo
     activate-venv
-    pip install setuptools psycopg2-binary watchdog phonenumbers py3o.template py3o.formats
+    pip install setuptools wheel watchdog phonenumbers
     pip install -r requirements.txt
 }
 
 function start-shell() {
-        if test -z "$1" 
+    if test -z "$1" 
     then
         echo "\$1 is empty"
     else
@@ -56,7 +50,7 @@ function init-db() {
 function start-src() {
     cd odoo
     locale
-    activate-venv && ./odoo-bin --config '../config/odoo-src.conf' --dev=all
+    activate-venv && ./odoo-bin --config '../config/odoo-src.conf' --dev=reload
 }
 
 function update-module() {
@@ -65,7 +59,13 @@ function update-module() {
     activate-venv && ./odoo-bin  -d $1 -u $2 --config '../config/odoo-src.conf' --stop-after-init --no-http
 }
 
-function scaffold-src() {
+function install-module() {
+    cd odoo
+    locale
+    activate-venv && ./odoo-bin  -d $1 -i $2 --config '../config/odoo-src.conf' --stop-after-init --no-http
+}
+
+function create-module() {
     if test -z "$1" 
     then
         echo "\$1 is empty"
@@ -121,12 +121,36 @@ function convert-database() {
     fi
 }
 
+function checkout() {
+    if test -z "$1" 
+    then
+        echo "\$1 is empty"
+    else
+        cd enterprise
+        git checkout .
+        cd ..
+        git checkout $1 && git submodule update --init
+    fi
+}
+
+function release-module() {
+    if test -z "$1" 
+    then
+        echo "\$1 is empty"
+    else
+        VERSION=$(get-module-version $1)
+        echo "Create release $VERSION ..."
+        cd $1
+        gh release create "v$VERSION" -t "Release $VERSION"
+    fi
+}
+
 case "$1" in
     disable-auto-install)
         disable-auto-install
         ;;
     checkout)
-        git checkout $2 && git submodule update --init
+        checkout $2
         ;;
     start)
         docker-compose up -d
@@ -164,8 +188,8 @@ case "$1" in
     upload-module)
         upload-module $2
         ;;
-    scaffold-src)
-        scaffold-src $2
+    create-module)
+        create-module $2
         ;;
     drop-db)
         drop-db $2
@@ -187,6 +211,12 @@ case "$1" in
         ;;
     convert-database)
         convert-database $2
+        ;;
+    install-module)
+        install-module $2 $3
+        ;;
+    release-module)
+        release-module $2
         ;;
     *)
         help task

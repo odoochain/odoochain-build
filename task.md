@@ -11,7 +11,8 @@ init-db| |Initialize the Odoo database.
 start-src| |Start Odoo from source folder.
 start-shell|[db]|Start Odoo shell from source folder.
 update-module|[db] [name]|Update target Odoo module.
-scaffold-src|[name]|Scaffold new Odoo module from template.
+install-module|[db] [name]|Install target Odoo module.
+create-module|[name]|Create new Odoo module from template.
 drop-db|[db]|Drop target Odoo database.
 compile-managed-modules| |Package managed Odoo modules.
 copy-managed-modules| |Copy managed Odoo modules to addon folder.
@@ -19,3 +20,4 @@ remove-managed-modules| |Remove managed Odoo modules from addon folder.
 clear-assets|[db]|Clear Odoo assets.
 venv-init| |Initialize python virtual env.
 convert-database|[db]|Convert database backup file from postgres 9.5 to latest.
+release-module|[path]|Create release for module.
