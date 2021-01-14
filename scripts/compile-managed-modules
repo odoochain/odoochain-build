@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 GIT_TAG=1
-ODOO_VERSION=14.0
+ODOO_VERSION=13.0
 MODULES=($(awk -F= '{print $1}' managed_modules.txt))
 
 for MODULE in "${MODULES[@]}"
