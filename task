@@ -57,6 +57,9 @@ function start-src() {
 }
 
 function update-module() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+
     cd odoo
     locale
     activate-venv
