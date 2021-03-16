@@ -40,9 +40,9 @@
 [submodule "oca/server-auth"]
 	path = oca/server-auth
 	url = git@github.com:OCA/server-auth.git
-[submodule "addons/certificate_planer"]
-	path = addons/certificate_planer
-	url = git@github.com:Mint-System/Certificate-Planer.git
+[submodule "addons/certificate_planner"]
+	path = addons/certificate_planner
+	url = git@github.com:Mint-System/Certificate-Planner.git
 [submodule "oca/hr-holidays"]
 	path = oca/hr-holidays
 	url = git@github.com:OCA/hr-holidays.git

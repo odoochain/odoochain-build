@@ -100,7 +100,7 @@ function clear-assets() {
 
 function upload-module() {
 
-    if [ "$1" = "certificate_planer" ]; then
+    if [ "$1" = "certificate_planner" ]; then
         rsync  -av -e ssh --exclude='.git' addons/certificate_planer hermes.mint-system.com:/usr/share/odoo05/addons/
     fi
 }
