@@ -85,3 +85,9 @@
 [submodule "oca/stock-logistics-workflow"]
 	path = oca/stock-logistics-workflow
 	url = git@github.com:OCA/stock-logistics-workflow.git
+[submodule "addons/home_background_image"]
+	path = addons/home_background_image
+	url = git@github.com:Mint-System/Odoo-App-Home-Background-Image.git
+[submodule "addons/oms_layout"]
+	path = addons/oms_layout
+	url = git@github.com:Mint-System/Odoo-App-OMS-Layout.git
