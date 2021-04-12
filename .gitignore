@@ -1,8 +1,8 @@
 __pycache__
 .DS_Store
-.env
+.env*
 addons
 tmp
 default.vim
 managed-modules
-venv
+venv*

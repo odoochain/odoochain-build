@@ -11,21 +11,10 @@ This projects provides a highly opinionated way to develop Odoo and Odoo modules
 * **Enterprise Modules**: Checkout the Odoo enterprise modules and deploy them into the Odoo Docker container or the Odoo source.
 * **Develop Modules**: Scaffold a new module and develop new Odoo features locally.
 
-**Table of Contents**
-
-* [Requirements](#requirements)
-* [Usage](#usage)
-  * [Docker](#docker)
-  * [Source](#source)
-  * [Common](#common)
-  * [Managed Modules](#managed-modules)
-  * [Mail](#mail)
-
 ## Requirements
 
 The Odoo development environment has the following requirements:
 
-* [Odoo Scripts](https://github.com/Mint-System/Ansible-Playbooks/tree/master/roles/odoo-scripts)
 * [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/)
 * Install python 3.7.x with [pyenv](https://github.com/pyenv/pyenv)
 * [wkhtmltopdf](https://wkhtmltopdf.org/): `sudo apt install wkhtmltopdf`
@@ -48,6 +37,12 @@ Checkout branch.
 ```bash
 task checkout 13.0
 task checkout 14.0
+```
+
+Install [Odoo scripts](https://github.com/Mint-System/Ansible-Playbooks/tree/master/roles/odoo-scripts)
+
+```bash
+task install-odoo-scripts
 ```
 
 Disable auto install for Odoo apps.
@@ -97,7 +92,7 @@ Run Odoo from source.
 Create and activate the virtual env.
 
 ```bash
-task venv-init
+task init-venv
 ```
 
 **Install Odoo source requirements**
@@ -182,31 +177,6 @@ Or with Docker:
 ```bash
 docker exec odoo pip3 install -r /mnt/extra-addons/rest_api/requirements.txt
 docker restart odoo
-```
-
-### Managed Modules
-
-Manage Odoo modules.
-
-**Setup managed modules**
-
-Update the entries in the list `managed_modules.txt`.
-
-Checkout a specific git revision in the Odoo enterprise repository.
-
-Run `task compile-managed-modules` to create zip files for the managed modules.
-
-**Load and unload managed modules**
-
-Run `task copy-managed-modules` to load the managed modules into the addons folder.
-
-Execute the script `task remove-managed-mdoules` to delete the managed modules from the addons folder.
-
-**Export pgAdmin connections**
-
-```bash
-docker exec pgadmin python setup.py --dump-servers /var/tmp/servers.json --user admin@example.com
-docker exec pgadmin cat /var/tmp/servers.json
 ```
 
 ### Mail

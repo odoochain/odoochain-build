@@ -18,13 +18,18 @@ function disable-auto-install() {
     find ./enterprise -type f -name '__manifest__.py' -exec sed -i'' $'s/\'auto_install\': True,/\'auto_install\': False,/g' {} +
 }
 
-function venv-init() {
-    python3 -m venv venv
-    source venv/bin/activate
+function init-venv() {
+    python3 -m venv "venv$GIT_BRANCH"
+    source "venv$GIT_BRANCH/bin/activate"
+}
+
+function install-odoo-scripts() {
+    curl -L https://raw.githubusercontent.com/mint-system/ansible-playbooks/master/roles/odoo-scripts/files/install | sh 
 }
 
 function install-src() {
     activate-venv
+    cd odoo
     pip install setuptools wheel watchdog phonenumbers
     pip install -r requirements.txt
 }
@@ -168,6 +173,39 @@ function clear-filestore() {
     rm -rf ~/.local/share/Odoo/filestore/$1
 }
 
+function init-odoo-env() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    echo "Init env file: .env.$1"
+    echo "#ODOO_URL=" > .env.$1
+    echo "ODOO_DATABASE=" >> .env.$1
+    echo "ODOO_USERNAME=" >> .env.$1
+    echo "ODOO_PASSWORD=" >> .env.$1
+    cat .env.$1
+}
+
+function disable-mailserver() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    activate-venv
+    load-odoo-env $1
+    scripts/odooctl --model 'ir.mail_server' --field 'active' --value False
+    scripts/odooctl --model 'fetchmail.server' --field 'active' --value False
+}
+
+function update-odoo-view() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+
+    # Generate view name from filename
+    FILE=$(basename $2)
+    NAME="mint_system.$FILE"
+
+    activate-venv
+    load-odoo-env $1
+    scripts/odooctl --model 'ir.ui.view' --domain "['name', '=', '$NAME']" --field 'arch_base' --value "'''$(cat $2)'''"
+}
+
 case "$1" in
     disable-auto-install)
         disable-auto-install
@@ -196,8 +234,11 @@ case "$1" in
         docker-compose up -d mail
         echo "Open http://localhost url in your browser."
         ;;
-    venv-init)
-        venv-init
+    init-venv)
+        init-venv
+        ;;
+    install-odoo-scripts)
+        install-odoo-scripts
         ;;
     install-src)
         install-src
@@ -249,6 +290,15 @@ case "$1" in
         ;;
     activate-venv)
         activate-venv
+        ;;
+    init-odoo-env)
+        init-odoo-env $2
+        ;;
+    disable-mailserver)
+        disable-mailserver $2 $3
+        ;;
+    update-odoo-view)
+        update-odoo-view $2 $3
         ;;
     *)
         help task
