@@ -40,9 +40,8 @@ services:
       POSTGRES_DB: odoo
       POSTGRES_USER: odoo
       POSTGRES_PASSWORD: odoo
-      PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
-      - odoo-db-data:/var/lib/postgresql/data/pgdata
+      - odoo-db-data:/var/lib/postgresql/data
   mail:
     container_name: mail
     image: marcosdiez/maildev
