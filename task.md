@@ -1,16 +1,15 @@
 | command              | option       | description                                                              |
 | -------------------- | ------------ | ------------------------------------------------------------------------ |
-| start                |              | Start docker container.                                                  |
+| start                | [name]       | Start docker container. Options: db, mail, src                           |
+| restart              | [name]       | Restart docker container. Options: db, mail                              |
 | stop                 |              | Stop docker container.                                                   |
 | kill                 |              | Remove docker container and volumes.                                     |
 | logs                 |              | Tail Odoo Docker container logs.                                         |
-| start-db             |              | Start database container only.                                           |
 | disable-auto-install |              | Disable auto install for enterprise modules.                             |
 | init-venv            |              | Initialize python virtual env.                                           |
 | active-venv          |              | Activate python virtual env.                                             |
 | install-src          |              | Install Odoo requirements in source folder.                              |
 | init-db              |              | Initialize the Odoo database.                                            |
-| start-src            |              | Start Odoo from source folder.                                           |
 | start-shell          | [db]         | Start Odoo shell from source folder.                                     |
 | create-module        | [name]       | Create new Odoo module from template.                                    |
 | install-module       | [db] [name]  | Install target Odoo module.                                              |
