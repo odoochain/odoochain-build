@@ -91,3 +91,6 @@
 [submodule "addons/oms_layout"]
 	path = addons/oms_layout
 	url = git@github.com:Mint-System/Odoo-App-OMS-Layout.git
+[submodule "oca/openupgrade"]
+	path = oca/openupgrade
+	url = https://github.com/OCA/openupgrade
