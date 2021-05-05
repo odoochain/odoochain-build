@@ -224,7 +224,7 @@ function disable-mailserver() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
     activate-venv
-    load-odoo-env $1
+    load-env $1
     scripts/odooctl --model 'ir.mail_server' --field 'active' --value False
     scripts/odooctl --model 'fetchmail.server' --field 'active' --value False
 }
@@ -238,7 +238,7 @@ function update-odoo-view() {
     NAME="mint_system.$FILE"
 
     activate-venv
-    load-odoo-env $1
+    load-env $1
     scripts/odooctl --model 'ir.ui.view' --domain "['name', '=', '$NAME']" --field 'arch_base' --value "'''$(cat $2)'''"
 }
 
@@ -250,6 +250,23 @@ function update-app-list() {
     echo "env['ir.module.module'].update_list()" | odoo-bin shell -d $1 --config 'config/odoo-src.conf' --no-http
 }
 
+function init-next-env() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    echo "Init env file: .env.$1"
+    echo "NEXTCLOUD_URL=" > .env.$1
+    echo "NEXTCLOUD_USERNAME=" >> .env.$1
+    echo "NEXTCLOUD_PASSWORD=" >> .env.$1
+    cat .env.$1
+}
+
+function upload-module() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$1 is empty"; exit; fi
+
+    load-env $1
+    curl -u $NEXTCLOUD_USERNAME:$NEXTCLOUD_PASSWORD -T "$2" "$NEXTCLOUD_URL/remote.php/dav/files/$NEXTCLOUD_USERNAME/Odoo-Apps/"
+}
 
 case "$1" in
     disable-auto-install)
@@ -335,6 +352,12 @@ case "$1" in
         ;;
     update-app-list)
         update-app-list $2
+        ;;
+    init-next-env)
+        init-next-env $2
+        ;;
+    upload-module)
+        upload-module $2 $3
         ;;
     *)
         help task
