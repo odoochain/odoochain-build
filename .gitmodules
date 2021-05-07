@@ -97,3 +97,6 @@
 [submodule "addons/web_widget_many2many_tags_link"]
 	path = addons/web_widget_many2many_tags_link
 	url = git@github.com:Mint-System/Odoo-App-Web-Widget-Many2Many-Tags-Link.git
+[submodule "addons/board_users"]
+	path = addons/board_users
+	url = git@github.com:Mint-System/Odoo-App-Board-Users.git
