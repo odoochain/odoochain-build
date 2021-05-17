@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 function help() {
 echo
@@ -18,16 +19,12 @@ function disable-auto-install() {
     find ./enterprise -type f -name '__manifest__.py' -exec sed -i'' $'s/\'auto_install\': True,/\'auto_install\': False,/g' {} +
 }
 
-function init-venv() {
-    python3 -m venv "venv$GIT_BRANCH"
-    source "venv$GIT_BRANCH/bin/activate"
-}
-
 function install-odoo-scripts() {
     curl -L https://raw.githubusercontent.com/mint-system/ansible-playbooks/master/roles/odoo-scripts/files/install | sh 
 }
 
 function install-src() {
+    init-venv
     activate-venv
     cd odoo
     pip install setuptools wheel watchdog phonenumbers
@@ -120,9 +117,13 @@ function remove-module() {
 function create-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
+    MODULE_NAME=$(basename "$1")
+    PARENT_DIR=$(dirname "$1")
+
     locale
     activate-venv
-    odoo-bin scaffold $1 addons -t template/ms_custom_module
+    echo "Scaffolding module $MODULE_NAME in $PARENT_DIR ..."
+    odoo-bin scaffold "$MODULE_NAME" "$PARENT_DIR" -t template/ms_custom_module
 }
 
 function drop-db() {
@@ -194,14 +195,16 @@ function zip-module() {
     echo "Copy module $MODULE version $VERSION to tmp folder"
     MODULE_NAME="$MODULE-$VERSION"
     MODULE_PATH="tmp/$MODULE_NAME"
-    cp -r "$1" "$MODULE_PATH"
+    mkdir -p "$MODULE_PATH"
+    cp -r "$1/." "$MODULE_PATH"
 
     # configure and zip module
     echo "Remove auto install option"
-    sed -i'' -e "s/'auto_install': True,/'auto_install': False,/" $MODULE_PATH/__manifest__.py
+    sed -i'' -e "s/'auto_install': True,/'auto_install': False,/" "$MODULE_PATH/__manifest__.py"
     echo "Zip module $MODULE"
     cd tmp
     zip -q -r $MODULE_NAME.zip $MODULE_NAME
+    cd ..
 }
 
 function clear-filestore() {
@@ -264,8 +267,17 @@ function upload-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$1 is empty"; exit; fi
 
+    zip-module $2
+
+    # Get path to zip file and upload url
+    FILE_PATH="tmp/$MODULE_NAME.zip"
+    pwd
     load-env $1
-    curl -u $NEXTCLOUD_USERNAME:$NEXTCLOUD_PASSWORD -T "$2" "$NEXTCLOUD_URL/remote.php/dav/files/$NEXTCLOUD_USERNAME/Odoo-Apps/"
+    NEXTCLOUD_UPLOAD_URL="$NEXTCLOUD_URL/remote.php/dav/files/$NEXTCLOUD_USERNAME/Odoo-Apps/"
+
+    # Upload zip file
+    curl -u "$NEXTCLOUD_USERNAME:$NEXTCLOUD_PASSWORD" -T "$FILE_PATH" "$NEXTCLOUD_UPLOAD_URL"
+    echo "File $FILE_PATH uploaded to $NEXTCLOUD_UPLOAD_URL."
 }
 
 case "$1" in
@@ -337,9 +349,6 @@ case "$1" in
         ;;
     clear-filestore)
         clear-filestore $2
-        ;;
-    activate-venv)
-        activate-venv
         ;;
     init-odoo-env)
         init-odoo-env $2
