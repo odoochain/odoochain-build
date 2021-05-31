@@ -97,12 +97,12 @@
 [submodule "addons/board_users"]
 	path = addons/board_users
 	url = git@github.com:Mint-System/Odoo-App-Board-Users.git
-[submodule "oca/parnter-contact"]
-	path = oca/parnter-contact
-	url = git@github.com:OCA/partner-contact.git
 [submodule "oca/partner-contact"]
 	path = oca/partner-contact
 	url = git@github.com:OCA/partner-contact.git
 [submodule "themes"]
 	path = themes
 	url = git@github.com:odoo/design-themes.git
+[submodule "oca/website"]
+	path = oca/website
+	url = https://github.com/OCA/website.git
