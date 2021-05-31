@@ -103,3 +103,6 @@
 [submodule "oca/partner-contact"]
 	path = oca/partner-contact
 	url = git@github.com:OCA/partner-contact.git
+[submodule "themes"]
+	path = themes
+	url = git@github.com:odoo/design-themes.git
