@@ -106,3 +106,6 @@
 [submodule "oca/website"]
 	path = oca/website
 	url = https://github.com/OCA/website.git
+[submodule "addons/hr"]
+	path = addons/hr
+	url = git@github.com:Mint-System/Odoo-Apps-HR.git
