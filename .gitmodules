@@ -109,3 +109,6 @@
 [submodule "addons/hr"]
 	path = addons/hr
 	url = git@github.com:Mint-System/Odoo-Apps-HR.git
+[submodule "addons/delegations"]
+	path = addons/delegations
+	url = git@gitlab.com:mint-system/odoo-apps-delegations.git
