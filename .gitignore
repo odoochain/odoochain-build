@@ -6,3 +6,5 @@ tmp
 default.vim
 managed-modules
 venv*
+node_modules
+public
