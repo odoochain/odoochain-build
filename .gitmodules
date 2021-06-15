@@ -112,3 +112,6 @@
 [submodule "addons/delegations"]
 	path = addons/delegations
 	url = git@gitlab.com:mint-system/odoo-apps-delegations.git
+[submodule "addons/gio_generic_excel_addon"]
+	path = addons/gio_generic_excel_addon
+	url = git@gitlab.com:mint-system/odoo-app-generic-excel-addon.git
