@@ -309,7 +309,7 @@ function save-config() {
 
 function update-config() {
 
-    ADDONS="$(tr '\n' ',' < ./config/addons)"
+    ADDONS="$(tr '\n' ',' < ./config/addons_path)"
     sed -i'' -e "s|addons_path.*|addons_path = odoo/addons,$ADDONS|g" "./config/odoo-src.conf"
 
     ADDONS="$(echo "$ADDONS" | sed 's|,|,/mnt/|g')"
