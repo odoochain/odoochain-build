@@ -25,6 +25,7 @@
 | save-config          | [name]       | Save Odoo database config                                                 |
 | start-shell          | [db]         | Start Odoo shell from source folder.                                      |
 | stop                 |              | Stop docker containers.                                                   |
+| update-config        |              | Update odoo config.                                                       |
 | update-app-list      | [db]         | Update app list.                                                          |
 | update-module        | [db] [name]  | Update target Odoo module.                                                |
 | update-odoo-view     | [env] [path] | Update view xml definition.                                               |
