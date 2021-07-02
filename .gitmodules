@@ -167,3 +167,7 @@
 	path = addons/impersonate
 	url = git@gitlab.com:mint-system/odoo-app-impersonate.git
 	branch = 13.0
+[submodule "oca/product-attribute"]
+	path = oca/product-attribute
+	url = git@github.com:OCA/product-attribute.git
+	branch = 13.0
