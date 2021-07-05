@@ -321,8 +321,10 @@ function update-config() {
 function remove-submodule() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
-    git submodule deinit -f $1
-    git config -f .git/config --remove-section.$1
+    mkdir -p tmp/$1
+    mv $1 tmp/$1
+    git submodule deinit -f -- $1
+    rm -rf .git/modules/$1
     git rm --cached $1
     rm -rf $1
 }

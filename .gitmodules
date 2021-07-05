@@ -119,10 +119,6 @@
 	path = addons/oms_layout
 	url = git@github.com:Mint-System/Odoo-App-OMS-Layout.git
 	branch = 13.0
-[submodule  "oca/openupgrade"]
-	path = oca/openupgrade
-	url = https://github.com/OCA/openupgrade
-	branch = 13.0
 [submodule  "addons/web_widget_many2many_tags_link"]
 	path = addons/web_widget_many2many_tags_link
 	url = git@github.com:Mint-System/Odoo-App-Web-Widget-Many2Many-Tags-Link.git
