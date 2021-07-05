@@ -316,7 +316,16 @@ function update-config() {
     sed -i'' -e "s|addons_path.*|addons_path = /mnt/$ADDONS|g" "./config/odoo.conf"
 
     echo "Config updated."
-} 
+}
+
+function remove-submodule() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    git submodule deinit -f $1
+    git config -f .git/config --remove-section.$1
+    git rm --cached $1
+    rm -rf $1
+}
 
 case "$1" in
     disable-auto-install)
@@ -387,6 +396,9 @@ case "$1" in
         ;;
     release-module)
         release-module $2
+        ;;
+    remove-submodule)
+        remove-submodule $2
         ;;
     lint-module)
         lint-module $2
