@@ -3,7 +3,7 @@
 Odoo Development
 ================
 
-The Mint System Odoo development environment.
+This is the [Mint System](https://www.mint-system.ch/) Odoo development environment.
 
 This projects provides a highly opinionated way to develop Odoo and Odoo modules. It supports the following scenarios:
 
