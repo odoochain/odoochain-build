@@ -118,7 +118,6 @@ function lint-module() {
     pylint --load-plugins=pylint_odoo -d all -e odoolint $1
     cd $1
     pre-commit run -a
-
 }
 
 function update-module() {
@@ -354,7 +353,6 @@ function remove-submodule() {
     echo "Remove $1 submodule from .gitmodules files manually."
 
 }
-
 
 function update-config() {
 
