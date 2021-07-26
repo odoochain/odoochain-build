@@ -36,6 +36,8 @@ function install-native() {
     pip install pre-commit pyyaml
     echo "Install graphql dependencies"
     pip install graphene graphql-server-core
+    echo "Install openupgrade functions"
+    pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib
 }
 
 function start() {
@@ -118,6 +120,7 @@ function lint-module() {
     pylint --load-plugins=pylint_odoo -d all -e odoolint $1
     cd $1
     pre-commit run -a
+
 }
 
 function update-module() {
@@ -165,7 +168,7 @@ function drop-db() {
     DATABASE=${DATABASE:="odoo"}
 
     docker exec db psql postgres://odoo:odoo@localhost:5432/postgres -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$DATABASE';"
-    docker exec db psql postgres://odoo:odoo@localhost:5432/postgres -c "DROP DATABASE $DATABASE;"
+    docker exec db psql postgres://odoo:odoo@localhost:5432/postgres -c "DROP DATABASE \"$DATABASE\";"
 }
 
 function send-support-mail() {
@@ -353,6 +356,7 @@ function remove-submodule() {
     echo "Remove $1 submodule from .gitmodules files manually."
 
 }
+
 
 function update-config() {
 
