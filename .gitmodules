@@ -183,3 +183,7 @@
 	path = oca/bank-statement-import
 	url = git@github.com:OCA/bank-statement-import.git
 	branch = 13.0
+[submodule "oca/rest-framework"]
+	path = oca/rest-framework
+	url = git@github.com:OCA/rest-framework.git
+	branch = 13.0
