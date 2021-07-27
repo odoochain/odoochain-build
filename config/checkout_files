@@ -4,7 +4,6 @@ task.md
 scripts
 snippets
 template
-data
 .vuepress
 package.json
 package-lock.json
@@ -12,3 +11,4 @@ package-lock.json
 .vercelignore
 config
 logo.jpg
+docker-compose.yml
