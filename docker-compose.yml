@@ -2,7 +2,7 @@ version: "3"
 services:
   odoo:
     container_name: odoo
-    image: "odoo:${GIT_BRANCH}"
+    image: "odoo:${ODOO_REVISION}"
     depends_on:
       - db
     environment:
