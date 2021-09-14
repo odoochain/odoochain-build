@@ -75,6 +75,8 @@ function install-odoo-scripts() {
 function install-native() {
     echo "Install wkhtmltopdf"
     sudo apt install wkhtmltopdf
+    echo "Install xmllint"
+    sudo apt install libxml2-utils
     init-venv
     activate-venv
     echo "Install pylint odoo"
@@ -356,6 +358,23 @@ function update-odoo-view() {
     scripts/odooctl --model 'ir.ui.view' --domain "['name', '=', '$NAME']" --field 'arch_base' --value "'''$(cat $2)'''"
 }
 
+function install-odoo-view() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+
+    # Generate view name from filename
+    FILE=$(basename $2)
+    NAME="mint_system.${FILE%.xml}"
+    INHERIT_ID=$(echo 'cat //data/@inherit_id' | xmllint --shell $2 | awk -F'[="]' '!/>/{print $(NF-1)}')
+    PRIORITY=$(echo 'cat //data/@priority' | xmllint --shell $2 | awk -F'[="]' '!/>/{print $(NF-1)}')
+    INHERIT_NAME=$(echo $INHERIT_ID | cut -d. -f2 )
+
+    activate-venv
+    load-env $1
+    INHERIT_ID=$(scripts/odooctl --method 'search_one' --model 'ir.ui.view' --domain "['name', '=', '$INHERIT_NAME']")
+    scripts/odooctl --method 'create' --model 'ir.ui.view' --value "{ 'name': '$NAME', 'priority': $PRIORITY, 'inherit_id': $INHERIT_ID, 'arch_base': '''$(cat $2)''' }"
+}
+
 function update-app-list() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
@@ -445,6 +464,39 @@ function patch-database() {
     echo "Apply patch $FILENAME to Database $1."
     cat $2 | docker exec -i db psql postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost/$1 
     echo "Patching database succeeded"
+}
+
+function update-docs() {
+    echo "Update snippets.md file."
+    echo "# Snippets" > snippets.md
+
+    PATH_URL="https://github.com/Mint-System/Odoo-Development/tree/14.0"
+    FILES="snippets/*.xml"
+
+    # Group by modules
+    MODULES=$(ls $FILES | xargs -n 1 basename | cut -d. -f1 | uniq)
+    for MODULE in $MODULES; do
+        TITLE="${MODULE^}" # Uppercase first letter
+        TITLE=$(echo $TITLE | sed 's/_/ /g') # Replace underline with space
+        TITLE=$(echo $TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
+        echo "## $TITLE" >> snippets.md
+
+        for FILE in $FILES; do
+            FILENAME=$(basename $FILE)
+            SNIPPET_MODULE=$(echo $FILENAME | cut -d. -f1)
+            REPORT=$(echo $FILENAME | cut -d. -f2)
+            EDIT=$(echo $FILENAME | cut -d. -f3)
+
+            # Group by modules
+            if [[ "$MODULE" = "$SNIPPET_MODULE" ]]; then
+                echo "Edit: **$EDIT**  " >> snippets.md
+                echo "Report: $REPORT  " >> snippets.md
+                echo "ID: \`mint_system.$SNIPPET_MODULE.$REPORT.$EDIT\`  " >> snippets.md
+                echo "Link: [$FILE]($PATH_URL/$FILE)" >> snippets.md
+                echo "" >> snippets.md
+            fi
+        done
+    done
 }
 
 
@@ -548,6 +600,9 @@ case "$1" in
     update-odoo-view)
         update-odoo-view $2 $3
         ;;
+    install-odoo-view)
+        install-odoo-view $2 $3
+        ;;
     update-app-list)
         update-app-list $2
         ;;
@@ -559,6 +614,12 @@ case "$1" in
         ;;
     patch-database)
         patch-database $2 $3
+        ;;
+    git-pull-submodules)
+        git submodule foreach git pull
+        ;;
+    update-docs)
+        update-docs
         ;;
     *)
         help task
