@@ -187,3 +187,7 @@
 	path = oca/contract
 	url = git@github.com:OCA/contract.git
 	branch = 13.0
+[submodule "addons/project"]
+	path = addons/project
+	url = git@github.com:Mint-System/Odoo-Apps-Project.git
+	branch = 13.0
