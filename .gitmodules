@@ -63,14 +63,6 @@
 	path = oca/hr-attendance
 	url = git@github.com:OCA/hr-attendance.git
 	branch = 13.0
-[submodule  "addons/gio_payroll_custom"]
-	path = addons/gio_payroll_custom
-	url = git@gitlab.com:mint-system/odoo-app-hr-payroll-share.git
-	branch = 13.0
-[submodule  "addons/gio_py3o_addon"]
-	path = addons/gio_py3o_addon
-	url = git@gitlab.com:mint-system/odoo-app-hr-payroll-report.git
-	branch = 13.0
 [submodule  "addons/website_sale_default_country"]
 	path = addons/website_sale_default_country
 	url = git@github.com:Mint-System/Odoo-App-Website-Sale-Default-Country.git
@@ -138,10 +130,6 @@
 [submodule  "addons/delegations"]
 	path = addons/delegations
 	url = git@gitlab.com:mint-system/odoo-apps-delegations.git
-	branch = 13.0
-[submodule  "addons/gio_generic_excel_addon"]
-	path = addons/gio_generic_excel_addon
-	url = git@gitlab.com:mint-system/odoo-app-generic-excel-addon.git
 	branch = 13.0
 [submodule  "oca/reporting-engine"]
 	path = oca/reporting-engine
