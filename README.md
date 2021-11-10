@@ -1,4 +1,5 @@
-![](./logo.jpg)
+![](https://github.com/Mint-System/Odoo-Development/raw/14.0/logo.png)
+<!-- ![](./logo.png) -->
 
 Odoo Development
 ================
