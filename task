@@ -132,12 +132,21 @@ function restart() {
     fi
 }
 
-function start-shell() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+function stop() {
+    if test -z "$1"; then
+        docker-compose stop 
+    fi
 
+    docker-compose restart $1
+}
+
+function start-shell() {
+    DATABASE=$1
+    DATABASE=${DATABASE:="odoo"}
+    
     locale
     activate-venv
-    odoo-bin shell -d $1 --config 'config/odoo-native.conf' --no-http
+    odoo-bin shell -d $DATABASE --config 'config/odoo-native.conf' --no-http
 }
 
 function start-psql() {
@@ -147,13 +156,13 @@ function start-psql() {
     docker exec -it db psql postgres://odoo:odoo@localhost:5432/$DATABASE
 }
 
-
 function init-db() {
     DATABASE=$1
     DATABASE=${DATABASE:="odoo"}
 
     locale
     activate-venv
+    echo "Make sure only one odoo process is running when initalizing the database."
     # odoo-bin --init base -d $DATABASE --db_host=localhost --db_password=odoo --db_user=odoo --no-http
     odoo-bin --init base -d $DATABASE --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
@@ -382,7 +391,7 @@ function change-uuid() {
 }
 
 
-function update-odoo-view() {
+function update-snippet() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
 
@@ -395,7 +404,7 @@ function update-odoo-view() {
     scripts/odooctl --model 'ir.ui.view' --domain "['name', '=', '$NAME']" --field 'arch_base' --value "'''$(cat $2)'''"
 }
 
-function install-odoo-view() {
+function install-snippet() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
 
@@ -547,6 +556,12 @@ case "$1" in
     checkout)
         checkout $2
         ;;
+    list)
+        docker-compose config --services; echo "native"
+        ;;
+    ps)
+        docker ps --format 'table {{.Names}}\t{{.Image}}\t{{(.Label "description")}}\t{{.Status}}'
+        ;;
     start)
         start $2
         ;;
@@ -554,7 +569,7 @@ case "$1" in
         restart $2
         ;;
     stop)
-        docker-compose stop
+        stop $2
         ;;
     kill)
         docker-compose down -v
@@ -640,11 +655,11 @@ case "$1" in
     git-list-submodules)
         git-list-submodules
         ;;
-    update-odoo-view)
-        update-odoo-view $2 $3
+    update-snippet)
+        update-snippet $2 $3
         ;;
-    install-odoo-view)
-        install-odoo-view $2 $3
+    install-snippet)
+        install-snippet $2 $3
         ;;
     update-app-list)
         update-app-list $2
