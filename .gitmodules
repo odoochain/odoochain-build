@@ -121,7 +121,7 @@
 	branch = 13.0
 [submodule  "oca/website"]
 	path = oca/website
-	url = https://github.com/OCA/website.git
+	url = git@github.com:OCA/website.git
 	branch = 13.0
 [submodule  "addons/hr"]
 	path = addons/hr
