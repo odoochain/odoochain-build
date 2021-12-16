@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//div[@class='page']/div[1]" position="replace">
+    <table class="table table-borderless table-sm">
+      <tr>
+        <td>
+          <strong>Verkaufsauftrag: </strong>
+          <span t-field="o.sale_id.name"/>
+        </td>
+
+        <td>
+          <strong>Bestelldatum: </strong>
+          <span t-field="o.sale_id.date_order" t-options='{"widget": "date"}' />
+        </td>
+
+        <td>
+          <strong>Kontakt Verkauf: </strong>
+          <span t-field="o.sale_id.user_id" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Kunden-Nr.: </strong>
+          <span t-field="o.partner_id.ref" />
+        </td>
+
+        <td>
+          <strong>Lieferdatum: </strong>
+          <span t-field="o.scheduled_date" t-options='{"widget": "date"}' />
+        </td>
+
+        <td>
+          <strong>Tel. Direkt: </strong>
+          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'delivery' and c.phone)" t-as="delivery_partner">
+            <span t-esc="delivery_partner.phone" />
+          </t>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>
+          <strong>E-Mail: </strong>
+          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'delivery' and c.email)" t-as="delivery_partner">
+            <span t-esc="delivery_partner.email" />
+          </t>
+        </td>
+      </tr>
+    </table>
+  </xpath>
+
+</data>
