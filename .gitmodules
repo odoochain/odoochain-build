@@ -179,3 +179,7 @@
 	path = addons/project
 	url = git@github.com:Mint-System/Odoo-Apps-Project.git
 	branch = 13.0
+[submodule "purchase-workflow"]
+	path = purchase-workflow
+	url = git@github.com:OCA/purchase-workflow.git
+	branch = 13.0
