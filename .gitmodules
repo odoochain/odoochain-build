@@ -2,7 +2,6 @@
 	path = addons/show_db_name
 	url = git@github.com:Mint-System/Odoo-App-Show-DB-Name.git
 	branch = 13.0
-	branch = 13.0
 [submodule  "addons/auth_oauth_keycloak"]
 	path = addons/auth_oauth_keycloak
 	url = git@github.com:Mint-System/Odoo-App-Auth-OAuth-Keycloak.git
@@ -179,7 +178,11 @@
 	path = addons/project
 	url = git@github.com:Mint-System/Odoo-Apps-Project.git
 	branch = 13.0
-[submodule "purchase-workflow"]
-	path = purchase-workflow
+[submodule "oca/purchase-workflow"]
+	path = oca/purchase-workflow
 	url = git@github.com:OCA/purchase-workflow.git
+	branch = 13.0
+[submodule "oca/stock-logistics-warehouse"]
+	path = oca/stock-logistics-warehouse
+	url = git@github.com:OCA/stock-logistics-warehouse.git
 	branch = 13.0
