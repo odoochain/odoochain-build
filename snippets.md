@@ -50,6 +50,16 @@ Report: report_invoice_document
 ID: `mint_system.account.report_invoice_document.group_by_sale_order`  
 Link: [snippets/account.report_invoice_document.group_by_sale_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.group_by_sale_order.xml)
 
+### margin after title  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.margin_after_title`  
+Link: [snippets/account.report_invoice_document.margin_after_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.margin_after_title.xml)
+
+### margin before invoice table  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.margin_before_invoice_table`  
+Link: [snippets/account.report_invoice_document.margin_before_invoice_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.margin_before_invoice_table.xml)
+
 ### margin before title  
 Report: report_invoice_document  
 ID: `mint_system.account.report_invoice_document.margin_before_title`  
@@ -75,6 +85,11 @@ Report: report_invoice_document
 ID: `mint_system.account.report_invoice_document.remove_payment_ref`  
 Link: [snippets/account.report_invoice_document.remove_payment_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_payment_ref.xml)
 
+### remove payment term  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.remove_payment_term`  
+Link: [snippets/account.report_invoice_document.remove_payment_term.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_payment_term.xml)
+
 ### remove taxes  
 Report: report_invoice_document  
 ID: `mint_system.account.report_invoice_document.remove_taxes`  
@@ -89,6 +104,11 @@ Link: [snippets/account.report_invoice_document.replace_information_table.xml](h
 Report: report_invoice_document  
 ID: `mint_system.account.report_invoice_document.sequence_in_table`  
 Link: [snippets/account.report_invoice_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.sequence_in_table.xml)
+
+### switch address block  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.switch_address_block`  
+Link: [snippets/account.report_invoice_document.switch_address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.switch_address_block.xml)
 
 ### unit precision  
 Report: report_invoice_document  
@@ -116,6 +136,11 @@ ID: `mint_system.account.view_move_form.show_sale_order_lines`
 Link: [snippets/account.view_move_form.show_sale_order_lines.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_sale_order_lines.xml)
 
 ## Base
+### remove domain widget  
+Report: ir_filters_view_form  
+ID: `mint_system.base.ir_filters_view_form.remove_domain_widget`  
+Link: [snippets/base.ir_filters_view_form.remove_domain_widget.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.ir_filters_view_form.remove_domain_widget.xml)
+
 ### add zip bic code city  
 Report: res_bank_view_search  
 ID: `mint_system.base.res_bank_view_search.add_zip_bic_code_city`  
@@ -352,6 +377,11 @@ Report: stock_move
 ID: `mint_system.ir_model.stock_move.x_count_boxes`  
 Link: [snippets/ir_model.stock_move.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_count_boxes.xml)
 
+### x packaging uom id  
+Report: stock_move  
+ID: `mint_system.ir_model.stock_move.x_packaging_uom_id`  
+Link: [snippets/ir_model.stock_move.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_packaging_uom_id.xml)
+
 ## Ir Ui View
 ### view calendar event calendar timeline  
 Report: calendar  
@@ -441,6 +471,11 @@ ID: `mint_system.mrp.report_mrporder.show_stock`
 Link: [snippets/mrp.report_mrporder.show_stock.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.show_stock.xml)
 
 ## Product
+### x packaging uom id  
+Report: product_packaging_form_view  
+ID: `mint_system.product.product_packaging_form_view.x_packaging_uom_id`  
+Link: [snippets/product.product_packaging_form_view.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_packaging_form_view.x_packaging_uom_id.xml)
+
 ### add product info  
 Report: product_template_kanban_view  
 ID: `mint_system.product.product_template_kanban_view.add_product_info`  
@@ -878,6 +913,11 @@ Report: view_order_form
 ID: `mint_system.sale.view_order_form.no_create_edit`  
 Link: [snippets/sale.view_order_form.no_create_edit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.no_create_edit.xml)
 
+### show carrier method  
+Report: view_order_form  
+ID: `mint_system.sale.view_order_form.show_carrier_method`  
+Link: [snippets/sale.view_order_form.show_carrier_method.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_carrier_method.xml)
+
 ### show sequence  
 Report: view_order_form  
 ID: `mint_system.sale.view_order_form.show_sequence`  
@@ -960,6 +1000,11 @@ Report: report_delivery_document
 ID: `mint_system.stock.report_delivery_document.hs_code_origin_and_weight`  
 Link: [snippets/stock.report_delivery_document.hs_code_origin_and_weight.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.hs_code_origin_and_weight.xml)
 
+### margin after title  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.margin_after_title`  
+Link: [snippets/stock.report_delivery_document.margin_after_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.margin_after_title.xml)
+
 ### margin before title  
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.margin_before_title`  
@@ -999,6 +1044,11 @@ Link: [snippets/stock.report_delivery_document.set_customer_reference.xml](https
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.sort_by_position`  
 Link: [snippets/stock.report_delivery_document.sort_by_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.sort_by_position.xml)
+
+### switch address block  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.switch_address_block`  
+Link: [snippets/stock.report_delivery_document.switch_address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.switch_address_block.xml)
 
 ### add delivery note  
 Report: report_picking  
@@ -1079,6 +1129,11 @@ Link: [snippets/stock.report_picking.show_packaging.xml](https://github.com/Mint
 Report: report_picking  
 ID: `mint_system.stock.report_picking.stock_delivery_note`  
 Link: [snippets/stock.report_picking.stock_delivery_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.stock_delivery_note.xml)
+
+### x packaging uom id  
+Report: report_picking  
+ID: `mint_system.stock.report_picking.x_packaging_uom_id`  
+Link: [snippets/stock.report_picking.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.x_packaging_uom_id.xml)
 
 ### get position  
 Report: stock_report_delivery_aggregated_move_lines  
