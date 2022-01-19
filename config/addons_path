@@ -32,7 +32,6 @@ addons/sale_workflow
 oca/rest-framework
 addons/demodata
 addons/partner_contact
-addons/swiss_payroll
 oca/contract
 oca/timesheet
 addons/project
@@ -40,4 +39,3 @@ addons/web
 addons/stock_logistics_workflow
 addons
 oca/stock-logistics-warehouse
-oca/account-invoicing
