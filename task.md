@@ -7,6 +7,7 @@
 | disable-auto-install        |                  | Disable auto install for enterprise modules.                      |
 | disable-mailserver          | [env]            | Disable mail server settings via xmlrpc.                          |
 | change-uuid                 | [env]            | Change database uuid via xmlrpc.                                  |
+| edit-envv                   | [env]            | Open env file in default editor.                                  |
 | drop-db                     | [db]             | Drop target Odoo database. Default is odoo.                       |
 | git-list-submodules         |                  | List path and url of submodules.                                  |
 | git-pull-submodules         |                  | Pull alls submodules.                                             |
@@ -42,5 +43,6 @@
 | upload-module               | [env][path]      | Zip and upload Odoo module.                                       |
 | generate-module-translation | [env][path]      | Generate translation for Odoo module.                             |
 | zip-module                  | [path]           | Create zip file for module.                                       |
+| restore-database            | [path][name]     | Restore target database zip.                                      |
 | update-docs                 |                  | Update project docs.                                              |
 | source                      |                  | Source the Python virtual env.                                    |

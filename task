@@ -211,6 +211,22 @@ function generate-module-translation() {
     odoo-bin -d $1 --config 'config/odoo-native.conf' --modules $MODULE_NAME -l $ODOO_LANGUAGE --i18n-export "$2/i18n/de.po"
 }
 
+function restore-database() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+
+    # Get database name
+
+    # Extract zip file.
+
+    # Drop database
+
+    # Import databse
+
+    # Copy filestore
+    
+}
+
 function install-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
@@ -468,7 +484,6 @@ function init-odoo-env() {
     echo "ODOO_DATABASE=" >> $ENV_FILEPATH
     echo "ODOO_USERNAME=" >> $ENV_FILEPATH
     echo "ODOO_PASSWORD=" >> $ENV_FILEPATH
-    cat $ENV_FILEPATH
 }
 
 function init-next-env() {
@@ -481,7 +496,12 @@ function init-next-env() {
     echo "NEXTCLOUD_URL=" > $ENV_FILEPATH
     echo "NEXTCLOUD_USERNAME=" >> $ENV_FILEPATH
     echo "NEXTCLOUD_PASSWORD=" >> $ENV_FILEPATH
-    cat $ENV_FILEPATH
+}
+
+function edit-env() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    ENV_FILEPATH="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
+    $EDITOR $ENV_FILEPATH
 }
 
 function upload-module() {
@@ -661,6 +681,9 @@ case "$1" in
     odoo-cloc)
         odoo-cloc $2
         ;;
+    restore-database)
+        restore-database $2 $3
+        ;;
     convert-database)
         convert-database $2
         ;;
@@ -687,6 +710,9 @@ case "$1" in
         ;;
     init-odoo-env)
         init-odoo-env $2
+        ;;
+    edit-env)
+        edit-env $2
         ;;
     disable-mailserver)
         disable-mailserver $2
