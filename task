@@ -25,6 +25,34 @@ if [[ -a ".env" ]]; then
     export $(cat .env | sed 's/#.*//g' | xargs)
 fi
 
+function update-readme() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    FILE_NAME=$(basename "$1")
+    if [[ "$FILE_NAME" != "README.md" ]]; then echo "\$1 must point to README.md file."; exit; fi
+    MODULES_DIR=$(dirname "$1")
+    
+    MANIFEST_FILES="$MODULES_DIR/*/__manifest__.py"
+
+    # Find marker in readme and clear content after
+    echo "Clear modules table for $1."
+    MARKER="## Available modules"
+    sed -i "/$MARKER/Q" $1
+
+    echo "$MARKER" >> $1
+    echo "" >> $1
+    echo "| Module | Summary |" >> $1
+    echo "| --- | --- |" >> $1
+
+    # Clear table after a marker
+    for MANIFEST_FILE in $MANIFEST_FILES; do
+        MODULE_DIR=$(dirname "$MANIFEST_FILE")
+        MODULE_NAME=$(basename "$MODULE_DIR")
+        echo "Add summary of $MODULE_NAME to readme file."
+        SUMMARY=$(grep 'summary' "$MANIFEST_FILE" -A 1 | tail -1)
+        echo "| [$MODULE_NAME]($MODULE_NAME) | $SUMMARY |" >> $1
+    done
+}
+
 function get-module-version() {
     if test -z "$1"
     then
@@ -92,10 +120,14 @@ function install-native() {
     pip install pre-commit pyyaml rst2html5
     echo "Install graphql dependencies"
     pip install graphene graphql-server-core
+    echo "Install rest dependencies"
+    pip install cerberus pyquerystring parse-accept-language apispec>=4.0.0 marshmallow marshmallow-objects>=2.0.0 jsondiff
     echo "Install openupgrade functions"
     pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib
     echo "Install addon dependencies"
     pip install prometheus_client
+    echo "Install edi dependencies"
+    pip install pyzbar numpy pdf2image opencv-python
 }
 
 function open-url-with-delay(){
@@ -357,6 +389,7 @@ function checkout() {
     for SUBMODULE in $SUBMODULES; do
         CWD=$(pwd)
         cd $SUBMODULE
+        git stash
         git switch $1
         cd $CWD
     done
@@ -367,13 +400,29 @@ function checkout() {
     git checkout $GIT_BRANCH $(tr '\n' ' ' < ./config/checkout_files)
 }
 
+function checkout-revision() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+ 
+    cd odoo
+    git checkout $1
+    cd ..
+    cd enterprise
+    git checkout $1
+    cd ..
+    cd themes
+    git checkout $1
+}
+
 function git-pull-submodules() {
     # Pull submodule if update config is not set
     SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
     for SUBMODULE in $SUBMODULES; do
+        UPDATE=$(git config submodule.$SUBMODULE.update)
         CWD=$(pwd)
         cd $SUBMODULE
-        git pull
+        if [ -z $UPDATE ]; then
+            git pull
+        fi;
         cd $CWD
     done
     # git submodule foreach '
@@ -514,6 +563,15 @@ function lint-snippets() {
         PRIORITY=$(echo 'cat //data/@priority' | xmllint --shell $FILE | awk -F'[="]' '!/>/{print $(NF-1)}')
         MODULE_NAME=$(echo $INHERIT_ID | cut -d. -f 1 )
         XML_ID=$(echo $INHERIT_ID | cut -d. -f 2 )
+
+        # Check filename 
+        COUNT_DOTS=$(echo $FILENAME | grep -o "\." | wc -l)
+        if [ $COUNT_DOTS -ge 4 ]; then
+            echo "Linting failed for $FILE"
+            echo "Dots count: $COUNT_DOTS"
+            echo "  Filename: $SNIPPET_MODULE.$REPORT"
+            exit 1
+        fi
 
         # Check if inherit id matches the filename
         if [ -n "$INHERIT_ID" ]; then
@@ -661,6 +719,18 @@ function git-feature-branch(){
     git switch -c "feature-$MODULE_NAME"
 }
 
+function git-mig-branch(){
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    MODULE_NAME=$(basename $1)
+    MODULE_PATH=$(dirname $1)
+
+    echo "Create mig branch for $MODULE_NAME in $MODULE_PATH ..."
+    cd ./$MODULE_PATH
+    pwd
+    git switch -c "$GIT_BRANCH-mig-$MODULE_NAME"
+}
+
 function patch-database() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$1 is empty"; exit; fi
@@ -694,14 +764,19 @@ function update-docs() {
         for FILE in $FILES; do
             FILENAME=$(basename $FILE)
             SNIPPET_MODULE=$(echo $FILENAME | cut -d. -f1)
-            REPORT=$(echo $FILENAME | cut -d. -f2)
+            XML_ID=$(echo $FILENAME | cut -d. -f2)
             EDIT=$(echo $FILENAME | cut -d. -f3)
+
+            EDIT_TITLE=$(echo $EDIT | sed 's/_/ /g') # Replace underline with space
+            EDIT_TITLE=$(echo $EDIT_TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
+
+            XML_ID_TITLE=$(echo $XML_ID | sed 's/_/ /g') # Replace underline with space
+            XML_ID_TITLE=$(echo $XML_ID_TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
 
             # Group by modules
             if [[ "$MODULE" = "$SNIPPET_MODULE" ]]; then
-                echo "### $(echo $EDIT | sed 's/_/ /g')  " >> snippets.md
-                echo "Report: $REPORT  " >> snippets.md
-                echo "ID: \`mint_system.$SNIPPET_MODULE.$REPORT.$EDIT\`  " >> snippets.md
+                echo "### $XML_ID_TITLE: $EDIT_TITLE  " >> snippets.md
+                echo "ID: \`mint_system.$SNIPPET_MODULE.$XML_ID.$EDIT\`  " >> snippets.md
                 echo "Link: [$FILE]($PATH_URL/$FILE)" >> snippets.md
                 echo "" >> snippets.md
             fi
@@ -719,6 +794,9 @@ case "$1" in
         ;;
     checkout)
         checkout $2 $3
+        ;;
+    checkout-revision)
+        checkout-revision $2
         ;;
     list)
         docker-compose config --services; echo "native"
@@ -801,6 +879,9 @@ case "$1" in
     lint-module)
         lint-module $2
         ;;
+    update-readme)
+        update-readme $2
+        ;;
     zip-module)
         zip-module $2
         ;;
@@ -833,6 +914,9 @@ case "$1" in
         ;;
     git-feature-branch)
         git-feature-branch $2
+        ;;
+    git-mig-branch)
+        git-mig-branch $2
         ;;
     update-snippet)
         update-snippet $2 $3

@@ -1,6 +1,7 @@
 | command                     | option           | description                                                       |
 | --------------------------- | ---------------- | ----------------------------------------------------------------- |
 | checkout                    | [branch][branch] | Switch and merge from one branch to another.                      |
+| checkout-revision           | [revision]       | Switch to a different Odoo revision by tag name.                  |
 | clear-filestore             | [db]             | Clear local filestore folder. No param will clear all filestores. |
 | convert-database            | [db]             | Convert database backup file from postgres 9.5 to latest.         |
 | create-module               | [path]           | Create new Odoo module from template.                             |
@@ -12,6 +13,7 @@
 | git-list-submodules         |                  | List path and url of submodules.                                  |
 | git-pull-submodules         |                  | Pull alls submodules.                                             |
 | git-feature-branch          | [path]           | Create feature branch for Odoo module.                            |
+| git-mig-branch              | [path]           | Create migration branch for Odoo module.                          |
 | init-db                     | [db]             | Initialize the Odoo database. Default is odoo                     |
 | init-next-env               | [env]            | Create env file for Nextcloud instance.                           |
 | init-odoo-env               | [env]            | Create env file for Odoo Instance.                                |
@@ -43,6 +45,7 @@
 | update-app-list             | [db]             | Update app list.                                                  |
 | update-module               | [db][name,path]  | Update target Odoo module.                                        |
 | update-snippet              | [env][path]      | Update snippet xml definition.                                    |
+| update-readme               | [path]           | Update Readme file of Odoo module collection.                     |
 | install-snippet             | [env][path]      | Install snippet xml definition.                                   |
 | upload-module               | [env][path]      | Zip and upload Odoo module.                                       |
 | generate-module-translation | [env][path]      | Generate translation for Odoo module.                             |
