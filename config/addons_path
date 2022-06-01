@@ -15,7 +15,6 @@ addons/sale_workflow
 addons/server_tools
 addons/social
 addons/stock_logistics_workflow
-addons/swiss_payroll
 addons/web
 addons/website
 enterprise
