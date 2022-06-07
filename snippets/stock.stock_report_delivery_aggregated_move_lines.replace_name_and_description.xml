@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
+
+  <xpath expr="//td[2]" position="replace">
+    <td>
+      <strong>
+        <span t-esc="aggregated_lines[line]['product']['type_description']"/>
+      </strong>
+      <br/>
+      <span t-esc="aggregated_lines[line]['description']"/>
+      <br/>
+
+      <t t-if="aggregated_lines[line]['product']['country_of_origin_id']['code'] and aggregated_lines[line]['hs_code']">
+          Country of origin: <span t-esc="aggregated_lines[line]['product']['country_of_origin_id']['code']"/>
+          / HS Code: <span t-esc="aggregated_lines[line]['hs_code']"/>
+    <br/>
+  </t>
+
+  <t t-if="aggregated_lines[line]['hs_code'] and not aggregated_lines[line]['product']['country_of_origin_id']['code']">
+          HS Code: <span t-esc="aggregated_lines[line]['hs_code']"/>
+  </t>
+
+  <t t-if="aggregated_lines[line]['product']['country_of_origin_id']['code'] and not aggregated_lines[line]['hs_code']">
+          Country of origin: <span t-esc="aggregated_lines[line]['product']['country_of_origin_id']['code']"/>
+  </t>
+
+</td>
+</xpath>
+
+</data>

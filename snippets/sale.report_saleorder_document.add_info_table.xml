@@ -18,7 +18,7 @@
     </style>
     <table id='info'>
       <tr>
-        <td width="17%">Datum</td>
+        <td width="17%">Date</td>
         <td width="44%">
           <span t-field='doc.date_order' t-options='{ "widget": "date" }'/>
         </td>
@@ -26,31 +26,31 @@
         <td width="25%"></td>
       </tr>
       <tr>
-        <td>Kunden-Nr.</td>
+        <td>Customer No.</td>
         <td>
           <span t-field='doc.partner_id.ref'/>
         </td>
-        <td>U/Referenz</td>
+        <td>Our Reference</td>
         <td>
           <span t-field='doc.user_id'/>
         </td>
       </tr>
       <tr>
-        <td>I/Referenz</td>
+        <td>Order</td>
         <td>
           <span t-field='doc.client_order_ref'/>
         </td>
-        <td>Versandart</td>
+        <td>Delivery Method</td>
         <td>
           <span t-field='doc.carrier_id'/>
         </td>
       </tr>
       <tr>
-        <td>Betreff</td>
+        <td>Reference</td>
         <td>
           <span t-field='doc.comment'/>
         </td>
-        <td>Lieferkondition</td>
+        <td>Incoterm</td>
         <td>
           <span t-field='doc.incoterm'/>
         </td>

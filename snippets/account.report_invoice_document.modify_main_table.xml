@@ -1,5 +1,63 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
+  
+  <!-- add default_code   -->
+  <xpath expr="//table[@class='table table-sm o_main_table']/thead/tr/th[1]" position="before">
+    <th style="text-align: right; width: 27mm; padding-right: 10px">
+      <span>Part No.</span>
+    </th>
+  </xpath>
+  <xpath expr="//table[@class='table table-sm o_main_table']/tbody/t/tr/t[1]/td[1]" position="before">
+    <td style="text-align: right; padding-right: 10px">
+      <span t-field="line.product_id.default_code"/>
+    </td>
+  </xpath>
+  
+  <!-- add delivery date
+    <xpath expr="//table[@class='table table-sm o_main_table']/thead/tr/th[3]" position="before">
+    <th style="text-align: right; width: 27mm; padding-right: 10px">
+      <span>Delivery Date</span>
+    </th>
+  </xpath>
+  <xpath expr="//table[@class='table table-sm o_main_table']/tbody/t/tr/t[1]/td[3]" position="before">
+    <td style="text-align: right; padding-right: 10px">
+    </td>
+  </xpath>
+    -->
+  
+  <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
+     <td>
+     <span style="font-weight: bold" t-field="line.product_id.type_description"/>
+     </td>
+  </xpath>
+  
+  <!-- add second row -->
+  <xpath expr="//table[@class='table table-sm o_main_table']/tbody//tr[1]" position="after">
+    <tr>
+      <td style="padding-bottom :10px; padding-left:3px; line-height: 1.2"></td>
+      <td style="padding:0; padding-left:3px; line-height: 1.2"></td>
+      <td style="padding:0; padding-left:3px; line-height: 1.2" colspan="4">
+        <span t-field="line.product_id.name"/><br/>
+        <t t-if="line.product_id.country_of_origin_id.code and line.product_id.hs_code">
+          Country of origin: <span t-esc="line.product_id.country_of_origin_id.code"/>
+          / HS Code: <span t-esc="line.product_id.hs_code"/><br/>
+        </t>
+
+        <t t-if="line.product_id.hs_code and not line.product_id.country_of_origin_id.code">
+          HS Code: <span t-esc="line.product_id.hs_code"/>
+        </t>
+
+        <t t-if="line.product_id.country_of_origin_id.code and not line.product_id.hs_code">
+          Country of origin: <span t-esc="line.product_id.country_of_origin_id.code"/>
+        </t>
+      </td>
+      
+      <td></td>
+    </tr>
+    <tr style="border-bottom: 1px solid rgb(220,220,220)">
+      <td colspan="8"></td>
+    </tr>
+  </xpath>
 
 <!-- format main_table -->
   <xpath expr="//table[@class='table table-sm o_main_table']" position="attributes">
