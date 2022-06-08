@@ -66,6 +66,11 @@
       </tr>
 
     </table>
+    
+    <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="o.note_header"/>
+    </t>
+    
   </xpath>
 
 </data>
