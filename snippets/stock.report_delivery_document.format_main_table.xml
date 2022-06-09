@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- Change style of first column -->
+<data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
+
+<xpath expr="//div[hasclass('page')]" position="inside">
+	<style>
+    tbody tr td:first-of-type {
+    text-align: right;
+    width: 5mm;
+    }
+</style>
+	</xpath>
+
+</data>
