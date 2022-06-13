@@ -33,7 +33,7 @@
 
             </tr>
             <tr>
-                <td>I/Referenz</td>
+                <td></td>
                 <td>
                     <span t-field='o.partner_ref'/>
                 </td>
@@ -43,7 +43,7 @@
                 </td>
             </tr>
             <tr>
-                <td>Betreff</td>
+                <td>Referenz</td>
                 <td>
                     <span t-field='o.comment'/>
                 </td>

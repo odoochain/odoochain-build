@@ -78,10 +78,6 @@
 	path = addons/hr
 	url = git@github.com:Mint-System/Odoo-Apps-HR.git
 	branch = 13.0
-[submodule  "addons/delegations"]
-	path = addons/delegations
-	url = git@gitlab.com:mint-system/odoo-apps-delegations.git
-	branch = 13.0
 [submodule  "oca/reporting-engine"]
 	path = oca/reporting-engine
 	url = git@github.com:OCA/reporting-engine.git
@@ -149,4 +145,12 @@
 [submodule "addons/web"]
 	path = addons/web
 	url = git@github.com:Mint-System/Odoo-Apps-Web.git
+	branch = 13.0
+[submodule "addons/odoo_apps_partner"]
+	path = addons/odoo_apps_partner
+	url = git@gitlab.com:mint-system/odoo-apps-partner.git
+	branch = 13.0
+[submodule "addons/server_tools"]
+	path = addons/server_tools
+	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
 	branch = 13.0
