@@ -28,7 +28,7 @@
       <tr style="line-height: 1.2">
         <td>Customer No.</td>
         <td>
-          <span t-field='o.partner_id.ref'/>
+          <span t-field='o.sale_id.partner_id.ref'/>
         </td>
         <td>Our Reference</td>
         <td>

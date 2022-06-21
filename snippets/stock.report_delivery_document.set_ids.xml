@@ -1,15 +1,11 @@
 <?xml version="1.0"?>
-<data inherit_id="stock.report_delivery_document" priority="50">
+<data inherit_id="stock.report_delivery_document" priority="60">
 
 	<xpath expr="//table[@name='stock_move_table']//th[1]" position="attributes">
 		<attribute name="id">position</attribute>
 	</xpath>
 	<xpath expr="//table[@name='stock_move_table']//td[1]" position="attributes">
 		<attribute name="id">position</attribute>
-	</xpath>
-
-	<xpath expr="//table[@name='stock_move_table']//th[2]" position="attributes">
-		<attribute name="id">product_description</attribute>
 	</xpath>
 
 	<xpath expr="//table[@name='stock_move_table']//th[2]" position="attributes">
@@ -25,15 +21,16 @@
 	<xpath expr="//table[@name='stock_move_table']//td[3]/span[1]" position="attributes">
 		<attribute name="id">qty</attribute>
 	</xpath>
-	<xpath expr="//table[@name='stock_move_table']//td[3]/span[2]" position="attributes">
-		<attribute name="id">uom</attribute>
-	</xpath>
 
 	<xpath expr="//table[@name='stock_backorder_table']//th[1]" position="attributes">
 		<attribute name="id">position</attribute>
 	</xpath>
 	<xpath expr="//table[@name='stock_backorder_table']//td[1]" position="attributes">
 		<attribute name="id">position</attribute>
+	</xpath>
+
+	<xpath expr="//table[@name='stock_backorder_table']//th[2]" position="attributes">
+		<attribute name="id">description</attribute>
 	</xpath>
 
 	<xpath expr="//table[@name='stock_backorder_table']//th[3]" position="attributes">
@@ -43,17 +40,19 @@
 		<attribute name="id">open_quantity</attribute>
 	</xpath>
 
-	<xpath expr="//table[@name='stock_backorder_table']//th[4]" position="attributes">
-		<attribute name="id">quantity</attribute>
-	</xpath>
 	<xpath expr="//table[@name='stock_backorder_table']//th[3]" position="attributes">
 		<attribute name="id">open_quantity</attribute>
 	</xpath>
 	<xpath expr="//table[@name='stock_backorder_table']//td[3]/span[1]" position="attributes">
-		<attribute name="id">backorder_qty</attribute>
+		<attribute name="id">open_qty</attribute>
 	</xpath>
-	<xpath expr="//table[@name='stock_backorder_table']//td[3]/span[2]" position="attributes">
-		<attribute name="id">uom</attribute>
+
+	<xpath expr="//table[@name='stock_backorder_table']//th[4]" position="attributes">
+		<attribute name="id">quantity</attribute>
+	</xpath>
+
+	<xpath expr="//table[@name='stock_backorder_table']/../p" position="attributes">
+		<attribute name="class">subtitel</attribute>
 	</xpath>
 
 </data>
