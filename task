@@ -504,6 +504,11 @@ function change-uuid() {
     scripts/odooctl --model 'ir.config_parameter' --domain "['key', '=', 'database.uuid']" --field	'value' --value "'$UUID'"
 }
 
+function test-jsonrpc() {
+    activate-venv
+    [ -n "$1" ] && load-env $1
+    scripts/jsonrpc
+}
 
 function update-snippet() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
@@ -645,19 +650,38 @@ function edit-env() {
 
 function upload-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
-    if test -z "$2"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$2 is empty"; exit; fi
 
-    zip-module $2
+    # Check if path is root folder
+    MODULES=$2
+    if [ -f "$2/README.md" ]; then
+        echo "Identified as root folder"
+        MODULES="$MODULES/*"
+    fi
 
-    # Get path to zip file and upload url
-    FILE_PATH="tmp/$MODULE_NAME.zip"
-    
-    load-env $1
-    NEXTCLOUD_UPLOAD_URL="$NEXTCLOUD_URL/remote.php/dav/files/$NEXTCLOUD_USERNAME/Odoo-Apps/"
+    for MODULE in $MODULES; do
 
-    # Upload zip file
-    curl -u "$NEXTCLOUD_USERNAME:$NEXTCLOUD_PASSWORD" -T "$FILE_PATH" "$NEXTCLOUD_UPLOAD_URL"
-    echo "File $FILE_PATH uploaded to $NEXTCLOUD_UPLOAD_URL."
+        if [ -f "$MODULE/__manifest__.py" ]; then
+
+            # Create module zip
+            zip-module $MODULE
+
+            # Get path to zip file and upload url
+            FILE_PATH="tmp/$MODULE_NAME.zip"
+            load-env $1
+            NEXTCLOUD_UPLOAD_URL="$NEXTCLOUD_URL/remote.php/dav/files/$NEXTCLOUD_USERNAME/Odoo-Apps/"
+
+            # Upload zip file
+            curl -u "$NEXTCLOUD_USERNAME:$NEXTCLOUD_PASSWORD" -T "$FILE_PATH" "$NEXTCLOUD_UPLOAD_URL"
+            echo "File $FILE_PATH uploaded to $NEXTCLOUD_UPLOAD_URL."
+            
+            UPLOADS+="- name: $MODULE\n"
+            UPLOADS+="  version: $VERSION\n"
+        fi
+    done
+
+    echo "odoo_apps:"
+    echo -e "$UPLOADS"
 }
 
 function save-config() {
@@ -760,40 +784,46 @@ function update-docs() {
 
     # Get all modules
     MODULES=$(ls snippets/*.xml | xargs -n 1 basename | cut -d. -f1 | uniq)
-
-    # Run this script for each module
     for MODULE in $MODULES; do
+
         TITLE="${MODULE^}" # Uppercase first letter
         TITLE=$(echo $TITLE | sed 's/_/ /g') # Replace underline with space
         TITLE=$(echo $TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
 
         # Create doc file for each module
-        # DOCFILE="snippets/$MODULE.md"
         DOCFILE="snippets.md"
         echo "## $TITLE" >> $DOCFILE
+        # DOCFILE="snippets/$MODULE.md"
         # echo "## [$TITLE](snippets/$MODULE.md)" >> snippets.md
 
-        # Process each file
-        FILES="snippets/$MODULE*.xml"
-        for FILE in $FILES; do
-            # Get snippet params
-            FILENAME=$(basename $FILE)
-            SNIPPET_MODULE=$(echo $FILENAME | cut -d. -f1)
-            XML_ID=$(echo $FILENAME | cut -d. -f2)
-            EDIT=$(echo $FILENAME | cut -d. -f3)
-
-            EDIT_TITLE=$(echo $EDIT | sed 's/_/ /g') # Replace underline with space
-            EDIT_TITLE=$(echo $EDIT_TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
+        # Get all xml ids
+        XML_IDS=$(ls snippets/$MODULE.*.xml | xargs -n 1 basename | cut -d. -f2 | uniq)
+        for XML_ID in $XML_IDS; do
+        
             XML_ID_TITLE=$(echo $XML_ID | sed 's/_/ /g') # Replace underline with space
             XML_ID_TITLE=$(echo $XML_ID_TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
 
-            # Group by modules
-            # DOCFILE="snippets/$MODULE.md"
-            DOCFILE="snippets.md"
-            echo "### $XML_ID_TITLE: $EDIT_TITLE  " >> $DOCFILE
-            echo "ID: \`mint_system.$SNIPPET_MODULE.$XML_ID.$EDIT\`  " >> $DOCFILE
-            echo "Link: [$FILE]($PATH_URL/$FILE)" >> $DOCFILE
-            echo "" >> $DOCFILE
+            echo "### $XML_ID_TITLE  " >> $DOCFILE
+
+            # Process each file
+            FILES="snippets/$MODULE.$XML_ID.*.xml"
+            for FILE in $FILES; do
+
+                # Get snippet params
+                FILENAME=$(basename $FILE)
+                EDIT=$(echo $FILENAME | cut -d. -f3)
+
+                EDIT_TITLE=$(echo $EDIT | sed 's/_/ /g') # Replace underline with space
+                EDIT_TITLE=$(echo $EDIT_TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
+
+                # Group by modules
+                # DOCFILE="snippets/$MODULE.md"
+                DOCFILE="snippets.md"
+                echo "#### $EDIT_TITLE  " >> $DOCFILE
+                echo "ID: \`mint_system.$MODULE.$XML_ID.$EDIT\`  " >> $DOCFILE
+                echo "Link: [$FILE]($PATH_URL/$FILE)" >> $DOCFILE
+                echo "" >> $DOCFILE
+            done
         done
     done
 }
@@ -934,6 +964,9 @@ case "$1" in
         ;;
     update-snippet)
         update-snippet $2 $3
+        ;;
+    test-jsonrpc)
+        test-jsonrpc $2
         ;;
     install-snippet)
         install-snippet $2 $3
