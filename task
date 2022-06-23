@@ -814,7 +814,7 @@ function update-docs() {
             # Group by modules
             # DOCFILE="snippets/$MODULE.md"
             DOCFILE="snippets.md"
-            echo "### $XML_ID_TITLE: $EDIT_TITLE  " >> $DOCFILE
+            echo "#### $XML_ID_TITLE: $EDIT_TITLE  " >> $DOCFILE
             echo "ID: \`mint_system.$SNIPPET_MODULE.$XML_ID.$EDIT\`  " >> $DOCFILE
             echo "Link: [$FILE]($PATH_URL/$FILE)" >> $DOCFILE
             echo "" >> $DOCFILE
