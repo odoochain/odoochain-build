@@ -885,9 +885,17 @@ Link: [snippets/ir_model.res_partner.x_stock_move_ids.xml](https://github.com/Mi
 ID: `mint_system.ir_model.sale_order_line.x_client_order_ref`  
 Link: [snippets/ir_model.sale_order_line.x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_client_order_ref.xml)
 
+#### X Commitment Date  
+ID: `mint_system.ir_model.sale_order_line.x_commitment_date`  
+Link: [snippets/ir_model.sale_order_line.x_commitment_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_commitment_date.xml)
+
 #### X Date Order  
 ID: `mint_system.ir_model.sale_order_line.x_date_order`  
 Link: [snippets/ir_model.sale_order_line.x_date_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_date_order.xml)
+
+#### X Industry Id  
+ID: `mint_system.ir_model.sale_order_line.x_industry_id`  
+Link: [snippets/ir_model.sale_order_line.x_industry_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_industry_id.xml)
 
 #### X State  
 ID: `mint_system.ir_model.sale_order_line.x_state`  
@@ -2230,6 +2238,10 @@ Link: [snippets/sale.view_order_form.x_sudio_description.xml](https://github.com
 ID: `mint_system.sale.view_order_line_tree.reset_view`  
 Link: [snippets/sale.view_order_line_tree.reset_view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.reset_view.xml)
 
+#### Show State  
+ID: `mint_system.sale.view_order_line_tree.show_state`  
+Link: [snippets/sale.view_order_line_tree.show_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.show_state.xml)
+
 ### View Order Tree  
 #### Add Carrier  
 ID: `mint_system.sale.view_order_tree.add_carrier`  
@@ -2272,6 +2284,11 @@ Link: [snippets/sale.view_sales_order_filter.add_state.xml](https://github.com/M
 #### Modify Order Line  
 ID: `mint_system.sale.view_sales_order_filter.modify_order_line`  
 Link: [snippets/sale.view_sales_order_filter.modify_order_line.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_sales_order_filter.modify_order_line.xml)
+
+### View Sales Order Line Filter  
+#### X Commitment Date  
+ID: `mint_system.sale.view_sales_order_line_filter.x_commitment_date`  
+Link: [snippets/sale.view_sales_order_line_filter.x_commitment_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_sales_order_line_filter.x_commitment_date.xml)
 
 ## Stock Delivery Note
 ### Report Delivery Document  
@@ -2359,6 +2376,10 @@ Link: [snippets/stock.report_delivery_document.format_main_table.xml](https://gi
 #### Format Pos  
 ID: `mint_system.stock.report_delivery_document.format_pos`  
 Link: [snippets/stock.report_delivery_document.format_pos.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_pos.xml)
+
+#### Format Qty  
+ID: `mint_system.stock.report_delivery_document.format_qty`  
+Link: [snippets/stock.report_delivery_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_qty.xml)
 
 #### Format Title Trimada  
 ID: `mint_system.stock.report_delivery_document.format_title_trimada`  
