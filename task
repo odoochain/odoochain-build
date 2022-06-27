@@ -783,7 +783,7 @@ function update-docs() {
     PATH_URL="https://github.com/Mint-System/Odoo-Development/tree/14.0"
 
     # Get all modules
-    MODULES=$(ls snippets/*.xml | xargs -n 1 basename | cut -d. -f1 | uniq)
+    MODULES=$(ls snippets/*.xml | xargs -n 1 basename | cut -d. -f1 | sort | uniq)
     for MODULE in $MODULES; do
 
         TITLE="${MODULE^}" # Uppercase first letter
@@ -791,10 +791,11 @@ function update-docs() {
         TITLE=$(echo $TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
 
         # Create doc file for each module
-        DOCFILE="snippets.md"
-        echo "## $TITLE" >> $DOCFILE
-        # DOCFILE="snippets/$MODULE.md"
-        # echo "## [$TITLE](snippets/$MODULE.md)" >> snippets.md
+        # DOCFILE="snippets.md"
+        # echo "## $TITLE" >> $DOCFILE
+        DOCFILE="snippets/$MODULE.md"
+        echo -e "---\nprev: ./snippets.md\n---\n# $TITLE" > $DOCFILE
+        echo "## [$TITLE](snippets/$MODULE.md)" >> snippets.md
 
         # Get all xml ids
         XML_IDS=$(ls snippets/$MODULE.*.xml | xargs -n 1 basename | cut -d. -f2 | uniq)
@@ -803,7 +804,8 @@ function update-docs() {
             XML_ID_TITLE=$(echo $XML_ID | sed 's/_/ /g') # Replace underline with space
             XML_ID_TITLE=$(echo $XML_ID_TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
 
-            echo "### $XML_ID_TITLE  " >> $DOCFILE
+            # echo "### $XML_ID_TITLE  " >> $DOCFILE
+            echo "## $XML_ID_TITLE  " >> $DOCFILE
 
             # Process each file
             FILES="snippets/$MODULE.$XML_ID.*.xml"
@@ -817,9 +819,8 @@ function update-docs() {
                 EDIT_TITLE=$(echo $EDIT_TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
 
                 # Group by modules
-                # DOCFILE="snippets/$MODULE.md"
-                DOCFILE="snippets.md"
-                echo "#### $EDIT_TITLE  " >> $DOCFILE
+                # echo "#### $EDIT_TITLE  " >> $DOCFILE
+                echo "### $EDIT_TITLE  " >> $DOCFILE
                 echo "ID: \`mint_system.$MODULE.$XML_ID.$EDIT\`  " >> $DOCFILE
                 echo "Link: [$FILE]($PATH_URL/$FILE)" >> $DOCFILE
                 echo "" >> $DOCFILE
