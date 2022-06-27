@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Product
 ## Product Packaging Form View  
 ### X Packaging Uom Id  

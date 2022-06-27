@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Hr Timesheet
 ## Hr Timesheet Line Tree  
 ### Invoice Details  

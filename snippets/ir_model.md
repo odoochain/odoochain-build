@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Ir Model
 ## Account Bank Statement  
 ### X Cashbox End Ids  

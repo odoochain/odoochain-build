@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Purchase Requisition
 ## Report Purchaserequisitions  
 ### Add Drawing  

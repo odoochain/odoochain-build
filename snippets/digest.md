@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Digest
 ## Digest Mail Main  
 ### Report  

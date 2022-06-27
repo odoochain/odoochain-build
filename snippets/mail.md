@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Mail
 ## Activity  
 ### X Reference  

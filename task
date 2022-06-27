@@ -794,7 +794,7 @@ function update-docs() {
         # DOCFILE="snippets.md"
         # echo "## $TITLE" >> $DOCFILE
         DOCFILE="snippets/$MODULE.md"
-        echo "# $TITLE" > $DOCFILE
+        echo -e "---\nprev: ./snippets.md\n---\n# $TITLE" > $DOCFILE
         echo "## [$TITLE](snippets/$MODULE.md)" >> snippets.md
 
         # Get all xml ids

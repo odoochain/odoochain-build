@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Account
 ## Report Invoice Document  
 ### Add Header Padding  

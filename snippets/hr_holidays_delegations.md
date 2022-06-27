@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Hr Holidays Delegations
 ## Hr Leave View Form Inherit  
 ### Delegate Groups  

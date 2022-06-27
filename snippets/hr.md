@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Hr
 ## Hr Employee Public View Kanban  
 ### Add Mobile Phone  

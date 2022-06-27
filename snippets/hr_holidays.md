@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Hr Holidays
 ## Hr Leave View Form Manager Approve  
 ### Report Note Group  

@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Sale Blanket Order
 ## Report Blanketorder Document  
 ### Address Block  

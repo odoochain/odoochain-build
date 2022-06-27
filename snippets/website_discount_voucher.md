@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Website Discount Voucher
 ## View Web Gift Coupan Form View  
 ### Barcode Editable  

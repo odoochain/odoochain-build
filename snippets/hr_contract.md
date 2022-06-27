@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Hr Contract
 ## Hr Contract View Kanban  
 ### Show Start Date  

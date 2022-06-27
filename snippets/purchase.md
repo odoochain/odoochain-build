@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Purchase
 ## Mail Notification Confirm  
 ### Modify Buttons  

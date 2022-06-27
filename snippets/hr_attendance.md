@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Hr Attendance
 ## View Attendance Tree  
 ### Enable Edit  

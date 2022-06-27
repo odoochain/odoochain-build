@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Business Requirement
 ## View Business Requirement Form  
 ### Clickable State  

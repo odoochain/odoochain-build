@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Stock
 ## Label Transfer Template View  
 ### Basis57  

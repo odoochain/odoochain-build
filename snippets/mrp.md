@@ -1,3 +1,6 @@
+---
+prev: ./snippets.md
+---
 # Mrp
 ## Label Production View Pdf  
 ### Trimada  
