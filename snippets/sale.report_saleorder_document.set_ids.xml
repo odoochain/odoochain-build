@@ -8,9 +8,11 @@
 	<xpath expr="//table[2]//th[5]" position="attributes">
 		<attribute name="id">quantity</attribute>
 	</xpath>
+
 	<xpath expr="//table[2]//td[5]" position="attributes">
 		<attribute name="id">quantity</attribute>
 	</xpath>
+	
 	<xpath expr="//table[2]//td[5]/span[1]" position="attributes">
 		<attribute name="id">qty</attribute>
 	</xpath>

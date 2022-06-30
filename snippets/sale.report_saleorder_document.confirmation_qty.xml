@@ -4,8 +4,17 @@
     <?xml version="1.0"?>
     <data inherit_id="sale.report_saleorder_document" priority="60">
     
+        <th id="qty" position="replace">
+            <t t-if="is_confirmation">
+                <span t-field="line.product_uom_qty"/>
+            </t>
+            <t t-else="">
+                <span t-field="line.product_uom_qty"/>
+            </t>
+        </th>
+
         <span id="qty" position="replace">
-            <t t-if="confirmation">
+            <t t-if="is_confirmation">
                 <span t-field="line.product_uom_qty"/>
             </t>
             <t t-else="">
