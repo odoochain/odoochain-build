@@ -1,20 +1,16 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="60">
 
-	<xpath expr="//table[2]//th[3]" position="attributes">
+	<xpath expr="//th[@name='th_description']" position="attributes">
 		<attribute name="id">description</attribute>
 	</xpath>
 
-	<xpath expr="//table[2]//th[5]" position="attributes">
-		<attribute name="id">quantity</attribute>
-	</xpath>
-
-	<xpath expr="//table[2]//td[5]" position="attributes">
-		<attribute name="id">quantity</attribute>
+	<xpath expr="//th[@name='th_quantity']" position="attributes">
+		<attribute name="id">product_uom_qty</attribute>
 	</xpath>
 	
-	<xpath expr="//table[2]//td[5]/span[1]" position="attributes">
-		<attribute name="id">qty</attribute>
+	<xpath expr="//td[@name='td_quantity']" position="attributes">
+		<attribute name="id">product_uom_qty</attribute>
 	</xpath>
 
 </data>
