@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-  <xpath expr="//h1" position="after">
+  <xpath expr="//div[hasclass('page')]" position="before">
     <!-- Get all lines without duplicates -->
     <t t-set="lines" t-value="list(set(o.move_ids_without_package.move_line_ids))" />
     <!-- Store if has lines -->
@@ -13,9 +13,9 @@
   <!-- Replace loop -->
   <xpath expr="//t[@t-foreach='o.move_ids_without_package']/t" position="replace">
 
-    <p t-esc="lines" />
-    <p t-esc="has_lines" />
-    <p t-esc="has_lines" />
+    <!--<p t-esc="lines" />-->
+    <!--<p t-esc="has_lines" />-->
+    <!--<p t-esc="has_lines" />-->
 
     <!-- Loop each group item -->
     <t t-foreach="lines" t-as="line">
@@ -31,7 +31,8 @@
       </tr>
 
       <!-- Show only lines that are assigned to the group item -->
-      <t t-foreach="move.move_line_ids.sorted(key=lambda ml: ml.location_id.id and ml.id == line.id)" t-as="ml">
+      <t t-set="move_line_ids" t-value="move.move_line_ids.filtered(lambda ml: ml.date.strftime('%Y-%m-%d') == line.date.strftime('%Y-%m-%d'))" />
+      <t t-foreach="move_line_ids.sorted(key=lambda ml: ml.location_id.id)" t-as="ml">
 
         <tr>
           <td>
