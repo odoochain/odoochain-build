@@ -3,18 +3,22 @@
 
 	<xpath expr="//div[hasclass('page')]" position="before">
 		<style>
-			table.trimada {
+		  table.trimada {
 				font-size: 9pt;
 				font-family: arial;
 				color: black;
 			}
-			table.trimada tr.first td {
-				padding-bottom: 0;
-			}
-			table.trimada tr.second td {
-				padding-top: 0;
-			}
-			table.trimada tr.second {
+			table.address_block {
+				font-size: 11pt;
+				font-family: arial;
+				width: 100%;
+				margin-left: 5px;
+				margin-top: 30px;
+			}	
+			table.address_block td {
+				width: 50%;
+			}	
+			table.trimada tr {
 				border-bottom: 1px solid rgb(220,220,220);
 			}
 			table.trimada thead tr {
@@ -28,13 +32,14 @@
 			  width: 27mm;
 			  text-align: right;
 			}
-			table.trimada thead th#open_quantity {
-			  width: 30mm;
-			  text-align: right;
-			}
 			table.trimada thead th#quantity {
 			  width: 25mm;
 			  text-align: right !important;
+			}
+			table.trimada thead th#qty_available {
+			  width: 25mm;
+			  text-align: right;
+			  padding-right: 5mm;
 			}
 			table.trimada tbody td#position {
 			  text-align: right;
@@ -42,16 +47,20 @@
 			table.trimada tbody td#default_code {
 			  text-align: right;
 			}
-			table.trimada tbody td#open_quantity {
+			table.trimada tbody td#qty {
 			  text-align: right !important;
 			}
 			table.trimada tbody td#quantity {
 			  text-align: right;
-			}			
+			}
+			table.trimada tbody td#qty_available {
+			  text-align: right;
+			  padding-right: 5mm;
+			}
 			table.trimada tbody span#qty {
 			  font-weight: bold;
 			}
-			table.trimada tbody span#open_qty {
+			table.trimada tbody span#qty_available {
 			  font-weight: bold;
 			}
 			.address {
@@ -70,17 +79,9 @@
 			}
 		</style>
 	</xpath>
-
-	<table name="invoice_line_table" position="attributes">
+	
+	<xpath expr="//table[4]" position="attributes">
 		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</table>
-
-	<table name="invoice_line_table" position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</table>
-
-  <span id="qty" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
-	</span>
+	</xpath>
 	
 </data>
