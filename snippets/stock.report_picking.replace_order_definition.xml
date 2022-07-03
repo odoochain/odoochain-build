@@ -1,59 +1,61 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
-<xpath expr="//div[@t-if='o.origin']/.." position="replace">
-  <style>
-      table#info {
-        width: 100%;
-        margin-bottom: 25px;
-        font-size: 11pt;
-        font-family: arial;
+  <xpath expr="//div[@t-if='o.origin']/.." position="replace">
+    <style>
+      .info_table {
+        margin-top: 20px;
       }
-      table#info tr {
-        line-height: 1.2;
-        text-align: left;
-        border-bottom: 1px solid rgb(220,220,220);
+      .first_col {
+        width: 44%;
       }
-      table#info td {
-        padding-left: 5px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-      }
-      .note {
-        font-size: 9pt;
+      .second_col {
+        width: 56%;
       }
     </style>
-  <table id="info">
-    <tr>
-      <t t-if="o.picking_type_id.id == 12">
-      <td style="width:44%"><strong>Fertigungsauftrag   <span t-field="o.origin"/></strong></td>
-      <td style="width:56%"><strong>Produkt   <span/></strong><span  t-field="o.group_id.mrp_production_ids.product_id"/></td>
-      </t>
-      <t t-if="o.picking_type_id.id != 12">
-      <td style="width:44%"><strong>Bestellung   <span t-field="o.origin"/></strong></td>
-      <td style="width:56%"></td>
-      </t>
-    </tr>
-    <tr>
-      <td>Status: <span t-field="o.state"/></td>
-      <td>Datum: <span t-field="o.scheduled_date" t-options='{"widget": "date"}'></span></td>
-    </tr>
-    <tr>
-      <td>
-          Typ: <span t-field="o.picking_type_id.code"/>
-      </td>
-      <t t-if="o.picking_type_id.id != 12">
-      <td>
-          Ausliefermethode: <span t-field="o.carrier_id"/>
-      </td>
-      </t>
-      <t t-if="o.picking_type_id.id == 12">
-      <td>
-      </td>
-      </t>
-    </tr>    
-  </table>
-  
-    
-</xpath>
+    <div class="table info_table" id="info">
+
+      <div class="row">
+        <t t-if="o.picking_type_id.id == 12">
+          <div class="first_col col">
+            <strong>Fertigungsauftrag <span t-field="o.origin"/>
+            </strong>
+          </div>
+          <div class="second_col col">
+            <strong>Produkt <span/>
+            </strong>
+            <span t-field="o.group_id.mrp_production_ids.product_id"/>
+          </div>
+        </t>
+        <t t-if="o.picking_type_id.id != 12">
+          <div class="first_col col">
+            <strong>Bestellung <span t-field="o.origin"/>
+            </strong>
+          </div>
+          <div class="second_col col"></div>
+        </t>
+      </div>
+      <div class="row">
+        <div class="col">Status: <span t-field="o.state"/>
+        </div>
+        <div class="col">Datum: <span t-field="o.scheduled_date" t-options='{"widget": "date"}'></span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">Typ: <span t-field="o.picking_type_id.code"/>
+        </div>
+
+        <t t-if="o.picking_type_id.id != 12">
+          <div class="col">Ausliefermethode: <span t-field="o.carrier_id"></span>
+          </div>
+        </t>
+        <t t-if="o.picking_type_id.id == 12">
+          <div class="col"></div>
+        </t>
+      </div>
+
+    </div>
+
+  </xpath>
 </data>
