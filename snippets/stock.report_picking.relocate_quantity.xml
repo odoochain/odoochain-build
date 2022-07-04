@@ -1,18 +1,22 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
-	<xpath expr="//table[4]/tbody/t/t/tr/td[2]" position="replace">
+	<xpath expr="//table[4]/thead/tr/th[4]" position="replace">
+	</xpath>
+	<xpath expr="//table[4]/thead/tr/th[5]" position="after">
+		<th>
+			<strong>Quantity</strong>
+		</th>
+	</xpath>
+
+	<xpath expr="//table[4]/tbody/t/t/tr/td[3]" position="replace">
+	</xpath>
+
+	<xpath expr="//table[4]/tbody/t/t/tr/td[5]" position="after">
 		<td>
-			<t t-if="ml.product_id.type_description">
-				<strong>
-					<span id="type_description" t-field="ml.product_id.type_description"/>
-				</strong>
-				<br/>
-			</t>
-			<span t-field="move.description_picking"/>
-			<br/>
-			<span t-field="ml.date"/>
-			<br/>
+			<span t-if="o.state != 'done'" t-field="ml.product_uom_qty"/>
+			<span t-if="o.state == 'done'" t-field="ml.qty_done"/>
+			<span t-field="ml.product_uom_id" groups="uom.group_uom"/>
 		</td>
 	</xpath>
 
