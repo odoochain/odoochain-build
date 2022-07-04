@@ -1,15 +1,14 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
-  <xpath expr="//table[@id='header']" position="after">
-      <table>
-        <tr>
-          <td>
-       <div t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-      </td>
-      <td>neu</td>
-      </tr>
-      </table>
+  <xpath expr="//div[@id='info']" position="before">
+    <div class="table address_block">
+      <div class="row">
+        <div class="col">
+          <div t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+        </div>
+      </div>
+    </div>
   </xpath>
-  
+
 </data>
