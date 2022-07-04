@@ -19,7 +19,7 @@
 				font-family: arial;
 				color: black;
 			}
-			table.address_block {
+			div.address_block {
 				font-size: 11pt;
 				font-family: arial;
 				width: 100%;
@@ -94,5 +94,5 @@
 .	<xpath expr="//table/thead/tr/th[@name='th_product']/../../.." position="attributes">
 		<attribute name="class">trimada</attribute>
 	</xpath>
-
+	
 </data>
