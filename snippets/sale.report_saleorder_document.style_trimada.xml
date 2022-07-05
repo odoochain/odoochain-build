@@ -44,7 +44,10 @@
 			table.trimada tbody td#commitment_date {
 			  text-align: right;
 			}
-			table.trimada tbody td span#product_uom_qty {
+			table.trimada tbody td span#product_uom_qty_is_confirmation {
+			  font-weight: bold;
+			}
+			table.trimada tbody td span#product_uom_qty_is_not_confirmation {
 			  font-weight: bold;
 			}
 			.subtitel {
