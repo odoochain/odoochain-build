@@ -3,14 +3,14 @@
 
   <xpath expr="//th[@name='th_product']" position="before">
     <t t-if="o.sale_id or o.purchase_id">
-      <th>
+      <th id="position">
         <strong>Pos</strong>
       </th>
     </t>
   </xpath>
   <xpath expr="//td[@id='description_picking']" position="before">
     <t t-if="o.sale_id or o.purchase_id">
-      <td>
+      <td id="position">
         <span t-esc="move.position"/>
       </td>
     </t>
