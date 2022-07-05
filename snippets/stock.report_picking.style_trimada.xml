@@ -1,83 +1,51 @@
 <?xml version="1.0"?>
-<data inherit_id="stock.report_picking" priority="60">
+<data inherit_id="stock.report_delivery_document" priority="60">
 
 	<xpath expr="//div[hasclass('page')]" position="before">
 		<style>
-		  div.header_box {
-		    border: 1px solid black;
-		    padding: 10px;
-			}
-		 h1.trimada {
-		    font-size: 18pt;
-		    font-family: arial;
-		    font-weight: bold;
-		    margin-bottom: 0px;
-			}
-		  table.trimada {
-		    width: 100%;
+			table.trimada {
+			  width: 100%;
 				font-size: 9pt;
 				font-family: arial;
-				color: black;
-			}
-			div.address_block {
-				font-size: 11pt;
-				font-family: arial;
-				width: 100%;
-				margin-left: 5px;
-				margin-top: 30px;
-			}	
-			table.address_block td {
-				width: 50%;
-			}	
-			table.trimada tr {
-				border-bottom: 1px solid rgb(220,220,220);
+				margin-top: 20px;
+				padding: 10px;
 			}
 			table.trimada thead tr {
-				border-top: 0px;
-				border-bottom: 0px;
+				border-top: solid 1px;
+				border-bottom: solid 1px;
 			}
 			table.trimada thead th#position {
 				width: 5mm;
 			}
 			table.trimada thead th#default_code {
 			  width: 27mm;
-			  text-align: right;
+			  text-align: left;
 			}
 			table.trimada thead th#quantity {
 			  width: 25mm;
 			  text-align: right !important;
 			}
-			table.trimada thead th#qty_available {
-			  width: 25mm;
-			  text-align: right;
-			  padding-right: 5mm;
-			}
 			table.trimada tbody td#position {
 			  text-align: right;
 			}
-			table.trimada tbody td#default_code {
-			  text-align: right;
+			table.trimada tbody tr {
+			  vertical-align: top;
+				border-bottom: 1px solid rgb(220,220,220)
 			}
-			table.trimada tbody td#qty {
+			table.trimada tbody td#default_code {
+			  text-align: left;
+			}
+			table.trimada tbody td#open_quantity {
 			  text-align: right !important;
 			}
 			table.trimada tbody td#quantity {
 			  text-align: right;
-			}
-			table.trimada tbody td#qty_available {
-			  text-align: right;
-			  padding-right: 5mm;
-			}
+			}			
 			table.trimada tbody span#qty {
 			  font-weight: bold;
 			}
-			table.trimada tbody span#qty_available {
+			table.trimada tbody span#open_qty {
 			  font-weight: bold;
-			}
-			.address {
-			  font-size: 10pt;
-			  line-height: 1.2;
-			  padding-bottom:33mm;
 			}
 			.subtitel {
 				font-size: 11pt;
@@ -90,9 +58,9 @@
 			}
 		</style>
 	</xpath>
-	
+
 .	<xpath expr="//th[@name='th_product']/../../.." position="attributes">
 		<attribute name="class">trimada</attribute>
 	</xpath>
-	
+
 </data>
