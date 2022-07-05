@@ -5,4 +5,4 @@
     <attribute t-if="is_confirmation" name="t-field">line.qty_to_deliver</attribute>
   </xpath>
 
-</data> 
+</data>

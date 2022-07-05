@@ -182,9 +182,9 @@ Link: [snippets/sale.report_saleorder_document.format_note.xml](https://github.c
 ID: `mint_system.sale.report_saleorder_document.format_qty`  
 Link: [snippets/sale.report_saleorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_qty.xml)
 
-### Format Title  
-ID: `mint_system.sale.report_saleorder_document.format_title`  
-Link: [snippets/sale.report_saleorder_document.format_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_title.xml)
+### Format Title Trimada  
+ID: `mint_system.sale.report_saleorder_document.format_title_trimada`  
+Link: [snippets/sale.report_saleorder_document.format_title_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_title_trimada.xml)
 
 ### Get Position  
 ID: `mint_system.sale.report_saleorder_document.get_position`  
