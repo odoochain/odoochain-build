@@ -8,4 +8,8 @@
     <attribute name="t-options-widget">"integer"</attribute>
   </xpath>
 
+  <xpath expr="//span[@id='qty_available']" position="attributes">
+    <attribute name="t-options-widget">"integer"</attribute>
+  </xpath>
+
 </data>

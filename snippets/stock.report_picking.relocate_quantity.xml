@@ -15,8 +15,11 @@
 	<xpath expr="//td[@id='location_dest_id']" position="after">
 		<td id="product_uom_qty">
 			<span id="product_uom_qty" t-if="o.state != 'done'" t-field="ml.product_uom_qty"/>
-			<span id="product_uom_qty" t-if="o.state == 'done'" t-field="ml.qty_done"/>
-			<span id="product_uom_qty" t-field="ml.product_uom_id" groups="uom.group_uom"/>
+			<span id="product_uom_qty_done" t-if="o.state == 'done'" t-field="ml.qty_done"/>
+			<span t-field="ml.product_uom_id" groups="uom.group_uom"/>
+			<br/>
+			<span id="qty_available" t-field="ml.product_id.qty_available"/>
+			<span id="qty_available_uom_id" t-field="ml.product_uom_id"/>
 		</td>
 	</xpath>
 
