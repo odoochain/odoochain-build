@@ -154,10 +154,6 @@ Link: [snippets/sale.report_saleorder_document.confirmation_header_quantity.xml]
 ID: `mint_system.sale.report_saleorder_document.confirmation_qty_to_deliver`  
 Link: [snippets/sale.report_saleorder_document.confirmation_qty_to_deliver.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.confirmation_qty_to_deliver.xml)
 
-### Confirmation Qty  
-ID: `mint_system.sale.report_saleorder_document.confirmation_qty`  
-Link: [snippets/sale.report_saleorder_document.confirmation_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.confirmation_qty.xml)
-
 ### Confirmation Title  
 ID: `mint_system.sale.report_saleorder_document.confirmation_title`  
 Link: [snippets/sale.report_saleorder_document.confirmation_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.confirmation_title.xml)

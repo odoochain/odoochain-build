@@ -39,6 +39,7 @@
 ## [Sale Order Line Date](snippets/sale_order_line_date.md)
 ## [Sale Order Picking Note](snippets/sale_order_picking_note.md)
 ## [Sale Partner Incoterm](snippets/sale_partner_incoterm.md)
+## [Sale Product Set](snippets/sale_product_set.md)
 ## [Stock](snippets/stock.md)
 ## [Stock Delivery Note](snippets/stock_delivery_note.md)
 ## [Timesheet Grid](snippets/timesheet_grid.md)
