@@ -207,6 +207,10 @@ ID: `mint_system.account.view_in_invoice_tree.add_discount_date`
 Link: [snippets/account.view_in_invoice_tree.add_discount_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_in_invoice_tree.add_discount_date.xml)
 
 ## View Invoice Tree  
+### Show Date  
+ID: `mint_system.account.view_invoice_tree.show_date`  
+Link: [snippets/account.view_invoice_tree.show_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_invoice_tree.show_date.xml)
+
 ### X Account Codes  
 ID: `mint_system.account.view_invoice_tree.x_account_codes`  
 Link: [snippets/account.view_invoice_tree.x_account_codes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_invoice_tree.x_account_codes.xml)

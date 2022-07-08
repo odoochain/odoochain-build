@@ -92,6 +92,11 @@ Link: [snippets/ir_model.mrp_production.x_note.xml](https://github.com/Mint-Syst
 ID: `mint_system.ir_model.mrp_workorder.x_reservation_state`  
 Link: [snippets/ir_model.mrp_workorder.x_reservation_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_workorder.x_reservation_state.xml)
 
+## Product Set Line  
+### X Categ Id  
+ID: `mint_system.ir_model.product_set_line.x_categ_id`  
+Link: [snippets/ir_model.product_set_line.x_categ_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_set_line.x_categ_id.xml)
+
 ## Product Template  
 ### X Hide On Delivery  
 ID: `mint_system.ir_model.product_template.x_hide_on_delivery`  
