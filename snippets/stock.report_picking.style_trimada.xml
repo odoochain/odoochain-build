@@ -65,6 +65,12 @@
 			table.trimada #barcode {
 			  text-align: right;
 			}
+		  div.address_block {
+			  font-size: 10pt;
+				font-family: arial;
+				margin-top: 20px;
+				margin-left: 10px;
+			}
 			.subtitel {
 				font-size: 11pt;
 				font-family: arial;
