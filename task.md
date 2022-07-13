@@ -1,3 +1,5 @@
+# Help
+
 | command                     | option           | description                                                       |
 | --------------------------- | ---------------- | ----------------------------------------------------------------- |
 | checkout                    | [branch][branch] | Switch and merge from one branch to another.                      |
@@ -50,6 +52,7 @@
 | install-snippet             | [env][path]      | Install snippet xml definition.                                   |
 | upload-module               | [env][path]      | Zip and upload Odoo module.                                       |
 | generate-module-translation | [env][path]      | Generate translation for Odoo module.                             |
+| generate-admin-passwd       | [pass]           | Generate hash for Odoo master password.                           |
 | zip-module                  | [path]           | Create zip file for module.                                       |
 | restore-database            | [path][name]     | Restore target database zip.                                      |
 | update-docs                 |                  | Update project docs.                                              |
