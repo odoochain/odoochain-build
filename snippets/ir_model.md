@@ -64,6 +64,11 @@ Link: [snippets/ir_model.crm_lead.x_date_stop.xml](https://github.com/Mint-Syste
 ID: `mint_system.ir_model.crm_lead.x_mobile`  
 Link: [snippets/ir_model.crm_lead.x_mobile.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.crm_lead.x_mobile.xml)
 
+## Helpdesk Ticket  
+### X Date Deadline  
+ID: `mint_system.ir_model.helpdesk_ticket.x_date_deadline`  
+Link: [snippets/ir_model.helpdesk_ticket.x_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.helpdesk_ticket.x_date_deadline.xml)
+
 ## Hr Applicant  
 ### X Gdpr  
 ID: `mint_system.ir_model.hr_applicant.x_gdpr`  

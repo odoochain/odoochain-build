@@ -11,6 +11,7 @@
 ## [Delivery](snippets/delivery.md)
 ## [Digest](snippets/digest.md)
 ## [Gio Payroll Custom](snippets/gio_payroll_custom.md)
+## [Helpdesk](snippets/helpdesk.md)
 ## [Hr](snippets/hr.md)
 ## [Hr Attendance](snippets/hr_attendance.md)
 ## [Hr Contract](snippets/hr_contract.md)
