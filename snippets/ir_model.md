@@ -167,6 +167,10 @@ Link: [snippets/ir_model.sale_order_line.x_industry_id.xml](https://github.com/M
 ID: `mint_system.ir_model.sale_order_line.x_state`  
 Link: [snippets/ir_model.sale_order_line.x_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_state.xml)
 
+### X Weight Delivered  
+ID: `mint_system.ir_model.sale_order_line.x_weight_delivered`  
+Link: [snippets/ir_model.sale_order_line.x_weight_delivered.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_weight_delivered.xml)
+
 ## Sale Order  
 ### X Studio Description  
 ID: `mint_system.ir_model.sale_order.x_studio_description`  

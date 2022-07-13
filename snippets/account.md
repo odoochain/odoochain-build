@@ -224,6 +224,10 @@ Link: [snippets/account.view_move_form.hide_payment_reference.xml](https://githu
 ID: `mint_system.account.view_move_form.payment_reference_readonly`  
 Link: [snippets/account.view_move_form.payment_reference_readonly.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.payment_reference_readonly.xml)
 
+### Remove Isr Button  
+ID: `mint_system.account.view_move_form.remove_isr_button`  
+Link: [snippets/account.view_move_form.remove_isr_button.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.remove_isr_button.xml)
+
 ### Show Posted Before  
 ID: `mint_system.account.view_move_form.show_posted_before`  
 Link: [snippets/account.view_move_form.show_posted_before.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_posted_before.xml)

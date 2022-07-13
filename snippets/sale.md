@@ -364,6 +364,10 @@ Link: [snippets/sale.view_order_line_tree.reset_view.xml](https://github.com/Min
 ID: `mint_system.sale.view_order_line_tree.show_state`  
 Link: [snippets/sale.view_order_line_tree.show_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.show_state.xml)
 
+### X Weight Delivered  
+ID: `mint_system.sale.view_order_line_tree.x_weight_delivered`  
+Link: [snippets/sale.view_order_line_tree.x_weight_delivered.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.x_weight_delivered.xml)
+
 ## View Order Tree  
 ### Add Carrier  
 ID: `mint_system.sale.view_order_tree.add_carrier`  
