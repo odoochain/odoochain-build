@@ -31,8 +31,8 @@ The usage section is a set of workflows. Pick the one required by your scenario.
 Clone this repository.
 
 ```bash
-git clone https://github.com/Mint-System/Odoo-Development.git odoo-development
-cd odoo-development
+git clone git@github.com:Mint-System/Odoo-Development.git
+cd Odoo-Development
 ```
 
 Checkout branch.
