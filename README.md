@@ -45,7 +45,7 @@ task checkout 14.0
 task checkout 15.0
 ```
 
-Install [Odoo scripts](https://github.com/Mint-System/Ansible-Playbooks/tree/master/roles/odoo-scripts)
+Install [Odoo scripts](https://ansible.build/roles/odoo-scripts/)
 
 ```bash
 task install-odoo-scripts
