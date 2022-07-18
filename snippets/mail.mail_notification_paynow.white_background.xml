@@ -3,4 +3,4 @@
   <xpath expr="//t/table" position="attributes">
     <attribute name="style" separator=";" add="background-color: #fff" />
   </xpath>
-</data>
+</data> 
