@@ -145,6 +145,10 @@ Link: [snippets/stock.report_delivery_document.replace_information_table2.xml](h
 ID: `mint_system.stock.report_delivery_document.replace_information_table`  
 Link: [snippets/stock.report_delivery_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_information_table.xml)
 
+### Replace Infotable  
+ID: `mint_system.stock.report_delivery_document.replace_infotable`  
+Link: [snippets/stock.report_delivery_document.replace_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_infotable.xml)
+
 ### Replace Order Definition  
 ID: `mint_system.stock.report_delivery_document.replace_order_definition`  
 Link: [snippets/stock.report_delivery_document.replace_order_definition.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_order_definition.xml)
