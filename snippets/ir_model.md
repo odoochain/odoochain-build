@@ -177,6 +177,10 @@ ID: `mint_system.ir_model.sale_order_line.x_weight_delivered`
 Link: [snippets/ir_model.sale_order_line.x_weight_delivered.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_weight_delivered.xml)
 
 ## Sale Order  
+### X Product Uom Qty  
+ID: `mint_system.ir_model.sale_order.x_product_uom_qty`  
+Link: [snippets/ir_model.sale_order.x_product_uom_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order.x_product_uom_qty.xml)
+
 ### X Studio Description  
 ID: `mint_system.ir_model.sale_order.x_studio_description`  
 Link: [snippets/ir_model.sale_order.x_studio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order.x_studio_description.xml)

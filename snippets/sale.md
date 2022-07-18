@@ -389,6 +389,10 @@ Link: [snippets/sale.view_order_tree.add_comment.xml](https://github.com/Mint-Sy
 ID: `mint_system.sale.view_order_tree.show_partner_shipping`  
 Link: [snippets/sale.view_order_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_tree.show_partner_shipping.xml)
 
+### X Product Uom Qty  
+ID: `mint_system.sale.view_order_tree.x_product_uom_qty`  
+Link: [snippets/sale.view_order_tree.x_product_uom_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_tree.x_product_uom_qty.xml)
+
 ## View Quotation Tree  
 ### Add Client Order Ref  
 ID: `mint_system.sale.view_quotation_tree.add_client_order_ref`  

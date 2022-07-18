@@ -787,6 +787,10 @@ function update-docs() {
 
     echo "Update snippets README file."
     echo "# Snippets" > snippets.md
+    echo "In Odoo everything is described as an XML document. \
+    Snippets are modifications (edits) for these XML documents. \
+    With a snippet you can e.g. hide a field on the contact form. \
+    A snippet name is unique an follows the \`\$AUTHOR.\$MODULE.\$XML_ID.\$DESCRIPTION\` scheme." >> snippets.md
 
     PATH_URL="https://github.com/Mint-System/Odoo-Development/tree/14.0"
 
