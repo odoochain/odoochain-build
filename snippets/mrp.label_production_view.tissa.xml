@@ -2,7 +2,7 @@
 <t t-name="mrp.label_production_view.tissa">
     <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="workorder">
-            <t t-foreach="workorder.move_finished_ids" t-as="move">
+            <t t-foreach="workorder.move_finished_ids" t-as="doc">
 
                 <style>
                     .title {
@@ -12,16 +12,19 @@
 
                 <div class="page">
                     <div class="label">
-
-                        <t t-if="move.product_id.label_layout.name == 'Etikette Ketten'">
-                            <span>Typ: Etikette Ketten</span>
-                            <span class="title" t-esc="move.product_id.display_name" />
+                        <t t-if="doc.product_id.label_layout.name == 'Etikette Ketten'">
+                          <span>Typ: Etikette Ketten</span>
+                          <t t-call="mint_system.mrp.label_production_view.tissa_etikette_ketten"/>
                         </t>
 
-
-                        <t t-if="move.product_id.label_layout.name == 'Stücketikette Standard'">
+                       <t t-if="doc.product_id.label_layout.name == 'Stuecketikette Standard'">
                             <span>Typ: Stücketikette Standard</span>
-                            <span class="title" t-esc="move.product_id.display_name" />
+                            <t t-call="studio_customization.studio_report_docume_87f02ec4-1346-4b76-bc5a-41f3abc30448_document_copy_1"/>
+                        </t>
+                        
+                        <t t-if="doc.product_id.label_layout.name == 'Stücketikette neutral'">
+                            <span>Typ: Stücketikette neutral</span>
+                            <t t-call="studio_customization.studio_report_docume_cd2541fa-1502-4c50-8f76-bf2ae39698a1"/>
                         </t>
                         
                     </div>
