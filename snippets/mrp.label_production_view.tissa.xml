@@ -13,20 +13,20 @@
                 <div class="page">
                     <div class="label">
                         <t t-if="doc.product_id.label_layout.name == 'Etikette Ketten'">
-                          <span>Typ: Etikette Ketten</span>
-                          <t t-call="mint_system.mrp.label_production_view.tissa_etikette_ketten"/>
+                            <span>Typ: Etikette Ketten</span>
+                            <t t-call="mrp.label_production_view.tissa_etikette_ketten"/>
                         </t>
 
-                       <t t-if="doc.product_id.label_layout.name == 'Stuecketikette Standard'">
+                        <t t-if="doc.product_id.label_layout.name == 'Stücketikette Standard'">
                             <span>Typ: Stücketikette Standard</span>
                             <t t-call="studio_customization.studio_report_docume_87f02ec4-1346-4b76-bc5a-41f3abc30448_document_copy_1"/>
                         </t>
-                        
+
                         <t t-if="doc.product_id.label_layout.name == 'Stücketikette neutral'">
                             <span>Typ: Stücketikette neutral</span>
                             <t t-call="studio_customization.studio_report_docume_cd2541fa-1502-4c50-8f76-bf2ae39698a1"/>
                         </t>
-                        
+
                     </div>
                     <p style="page-break-before:always;" />
                 </div>
