@@ -560,3 +560,7 @@ Link: [snippets/stock.vpicktree.add_weight_uom_name.xml](https://github.com/Mint
 ID: `mint_system.stock.vpicktree.default_order_name`  
 Link: [snippets/stock.vpicktree.default_order_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.vpicktree.default_order_name.xml)
 
+### Show Delivery Note  
+ID: `mint_system.stock.vpicktree.show_delivery_note`  
+Link: [snippets/stock.vpicktree.show_delivery_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.vpicktree.show_delivery_note.xml)
+

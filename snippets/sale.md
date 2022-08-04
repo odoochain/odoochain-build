@@ -351,6 +351,10 @@ Link: [snippets/sale.view_order_form.no_create_edit.xml](https://github.com/Mint
 ID: `mint_system.sale.view_order_form.show_carrier_method`  
 Link: [snippets/sale.view_order_form.show_carrier_method.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_carrier_method.xml)
 
+### Show Project  
+ID: `mint_system.sale.view_order_form.show_project`  
+Link: [snippets/sale.view_order_form.show_project.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_project.xml)
+
 ### Show Sequence  
 ID: `mint_system.sale.view_order_form.show_sequence`  
 Link: [snippets/sale.view_order_form.show_sequence.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_sequence.xml)
