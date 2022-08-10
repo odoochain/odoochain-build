@@ -41,6 +41,10 @@ Link: [snippets/stock.report_delivery_document.add_open_quantity_in_backorder.xm
 ID: `mint_system.stock.report_delivery_document.append_signature_text`  
 Link: [snippets/stock.report_delivery_document.append_signature_text.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.append_signature_text.xml)
 
+### Backorder Signature Section  
+ID: `mint_system.stock.report_delivery_document.backorder_signature_section`  
+Link: [snippets/stock.report_delivery_document.backorder_signature_section.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.backorder_signature_section.xml)
+
 ### Barcode Customer Reference  
 ID: `mint_system.stock.report_delivery_document.barcode_customer_reference`  
 Link: [snippets/stock.report_delivery_document.barcode_customer_reference.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.barcode_customer_reference.xml)
@@ -52,10 +56,6 @@ Link: [snippets/stock.report_delivery_document.description_sale.xml](https://git
 ### Disable Stock Move Line Table  
 ID: `mint_system.stock.report_delivery_document.disable_stock_move_line_table`  
 Link: [snippets/stock.report_delivery_document.disable_stock_move_line_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.disable_stock_move_line_table.xml)
-
-### Document Description  
-ID: `mint_system.stock.report_delivery_document.document_description`  
-Link: [snippets/stock.report_delivery_document.document_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.document_description.xml)
 
 ### Filter Qty Done  
 ID: `mint_system.stock.report_delivery_document.filter_qty_done`  

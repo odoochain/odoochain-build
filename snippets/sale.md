@@ -364,6 +364,10 @@ ID: `mint_system.sale.view_order_form.x_sudio_description`
 Link: [snippets/sale.view_order_form.x_sudio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.x_sudio_description.xml)
 
 ## View Order Line Tree  
+### Qty With Sum  
+ID: `mint_system.sale.view_order_line_tree.qty_with_sum`  
+Link: [snippets/sale.view_order_line_tree.qty_with_sum.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.qty_with_sum.xml)
+
 ### Reset View  
 ID: `mint_system.sale.view_order_line_tree.reset_view`  
 Link: [snippets/sale.view_order_line_tree.reset_view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.reset_view.xml)
