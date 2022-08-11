@@ -101,6 +101,11 @@
 
         </t>
       </t>
+      <tr t-if="picking and picking.sale_id.note" class="o_line_note">
+        <td colspan="99" style="padding-bottom: 1rem;" >
+          <span t-esc="picking.sale_id.note"/>
+        </td>
+      </tr>
     </t>
   </xpath>
 
