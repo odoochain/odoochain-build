@@ -214,3 +214,7 @@
 	path = oca/community-data-files
 	url = git@github.com:OCA/community-data-files.git
 	branch = 14.0
+[submodule "oca/bank-payment"]
+	path = oca/bank-payment
+	url = git@github.com:OCA/bank-payment.git
+	branch = 14.0
