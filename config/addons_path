@@ -19,6 +19,7 @@ addons/web
 addons/website
 enterprise
 oca/account-invoicing
+oca/bank-payment
 oca/bank-statement-import
 oca/business-requirement
 oca/community-data-files
