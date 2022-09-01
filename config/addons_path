@@ -18,6 +18,8 @@ addons/swiss_payroll
 addons/web
 addons/website
 enterprise
+oca/account-closing
+oca/account-financial-tools
 oca/account-invoicing
 oca/bank-payment
 oca/bank-statement-import

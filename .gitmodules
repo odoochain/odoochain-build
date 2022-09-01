@@ -218,3 +218,11 @@
 	path = oca/bank-payment
 	url = git@github.com:OCA/bank-payment.git
 	branch = 14.0
+[submodule "oca/account-financial-tools"]
+	path = oca/account-financial-tools
+	url = git@github.com:OCA/account-financial-tools.git
+	branch = 14.0
+[submodule "oca/account-closing"]
+	path = oca/account-closing
+	url = git@github.com:OCA/account-closing.git
+	branch = 14.0
