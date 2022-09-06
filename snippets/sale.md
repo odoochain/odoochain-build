@@ -371,6 +371,10 @@ Link: [snippets/sale.view_order_form.show_purchase_line_count.xml](https://githu
 ID: `mint_system.sale.view_order_form.show_purchase_line_ids`  
 Link: [snippets/sale.view_order_form.show_purchase_line_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_purchase_line_ids.xml)
 
+### Show Stock Purchase Line Ids  
+ID: `mint_system.sale.view_order_form.show_stock_purchase_line_ids`  
+Link: [snippets/sale.view_order_form.show_stock_purchase_line_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_stock_purchase_line_ids.xml)
+
 ### X Drawing File  
 ID: `mint_system.sale.view_order_form.x_drawing_file`  
 Link: [snippets/sale.view_order_form.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.x_drawing_file.xml)
