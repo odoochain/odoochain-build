@@ -21,6 +21,14 @@ Link: [snippets/ir_model.account_move_line.x_sale_order_id.xml](https://github.c
 ID: `mint_system.ir_model.account_move.x_account_codes`  
 Link: [snippets/ir_model.account_move.x_account_codes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_account_codes.xml)
 
+### X Date Done  
+ID: `mint_system.ir_model.account_move.x_date_done`  
+Link: [snippets/ir_model.account_move.x_date_done.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_date_done.xml)
+
+### X Picking List  
+ID: `mint_system.ir_model.account_move.x_picking_list`  
+Link: [snippets/ir_model.account_move.x_picking_list.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_picking_list.xml)
+
 ### X Studio Description  
 ID: `mint_system.ir_model.account_move.x_studio_description`  
 Link: [snippets/ir_model.account_move.x_studio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_studio_description.xml)
@@ -97,6 +105,14 @@ Link: [snippets/ir_model.mrp_production.x_note.xml](https://github.com/Mint-Syst
 ID: `mint_system.ir_model.mrp_workorder.x_reservation_state`  
 Link: [snippets/ir_model.mrp_workorder.x_reservation_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_workorder.x_reservation_state.xml)
 
+### X Type Description2  
+ID: `mint_system.ir_model.mrp_workorder.x_type_description2`  
+Link: [snippets/ir_model.mrp_workorder.x_type_description2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_workorder.x_type_description2.xml)
+
+### X Type Description  
+ID: `mint_system.ir_model.mrp_workorder.x_type_description`  
+Link: [snippets/ir_model.mrp_workorder.x_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_workorder.x_type_description.xml)
+
 ## Product Set Line  
 ### X Categ Id  
 ID: `mint_system.ir_model.product_set_line.x_categ_id`  
@@ -106,6 +122,10 @@ Link: [snippets/ir_model.product_set_line.x_categ_id.xml](https://github.com/Min
 ### X Hide On Delivery  
 ID: `mint_system.ir_model.product_template.x_hide_on_delivery`  
 Link: [snippets/ir_model.product_template.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_hide_on_delivery.xml)
+
+### X Product Label  
+ID: `mint_system.ir_model.product_template.x_product_label`  
+Link: [snippets/ir_model.product_template.x_product_label.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_product_label.xml)
 
 ### X Xml Id  
 ID: `mint_system.ir_model.product_template.x_xml_id`  
@@ -124,6 +144,10 @@ Link: [snippets/ir_model.project_task.x_vehicle_id.xml](https://github.com/Mint-
 ### X Date Approve  
 ID: `mint_system.ir_model.purchase_order_line.x_date_approve`  
 Link: [snippets/ir_model.purchase_order_line.x_date_approve.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.purchase_order_line.x_date_approve.xml)
+
+### X Drawing File  
+ID: `mint_system.ir_model.purchase_order_line.x_drawing_file`  
+Link: [snippets/ir_model.purchase_order_line.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.purchase_order_line.x_drawing_file.xml)
 
 ### X Origin  
 ID: `mint_system.ir_model.purchase_order_line.x_origin`  
@@ -152,6 +176,10 @@ ID: `mint_system.ir_model.res_partner.x_stock_move_ids`
 Link: [snippets/ir_model.res_partner.x_stock_move_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.res_partner.x_stock_move_ids.xml)
 
 ## Sale Order Line  
+### X Cateq Id  
+ID: `mint_system.ir_model.sale_order_line.x_cateq_id`  
+Link: [snippets/ir_model.sale_order_line.x_cateq_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_cateq_id.xml)
+
 ### X Client Order Ref  
 ID: `mint_system.ir_model.sale_order_line.x_client_order_ref`  
 Link: [snippets/ir_model.sale_order_line.x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_client_order_ref.xml)
@@ -163,6 +191,10 @@ Link: [snippets/ir_model.sale_order_line.x_commitment_date.xml](https://github.c
 ### X Date Order  
 ID: `mint_system.ir_model.sale_order_line.x_date_order`  
 Link: [snippets/ir_model.sale_order_line.x_date_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_date_order.xml)
+
+### X Drawing File  
+ID: `mint_system.ir_model.sale_order_line.x_drawing_file`  
+Link: [snippets/ir_model.sale_order_line.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_drawing_file.xml)
 
 ### X Industry Id  
 ID: `mint_system.ir_model.sale_order_line.x_industry_id`  
@@ -177,6 +209,10 @@ ID: `mint_system.ir_model.sale_order_line.x_weight_delivered`
 Link: [snippets/ir_model.sale_order_line.x_weight_delivered.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_weight_delivered.xml)
 
 ## Sale Order  
+### X Product Uom Qty  
+ID: `mint_system.ir_model.sale_order.x_product_uom_qty`  
+Link: [snippets/ir_model.sale_order.x_product_uom_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order.x_product_uom_qty.xml)
+
 ### X Studio Description  
 ID: `mint_system.ir_model.sale_order.x_studio_description`  
 Link: [snippets/ir_model.sale_order.x_studio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order.x_studio_description.xml)

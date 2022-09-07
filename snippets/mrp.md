@@ -8,6 +8,10 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
 Link: [snippets/mrp.label_production_view_pdf.trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view_pdf.trimada.xml)
 
 ## Label Production View  
+### Tissa Etikette Ketten  
+ID: `mint_system.mrp.label_production_view.tissa_etikette_ketten`  
+Link: [snippets/mrp.label_production_view.tissa_etikette_ketten.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view.tissa_etikette_ketten.xml)
+
 ### Tissa  
 ID: `mint_system.mrp.label_production_view.tissa`  
 Link: [snippets/mrp.label_production_view.tissa.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view.tissa.xml)
@@ -179,6 +183,14 @@ Link: [snippets/mrp.view_mrp_production_workorder_form_view_filter.add_product_i
 ### Add Date Planned Start Set  
 ID: `mint_system.mrp.view_mrp_production_work_order_search.add_date_planned_start_set`  
 Link: [snippets/mrp.view_mrp_production_work_order_search.add_date_planned_start_set.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_work_order_search.add_date_planned_start_set.xml)
+
+### Add Material Is Available  
+ID: `mint_system.mrp.view_mrp_production_work_order_search.add_material_is_available`  
+Link: [snippets/mrp.view_mrp_production_work_order_search.add_material_is_available.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_work_order_search.add_material_is_available.xml)
+
+### Add Product Id  
+ID: `mint_system.mrp.view_mrp_production_work_order_search.add_product_id`  
+Link: [snippets/mrp.view_mrp_production_work_order_search.add_product_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_work_order_search.add_product_id.xml)
 
 ## Workcenter Line Kanban  
 ### Add Date Planned Start  

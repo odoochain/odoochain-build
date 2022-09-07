@@ -41,6 +41,10 @@ Link: [snippets/stock.report_delivery_document.add_open_quantity_in_backorder.xm
 ID: `mint_system.stock.report_delivery_document.append_signature_text`  
 Link: [snippets/stock.report_delivery_document.append_signature_text.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.append_signature_text.xml)
 
+### Backorder Signature Section  
+ID: `mint_system.stock.report_delivery_document.backorder_signature_section`  
+Link: [snippets/stock.report_delivery_document.backorder_signature_section.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.backorder_signature_section.xml)
+
 ### Barcode Customer Reference  
 ID: `mint_system.stock.report_delivery_document.barcode_customer_reference`  
 Link: [snippets/stock.report_delivery_document.barcode_customer_reference.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.barcode_customer_reference.xml)
@@ -52,10 +56,6 @@ Link: [snippets/stock.report_delivery_document.description_sale.xml](https://git
 ### Disable Stock Move Line Table  
 ID: `mint_system.stock.report_delivery_document.disable_stock_move_line_table`  
 Link: [snippets/stock.report_delivery_document.disable_stock_move_line_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.disable_stock_move_line_table.xml)
-
-### Document Description  
-ID: `mint_system.stock.report_delivery_document.document_description`  
-Link: [snippets/stock.report_delivery_document.document_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.document_description.xml)
 
 ### Filter Qty Done  
 ID: `mint_system.stock.report_delivery_document.filter_qty_done`  
@@ -144,6 +144,10 @@ Link: [snippets/stock.report_delivery_document.replace_information_table2.xml](h
 ### Replace Information Table  
 ID: `mint_system.stock.report_delivery_document.replace_information_table`  
 Link: [snippets/stock.report_delivery_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_information_table.xml)
+
+### Replace Infotable  
+ID: `mint_system.stock.report_delivery_document.replace_infotable`  
+Link: [snippets/stock.report_delivery_document.replace_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_infotable.xml)
 
 ### Replace Order Definition  
 ID: `mint_system.stock.report_delivery_document.replace_order_definition`  
@@ -258,6 +262,10 @@ Link: [snippets/stock.report_picking.header_box.xml](https://github.com/Mint-Sys
 ID: `mint_system.stock.report_picking.hide_address`  
 Link: [snippets/stock.report_picking.hide_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.hide_address.xml)
 
+### Hide Location Dest  
+ID: `mint_system.stock.report_picking.hide_location_dest`  
+Link: [snippets/stock.report_picking.hide_location_dest.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.hide_location_dest.xml)
+
 ### Hide Name  
 ID: `mint_system.stock.report_picking.hide_name`  
 Link: [snippets/stock.report_picking.hide_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.hide_name.xml)
@@ -269,6 +277,10 @@ Link: [snippets/stock.report_picking.margin_barcode.xml](https://github.com/Mint
 ### Margin Before Table  
 ID: `mint_system.stock.report_picking.margin_before_table`  
 Link: [snippets/stock.report_picking.margin_before_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.margin_before_table.xml)
+
+### Modify No Reserved Product  
+ID: `mint_system.stock.report_picking.modify_no_reserved_product`  
+Link: [snippets/stock.report_picking.modify_no_reserved_product.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.modify_no_reserved_product.xml)
 
 ### Partner Ref  
 ID: `mint_system.stock.report_picking.partner_ref`  
@@ -547,6 +559,16 @@ Link: [snippets/stock.view_picking_form.show_weight.xml](https://github.com/Mint
 ID: `mint_system.stock.view_picking_form.x_count_boxes`  
 Link: [snippets/stock.view_picking_form.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.x_count_boxes.xml)
 
+## View Stock Quant Tree Editable  
+### Show Reserved Quantity  
+ID: `mint_system.stock.view_stock_quant_tree_editable.show_reserved_quantity`  
+Link: [snippets/stock.view_stock_quant_tree_editable.show_reserved_quantity.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_stock_quant_tree_editable.show_reserved_quantity.xml)
+
+## View Stock Quant Tree  
+### Show Reserved Quantity  
+ID: `mint_system.stock.view_stock_quant_tree.show_reserved_quantity`  
+Link: [snippets/stock.view_stock_quant_tree.show_reserved_quantity.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_stock_quant_tree.show_reserved_quantity.xml)
+
 ## Vpicktree  
 ### Add Weight Uom Name  
 ID: `mint_system.stock.vpicktree.add_weight_uom_name`  
@@ -555,4 +577,8 @@ Link: [snippets/stock.vpicktree.add_weight_uom_name.xml](https://github.com/Mint
 ### Default Order Name  
 ID: `mint_system.stock.vpicktree.default_order_name`  
 Link: [snippets/stock.vpicktree.default_order_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.vpicktree.default_order_name.xml)
+
+### Show Delivery Note  
+ID: `mint_system.stock.vpicktree.show_delivery_note`  
+Link: [snippets/stock.vpicktree.show_delivery_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.vpicktree.show_delivery_note.xml)
 
