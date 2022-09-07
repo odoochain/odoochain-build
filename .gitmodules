@@ -154,3 +154,7 @@
 	path = addons/server_tools
 	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
 	branch = 13.0
+[submodule "addons/cybroaddons"]
+	path = addons/cybroaddons
+	url = git@github.com:CybroOdoo/CybroAddons.git
+	branch = 13.0
