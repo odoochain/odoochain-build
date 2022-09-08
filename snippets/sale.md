@@ -384,6 +384,10 @@ ID: `mint_system.sale.view_order_form.x_sudio_description`
 Link: [snippets/sale.view_order_form.x_sudio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.x_sudio_description.xml)
 
 ## View Order Line Tree  
+### Fields Optional Hide  
+ID: `mint_system.sale.view_order_line_tree.fields_optional_hide`  
+Link: [snippets/sale.view_order_line_tree.fields_optional_hide.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.fields_optional_hide.xml)
+
 ### Qty With Sum  
 ID: `mint_system.sale.view_order_line_tree.qty_with_sum`  
 Link: [snippets/sale.view_order_line_tree.qty_with_sum.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.qty_with_sum.xml)
@@ -392,9 +396,17 @@ Link: [snippets/sale.view_order_line_tree.qty_with_sum.xml](https://github.com/M
 ID: `mint_system.sale.view_order_line_tree.reset_view`  
 Link: [snippets/sale.view_order_line_tree.reset_view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.reset_view.xml)
 
-### Show State  
-ID: `mint_system.sale.view_order_line_tree.show_state`  
-Link: [snippets/sale.view_order_line_tree.show_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.show_state.xml)
+### Show Price Tax  
+ID: `mint_system.sale.view_order_line_tree.show_price_tax`  
+Link: [snippets/sale.view_order_line_tree.show_price_tax.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.show_price_tax.xml)
+
+### Show Untaxed Amount Invoiced  
+ID: `mint_system.sale.view_order_line_tree.show_untaxed_amount_invoiced`  
+Link: [snippets/sale.view_order_line_tree.show_untaxed_amount_invoiced.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.show_untaxed_amount_invoiced.xml)
+
+### X Taxed Amount Invoiced  
+ID: `mint_system.sale.view_order_line_tree.x_taxed_amount_invoiced`  
+Link: [snippets/sale.view_order_line_tree.x_taxed_amount_invoiced.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.x_taxed_amount_invoiced.xml)
 
 ### X Weight Delivered  
 ID: `mint_system.sale.view_order_line_tree.x_weight_delivered`  
