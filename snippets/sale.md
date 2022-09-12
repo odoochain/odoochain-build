@@ -182,6 +182,10 @@ Link: [snippets/sale.report_saleorder_document.format_as_date.xml](https://githu
 ID: `mint_system.sale.report_saleorder_document.format_note`  
 Link: [snippets/sale.report_saleorder_document.format_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_note.xml)
 
+### Format Qty With Decimal  
+ID: `mint_system.sale.report_saleorder_document.format_qty_with_decimal`  
+Link: [snippets/sale.report_saleorder_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_qty_with_decimal.xml)
+
 ### Format Qty  
 ID: `mint_system.sale.report_saleorder_document.format_qty`  
 Link: [snippets/sale.report_saleorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_qty.xml)
