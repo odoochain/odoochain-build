@@ -92,7 +92,10 @@ function locale() {
 }
 
 function load-env() {
-    export $(cat "$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1" | sed 's/#.*//g' | xargs)
+    ENV_FILE="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
+    echo "Load env file $ENV_FILE"
+
+    export $(cat "$ENV_FILE" | sed 's/#.*//g' | xargs)
 }
 
 function disable-auto-install() {
@@ -293,7 +296,7 @@ function install-module() {
     # Use default database if second param is not given 
     if test -z "$2"; then
         DATABASE="$GIT_BRANCH"
-         MODULE_NAME=$(basename $1)
+        MODULE_NAME=$(basename $1)
     fi
 
     locale
