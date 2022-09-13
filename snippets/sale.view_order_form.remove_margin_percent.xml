@@ -2,7 +2,5 @@
 <data inherit_id="sale.view_order_form" priority="50">
 
     <xpath expr="//field[@name='margin_percent']" position="replace">
-        <field name="x_margin_percent" attrs="{'invisible': [('price_subtotal', '=', 0)]}" optional="hide" widget="percentage"/>
-    </xpath>
 
 </data>
