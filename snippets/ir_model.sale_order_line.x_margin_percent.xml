@@ -17,7 +17,8 @@
   if line.product_id.type == 'product' and line.purchase_price != 0:
     line['x_margin_percent'] = (line.price_unit-line.purchase_price)/(line.purchase_price)
   else:
-    line['x_margin_percent'] = 0</field>
+    line['x_margin_percent'] = 0
+    line['margin'] = 0</field>
   </record>
 
 </odoo>
