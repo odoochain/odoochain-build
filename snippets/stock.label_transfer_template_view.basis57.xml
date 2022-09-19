@@ -47,6 +47,7 @@
                 </t>
                 <t t-if="move.product_id.id == 68">
                     <t t-set="today" t-value="context_timestamp(picking.scheduled_date)"/>
+                    <t t-set="print_weight" t-value="False" />
                 </t>
 
                 <!-- <p>Name: <span t-esc="move.product_id.name"/></p> -->
