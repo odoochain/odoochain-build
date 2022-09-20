@@ -24,13 +24,13 @@ Link: [snippets/purchase_requisition.report_purchaserequisitions.add_drawing.xml
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_incoterm_id`  
 Link: [snippets/purchase_requisition.report_purchaserequisitions.add_incoterm_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_incoterm_id.xml)
 
+### Add Product Uom Id  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_product_uom_id`  
+Link: [snippets/purchase_requisition.report_purchaserequisitions.add_product_uom_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_product_uom_id.xml)
+
 ### Add User Id  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_user_id`  
 Link: [snippets/purchase_requisition.report_purchaserequisitions.add_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_user_id.xml)
-
-### Extend Product Qty  
-ID: `mint_system.purchase_requisition.report_purchaserequisitions.extend_product_qty`  
-Link: [snippets/purchase_requisition.report_purchaserequisitions.extend_product_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.extend_product_qty.xml)
 
 ### Format Qty With Decimal  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.format_qty_with_decimal`  
