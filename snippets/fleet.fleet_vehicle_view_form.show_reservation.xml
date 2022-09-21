@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<data inherit_id="fleet.fleet_vehicle_view_form" priority="50">
+
+  <xpath expr="//group/group[6]" position="attributes">
+    <group string="Reservation">
+      <field name="reserved_time">
+        <tree>
+          <field name="date_from" />
+          <field name="date_to" />
+        </tree>
+      </field>
+    </group>
+  </xpath>
+
+</data>

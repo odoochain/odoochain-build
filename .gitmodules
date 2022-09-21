@@ -230,3 +230,7 @@
 	path = addons/cybroaddons
 	url = git@github.com:CybroOdoo/CybroAddons.git
 	branch = 14.0
+[submodule "oca/iot"]
+	path = oca/iot
+	url = git@github.com:OCA/iot.git
+	branch = 14.0
