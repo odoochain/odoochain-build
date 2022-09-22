@@ -20,7 +20,7 @@
 	branch = 15.0
 [submodule "oca/web"]
 	path = oca/web
-	url = https://github.com/OCA/web.git
+	url = git@github.com:OCA/web.git
 	branch = 15.0
 [submodule "oca/partner-contact"]
 	path = oca/partner-contact
