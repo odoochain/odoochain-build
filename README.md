@@ -30,24 +30,26 @@ The usage section is a set of workflows. Pick the one required by your scenario.
 
 Clone this repository.
 
-```console
+```bash
 git clone git@github.com:Mint-System/Odoo-Development.git
 cd Odoo-Development
 ```
 
 Checkout branch.
 
-```console
+```bash
 task checkout 13.0
 # or
 task checkout 14.0
 # or
 task checkout 15.0
+# or
+task checkout 16.0
 ```
 
 Install [Odoo scripts](https://ansible.build/roles/odoo-scripts/)
 
-```console
+```bash
 task install-odoo-scripts
 ```
 
@@ -59,7 +61,7 @@ Run Odoo from source.
 
 Pull the `odoo` submodule and install the python dependencies.
 
-```console
+```bash
 git submodule update odoo
 task install-native
 ```
@@ -68,7 +70,7 @@ task install-native
 
 Run database container only
 
-```console
+```bash
 task start db
 # or
 npm run task-start-db
@@ -76,13 +78,13 @@ npm run task-start-db
 
 Initialize database
 
-```console
+```bash
 task init-db
 ```
 
 Start Odoo from source
 
-```console
+```bash
 task start native
 # or
 npm run task-start-native
@@ -94,7 +96,7 @@ Open browser to [http://localhost:8069](http://localhost:8069) and login with `a
 
 Scaffold a new module.
 
-```console
+```bash
 task create-module addons/project_report
 ```
 
@@ -106,7 +108,7 @@ Run Odoo with Docker container.
 
 Run docker compose.
 
-```console
+```bash
 task start
 # or
 npm run task-start
@@ -114,7 +116,7 @@ npm run task-start
 
 Initialize database.
 
-```console
+```bash
 docker-odoo-install
 ```
 
@@ -122,7 +124,7 @@ Open browser to [http://localhost:8069](http://localhost:8069) and login with `a
 
 **Install custom module**
 
-```console
+```bash
 docker-odoo-install -m show_db_name
 ```
 
@@ -142,48 +144,20 @@ Open database manager [http://localhost:8000/](http://localhost:8000/) and login
 
 Kill docker containers and volumes.
 
-```console
+```bash
 task kill
 ```
 
 **Stop all Docker containers**
 
-```console
+```bash
 task stop
 ```
 
 **Remove database**
 
-```console
+```bash
 task drop-db
-```
-
-### Mail
-
-**View emails**
-
-Start mail service.
-
-```console
-task start mail
-```
-
-Open the mail client [http://localhost](http://localhost).
-
-**Configure mail server**
-
-Install the odoo mail server data package.
-
-```console
-task install-module mail_data
-```
-
-**Send email**
-
-Use curl to send an email:
-
-```console
-task send-support-mail
 ```
 
 ## Troubleshooting
@@ -194,7 +168,7 @@ task send-support-mail
 
 While starting the native server this error is thrown:
 
-```console
+```bash
 OSError: [Errno 24] inotify instance limit reached
 ```
 
@@ -202,6 +176,6 @@ OSError: [Errno 24] inotify instance limit reached
 
 Increase ifnotify watch limit.
 
-```console
+```bash
 sudo sysctl fs.inotify.max_user_watches=52428800
 ```

@@ -226,10 +226,6 @@
 	path = oca/account-closing
 	url = git@github.com:OCA/account-closing.git
 	branch = 14.0
-[submodule "addons/cybroaddons"]
-	path = addons/cybroaddons
-	url = git@github.com:CybroOdoo/CybroAddons.git
-	branch = 14.0
 [submodule "oca/iot"]
 	path = oca/iot
 	url = git@github.com:OCA/iot.git
