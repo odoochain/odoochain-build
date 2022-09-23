@@ -874,7 +874,10 @@ function update-docs() {
                 # Group by modules
                 echo "### $EDIT_TITLE  " >> $DOCFILE
                 echo "ID: \`mint_system.$MODULE.$XML_ID.$EDIT\`  " >> $DOCFILE
-                echo "Link: [$FILE]($PATH_URL/$FILE)" >> $DOCFILE
+                echo '```console' >> $DOCFILE
+                cat "$FILE" >> $DOCFILE
+                echo '```' >> $DOCFILE
+                echo "Source: [$FILE]($PATH_URL/$FILE)" >> $DOCFILE
                 echo "" >> $DOCFILE
             done
         done
