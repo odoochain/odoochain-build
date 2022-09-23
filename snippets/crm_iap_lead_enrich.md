@@ -12,7 +12,7 @@ ID: `mint_system.crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue`
   <xpath position="replace">
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue.xml)
 

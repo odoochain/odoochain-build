@@ -17,8 +17,8 @@ ID: `mint_system.hr_holidays.hr_leave_view_form_manager_approve.report_note_grou
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/hr_holidays.hr_leave_view_form_manager_approve.report_note_group.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_view_form_manager_approve.report_note_group.xml)
 
 ## Hr Leave View Timeline  
@@ -38,8 +38,8 @@ ID: `mint_system.hr_holidays.hr_leave_view_timeline.view`
   </record>
 
 </odoo>
-```
 
+```
 Source: [snippets/hr_holidays.hr_leave_view_timeline.view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_view_timeline.view.xml)
 
 ## Hr Leave View Tree  
@@ -54,8 +54,8 @@ ID: `mint_system.hr_holidays.hr_leave_view_tree.add_synced_field`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/hr_holidays.hr_leave_view_tree.add_synced_field.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_view_tree.add_synced_field.xml)
 
 ### Remove Payslip  
@@ -68,8 +68,8 @@ ID: `mint_system.hr_holidays.hr_leave_view_tree.remove_payslip`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/hr_holidays.hr_leave_view_tree.remove_payslip.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_view_tree.remove_payslip.xml)
 
 ### Show Days  
@@ -83,7 +83,7 @@ ID: `mint_system.hr_holidays.hr_leave_view_tree.show_days`
   </field>
 
 </data>
-```
 
+```
 Source: [snippets/hr_holidays.hr_leave_view_tree.show_days.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_view_tree.show_days.xml)
 

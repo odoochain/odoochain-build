@@ -15,8 +15,8 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml)
 
 ## Portal My Timesheets  
@@ -38,8 +38,8 @@ ID: `mint_system.hr_timesheet.portal_my_timesheets.show_billable`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/hr_timesheet.portal_my_timesheets.show_billable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.portal_my_timesheets.show_billable.xml)
 
 ## Report Timesheet  
@@ -100,8 +100,8 @@ ID: `mint_system.hr_timesheet.report_timesheet.group_by_invoice_type`
     </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/hr_timesheet.report_timesheet.group_by_invoice_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.report_timesheet.group_by_invoice_type.xml)
 
 ### User Report  
@@ -136,8 +136,8 @@ ID: `mint_system.hr_timesheet.report_timesheet.user_report`
     <xpath expr="/t[1]/t[1]/t[1]/div[1]/div[2]/div[1]" position="replace"/>
 
 </data>
-```
 
+```
 Source: [snippets/hr_timesheet.report_timesheet.user_report.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.report_timesheet.user_report.xml)
 
 ## Timesheet View Tree User  
@@ -153,7 +153,7 @@ ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml)
 

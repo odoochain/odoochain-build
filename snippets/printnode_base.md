@@ -13,7 +13,7 @@ ID: `mint_system.printnode_base.printnode_scenario_domain_editor.remove_domain_w
         <attribute name="widget"/>
     </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/printnode_base.printnode_scenario_domain_editor.remove_domain_widget.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/printnode_base.printnode_scenario_domain_editor.remove_domain_widget.xml)
 

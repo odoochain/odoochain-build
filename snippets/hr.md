@@ -14,8 +14,8 @@ ID: `mint_system.hr.hr_employee_public_view_kanban.add_mobile_phone`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/hr.hr_employee_public_view_kanban.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_employee_public_view_kanban.add_mobile_phone.xml)
 
 ### Show Leave  
@@ -37,8 +37,8 @@ ID: `mint_system.hr.hr_employee_public_view_kanban.show_leave`
     </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/hr.hr_employee_public_view_kanban.show_leave.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_employee_public_view_kanban.show_leave.xml)
 
 ## Hr Employee Public View Tree  
@@ -53,8 +53,8 @@ ID: `mint_system.hr.hr_employee_public_view_tree.add_mobile_phone`
   </field>
 
 </data>
-```
 
+```
 Source: [snippets/hr.hr_employee_public_view_tree.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_employee_public_view_tree.add_mobile_phone.xml)
 
 ### Show Birthday Public  
@@ -68,8 +68,8 @@ ID: `mint_system.hr.hr_employee_public_view_tree.show_birthday_public`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/hr.hr_employee_public_view_tree.show_birthday_public.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_employee_public_view_tree.show_birthday_public.xml)
 
 ## Hr Kanban View Employees  
@@ -84,8 +84,8 @@ ID: `mint_system.hr.hr_kanban_view_employees.add_mobile_phone`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/hr.hr_kanban_view_employees.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_kanban_view_employees.add_mobile_phone.xml)
 
 ## Plan Wizard  
@@ -100,8 +100,8 @@ ID: `mint_system.hr.plan_wizard.plan_permission`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/hr.plan_wizard.plan_permission.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.plan_wizard.plan_permission.xml)
 
 ## View Employee Form  
@@ -116,8 +116,8 @@ ID: `mint_system.hr.view_employee_form.plan_permission`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/hr.view_employee_form.plan_permission.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.view_employee_form.plan_permission.xml)
 
 ## View Employee Tree  
@@ -132,8 +132,8 @@ ID: `mint_system.hr.view_employee_tree.add_mobile_phone`
   </field>
 
 </data>
-```
 
+```
 Source: [snippets/hr.view_employee_tree.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.view_employee_tree.add_mobile_phone.xml)
 
 ## View Hr Job Form  
@@ -148,7 +148,7 @@ ID: `mint_system.hr.view_hr_job_form.description_widget_html`
     </field>
 
 </data>
-```
 
+```
 Source: [snippets/hr.view_hr_job_form.description_widget_html.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.view_hr_job_form.description_widget_html.xml)
 

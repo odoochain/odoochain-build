@@ -14,8 +14,8 @@ ID: `mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_pe
     </field>
 
 </data>
-```
 
+```
 Source: [snippets/gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage.xml)
 
 ## Hr Payroll Report View  
@@ -228,7 +228,7 @@ ID: `mint_system.gio_payroll_custom.hr_payroll_report_view.new_report`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/gio_payroll_custom.hr_payroll_report_view.new_report.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/gio_payroll_custom.hr_payroll_report_view.new_report.xml)
 

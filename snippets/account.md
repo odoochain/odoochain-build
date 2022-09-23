@@ -21,8 +21,8 @@ ID: `mint_system.account.report_invoice_document.add_header_and_footer_note`
     </t>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_header_and_footer_note.xml)
 
 ### Add Header Padding  
@@ -36,8 +36,8 @@ ID: `mint_system.account.report_invoice_document.add_header_padding`
 	</xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.add_header_padding.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_header_padding.xml)
 
 ### Add Header Space  
@@ -51,8 +51,8 @@ ID: `mint_system.account.report_invoice_document.add_header_space`
 	</xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.add_header_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_header_space.xml)
 
 ### Add Iban  
@@ -102,8 +102,8 @@ ID: `mint_system.account.report_invoice_document.add_iban`
   </xpath> -->
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.add_iban.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_iban.xml)
 
 ### Add Percentage Sign  
@@ -116,8 +116,8 @@ ID: `mint_system.account.report_invoice_document.add_percentage_sign`
     <span t-field="line.discount"/>%
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_percentage_sign.xml)
 
 ### Add Salesperson  
@@ -150,8 +150,8 @@ ID: `mint_system.account.report_invoice_document.add_salesperson`
   </xpath> -->
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.add_salesperson.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_salesperson.xml)
 
 ### Align Taxes  
@@ -170,8 +170,8 @@ ID: `mint_system.account.report_invoice_document.align_taxes`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.align_taxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.align_taxes.xml)
 
 ### Bank Account  
@@ -204,8 +204,8 @@ ID: `mint_system.account.report_invoice_document.bank_account`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.bank_account.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.bank_account.xml)
 
 ### Custom Taxes  
@@ -224,8 +224,8 @@ ID: `mint_system.account.report_invoice_document.custom_taxes`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.custom_taxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.custom_taxes.xml)
 
 ### Display Shipping Address  
@@ -246,8 +246,8 @@ ID: `mint_system.account.report_invoice_document.display_shipping_address`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.display_shipping_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.display_shipping_address.xml)
 
 ### Font Size  
@@ -266,8 +266,8 @@ ID: `mint_system.account.report_invoice_document.font_size`
 	</xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.font_size.xml)
 
 ### Format Address Blocks  
@@ -280,8 +280,8 @@ ID: `mint_system.account.report_invoice_document.format_address_blocks`
     <attribute name="style">font-size:10pt; line-height: 1.2; padding-bottom:33mm</attribute>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_address_blocks.xml)
 
 ### Format Pos  
@@ -295,8 +295,8 @@ ID: `mint_system.account.report_invoice_document.format_pos`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.format_pos.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_pos.xml)
 
 ### Format Qty With Decimal  
@@ -314,8 +314,8 @@ ID: `mint_system.account.report_invoice_document.format_qty_with_decimal`
 		</t>
 	</xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_qty_with_decimal.xml)
 
 ### Format Title  
@@ -328,8 +328,8 @@ ID: `mint_system.account.report_invoice_document.format_title`
     <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
   </xpath>
   
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.format_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_title.xml)
 
 ### Get Position  
@@ -379,8 +379,8 @@ ID: `mint_system.account.report_invoice_document.get_position`
     </t>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.get_position.xml)
 
 ### Group By Pickings  
@@ -498,8 +498,8 @@ ID: `mint_system.account.report_invoice_document.group_by_pickings`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.group_by_pickings.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.group_by_pickings.xml)
 
 ### Group By Sale Order  
@@ -616,8 +616,8 @@ ID: `mint_system.account.report_invoice_document.group_by_sale_order`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.group_by_sale_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.group_by_sale_order.xml)
 
 ### Margin After Title  
@@ -631,8 +631,8 @@ ID: `mint_system.account.report_invoice_document.margin_after_title`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.margin_after_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.margin_after_title.xml)
 
 ### Margin Before Invoice Table  
@@ -646,8 +646,8 @@ ID: `mint_system.account.report_invoice_document.margin_before_invoice_table`
   </table>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.margin_before_invoice_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.margin_before_invoice_table.xml)
 
 ### Margin Before Title  
@@ -661,8 +661,8 @@ ID: `mint_system.account.report_invoice_document.margin_before_title`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.margin_before_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.margin_before_title.xml)
 
 ### Modify Main Table  
@@ -780,8 +780,8 @@ ID: `mint_system.account.report_invoice_document.modify_main_table`
     </table>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.modify_main_table.xml)
 
 ### Net Value Summary  
@@ -811,8 +811,8 @@ ID: `mint_system.account.report_invoice_document.net_value_summary`
     </tr>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.net_value_summary.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.net_value_summary.xml)
 
 ### Product Hs Code And Origin  
@@ -834,8 +834,8 @@ ID: `mint_system.account.report_invoice_document.product_hs_code_and_origin`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.product_hs_code_and_origin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.product_hs_code_and_origin.xml)
 
 ### Product Weight  
@@ -853,8 +853,8 @@ ID: `mint_system.account.report_invoice_document.product_weight`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.product_weight.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.product_weight.xml)
 
 ### Remove Incoterms  
@@ -867,8 +867,8 @@ ID: `mint_system.account.report_invoice_document.remove_incoterms`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.remove_incoterms.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_incoterms.xml)
 
 ### Remove Payment Ref  
@@ -881,8 +881,8 @@ ID: `mint_system.account.report_invoice_document.remove_payment_ref`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.remove_payment_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_payment_ref.xml)
 
 ### Remove Payment Term  
@@ -895,8 +895,8 @@ ID: `mint_system.account.report_invoice_document.remove_payment_term`
   </p>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.remove_payment_term.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_payment_term.xml)
 
 ### Remove Summary Table  
@@ -908,8 +908,8 @@ ID: `mint_system.account.report_invoice_document.remove_summary_table`
 <xpath expr="//div[@class='clearfix']" position="replace">
 </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.remove_summary_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_summary_table.xml)
 
 ### Remove Taxes  
@@ -922,8 +922,8 @@ ID: `mint_system.account.report_invoice_document.remove_taxes`
   <xpath expr="//span[@id='line_tax_ids']/.." position="replace"/>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_taxes.xml)
 
 ### Replace Address  
@@ -937,8 +937,8 @@ ID: `mint_system.account.report_invoice_document.replace_address`
     <div t-field="o.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.replace_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_address.xml)
 
 ### Replace Footer  
@@ -1013,8 +1013,8 @@ ID: `mint_system.account.report_invoice_document.replace_footer`
   </xpath>
 
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_footer.xml)
 
 ### Replace Information Table2  
@@ -1102,8 +1102,8 @@ ID: `mint_system.account.report_invoice_document.replace_information_table2`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.replace_information_table2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_information_table2.xml)
 
 ### Replace Information Table  
@@ -1168,8 +1168,8 @@ ID: `mint_system.account.report_invoice_document.replace_information_table`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_information_table.xml)
 
 ### Replace Infotable  
@@ -1249,8 +1249,8 @@ ID: `mint_system.account.report_invoice_document.replace_infotable`
 </data>
 
 
-```
 
+```
 Source: [snippets/account.report_invoice_document.replace_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_infotable.xml)
 
 ### Replace Product Description  
@@ -1273,8 +1273,8 @@ ID: `mint_system.account.report_invoice_document.replace_product_description`
 
 </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_product_description.xml)
 
 ### Replace Summary  
@@ -1409,8 +1409,8 @@ ID: `mint_system.account.report_invoice_document.replace_summary`
 
 </data>
 
-```
 
+```
 Source: [snippets/account.report_invoice_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_summary.xml)
 
 ### Reset Address  
@@ -1427,8 +1427,8 @@ ID: `mint_system.account.report_invoice_document.reset_address`
     </t>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.reset_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.reset_address.xml)
 
 ### Round Price  
@@ -1441,8 +1441,8 @@ ID: `mint_system.account.report_invoice_document.round_price`
 		 <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') >= 3 else '{0:,.2f}'.format(float(line.price_unit)).replace(',','\'')"/>
   </xpath>
    
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.round_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.round_price.xml)
 
 ### Round Quantity  
@@ -1456,8 +1456,8 @@ ID: `mint_system.account.report_invoice_document.round_quantity`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.round_quantity.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.round_quantity.xml)
 
 ### Round Total Price  
@@ -1470,8 +1470,8 @@ ID: `mint_system.account.report_invoice_document.round_total_price`
     <span t-esc="'{0:,.2f}'.format(float(line.price_subtotal)).replace(',','\'')"/>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.round_total_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.round_total_price.xml)
 
 ### Second Row  
@@ -1520,8 +1520,8 @@ ID: `mint_system.account.report_invoice_document.second_row`
     </t>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.second_row.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.second_row.xml)
 
 ### Sequence In Table  
@@ -1547,8 +1547,8 @@ ID: `mint_system.account.report_invoice_document.sequence_in_table`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.sequence_in_table.xml)
 
 ### Set Ids  
@@ -1575,8 +1575,8 @@ ID: `mint_system.account.report_invoice_document.set_ids`
 		<attribute name="id">price</attribute>
 	</xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.set_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.set_ids.xml)
 
 ### Show Default Code  
@@ -1597,8 +1597,8 @@ ID: `mint_system.account.report_invoice_document.show_default_code`
     </td>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.show_default_code.xml)
 
 ### Show Product Name  
@@ -1618,8 +1618,8 @@ ID: `mint_system.account.report_invoice_document.show_product_name`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.show_product_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.show_product_name.xml)
 
 ### Style Trimada  
@@ -1711,8 +1711,8 @@ ID: `mint_system.account.report_invoice_document.style_trimada`
 	</span>
 	
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.style_trimada.xml)
 
 ### Switch Address Block  
@@ -1736,8 +1736,8 @@ ID: `mint_system.account.report_invoice_document.switch_address_block`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.switch_address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.switch_address_block.xml)
 
 ### Unit Precision  
@@ -1751,8 +1751,8 @@ ID: `mint_system.account.report_invoice_document.unit_precision`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.unit_precision.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.unit_precision.xml)
 
 ### X Picking List  
@@ -1765,8 +1765,8 @@ ID: `mint_system.account.report_invoice_document.x_picking_list`
     <attribute name="t-field">o.x_picking_list</attribute>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.x_picking_list.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.x_picking_list.xml)
 
 ## Report Invoice Document With Payments  
@@ -1797,8 +1797,8 @@ ID: `mint_system.account.report_invoice_document_with_payments.add_iban_and_bank
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document_with_payments.add_iban_and_bank.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document_with_payments.add_iban_and_bank.xml)
 
 ## Report Invoice Document  
@@ -1820,8 +1820,8 @@ ID: `mint_system.account.report_invoice_document.add_header_and_footer_note`
     </t>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_header_and_footer_note.xml)
 
 ### Add Header Padding  
@@ -1835,8 +1835,8 @@ ID: `mint_system.account.report_invoice_document.add_header_padding`
 	</xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.add_header_padding.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_header_padding.xml)
 
 ### Add Header Space  
@@ -1850,8 +1850,8 @@ ID: `mint_system.account.report_invoice_document.add_header_space`
 	</xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.add_header_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_header_space.xml)
 
 ### Add Iban  
@@ -1901,8 +1901,8 @@ ID: `mint_system.account.report_invoice_document.add_iban`
   </xpath> -->
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.add_iban.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_iban.xml)
 
 ### Add Percentage Sign  
@@ -1915,8 +1915,8 @@ ID: `mint_system.account.report_invoice_document.add_percentage_sign`
     <span t-field="line.discount"/>%
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_percentage_sign.xml)
 
 ### Add Salesperson  
@@ -1949,8 +1949,8 @@ ID: `mint_system.account.report_invoice_document.add_salesperson`
   </xpath> -->
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.add_salesperson.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_salesperson.xml)
 
 ### Align Taxes  
@@ -1969,8 +1969,8 @@ ID: `mint_system.account.report_invoice_document.align_taxes`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.align_taxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.align_taxes.xml)
 
 ### Bank Account  
@@ -2003,8 +2003,8 @@ ID: `mint_system.account.report_invoice_document.bank_account`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.bank_account.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.bank_account.xml)
 
 ### Custom Taxes  
@@ -2023,8 +2023,8 @@ ID: `mint_system.account.report_invoice_document.custom_taxes`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.custom_taxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.custom_taxes.xml)
 
 ### Display Shipping Address  
@@ -2045,8 +2045,8 @@ ID: `mint_system.account.report_invoice_document.display_shipping_address`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.display_shipping_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.display_shipping_address.xml)
 
 ### Font Size  
@@ -2065,8 +2065,8 @@ ID: `mint_system.account.report_invoice_document.font_size`
 	</xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.font_size.xml)
 
 ### Format Address Blocks  
@@ -2079,8 +2079,8 @@ ID: `mint_system.account.report_invoice_document.format_address_blocks`
     <attribute name="style">font-size:10pt; line-height: 1.2; padding-bottom:33mm</attribute>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_address_blocks.xml)
 
 ### Format Pos  
@@ -2094,8 +2094,8 @@ ID: `mint_system.account.report_invoice_document.format_pos`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.format_pos.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_pos.xml)
 
 ### Format Qty With Decimal  
@@ -2113,8 +2113,8 @@ ID: `mint_system.account.report_invoice_document.format_qty_with_decimal`
 		</t>
 	</xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_qty_with_decimal.xml)
 
 ### Format Title  
@@ -2127,8 +2127,8 @@ ID: `mint_system.account.report_invoice_document.format_title`
     <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
   </xpath>
   
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.format_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_title.xml)
 
 ### Get Position  
@@ -2178,8 +2178,8 @@ ID: `mint_system.account.report_invoice_document.get_position`
     </t>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.get_position.xml)
 
 ### Group By Pickings  
@@ -2297,8 +2297,8 @@ ID: `mint_system.account.report_invoice_document.group_by_pickings`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.group_by_pickings.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.group_by_pickings.xml)
 
 ### Group By Sale Order  
@@ -2415,8 +2415,8 @@ ID: `mint_system.account.report_invoice_document.group_by_sale_order`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.group_by_sale_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.group_by_sale_order.xml)
 
 ### Margin After Title  
@@ -2430,8 +2430,8 @@ ID: `mint_system.account.report_invoice_document.margin_after_title`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.margin_after_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.margin_after_title.xml)
 
 ### Margin Before Invoice Table  
@@ -2445,8 +2445,8 @@ ID: `mint_system.account.report_invoice_document.margin_before_invoice_table`
   </table>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.margin_before_invoice_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.margin_before_invoice_table.xml)
 
 ### Margin Before Title  
@@ -2460,8 +2460,8 @@ ID: `mint_system.account.report_invoice_document.margin_before_title`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.margin_before_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.margin_before_title.xml)
 
 ### Modify Main Table  
@@ -2579,8 +2579,8 @@ ID: `mint_system.account.report_invoice_document.modify_main_table`
     </table>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.modify_main_table.xml)
 
 ### Net Value Summary  
@@ -2610,8 +2610,8 @@ ID: `mint_system.account.report_invoice_document.net_value_summary`
     </tr>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.net_value_summary.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.net_value_summary.xml)
 
 ### Product Hs Code And Origin  
@@ -2633,8 +2633,8 @@ ID: `mint_system.account.report_invoice_document.product_hs_code_and_origin`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.product_hs_code_and_origin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.product_hs_code_and_origin.xml)
 
 ### Product Weight  
@@ -2652,8 +2652,8 @@ ID: `mint_system.account.report_invoice_document.product_weight`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.product_weight.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.product_weight.xml)
 
 ### Remove Incoterms  
@@ -2666,8 +2666,8 @@ ID: `mint_system.account.report_invoice_document.remove_incoterms`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.remove_incoterms.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_incoterms.xml)
 
 ### Remove Payment Ref  
@@ -2680,8 +2680,8 @@ ID: `mint_system.account.report_invoice_document.remove_payment_ref`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.remove_payment_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_payment_ref.xml)
 
 ### Remove Payment Term  
@@ -2694,8 +2694,8 @@ ID: `mint_system.account.report_invoice_document.remove_payment_term`
   </p>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.remove_payment_term.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_payment_term.xml)
 
 ### Remove Summary Table  
@@ -2707,8 +2707,8 @@ ID: `mint_system.account.report_invoice_document.remove_summary_table`
 <xpath expr="//div[@class='clearfix']" position="replace">
 </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.remove_summary_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_summary_table.xml)
 
 ### Remove Taxes  
@@ -2721,8 +2721,8 @@ ID: `mint_system.account.report_invoice_document.remove_taxes`
   <xpath expr="//span[@id='line_tax_ids']/.." position="replace"/>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_taxes.xml)
 
 ### Replace Address  
@@ -2736,8 +2736,8 @@ ID: `mint_system.account.report_invoice_document.replace_address`
     <div t-field="o.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.replace_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_address.xml)
 
 ### Replace Footer  
@@ -2812,8 +2812,8 @@ ID: `mint_system.account.report_invoice_document.replace_footer`
   </xpath>
 
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_footer.xml)
 
 ### Replace Information Table2  
@@ -2901,8 +2901,8 @@ ID: `mint_system.account.report_invoice_document.replace_information_table2`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.replace_information_table2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_information_table2.xml)
 
 ### Replace Information Table  
@@ -2967,8 +2967,8 @@ ID: `mint_system.account.report_invoice_document.replace_information_table`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_information_table.xml)
 
 ### Replace Infotable  
@@ -3048,8 +3048,8 @@ ID: `mint_system.account.report_invoice_document.replace_infotable`
 </data>
 
 
-```
 
+```
 Source: [snippets/account.report_invoice_document.replace_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_infotable.xml)
 
 ### Replace Product Description  
@@ -3072,8 +3072,8 @@ ID: `mint_system.account.report_invoice_document.replace_product_description`
 
 </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_product_description.xml)
 
 ### Replace Summary  
@@ -3208,8 +3208,8 @@ ID: `mint_system.account.report_invoice_document.replace_summary`
 
 </data>
 
-```
 
+```
 Source: [snippets/account.report_invoice_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_summary.xml)
 
 ### Reset Address  
@@ -3226,8 +3226,8 @@ ID: `mint_system.account.report_invoice_document.reset_address`
     </t>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.reset_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.reset_address.xml)
 
 ### Round Price  
@@ -3240,8 +3240,8 @@ ID: `mint_system.account.report_invoice_document.round_price`
 		 <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') >= 3 else '{0:,.2f}'.format(float(line.price_unit)).replace(',','\'')"/>
   </xpath>
    
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.round_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.round_price.xml)
 
 ### Round Quantity  
@@ -3255,8 +3255,8 @@ ID: `mint_system.account.report_invoice_document.round_quantity`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.round_quantity.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.round_quantity.xml)
 
 ### Round Total Price  
@@ -3269,8 +3269,8 @@ ID: `mint_system.account.report_invoice_document.round_total_price`
     <span t-esc="'{0:,.2f}'.format(float(line.price_subtotal)).replace(',','\'')"/>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.round_total_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.round_total_price.xml)
 
 ### Second Row  
@@ -3319,8 +3319,8 @@ ID: `mint_system.account.report_invoice_document.second_row`
     </t>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.second_row.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.second_row.xml)
 
 ### Sequence In Table  
@@ -3346,8 +3346,8 @@ ID: `mint_system.account.report_invoice_document.sequence_in_table`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.sequence_in_table.xml)
 
 ### Set Ids  
@@ -3374,8 +3374,8 @@ ID: `mint_system.account.report_invoice_document.set_ids`
 		<attribute name="id">price</attribute>
 	</xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.set_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.set_ids.xml)
 
 ### Show Default Code  
@@ -3396,8 +3396,8 @@ ID: `mint_system.account.report_invoice_document.show_default_code`
     </td>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.show_default_code.xml)
 
 ### Show Product Name  
@@ -3417,8 +3417,8 @@ ID: `mint_system.account.report_invoice_document.show_product_name`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.show_product_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.show_product_name.xml)
 
 ### Style Trimada  
@@ -3510,8 +3510,8 @@ ID: `mint_system.account.report_invoice_document.style_trimada`
 	</span>
 	
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.style_trimada.xml)
 
 ### Switch Address Block  
@@ -3535,8 +3535,8 @@ ID: `mint_system.account.report_invoice_document.switch_address_block`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.switch_address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.switch_address_block.xml)
 
 ### Unit Precision  
@@ -3550,8 +3550,8 @@ ID: `mint_system.account.report_invoice_document.unit_precision`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.report_invoice_document.unit_precision.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.unit_precision.xml)
 
 ### X Picking List  
@@ -3564,8 +3564,8 @@ ID: `mint_system.account.report_invoice_document.x_picking_list`
     <attribute name="t-field">o.x_picking_list</attribute>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.report_invoice_document.x_picking_list.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.x_picking_list.xml)
 
 ## Res Config Settings View Form  
@@ -3580,8 +3580,8 @@ ID: `mint_system.account.res_config_settings_view_form.domain_expense_currency_e
   </field>
 
 </data>
-```
 
+```
 Source: [snippets/account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml)
 
 ## View Bank Statement Form  
@@ -3600,8 +3600,8 @@ ID: `mint_system.account.view_bank_statement_form.edit_balance`
     </field>
 
 </data>
-```
 
+```
 Source: [snippets/account.view_bank_statement_form.edit_balance.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_bank_statement_form.edit_balance.xml)
 
 ### Show Cashbox  
@@ -3615,8 +3615,8 @@ ID: `mint_system.account.view_bank_statement_form.show_cashbox`
     </field>
 
 </data>
-```
 
+```
 Source: [snippets/account.view_bank_statement_form.show_cashbox.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_bank_statement_form.show_cashbox.xml)
 
 ### X Cashbox Start Ids  
@@ -3649,8 +3649,8 @@ ID: `mint_system.account.view_bank_statement_form.x_cashbox_start_ids`
   </page>
 
 </data>
-```
 
+```
 Source: [snippets/account.view_bank_statement_form.x_cashbox_start_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_bank_statement_form.x_cashbox_start_ids.xml)
 
 ## View In Invoice Tree  
@@ -3664,8 +3664,8 @@ ID: `mint_system.account.view_in_invoice_tree.add_discount_date`
     <field name="discount_date" optional="hide" />
     </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.view_in_invoice_tree.add_discount_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_in_invoice_tree.add_discount_date.xml)
 
 ## View Invoice Tree  
@@ -3679,8 +3679,8 @@ ID: `mint_system.account.view_invoice_tree.add_currency_id`
         <field name="currency_id" optional="hide"/>
     </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.view_invoice_tree.add_currency_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_invoice_tree.add_currency_id.xml)
 
 ### Show Date  
@@ -3693,8 +3693,8 @@ ID: `mint_system.account.view_invoice_tree.show_date`
         <field name="date" optional="show"/>
     </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.view_invoice_tree.show_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_invoice_tree.show_date.xml)
 
 ### X Account Codes  
@@ -3707,8 +3707,8 @@ ID: `mint_system.account.view_invoice_tree.x_account_codes`
         <field name="x_account_codes" optional="hide"/>
     </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.view_invoice_tree.x_account_codes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_invoice_tree.x_account_codes.xml)
 
 ## View Move Form  
@@ -3722,8 +3722,8 @@ ID: `mint_system.account.view_move_form.hide_payment_reference`
     </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.view_move_form.hide_payment_reference.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.hide_payment_reference.xml)
 
 ### Payment Reference Readonly  
@@ -3737,8 +3737,8 @@ ID: `mint_system.account.view_move_form.payment_reference_readonly`
     </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/account.view_move_form.payment_reference_readonly.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.payment_reference_readonly.xml)
 
 ### Remove Isr Button  
@@ -3750,8 +3750,8 @@ ID: `mint_system.account.view_move_form.remove_isr_button`
     <button id="l10n_ch_btn_isr_print_highlight" position="replace"/>
     <button id="btn_isr_print_normal" position="replace"/>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.view_move_form.remove_isr_button.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.remove_isr_button.xml)
 
 ### Show Commercial Partner Id  
@@ -3764,8 +3764,8 @@ ID: `mint_system.account.view_move_form.show_commercial_partner_id`
         <field name="commercial_partner_id"/>
     </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.view_move_form.show_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_commercial_partner_id.xml)
 
 ### Show Posted Before  
@@ -3778,8 +3778,8 @@ ID: `mint_system.account.view_move_form.show_posted_before`
         <field name="posted_before" />
     </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.view_move_form.show_posted_before.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_posted_before.xml)
 
 ### Show Sale Order Lines  
@@ -3792,8 +3792,8 @@ ID: `mint_system.account.view_move_form.show_sale_order_lines`
         <field name="sale_line_ids" widget="many2many_tags" optional="hide"/>
     </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.view_move_form.show_sale_order_lines.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_sale_order_lines.xml)
 
 ### Show User Id  
@@ -3806,8 +3806,8 @@ ID: `mint_system.account.view_move_form.show_user_id`
         <field name="user_id"/>
     </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.view_move_form.show_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_user_id.xml)
 
 ### X Sale Order Id  
@@ -3820,8 +3820,8 @@ ID: `mint_system.account.view_move_form.x_sale_order_id`
         <field name="x_sale_order_id" widget="many2one" optional="hide"/>
     </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.view_move_form.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.x_sale_order_id.xml)
 
 ## View Move Line Tax Audit Tree  
@@ -3835,8 +3835,8 @@ ID: `mint_system.account.view_move_line_tax_audit_tree.sum_currency`
         <attribute name="sum">Amount Currency</attribute>
     </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.view_move_line_tax_audit_tree.sum_currency.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_line_tax_audit_tree.sum_currency.xml)
 
 ## View Move Line Tree Grouped General  
@@ -3851,8 +3851,8 @@ ID: `mint_system.account.view_move_line_tree_grouped_general.amount_currency_opt
   </field>
 
 </data>
-```
 
+```
 Source: [snippets/account.view_move_line_tree_grouped_general.amount_currency_optional.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_line_tree_grouped_general.amount_currency_optional.xml)
 
 ## View Move Tree  
@@ -3866,8 +3866,8 @@ ID: `mint_system.account.view_move_tree.x_account_codes`
         <field name="x_account_codes" optional="hide"/>
     </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.view_move_tree.x_account_codes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_tree.x_account_codes.xml)
 
 ## View Out Invoice Tree  
@@ -3882,8 +3882,8 @@ ID: `mint_system.account.view_out_invoice_tree.show_partner_shipping`
   </field>
 
 </data>
-```
 
+```
 Source: [snippets/account.view_out_invoice_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_out_invoice_tree.show_partner_shipping.xml)
 
 ## View Partner Property Form  
@@ -3897,7 +3897,7 @@ ID: `mint_system.account.view_partner_property_form.show_commercial_partner_id`
         <field name="commercial_partner_id"/>
     </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/account.view_partner_property_form.show_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_partner_property_form.show_commercial_partner_id.xml)
 

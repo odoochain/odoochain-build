@@ -63,8 +63,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_footer`
     </table>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.add_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.add_footer.xml)
 
 ### Add Header And Footer Note  
@@ -86,8 +86,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_header_and_
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.add_header_and_footer_note.xml)
 
 ### Add Infotable  
@@ -155,8 +155,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_infotable`
 
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.add_infotable.xml)
 
 ### Address Block  
@@ -185,8 +185,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.address_block`
         </t>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.address_block.xml)
 
 ### Format Qty With Decimal  
@@ -205,8 +205,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty_with
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml)
 
 ### Format Qty  
@@ -220,8 +220,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty`
 	</span>
 
 </data>
-```
 
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.format_qty.xml)
 
 ### Get Position  
@@ -242,8 +242,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.get_position`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.get_position.xml)
 
 ### Modify Information Block  
@@ -266,8 +266,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.modify_informat
         </td>
    </xpath>
    
-</data>```
-
+</data>
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.modify_information_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.modify_information_block.xml)
 
 ### Relocate Price Unit  
@@ -290,8 +290,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.relocate_price_
         </td>
    </xpath>
    
-</data>```
-
+</data>
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.relocate_price_unit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.relocate_price_unit.xml)
 
 ### Remove Informations  
@@ -304,8 +304,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.remove_informat
   </xpath>
     
 </data>
-```
 
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.remove_informations.xml)
 
 ### Replace Product Description  
@@ -324,8 +324,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_product
 
 </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.replace_product_description.xml)
 
 ### Replace Summary  
@@ -362,8 +362,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_summary
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.replace_summary.xml)
 
 ### Round Price  
@@ -377,8 +377,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.round_price`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.round_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.round_price.xml)
 
 ### Round Total Price  
@@ -391,8 +391,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.round_total_pri
     <span t-esc="'{0:,.2f}'.format(float(l.price_subtotal)).replace(',','\'')"/>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.round_total_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.round_total_price.xml)
 
 ### Second Row  
@@ -439,8 +439,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.second_row`
     </t>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.second_row.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.second_row.xml)
 
 ### Set Ids  
@@ -496,8 +496,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.set_ids`
 	</xpath>
 	-->
 
-</data>```
-
+</data>
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.set_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.set_ids.xml)
 
 ### Show Default Code  
@@ -521,8 +521,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.show_default_co
 </data>
 
 
-```
 
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.show_default_code.xml)
 
 ### Show Description  
@@ -543,8 +543,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.show_descriptio
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.show_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.show_description.xml)
 
 ### Style Trimada  
@@ -610,8 +610,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_trimada`
 	</xpath>
 
 </data>
-```
 
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.style_trimada.xml)
 
 ### Title Margin  
@@ -624,8 +624,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.title_margin`
     <attribute name="style" separator=";" add="margin-top:10mm; margin-bottom:3mm;"/>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.title_margin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.title_margin.xml)
 
 ## View Blanket Order Form  
@@ -639,8 +639,8 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_da
       <attribute name="attrs">{"invisible": [["state","in",["cancel"]]], "readonly": [["state","in",["cancel"]]], "required": [["state","in",["sent", "open","done", "expired"]]]}</attribute>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_order.xml)
 
 ## View Blanket Order Search  
@@ -685,8 +685,8 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_search.replace_filter`
     </search>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/sale_blanket_order.view_blanket_order_search.replace_filter.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_blanket_order_search.replace_filter.xml)
 
 ## View Blanket Order Tree  
@@ -716,7 +716,7 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_tree.reset_view`
     <field name="amount_total" widget="monetary" decoration-bf="1"/>
   </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/sale_blanket_order.view_blanket_order_tree.reset_view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_blanket_order_tree.reset_view.xml)
 

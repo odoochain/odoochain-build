@@ -876,7 +876,7 @@ function update-docs() {
                 echo "ID: \`mint_system.$MODULE.$XML_ID.$EDIT\`  " >> $DOCFILE
                 echo -e '```xml' >> $DOCFILE
                 cat "$FILE" >> $DOCFILE
-                echo -e '```\n' >> $DOCFILE
+                echo -e '\n```' >> $DOCFILE
                 echo -e "Source: [$FILE]($PATH_URL/$FILE)\n" >> $DOCFILE
             done
         done

@@ -13,8 +13,8 @@ ID: `mint_system.product.product_normal_only_form_view.add_x_product_label`
     <field name="x_product_label"/>
   </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_normal_only_form_view.add_x_product_label.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_only_form_view.add_x_product_label.xml)
 
 ## Product Packaging Form View  
@@ -29,8 +29,8 @@ ID: `mint_system.product.product_packaging_form_view.x_packaging_uom_id`
   </field>
 
 </data>
-```
 
+```
 Source: [snippets/product.product_packaging_form_view.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_packaging_form_view.x_packaging_uom_id.xml)
 
 ## Product Pricelist View  
@@ -45,8 +45,8 @@ ID: `mint_system.product.product_pricelist_view.show_product`
   </field>
 
 </data>
-```
 
+```
 Source: [snippets/product.product_pricelist_view.show_product.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_pricelist_view.show_product.xml)
 
 ## Product Template Form View  
@@ -61,8 +61,8 @@ ID: `mint_system.product.product_template_form_view.add_type_description`
   <h3><field name="type_description2"/></h3>
   </xpath>                
                         
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_template_form_view.add_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_form_view.add_type_description.xml)
 
 ### Replace Title  
@@ -103,8 +103,8 @@ ID: `mint_system.product.product_template_form_view.replace_title`
   </table>
   </div>
   </xpath>              
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_template_form_view.replace_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_form_view.replace_title.xml)
 
 ## Product Template Kanban View  
@@ -129,8 +129,8 @@ ID: `mint_system.product.product_template_kanban_view.add_product_info`
     </div>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_template_kanban_view.add_product_info.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_kanban_view.add_product_info.xml)
 
 ## Product Template Only Form View  
@@ -144,8 +144,8 @@ ID: `mint_system.product.product_template_only_form_view.add_x_product_label`
         <field name="x_product_label"/>
     </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_template_only_form_view.add_x_product_label.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.add_x_product_label.xml)
 
 ### Hide Barcode  
@@ -158,8 +158,8 @@ ID: `mint_system.product.product_template_only_form_view.hide_barcode`
     <attribute name="groups">base.group_erp_manager</attribute>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_template_only_form_view.hide_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.hide_barcode.xml)
 
 ### Hide Default Code  
@@ -170,8 +170,8 @@ ID: `mint_system.product.product_template_only_form_view.hide_default_code`
 
 <xpath expr="///group[@name='group_general']/field[@name='default_code']" position="replace"/>
 
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_template_only_form_view.hide_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.hide_default_code.xml)
 
 ### Replace Feeder Id  
@@ -187,8 +187,8 @@ ID: `mint_system.product.product_template_only_form_view.replace_feeder_id`
     <field name="feeder_id"/>
   </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_template_only_form_view.replace_feeder_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.replace_feeder_id.xml)
 
 ### Show Handle  
@@ -210,8 +210,8 @@ ID: `mint_system.product.product_template_only_form_view.show_handle`
     </data>
 
 </data>
-```
 
+```
 Source: [snippets/product.product_template_only_form_view.show_handle.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.show_handle.xml)
 
 ### X Expiration Days  
@@ -224,8 +224,8 @@ ID: `mint_system.product.product_template_only_form_view.x_expiration_days`
         <field name="x_expiration_days" />
     </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_template_only_form_view.x_expiration_days.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.x_expiration_days.xml)
 
 ### X Hide On Delivery  
@@ -238,8 +238,8 @@ ID: `mint_system.product.product_template_only_form_view.x_hide_on_delivery`
         <field name="x_hide_on_delivery" widget="boolean_toggle" />
     </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_template_only_form_view.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.x_hide_on_delivery.xml)
 
 ### X Storage Temperature  
@@ -252,8 +252,8 @@ ID: `mint_system.product.product_template_only_form_view.x_storage_temperature`
         <field name="x_storage_temperature" />
     </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_template_only_form_view.x_storage_temperature.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.x_storage_temperature.xml)
 
 ## Product Template Search View  
@@ -268,8 +268,8 @@ ID: `mint_system.product.product_template_search_view.add_type_description`
     <field string="Typenbezeichnung" name="type_description" filter_domain="['|', ('type_description', 'like', self), ('type_description2', 'like', self)]"/>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_template_search_view.add_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_search_view.add_type_description.xml)
 
 ## Product Template Tree View  
@@ -284,8 +284,8 @@ ID: `mint_system.product.product_template_tree_view.add_default_code_and_type_de
   <field name="type_description"/>
 </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_template_tree_view.add_default_code_and_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_tree_view.add_default_code_and_type_description.xml)
 
 ### Add Last Update Create Date And X Xml Id  
@@ -300,8 +300,8 @@ ID: `mint_system.product.product_template_tree_view.add_last_update_create_date_
   <field name="create_date" optional="show"/>  
 </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_template_tree_view.add_last_update_create_date_and_x_xml_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_tree_view.add_last_update_create_date_and_x_xml_id.xml)
 
 ### Remove Default Code And Responsible  
@@ -318,8 +318,8 @@ ID: `mint_system.product.product_template_tree_view.remove_default_code_and_resp
 
     </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_template_tree_view.remove_default_code_and_responsible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_tree_view.remove_default_code_and_responsible.xml)
 
 ### Set Default Order  
@@ -332,8 +332,8 @@ ID: `mint_system.product.product_template_tree_view.set_default_order`
 <attribute name="default_order">default_code asc"</attribute>
 </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_template_tree_view.set_default_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_tree_view.set_default_order.xml)
 
 ### X Expiration Days  
@@ -346,8 +346,8 @@ ID: `mint_system.product.product_template_tree_view.x_expiration_days`
         <field name="x_expiration_days" optional="show" />
     </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_template_tree_view.x_expiration_days.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_tree_view.x_expiration_days.xml)
 
 ### X Storage Temperature  
@@ -360,8 +360,8 @@ ID: `mint_system.product.product_template_tree_view.x_storage_temperature`
         <field name="x_storage_temperature" optional="hide" />
     </field>
 
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_template_tree_view.x_storage_temperature.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_tree_view.x_storage_temperature.xml)
 
 ## Product Variant Easy Edit View  
@@ -375,8 +375,8 @@ ID: `mint_system.product.product_variant_easy_edit_view.hide_barcode`
     <attribute name="groups">base.group_erp_manager</attribute>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/product.product_variant_easy_edit_view.hide_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_variant_easy_edit_view.hide_barcode.xml)
 
 ## Report Producttemplatelabel  
@@ -483,7 +483,7 @@ ID: `mint_system.product.report_producttemplatelabel.trimada`
       </t>
     
   </t>
-</t>```
-
+</t>
+```
 Source: [snippets/product.report_producttemplatelabel.trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.report_producttemplatelabel.trimada.xml)
 

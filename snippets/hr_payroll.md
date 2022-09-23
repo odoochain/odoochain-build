@@ -20,8 +20,8 @@ ID: `mint_system.hr_payroll.hr_payslip_line.view_pivot`
     </record>
 
 </odoo>
-```
 
+```
 Source: [snippets/hr_payroll.hr_payslip_line.view_pivot.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_payroll.hr_payslip_line.view_pivot.xml)
 
 ## Hr Salary Rule Form  
@@ -36,8 +36,8 @@ ID: `mint_system.hr_payroll.hr_salary_rule_form.switch_account`
   </xpath>
 
 </data>
-```
 
+```
 Source: [snippets/hr_payroll.hr_salary_rule_form.switch_account.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_payroll.hr_salary_rule_form.switch_account.xml)
 
 ## View Hr Payslip Form  
@@ -52,8 +52,8 @@ ID: `mint_system.hr_payroll.view_hr_payslip_form.show_gio_amount`
   </field>
 
 </data>
-```
 
+```
 Source: [snippets/hr_payroll.view_hr_payslip_form.show_gio_amount.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_payroll.view_hr_payslip_form.show_gio_amount.xml)
 
 ## View Hr Payslip Line Tree  
@@ -68,7 +68,7 @@ ID: `mint_system.hr_payroll.view_hr_payslip_line_tree.slip_show_optional`
   </field>
 
 </data>
-```
 
+```
 Source: [snippets/hr_payroll.view_hr_payslip_line_tree.slip_show_optional.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_payroll.view_hr_payslip_line_tree.slip_show_optional.xml)
 

@@ -13,8 +13,8 @@ ID: `mint_system.l10n_ch.isr_invoice_form.disable_print_buttons`
     <button id="l10n_ch_btn_isr_print_highlight" position="replace"/>
     <button id="btn_isr_print_normal" position="replace"/>
 
-</data>```
-
+</data>
+```
 Source: [snippets/l10n_ch.isr_invoice_form.disable_print_buttons.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/l10n_ch.isr_invoice_form.disable_print_buttons.xml)
 
 ## L10n Ch Swissqr Template  
@@ -28,8 +28,8 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.modify_header_style`
     <t t-set="report_header_style">padding-top:6.2mm; padding-left:23mm; padding-right:8.2mm;</t>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/l10n_ch.l10n_ch_swissqr_template.modify_header_style.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/l10n_ch.l10n_ch_swissqr_template.modify_header_style.xml)
 
 ### Remove Title Prefix  
@@ -42,8 +42,8 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.remove_title_prefix`
     <h1 style="padding-left:8.2mm;" t-esc="o.name"/>
   </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/l10n_ch.l10n_ch_swissqr_template.remove_title_prefix.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/l10n_ch.l10n_ch_swissqr_template.remove_title_prefix.xml)
 
 ### Replace Title  
@@ -75,7 +75,7 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.replace_title`
      <br/>
 </xpath>
 
-</data>```
-
+</data>
+```
 Source: [snippets/l10n_ch.l10n_ch_swissqr_template.replace_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/l10n_ch.l10n_ch_swissqr_template.replace_title.xml)
 
