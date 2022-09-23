@@ -1054,7 +1054,7 @@ ID: `mint_system.ir_model.sale_order_line.x_categ_id`
     <field name="field_description">Produktkategorie</field>
     <field name="model">sale.order.line</field>
     <field name="model_id" ref="sale.model_sale_order_line"/>
-    <field name="name">x_pricelist_id</field>
+    <field name="name">x_categ_id</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -1066,30 +1066,6 @@ ID: `mint_system.ir_model.sale_order_line.x_categ_id`
 
 ```
 Source: [snippets/ir_model.sale_order_line.x_categ_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_categ_id.xml)
-
-### X Cateq Id  
-ID: `mint_system.ir_model.sale_order_line.x_cateq_id`  
-```xml
-<?xml version='1.0' encoding='UTF-8' ?>
-<odoo>
-
-  <record id="x_cateq_id" model="ir.model.fields">
-    <field name="domain">[]</field>
-    <field name="field_description">Produktkategorie</field>
-    <field name="model">sale.order.line</field>
-    <field name="model_id" ref="sale.model_sale_order_line"/>
-    <field name="name">x_cateq_id</field>
-    <field name="store" eval="True"/>
-    <field name="readonly" eval="True"/>
-    <field name="copied" eval="False"/>
-    <field name="ttype">many2one</field>
-    <field name="related">product_id.cateq_id</field>
-  </record>
-
-</odoo>
-
-```
-Source: [snippets/ir_model.sale_order_line.x_cateq_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_cateq_id.xml)
 
 ### X Client Order Ref  
 ID: `mint_system.ir_model.sale_order_line.x_client_order_ref`  
