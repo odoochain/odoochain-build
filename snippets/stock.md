@@ -5,7 +5,7 @@ prev: ./snippets.md
 ## Label Transfer Template View  
 ### Basis57  
 ID: `mint_system.stock.label_transfer_template_view.basis57`  
-```console
+```xml
 <t t-name="stock.label_transfer_template_view.basis57">
     <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="picking">
@@ -199,11 +199,12 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
         </t>
     </t>
 </t>```
+
 Source: [snippets/stock.label_transfer_template_view.basis57.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.label_transfer_template_view.basis57.xml)
 
 ### Trimada  
 ID: `mint_system.stock.label_transfer_template_view.trimada`  
-```console
+```xml
 <t t-name="stock.label_transfer_template_view.trimada">
     <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="picking">
@@ -319,12 +320,13 @@ ID: `mint_system.stock.label_transfer_template_view.trimada`
         </t>
     </t>
 </t>```
+
 Source: [snippets/stock.label_transfer_template_view.trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.label_transfer_template_view.trimada.xml)
 
 ## Report Bordero  
 ### Basis57  
 ID: `mint_system.stock.report_bordero.basis57`  
-```console
+```xml
 <t t-name="stock.report_bordero.basis57">
     <t t-call="web.html_container">
         <t t-call="web.external_layout">
@@ -409,12 +411,13 @@ ID: `mint_system.stock.report_bordero.basis57`
         </t>
     </t>
 </t>```
+
 Source: [snippets/stock.report_bordero.basis57.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_bordero.basis57.xml)
 
 ## Report Delivery Document  
 ### Add Date  
 ID: `mint_system.stock.report_delivery_document.add_date`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
   
@@ -431,11 +434,12 @@ ID: `mint_system.stock.report_delivery_document.add_date`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_delivery_document.add_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.add_date.xml)
 
 ### Add Header And Footer Note  
 ID: `mint_system.stock.report_delivery_document.add_header_and_footer_note`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -452,11 +456,12 @@ ID: `mint_system.stock.report_delivery_document.add_header_and_footer_note`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_delivery_document.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.add_header_and_footer_note.xml)
 
 ### Add Incoterms  
 ID: `mint_system.stock.report_delivery_document.add_incoterms`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -471,11 +476,12 @@ ID: `mint_system.stock.report_delivery_document.add_incoterms`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.add_incoterms.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.add_incoterms.xml)
 
 ### Add Infotable  
 ID: `mint_system.stock.report_delivery_document.add_infotable`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -542,11 +548,12 @@ ID: `mint_system.stock.report_delivery_document.add_infotable`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_delivery_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.add_infotable.xml)
 
 ### Add Open Quantity In Backorder  
 ID: `mint_system.stock.report_delivery_document.add_open_quantity_in_backorder`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -561,11 +568,12 @@ ID: `mint_system.stock.report_delivery_document.add_open_quantity_in_backorder`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_delivery_document.add_open_quantity_in_backorder.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.add_open_quantity_in_backorder.xml)
 
 ### Append Signature Text  
 ID: `mint_system.stock.report_delivery_document.append_signature_text`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -588,11 +596,12 @@ ID: `mint_system.stock.report_delivery_document.append_signature_text`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.append_signature_text.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.append_signature_text.xml)
 
 ### Backorder Signature Section  
 ID: `mint_system.stock.report_delivery_document.backorder_signature_section`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -607,11 +616,12 @@ ID: `mint_system.stock.report_delivery_document.backorder_signature_section`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.backorder_signature_section.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.backorder_signature_section.xml)
 
 ### Barcode Customer Reference  
 ID: `mint_system.stock.report_delivery_document.barcode_customer_reference`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -621,11 +631,12 @@ ID: `mint_system.stock.report_delivery_document.barcode_customer_reference`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.barcode_customer_reference.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.barcode_customer_reference.xml)
 
 ### Description Sale  
 ID: `mint_system.stock.report_delivery_document.description_sale`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -640,11 +651,12 @@ ID: `mint_system.stock.report_delivery_document.description_sale`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.description_sale.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.description_sale.xml)
 
 ### Disable Stock Move Line Table  
 ID: `mint_system.stock.report_delivery_document.disable_stock_move_line_table`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
   
@@ -658,11 +670,12 @@ ID: `mint_system.stock.report_delivery_document.disable_stock_move_line_table`
   
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.disable_stock_move_line_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.disable_stock_move_line_table.xml)
 
 ### Filter Qty Done  
 ID: `mint_system.stock.report_delivery_document.filter_qty_done`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -680,11 +693,12 @@ ID: `mint_system.stock.report_delivery_document.filter_qty_done`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.filter_qty_done.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.filter_qty_done.xml)
 
 ### Format Address Blocks  
 ID: `mint_system.stock.report_delivery_document.format_address_blocks`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -695,11 +709,12 @@ ID: `mint_system.stock.report_delivery_document.format_address_blocks`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_address_blocks.xml)
 
 ### Format Date Short  
 ID: `mint_system.stock.report_delivery_document.format_date_short`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -721,11 +736,12 @@ ID: `mint_system.stock.report_delivery_document.format_date_short`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.format_date_short.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_date_short.xml)
 
 ### Format Main Table  
 ID: `mint_system.stock.report_delivery_document.format_main_table`  
-```console
+```xml
 <?xml version="1.0"?>
 <!-- Change style of first column -->
 <data inherit_id="stock.report_delivery_document" priority="50">
@@ -744,11 +760,12 @@ ID: `mint_system.stock.report_delivery_document.format_main_table`
     </xpath>
 
 </data> ```
+
 Source: [snippets/stock.report_delivery_document.format_main_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_main_table.xml)
 
 ### Format Pos  
 ID: `mint_system.stock.report_delivery_document.format_pos`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -757,11 +774,12 @@ ID: `mint_system.stock.report_delivery_document.format_pos`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_delivery_document.format_pos.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_pos.xml)
 
 ### Format Qty  
 ID: `mint_system.stock.report_delivery_document.format_qty`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
 
@@ -775,11 +793,12 @@ ID: `mint_system.stock.report_delivery_document.format_qty`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_qty.xml)
 
 ### Format Title Trimada  
 ID: `mint_system.stock.report_delivery_document.format_title_trimada`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
 
@@ -789,11 +808,12 @@ ID: `mint_system.stock.report_delivery_document.format_title_trimada`
   
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.format_title_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_title_trimada.xml)
 
 ### Format Title  
 ID: `mint_system.stock.report_delivery_document.format_title`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -805,11 +825,12 @@ ID: `mint_system.stock.report_delivery_document.format_title`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.format_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_title.xml)
 
 ### Get Position  
 ID: `mint_system.stock.report_delivery_document.get_position`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
 
@@ -855,11 +876,12 @@ ID: `mint_system.stock.report_delivery_document.get_position`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.get_position.xml)
 
 ### Header Margin  
 ID: `mint_system.stock.report_delivery_document.header_margin`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -873,11 +895,12 @@ ID: `mint_system.stock.report_delivery_document.header_margin`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.header_margin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.header_margin.xml)
 
 ### Hide Backorder Quantity  
 ID: `mint_system.stock.report_delivery_document.hide_backorder_quantity`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -886,11 +909,12 @@ ID: `mint_system.stock.report_delivery_document.hide_backorder_quantity`
 	</xpath>
 
 </data>```
+
 Source: [snippets/stock.report_delivery_document.hide_backorder_quantity.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.hide_backorder_quantity.xml)
 
 ### Hide If Not In State Done  
 ID: `mint_system.stock.report_delivery_document.hide_if_not_in_state_done`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -905,21 +929,23 @@ ID: `mint_system.stock.report_delivery_document.hide_if_not_in_state_done`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_delivery_document.hide_if_not_in_state_done.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.hide_if_not_in_state_done.xml)
 
 ### Hide Name  
 ID: `mint_system.stock.report_delivery_document.hide_name`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
   <xpath expr="//span[@t-field='o.name']/.." position="replace">
   </xpath>
 </data>```
+
 Source: [snippets/stock.report_delivery_document.hide_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.hide_name.xml)
 
 ### Hs Code Origin And Weight  
 ID: `mint_system.stock.report_delivery_document.hs_code_origin_and_weight`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -940,11 +966,12 @@ ID: `mint_system.stock.report_delivery_document.hs_code_origin_and_weight`
 </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_delivery_document.hs_code_origin_and_weight.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.hs_code_origin_and_weight.xml)
 
 ### Margin After Title  
 ID: `mint_system.stock.report_delivery_document.margin_after_title`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
 
@@ -954,11 +981,12 @@ ID: `mint_system.stock.report_delivery_document.margin_after_title`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.margin_after_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.margin_after_title.xml)
 
 ### Margin Before Title  
 ID: `mint_system.stock.report_delivery_document.margin_before_title`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
 
@@ -967,11 +995,12 @@ ID: `mint_system.stock.report_delivery_document.margin_before_title`
   </xpath>
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.margin_before_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.margin_before_title.xml)
 
 ### Modify Main Table  
 ID: `mint_system.stock.report_delivery_document.modify_main_table`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -1075,11 +1104,12 @@ ID: `mint_system.stock.report_delivery_document.modify_main_table`
   
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.modify_main_table.xml)
 
 ### Pos In Table  
 ID: `mint_system.stock.report_delivery_document.pos_in_table`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -1115,11 +1145,12 @@ ID: `mint_system.stock.report_delivery_document.pos_in_table`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.pos_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.pos_in_table.xml)
 
 ### Remove Informations  
 ID: `mint_system.stock.report_delivery_document.remove_informations`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -1127,11 +1158,12 @@ ID: `mint_system.stock.report_delivery_document.remove_informations`
 </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_delivery_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.remove_informations.xml)
 
 ### Replace Header  
 ID: `mint_system.stock.report_delivery_document.replace_header`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 	<xpath expr="//div[@t-if='o.origin']/.." position="before">
@@ -1161,11 +1193,12 @@ ID: `mint_system.stock.report_delivery_document.replace_header`
 		</table>
 	</xpath>
 </data>```
+
 Source: [snippets/stock.report_delivery_document.replace_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_header.xml)
 
 ### Replace Information Table2  
 ID: `mint_system.stock.report_delivery_document.replace_information_table2`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -1204,11 +1237,12 @@ ID: `mint_system.stock.report_delivery_document.replace_information_table2`
   
   </xpath>
 </data>```
+
 Source: [snippets/stock.report_delivery_document.replace_information_table2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_information_table2.xml)
 
 ### Replace Information Table  
 ID: `mint_system.stock.report_delivery_document.replace_information_table`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -1268,11 +1302,12 @@ ID: `mint_system.stock.report_delivery_document.replace_information_table`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_information_table.xml)
 
 ### Replace Infotable  
 ID: `mint_system.stock.report_delivery_document.replace_infotable`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -1315,11 +1350,12 @@ ID: `mint_system.stock.report_delivery_document.replace_infotable`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_delivery_document.replace_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_infotable.xml)
 
 ### Replace Order Definition  
 ID: `mint_system.stock.report_delivery_document.replace_order_definition`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
   <xpath expr="//div[@t-if='o.origin']/.." position="replace">    
@@ -1349,11 +1385,12 @@ ID: `mint_system.stock.report_delivery_document.replace_order_definition`
     </table>
   </xpath>
 </data>```
+
 Source: [snippets/stock.report_delivery_document.replace_order_definition.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_order_definition.xml)
 
 ### Replace Product Description On Backorder  
 ID: `mint_system.stock.report_delivery_document.replace_product_description_on_backorder`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">  
   
@@ -1385,11 +1422,12 @@ ID: `mint_system.stock.report_delivery_document.replace_product_description_on_b
   </xpath>  
   
 </data>```
+
 Source: [snippets/stock.report_delivery_document.replace_product_description_on_backorder.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_product_description_on_backorder.xml)
 
 ### Replace Product Description  
 ID: `mint_system.stock.report_delivery_document.replace_product_description`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -1405,11 +1443,12 @@ ID: `mint_system.stock.report_delivery_document.replace_product_description`
   </xpath>
   
 </data>```
+
 Source: [snippets/stock.report_delivery_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_product_description.xml)
 
 ### Replace Product Uom Qty  
 ID: `mint_system.stock.report_delivery_document.replace_product_uom_qty`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
 
@@ -1419,11 +1458,12 @@ ID: `mint_system.stock.report_delivery_document.replace_product_uom_qty`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.replace_product_uom_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_product_uom_qty.xml)
 
 ### Replace Table  
 ID: `mint_system.stock.report_delivery_document.replace_table`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -1467,11 +1507,12 @@ ID: `mint_system.stock.report_delivery_document.replace_table`
 </xpath>
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.replace_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_table.xml)
 
 ### Sale Order Note  
 ID: `mint_system.stock.report_delivery_document.sale_order_note`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -1481,11 +1522,12 @@ ID: `mint_system.stock.report_delivery_document.sale_order_note`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.sale_order_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.sale_order_note.xml)
 
 ### Sale Stock Picking Note  
 ID: `mint_system.stock.report_delivery_document.sale_stock_picking_note`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="51">
 
@@ -1498,11 +1540,12 @@ ID: `mint_system.stock.report_delivery_document.sale_stock_picking_note`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.sale_stock_picking_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.sale_stock_picking_note.xml)
 
 ### Sequence In Table  
 ID: `mint_system.stock.report_delivery_document.sequence_in_table`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -1520,11 +1563,12 @@ ID: `mint_system.stock.report_delivery_document.sequence_in_table`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.sequence_in_table.xml)
 
 ### Set Customer Reference  
 ID: `mint_system.stock.report_delivery_document.set_customer_reference`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -1539,11 +1583,12 @@ ID: `mint_system.stock.report_delivery_document.set_customer_reference`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.set_customer_reference.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.set_customer_reference.xml)
 
 ### Set Ids  
 ID: `mint_system.stock.report_delivery_document.set_ids`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
 
@@ -1588,11 +1633,12 @@ ID: `mint_system.stock.report_delivery_document.set_ids`
 	</xpath>
 
 </data>```
+
 Source: [snippets/stock.report_delivery_document.set_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.set_ids.xml)
 
 ### Show Default Code  
 ID: `mint_system.stock.report_delivery_document.show_default_code`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -1613,11 +1659,12 @@ ID: `mint_system.stock.report_delivery_document.show_default_code`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_delivery_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.show_default_code.xml)
 
 ### Show Quantity Done  
 ID: `mint_system.stock.report_delivery_document.show_quantity_done`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -1626,11 +1673,12 @@ ID: `mint_system.stock.report_delivery_document.show_quantity_done`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_delivery_document.show_quantity_done.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.show_quantity_done.xml)
 
 ### Sort By Position  
 ID: `mint_system.stock.report_delivery_document.sort_by_position`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -1647,11 +1695,12 @@ ID: `mint_system.stock.report_delivery_document.sort_by_position`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_delivery_document.sort_by_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.sort_by_position.xml)
 
 ### Style Trimada  
 ID: `mint_system.stock.report_delivery_document.style_trimada`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
 
@@ -1724,11 +1773,12 @@ ID: `mint_system.stock.report_delivery_document.style_trimada`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.style_trimada.xml)
 
 ### Switch Address Block  
 ID: `mint_system.stock.report_delivery_document.switch_address_block`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -1745,11 +1795,12 @@ ID: `mint_system.stock.report_delivery_document.switch_address_block`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.switch_address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.switch_address_block.xml)
 
 ### Title Supplement  
 ID: `mint_system.stock.report_delivery_document.title_supplement`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -1760,11 +1811,12 @@ ID: `mint_system.stock.report_delivery_document.title_supplement`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_delivery_document.title_supplement.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.title_supplement.xml)
 
 ### X Hide On Delivery  
 ID: `mint_system.stock.report_delivery_document.x_hide_on_delivery`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
@@ -1782,12 +1834,13 @@ ID: `mint_system.stock.report_delivery_document.x_hide_on_delivery`
 
 </data>
 ```
+
 Source: [snippets/stock.report_delivery_document.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.x_hide_on_delivery.xml)
 
 ## Report Picking  
 ### Add Address Block  
 ID: `mint_system.stock.report_picking.add_address_block`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -1802,11 +1855,12 @@ ID: `mint_system.stock.report_picking.add_address_block`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_picking.add_address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.add_address_block.xml)
 
 ### Add Delivery Note  
 ID: `mint_system.stock.report_picking.add_delivery_note`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -1816,11 +1870,12 @@ ID: `mint_system.stock.report_picking.add_delivery_note`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.add_delivery_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.add_delivery_note.xml)
 
 ### Barcode Label  
 ID: `mint_system.stock.report_picking.barcode_label`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -1830,11 +1885,12 @@ ID: `mint_system.stock.report_picking.barcode_label`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.barcode_label.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.barcode_label.xml)
 
 ### Format Delivery Date  
 ID: `mint_system.stock.report_picking.format_delivery_date`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -1844,11 +1900,12 @@ ID: `mint_system.stock.report_picking.format_delivery_date`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.format_delivery_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.format_delivery_date.xml)
 
 ### Format Qty Available  
 ID: `mint_system.stock.report_picking.format_qty_available`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
 
@@ -1857,11 +1914,12 @@ ID: `mint_system.stock.report_picking.format_qty_available`
 	</span>
 
 </data>```
+
 Source: [snippets/stock.report_picking.format_qty_available.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.format_qty_available.xml)
 
 ### Format Qty  
 ID: `mint_system.stock.report_picking.format_qty`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -1879,11 +1937,12 @@ ID: `mint_system.stock.report_picking.format_qty`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.format_qty.xml)
 
 ### Format Title  
 ID: `mint_system.stock.report_picking.format_title`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -1893,11 +1952,12 @@ ID: `mint_system.stock.report_picking.format_title`
   
 </data>
 ```
+
 Source: [snippets/stock.report_picking.format_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.format_title.xml)
 
 ### Get Position  
 ID: `mint_system.stock.report_picking.get_position`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -1919,11 +1979,12 @@ ID: `mint_system.stock.report_picking.get_position`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.get_position.xml)
 
 ### Group By Date  
 ID: `mint_system.stock.report_picking.group_by_date`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2011,11 +2072,12 @@ ID: `mint_system.stock.report_picking.group_by_date`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_picking.group_by_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.group_by_date.xml)
 
 ### Header Box  
 ID: `mint_system.stock.report_picking.header_box`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2034,22 +2096,24 @@ ID: `mint_system.stock.report_picking.header_box`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_picking.header_box.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.header_box.xml)
 
 ### Hide Address  
 ID: `mint_system.stock.report_picking.hide_address`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
     <xpath expr="//div[@name='div_outgoing_address']/.." position="replace"/>
 
 </data>```
+
 Source: [snippets/stock.report_picking.hide_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.hide_address.xml)
 
 ### Hide Location Dest  
 ID: `mint_system.stock.report_picking.hide_location_dest`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2073,22 +2137,24 @@ ID: `mint_system.stock.report_picking.hide_location_dest`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_picking.hide_location_dest.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.hide_location_dest.xml)
 
 ### Hide Name  
 ID: `mint_system.stock.report_picking.hide_name`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
     <xpath expr="//h1[@t-field='o.name']" position="replace"/>
     
 </data>```
+
 Source: [snippets/stock.report_picking.hide_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.hide_name.xml)
 
 ### Margin Barcode  
 ID: `mint_system.stock.report_picking.margin_barcode`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2098,11 +2164,12 @@ ID: `mint_system.stock.report_picking.margin_barcode`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.margin_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.margin_barcode.xml)
 
 ### Margin Before Table  
 ID: `mint_system.stock.report_picking.margin_before_table`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
 
@@ -2112,11 +2179,12 @@ ID: `mint_system.stock.report_picking.margin_before_table`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.margin_before_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.margin_before_table.xml)
 
 ### Modify No Reserved Product  
 ID: `mint_system.stock.report_picking.modify_no_reserved_product`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2125,11 +2193,12 @@ ID: `mint_system.stock.report_picking.modify_no_reserved_product`
   </xpath>
   
 </data>```
+
 Source: [snippets/stock.report_picking.modify_no_reserved_product.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.modify_no_reserved_product.xml)
 
 ### Partner Ref  
 ID: `mint_system.stock.report_picking.partner_ref`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2142,11 +2211,12 @@ ID: `mint_system.stock.report_picking.partner_ref`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.partner_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.partner_ref.xml)
 
 ### Pos In Table  
 ID: `mint_system.stock.report_picking.pos_in_table`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
 
@@ -2169,11 +2239,12 @@ ID: `mint_system.stock.report_picking.pos_in_table`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.pos_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.pos_in_table.xml)
 
 ### Pricelist Below Address  
 ID: `mint_system.stock.report_picking.pricelist_below_address`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2183,11 +2254,12 @@ ID: `mint_system.stock.report_picking.pricelist_below_address`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.pricelist_below_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.pricelist_below_address.xml)
 
 ### Product Description  
 ID: `mint_system.stock.report_picking.product_description`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2209,11 +2281,12 @@ ID: `mint_system.stock.report_picking.product_description`
 	</xpath>
 
 </data>```
+
 Source: [snippets/stock.report_picking.product_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.product_description.xml)
 
 ### Relocate Quantity  
 ID: `mint_system.stock.report_picking.relocate_quantity`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2239,11 +2312,12 @@ ID: `mint_system.stock.report_picking.relocate_quantity`
 	</xpath>
 
 </data>```
+
 Source: [snippets/stock.report_picking.relocate_quantity.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.relocate_quantity.xml)
 
 ### Remove From And To  
 ID: `mint_system.stock.report_picking.remove_from_and_to`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2258,11 +2332,12 @@ ID: `mint_system.stock.report_picking.remove_from_and_to`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.remove_from_and_to.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.remove_from_and_to.xml)
 
 ### Remove Reservation Notice  
 ID: `mint_system.stock.report_picking.remove_reservation_notice`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2270,11 +2345,12 @@ ID: `mint_system.stock.report_picking.remove_reservation_notice`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.remove_reservation_notice.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.remove_reservation_notice.xml)
 
 ### Remove Serial Number  
 ID: `mint_system.stock.report_picking.remove_serial_number`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2286,11 +2362,12 @@ ID: `mint_system.stock.report_picking.remove_serial_number`
   
 </data>
 ```
+
 Source: [snippets/stock.report_picking.remove_serial_number.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.remove_serial_number.xml)
 
 ### Replace Barcode  
 ID: `mint_system.stock.report_picking.replace_barcode`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2310,11 +2387,12 @@ ID: `mint_system.stock.report_picking.replace_barcode`
 
 	</xpath>
 </data>```
+
 Source: [snippets/stock.report_picking.replace_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.replace_barcode.xml)
 
 ### Replace Header  
 ID: `mint_system.stock.report_picking.replace_header`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2349,11 +2427,12 @@ ID: `mint_system.stock.report_picking.replace_header`
 
 	</xpath>
 </data>```
+
 Source: [snippets/stock.report_picking.replace_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.replace_header.xml)
 
 ### Replace Order Definition  
 ID: `mint_system.stock.report_picking.replace_order_definition`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2435,11 +2514,12 @@ ID: `mint_system.stock.report_picking.replace_order_definition`
 
   </xpath>
 </data>```
+
 Source: [snippets/stock.report_picking.replace_order_definition.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.replace_order_definition.xml)
 
 ### Replace Table  
 ID: `mint_system.stock.report_picking.replace_table`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2537,11 +2617,12 @@ ID: `mint_system.stock.report_picking.replace_table`
   
   </xpath>
   </data>```
+
 Source: [snippets/stock.report_picking.replace_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.replace_table.xml)
 
 ### Set Ids  
 ID: `mint_system.stock.report_picking.set_ids`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
 
@@ -2562,11 +2643,12 @@ ID: `mint_system.stock.report_picking.set_ids`
 	</xpath>
 
 </data>```
+
 Source: [snippets/stock.report_picking.set_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.set_ids.xml)
 
 ### Show Default Code  
 ID: `mint_system.stock.report_picking.show_default_code`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2583,11 +2665,12 @@ ID: `mint_system.stock.report_picking.show_default_code`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_picking.show_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_default_code.xml)
 
 ### Show Full Address  
 ID: `mint_system.stock.report_picking.show_full_address`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2597,11 +2680,12 @@ ID: `mint_system.stock.report_picking.show_full_address`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.show_full_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_full_address.xml)
 
 ### Show Move Not Lines  
 ID: `mint_system.stock.report_picking.show_move_not_lines`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="40">
 
@@ -2645,11 +2729,12 @@ ID: `mint_system.stock.report_picking.show_move_not_lines`
     </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_picking.show_move_not_lines.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_move_not_lines.xml)
 
 ### Show Move Qty  
 ID: `mint_system.stock.report_picking.show_move_qty`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2659,11 +2744,12 @@ ID: `mint_system.stock.report_picking.show_move_qty`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.show_move_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_move_qty.xml)
 
 ### Show Order Date  
 ID: `mint_system.stock.report_picking.show_order_date`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2676,11 +2762,12 @@ ID: `mint_system.stock.report_picking.show_order_date`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.show_order_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_order_date.xml)
 
 ### Show Packaging  
 ID: `mint_system.stock.report_picking.show_packaging`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2698,11 +2785,12 @@ ID: `mint_system.stock.report_picking.show_packaging`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.show_packaging.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_packaging.xml)
 
 ### Show Qty Available  
 ID: `mint_system.stock.report_picking.show_qty_available`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
  
@@ -2720,11 +2808,12 @@ ID: `mint_system.stock.report_picking.show_qty_available`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.report_picking.show_qty_available.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_qty_available.xml)
 
 ### Stock Delivery Note  
 ID: `mint_system.stock.report_picking.stock_delivery_note`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2738,11 +2827,12 @@ ID: `mint_system.stock.report_picking.stock_delivery_note`
   
 </data>
 ```
+
 Source: [snippets/stock.report_picking.stock_delivery_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.stock_delivery_note.xml)
 
 ### Style Trimada  
 ID: `mint_system.stock.report_picking.style_trimada`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
 
@@ -2833,11 +2923,12 @@ ID: `mint_system.stock.report_picking.style_trimada`
 	</xpath>
 
 </data>```
+
 Source: [snippets/stock.report_picking.style_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.style_trimada.xml)
 
 ### X Count Packaging  
 ID: `mint_system.stock.report_picking.x_count_packaging`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2855,11 +2946,12 @@ ID: `mint_system.stock.report_picking.x_count_packaging`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.x_count_packaging.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.x_count_packaging.xml)
 
 ### X Packaging Uom Id  
 ID: `mint_system.stock.report_picking.x_packaging_uom_id`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
@@ -2870,12 +2962,13 @@ ID: `mint_system.stock.report_picking.x_packaging_uom_id`
 
 </data>
 ```
+
 Source: [snippets/stock.report_picking.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.x_packaging_uom_id.xml)
 
 ## Stock Report Delivery Aggregated Move Lines  
 ### Add Country Of Origin And Hs Code  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.add_country_of_origin_and_hs_code`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="49">
 
@@ -2897,11 +2990,12 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.add_country_o
 </xpath>
 
 </data>```
+
 Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.add_country_of_origin_and_hs_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.add_country_of_origin_and_hs_code.xml)
 
 ### Add Default Code  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.add_default_code`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
 
@@ -2918,11 +3012,12 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.add_default_c
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.add_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.add_default_code.xml)
 
 ### Format Pos  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.format_pos`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
 
@@ -2935,11 +3030,12 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.format_pos`
   </xpath>
  
 </data>```
+
 Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.format_pos.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.format_pos.xml)
 
 ### Format Table  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.format_table`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
  
@@ -2957,11 +3053,12 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.format_table`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.format_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.format_table.xml)
 
 ### Get Position  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.get_position`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
 
@@ -2989,11 +3086,12 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.get_position`
   </xpath> -->
 
 </data>```
+
 Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.get_position.xml)
 
 ### Pos In Table  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.pos_in_table`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
 
@@ -3005,11 +3103,12 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.pos_in_table`
 
 </data>
 ```
+
 Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.pos_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.pos_in_table.xml)
 
 ### Replace Description  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_description`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
 
@@ -3022,11 +3121,12 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_descr
 
 </data>
 ```
+
 Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.replace_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.replace_description.xml)
 
 ### Replace Name  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_name`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="49">
 
@@ -3037,12 +3137,13 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_name`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.replace_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.replace_name.xml)
 
 ## Stock Report Delivery Has Serial Move Line  
 ### Description Sale  
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.description_sale`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
 
@@ -3059,11 +3160,12 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.description_sa
 
 </data>
 ```
+
 Source: [snippets/stock.stock_report_delivery_has_serial_move_line.description_sale.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_has_serial_move_line.description_sale.xml)
 
 ### Pos In Table  
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.pos_in_table`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
 
@@ -3075,11 +3177,12 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.pos_in_table`
 
 </data>
 ```
+
 Source: [snippets/stock.stock_report_delivery_has_serial_move_line.pos_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_has_serial_move_line.pos_in_table.xml)
 
 ### X Hide On Delivery  
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.x_hide_on_delivery`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
 
@@ -3111,12 +3214,13 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.x_hide_on_deli
 
 </data>
 ```
+
 Source: [snippets/stock.stock_report_delivery_has_serial_move_line.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_has_serial_move_line.x_hide_on_delivery.xml)
 
 ## Stock Report Delivery Kit Sections  
 ### Sequence In Table  
 ID: `mint_system.stock.stock_report_delivery_kit_sections.sequence_in_table`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_kit_sections" priority="50">
   
@@ -3125,12 +3229,13 @@ ID: `mint_system.stock.stock_report_delivery_kit_sections.sequence_in_table`
 </xpath>
 
 </data>```
+
 Source: [snippets/stock.stock_report_delivery_kit_sections.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_kit_sections.sequence_in_table.xml)
 
 ## Stock Report Delivery Package Section Line  
 ### Add Package Info  
 ID: `mint_system.stock.stock_report_delivery_package_section_line.add_package_info`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_package_section_line" priority="50">
 
@@ -3150,11 +3255,12 @@ ID: `mint_system.stock.stock_report_delivery_package_section_line.add_package_in
   </xpath>
 </data>
 ```
+
 Source: [snippets/stock.stock_report_delivery_package_section_line.add_package_info.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_package_section_line.add_package_info.xml)
 
 ### Add Type  
 ID: `mint_system.stock.stock_report_delivery_package_section_line.add_type`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_package_section_line" priority="50">
 
@@ -3174,11 +3280,12 @@ ID: `mint_system.stock.stock_report_delivery_package_section_line.add_type`
   </xpath>
 </data>
 ```
+
 Source: [snippets/stock.stock_report_delivery_package_section_line.add_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_package_section_line.add_type.xml)
 
 ### Set Color  
 ID: `mint_system.stock.stock_report_delivery_package_section_line.set_color`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_package_section_line" priority="50">
   <xpath expr="/t/tr/td" position="attributes">
@@ -3186,12 +3293,13 @@ ID: `mint_system.stock.stock_report_delivery_package_section_line.set_color`
   </xpath>
 </data>
 ```
+
 Source: [snippets/stock.stock_report_delivery_package_section_line.set_color.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_package_section_line.set_color.xml)
 
 ## View Move Form  
 ### Enable Edit And Create  
 ID: `mint_system.stock.view_move_form.enable_edit_and_create`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
 
@@ -3202,11 +3310,12 @@ ID: `mint_system.stock.view_move_form.enable_edit_and_create`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_form.enable_edit_and_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.enable_edit_and_create.xml)
 
 ### Show Immediate Transfer  
 ID: `mint_system.stock.view_move_form.show_immediate_transfer`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
 
@@ -3216,11 +3325,12 @@ ID: `mint_system.stock.view_move_form.show_immediate_transfer`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_form.show_immediate_transfer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_immediate_transfer.xml)
 
 ### Show Locations  
 ID: `mint_system.stock.view_move_form.show_locations`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
 
@@ -3231,11 +3341,12 @@ ID: `mint_system.stock.view_move_form.show_locations`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_form.show_locations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_locations.xml)
 
 ### Show Move Lines  
 ID: `mint_system.stock.view_move_form.show_move_lines`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
 
@@ -3247,11 +3358,12 @@ ID: `mint_system.stock.view_move_form.show_move_lines`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_form.show_move_lines.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_move_lines.xml)
 
 ### Show Packaging  
 ID: `mint_system.stock.view_move_form.show_packaging`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
 
@@ -3261,11 +3373,12 @@ ID: `mint_system.stock.view_move_form.show_packaging`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_form.show_packaging.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_packaging.xml)
 
 ### Show Partner  
 ID: `mint_system.stock.view_move_form.show_partner`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
 
@@ -3275,11 +3388,12 @@ ID: `mint_system.stock.view_move_form.show_partner`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_form.show_partner.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_partner.xml)
 
 ### Show Production  
 ID: `mint_system.stock.view_move_form.show_production`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
 
@@ -3289,11 +3403,12 @@ ID: `mint_system.stock.view_move_form.show_production`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_form.show_production.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_production.xml)
 
 ### Show Quantity Done  
 ID: `mint_system.stock.view_move_form.show_quantity_done`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
 
@@ -3303,12 +3418,13 @@ ID: `mint_system.stock.view_move_form.show_quantity_done`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_form.show_quantity_done.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_quantity_done.xml)
 
 ## View Move Line Form  
 ### Enable Edit And Create  
 ID: `mint_system.stock.view_move_line_form.enable_edit_and_create`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_line_form" priority="50">
 
@@ -3319,11 +3435,12 @@ ID: `mint_system.stock.view_move_line_form.enable_edit_and_create`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_line_form.enable_edit_and_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_line_form.enable_edit_and_create.xml)
 
 ### Show Move Id  
 ID: `mint_system.stock.view_move_line_form.show_move_id`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_line_form" priority="50">
 
@@ -3333,12 +3450,13 @@ ID: `mint_system.stock.view_move_line_form.show_move_id`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_line_form.show_move_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_line_form.show_move_id.xml)
 
 ## View Move Line Tree  
 ### Enable Create  
 ID: `mint_system.stock.view_move_line_tree.enable_create`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_line_tree" priority="50">
 
@@ -3348,12 +3466,13 @@ ID: `mint_system.stock.view_move_line_tree.enable_create`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_line_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_line_tree.enable_create.xml)
 
 ## View Move Tree  
 ### Add Partner  
 ID: `mint_system.stock.view_move_tree.add_partner`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
 
@@ -3363,11 +3482,12 @@ ID: `mint_system.stock.view_move_tree.add_partner`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_tree.add_partner.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.add_partner.xml)
 
 ### Add Picking Partner  
 ID: `mint_system.stock.view_move_tree.add_picking_partner`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
 
@@ -3377,11 +3497,12 @@ ID: `mint_system.stock.view_move_tree.add_picking_partner`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_tree.add_picking_partner.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.add_picking_partner.xml)
 
 ### Enable Create  
 ID: `mint_system.stock.view_move_tree.enable_create`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
 
@@ -3391,11 +3512,12 @@ ID: `mint_system.stock.view_move_tree.enable_create`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.enable_create.xml)
 
 ### Show Create Details  
 ID: `mint_system.stock.view_move_tree.show_create_details`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
 
@@ -3405,11 +3527,12 @@ ID: `mint_system.stock.view_move_tree.show_create_details`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_tree.show_create_details.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.show_create_details.xml)
 
 ### Show Optional  
 ID: `mint_system.stock.view_move_tree.show_optional`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
 
@@ -3419,11 +3542,12 @@ ID: `mint_system.stock.view_move_tree.show_optional`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_tree.show_optional.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.show_optional.xml)
 
 ### Sort Date  
 ID: `mint_system.stock.view_move_tree.sort_date`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
 
@@ -3433,11 +3557,12 @@ ID: `mint_system.stock.view_move_tree.sort_date`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_tree.sort_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.sort_date.xml)
 
 ### X Operation Qty  
 ID: `mint_system.stock.view_move_tree.x_operation_qty`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
 
@@ -3447,11 +3572,12 @@ ID: `mint_system.stock.view_move_tree.x_operation_qty`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_tree.x_operation_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.x_operation_qty.xml)
 
 ### X Picking Partner  
 ID: `mint_system.stock.view_move_tree.x_picking_partner`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
 
@@ -3461,12 +3587,13 @@ ID: `mint_system.stock.view_move_tree.x_picking_partner`
 
 </data>
 ```
+
 Source: [snippets/stock.view_move_tree.x_picking_partner.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.x_picking_partner.xml)
 
 ## View Picking Form  
 ### Modify Readonly Date Done  
 ID: `mint_system.stock.view_picking_form.modify_readonly_date_done`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
 
@@ -3475,11 +3602,12 @@ ID: `mint_system.stock.view_picking_form.modify_readonly_date_done`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.view_picking_form.modify_readonly_date_done.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.modify_readonly_date_done.xml)
 
 ### Modify Readonly Partner Id  
 ID: `mint_system.stock.view_picking_form.modify_readonly_partner_id`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
 
@@ -3488,11 +3616,12 @@ ID: `mint_system.stock.view_picking_form.modify_readonly_partner_id`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.view_picking_form.modify_readonly_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.modify_readonly_partner_id.xml)
 
 ### Modify Readonly User Id  
 ID: `mint_system.stock.view_picking_form.modify_readonly_user_id`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
 
@@ -3501,11 +3630,12 @@ ID: `mint_system.stock.view_picking_form.modify_readonly_user_id`
   </xpath>
 
 </data>```
+
 Source: [snippets/stock.view_picking_form.modify_readonly_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.modify_readonly_user_id.xml)
 
 ### Scheduled Date Readonly  
 ID: `mint_system.stock.view_picking_form.scheduled_date_readonly`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
 
@@ -3515,11 +3645,12 @@ ID: `mint_system.stock.view_picking_form.scheduled_date_readonly`
 
 </data>
 ```
+
 Source: [snippets/stock.view_picking_form.scheduled_date_readonly.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.scheduled_date_readonly.xml)
 
 ### Sequence Handle  
 ID: `mint_system.stock.view_picking_form.sequence_handle`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
 
@@ -3529,11 +3660,12 @@ ID: `mint_system.stock.view_picking_form.sequence_handle`
 
 </data>
 ```
+
 Source: [snippets/stock.view_picking_form.sequence_handle.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.sequence_handle.xml)
 
 ### Show Date  
 ID: `mint_system.stock.view_picking_form.show_date`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
 
@@ -3543,11 +3675,12 @@ ID: `mint_system.stock.view_picking_form.show_date`
 
 </data>
 ```
+
 Source: [snippets/stock.view_picking_form.show_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_date.xml)
 
 ### Show Details Visible  
 ID: `mint_system.stock.view_picking_form.show_details_visible`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
 
@@ -3557,11 +3690,12 @@ ID: `mint_system.stock.view_picking_form.show_details_visible`
 
 </data>
 ```
+
 Source: [snippets/stock.view_picking_form.show_details_visible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_details_visible.xml)
 
 ### Show Weight  
 ID: `mint_system.stock.view_picking_form.show_weight`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
 
@@ -3571,11 +3705,12 @@ ID: `mint_system.stock.view_picking_form.show_weight`
 
 </data>
 ```
+
 Source: [snippets/stock.view_picking_form.show_weight.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_weight.xml)
 
 ### X Count Boxes  
 ID: `mint_system.stock.view_picking_form.x_count_boxes`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
 
@@ -3585,12 +3720,13 @@ ID: `mint_system.stock.view_picking_form.x_count_boxes`
 
 </data>
 ```
+
 Source: [snippets/stock.view_picking_form.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.x_count_boxes.xml)
 
 ## View Stock Quant Tree Editable  
 ### Show Reserved Quantity  
 ID: `mint_system.stock.view_stock_quant_tree_editable.show_reserved_quantity`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_stock_quant_tree_editable" priority="50">
 
@@ -3600,12 +3736,13 @@ ID: `mint_system.stock.view_stock_quant_tree_editable.show_reserved_quantity`
 
 </data>
 ```
+
 Source: [snippets/stock.view_stock_quant_tree_editable.show_reserved_quantity.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_stock_quant_tree_editable.show_reserved_quantity.xml)
 
 ## View Stock Quant Tree  
 ### Show Reserved Quantity  
 ID: `mint_system.stock.view_stock_quant_tree.show_reserved_quantity`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_stock_quant_tree" priority="50">
 
@@ -3615,12 +3752,13 @@ ID: `mint_system.stock.view_stock_quant_tree.show_reserved_quantity`
 
 </data>
 ```
+
 Source: [snippets/stock.view_stock_quant_tree.show_reserved_quantity.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_stock_quant_tree.show_reserved_quantity.xml)
 
 ## Vpicktree  
 ### Add Weight Uom Name  
 ID: `mint_system.stock.vpicktree.add_weight_uom_name`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.vpicktree" priority="50">
 
@@ -3630,11 +3768,12 @@ ID: `mint_system.stock.vpicktree.add_weight_uom_name`
   </xpath>
 </data>
 ```
+
 Source: [snippets/stock.vpicktree.add_weight_uom_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.vpicktree.add_weight_uom_name.xml)
 
 ### Default Order Name  
 ID: `mint_system.stock.vpicktree.default_order_name`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.vpicktree" priority="50">
 
@@ -3644,11 +3783,12 @@ ID: `mint_system.stock.vpicktree.default_order_name`
 
 </data>
 ```
+
 Source: [snippets/stock.vpicktree.default_order_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.vpicktree.default_order_name.xml)
 
 ### Show Delivery Note  
 ID: `mint_system.stock.vpicktree.show_delivery_note`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.vpicktree" priority="50">
   <xpath expr="//field[@name='partner_id']" position="after">
@@ -3656,5 +3796,6 @@ ID: `mint_system.stock.vpicktree.show_delivery_note`
   </xpath>
 </data>
 ```
+
 Source: [snippets/stock.vpicktree.show_delivery_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.vpicktree.show_delivery_note.xml)
 

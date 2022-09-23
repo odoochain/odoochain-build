@@ -5,7 +5,7 @@ prev: ./snippets.md
 ## Digest Mail Main  
 ### Report  
 ID: `mint_system.digest.digest_mail_main.report`  
-```console
+```xml
 <?xml version="1.0"?>
 <t t-name="digest.digest_mail_main.report">
 
@@ -52,5 +52,6 @@ ID: `mint_system.digest.digest_mail_main.report`
 
     <t t-call="digest.digest_mail_layout" />
 </t>```
+
 Source: [snippets/digest.digest_mail_main.report.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/digest.digest_mail_main.report.xml)
 

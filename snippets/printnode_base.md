@@ -5,7 +5,7 @@ prev: ./snippets.md
 ## Printnode Scenario Domain Editor  
 ### Remove Domain Widget  
 ID: `mint_system.printnode_base.printnode_scenario_domain_editor.remove_domain_widget`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="printnode_base.printnode_scenario_domain_editor" priority="50">
 
@@ -14,5 +14,6 @@ ID: `mint_system.printnode_base.printnode_scenario_domain_editor.remove_domain_w
     </field>
 
 </data>```
+
 Source: [snippets/printnode_base.printnode_scenario_domain_editor.remove_domain_widget.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/printnode_base.printnode_scenario_domain_editor.remove_domain_widget.xml)
 

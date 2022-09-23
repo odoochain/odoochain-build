@@ -5,7 +5,7 @@ prev: ./snippets.md
 ## Address  
 ### Overwrite Required  
 ID: `mint_system.website_sale.address.overwrite_required`  
-```console
+```xml
 <?xml version="1.0"?>
 <!-- Set required field and change formatting -->
 <data inherit_id="website_sale.address" priority="50">
@@ -36,12 +36,13 @@ ID: `mint_system.website_sale.address.overwrite_required`
 
 </data>
 ```
+
 Source: [snippets/website_sale.address.overwrite_required.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/website_sale.address.overwrite_required.xml)
 
 ## Products Categories  
 ### Bigger Categories Button  
 ID: `mint_system.website_sale.products_categories.bigger_categories_button`  
-```console
+```xml
 <?xml version="1.0"?>
 <!-- Add class to categories button -->
 <data inherit_id="website_sale.products_categories" priority="50">
@@ -55,5 +56,6 @@ ID: `mint_system.website_sale.products_categories.bigger_categories_button`
 
 </data>
 ```
+
 Source: [snippets/website_sale.products_categories.bigger_categories_button.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/website_sale.products_categories.bigger_categories_button.xml)
 

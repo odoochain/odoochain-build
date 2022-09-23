@@ -5,7 +5,7 @@ prev: ./snippets.md
 ## View Crossovered Budget Line Tree  
 ### Show Budget  
 ID: `mint_system.account_budget.view_crossovered_budget_line_tree.show_budget`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="account_budget.view_crossovered_budget_line_tree" priority="50">
 
@@ -14,5 +14,6 @@ ID: `mint_system.account_budget.view_crossovered_budget_line_tree.show_budget`
 	</field>
 
 </data>```
+
 Source: [snippets/account_budget.view_crossovered_budget_line_tree.show_budget.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_budget.view_crossovered_budget_line_tree.show_budget.xml)
 

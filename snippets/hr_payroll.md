@@ -5,7 +5,7 @@ prev: ./snippets.md
 ## Hr Payslip Line  
 ### View Pivot  
 ID: `mint_system.hr_payroll.hr_payslip_line.view_pivot`  
-```console
+```xml
 <?xml version="1.0"?>
 <odoo>
 
@@ -21,12 +21,13 @@ ID: `mint_system.hr_payroll.hr_payslip_line.view_pivot`
 
 </odoo>
 ```
+
 Source: [snippets/hr_payroll.hr_payslip_line.view_pivot.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_payroll.hr_payslip_line.view_pivot.xml)
 
 ## Hr Salary Rule Form  
 ### Switch Account  
 ID: `mint_system.hr_payroll.hr_salary_rule_form.switch_account`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="hr_payroll.hr_salary_rule_form" priority="50">
 
@@ -36,12 +37,13 @@ ID: `mint_system.hr_payroll.hr_salary_rule_form.switch_account`
 
 </data>
 ```
+
 Source: [snippets/hr_payroll.hr_salary_rule_form.switch_account.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_payroll.hr_salary_rule_form.switch_account.xml)
 
 ## View Hr Payslip Form  
 ### Show Gio Amount  
 ID: `mint_system.hr_payroll.view_hr_payslip_form.show_gio_amount`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="hr_payroll.view_hr_payslip_form" priority="50">
 
@@ -51,12 +53,13 @@ ID: `mint_system.hr_payroll.view_hr_payslip_form.show_gio_amount`
 
 </data>
 ```
+
 Source: [snippets/hr_payroll.view_hr_payslip_form.show_gio_amount.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_payroll.view_hr_payslip_form.show_gio_amount.xml)
 
 ## View Hr Payslip Line Tree  
 ### Slip Show Optional  
 ID: `mint_system.hr_payroll.view_hr_payslip_line_tree.slip_show_optional`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="hr_payroll.view_hr_payslip_line_tree" priority="50">
 
@@ -66,5 +69,6 @@ ID: `mint_system.hr_payroll.view_hr_payslip_line_tree.slip_show_optional`
 
 </data>
 ```
+
 Source: [snippets/hr_payroll.view_hr_payslip_line_tree.slip_show_optional.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_payroll.view_hr_payslip_line_tree.slip_show_optional.xml)
 
