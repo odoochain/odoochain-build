@@ -471,6 +471,32 @@ ID: `mint_system.ir_model.hr_applicant.x_gdpr`
 ```
 Source: [snippets/ir_model.hr_applicant.x_gdpr.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.hr_applicant.x_gdpr.xml)
 
+## Hr Contract  
+### X Struct Id  
+ID: `mint_system.ir_model.hr_contract.x_struct_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_struct_id" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Lohnstruktur</field>
+    <field name="model">hr.applicant</field>
+    <field name="model_id" ref="hr.model_hr_contract"/>
+    <field name="name">x_struct_id</field>
+    <field name="state">manual</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">hr.payroll.structure</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.hr_contract.x_struct_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.hr_contract.x_struct_id.xml)
+
 ## Mrp Bom  
 ### X Note  
 ID: `mint_system.ir_model.mrp_bom.x_note`  

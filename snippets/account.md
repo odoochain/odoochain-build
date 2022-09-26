@@ -3825,6 +3825,20 @@ ID: `mint_system.account.view_move_form.x_sale_order_id`
 Source: [snippets/account.view_move_form.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.x_sale_order_id.xml)
 
 ## View Move Line Tax Audit Tree  
+### Show Balance  
+ID: `mint_system.account.view_move_line_tax_audit_tree.show_balance`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_line_tax_audit_tree" priority="50">
+
+    <field name="amount_currency" position="after">
+        <field name="balance" optional="hide" sum="Saldo" />
+    </field>
+    
+</data>
+```
+Source: [snippets/account.view_move_line_tax_audit_tree.show_balance.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_line_tax_audit_tree.show_balance.xml)
+
 ### Sum Currency  
 ID: `mint_system.account.view_move_line_tax_audit_tree.sum_currency`  
 ```xml
