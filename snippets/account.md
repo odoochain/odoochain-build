@@ -3768,6 +3768,20 @@ ID: `mint_system.account.view_move_form.show_commercial_partner_id`
 ```
 Source: [snippets/account.view_move_form.show_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_commercial_partner_id.xml)
 
+### Show Invoice Origin  
+ID: `mint_system.account.view_move_form.show_invoice_origin`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <xpath expr="//group[@id='other_tab_group']//field[@name='ref']" position="after">
+        <field name="invoice_origin" readonly="0" />
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_move_form.show_invoice_origin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_invoice_origin.xml)
+
 ### Show Posted Before  
 ID: `mint_system.account.view_move_form.show_posted_before`  
 ```xml

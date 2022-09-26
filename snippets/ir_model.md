@@ -161,9 +161,11 @@ ID: `mint_system.ir_model.account_move.x_picking_list`
     <field name="ttype">text</field>
     <field name="depends">picking_ids</field>
     <field name="compute">for record in self:
-  picking_ids = record.picking_ids.mapped('name')
-  record['x_picking_list'] = ", ".join(picking_ids)
-    </field>
+      picking_ids = record.picking_ids.mapped('name')
+      if picking_ids:
+        picking_list = ", ".join(picking_ids)
+        record['x_picking_list'] = picking_list
+        record['invoice_origin'] = picking_list</field>
   </record>
 
 </odoo>
