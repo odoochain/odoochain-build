@@ -5,7 +5,7 @@ prev: ./snippets.md
 ## Document Form  
 ### Hide View Report Button  
 ID: `mint_system.certificate_planer.document_form.hide_view_report_button`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="certificate_planer.document_form" priority="50">
 
@@ -14,6 +14,7 @@ ID: `mint_system.certificate_planer.document_form.hide_view_report_button`
   </button>
 
 </data>
+
 ```
 Source: [snippets/certificate_planer.document_form.hide_view_report_button.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/certificate_planer.document_form.hide_view_report_button.xml)
 

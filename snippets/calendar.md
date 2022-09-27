@@ -5,7 +5,7 @@ prev: ./snippets.md
 ## View Calendar Event Calendar  
 ### Default Mode Week  
 ID: `mint_system.calendar.view_calendar_event_calendar.default_mode_week`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="calendar.view_calendar_event_calendar" priority="50">
 
@@ -14,12 +14,13 @@ ID: `mint_system.calendar.view_calendar_event_calendar.default_mode_week`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/calendar.view_calendar_event_calendar.default_mode_week.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/calendar.view_calendar_event_calendar.default_mode_week.xml)
 
 ### Show Location  
 ID: `mint_system.calendar.view_calendar_event_calendar.show_location`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="calendar.view_calendar_event_calendar" priority="50">
 
@@ -28,13 +29,14 @@ ID: `mint_system.calendar.view_calendar_event_calendar.show_location`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/calendar.view_calendar_event_calendar.show_location.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/calendar.view_calendar_event_calendar.show_location.xml)
 
 ## View Calendar Event Calendar Timeline  
 ### View  
 ID: `mint_system.calendar.view_calendar_event_calendar_timeline.view`  
-```console
+```xml
 <?xml version='1.0' encoding='UTF-8' ?>
 <odoo>
 
@@ -48,6 +50,7 @@ ID: `mint_system.calendar.view_calendar_event_calendar_timeline.view`
   </record>
 
 </odoo>
+
 ```
 Source: [snippets/calendar.view_calendar_event_calendar_timeline.view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/calendar.view_calendar_event_calendar_timeline.view.xml)
 

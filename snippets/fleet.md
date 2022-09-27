@@ -5,7 +5,7 @@ prev: ./snippets.md
 ## Fleet Vehicle View Form  
 ### Show Reservation  
 ID: `mint_system.fleet.fleet_vehicle_view_form.show_reservation`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="fleet.fleet_vehicle_view_form" priority="50">
 
@@ -20,6 +20,7 @@ ID: `mint_system.fleet.fleet_vehicle_view_form.show_reservation`
     </group>
   </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/fleet.fleet_vehicle_view_form.show_reservation.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/fleet.fleet_vehicle_view_form.show_reservation.xml)
 

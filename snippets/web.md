@@ -5,7 +5,7 @@ prev: ./snippets.md
 ## Address Layout  
 ### Format Address Block  
 ID: `mint_system.web.address_layout.format_address_block`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="web.address_layout" priority="50">
 
@@ -29,12 +29,13 @@ ID: `mint_system.web.address_layout.format_address_block`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/web.address_layout.format_address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.address_layout.format_address_block.xml)
 
 ### Repositioning Address Blocks  
 ID: `mint_system.web.address_layout.repositioning_address_blocks`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="web.address_layout" priority="50">
 
@@ -56,13 +57,14 @@ ID: `mint_system.web.address_layout.repositioning_address_blocks`
 
     </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/web.address_layout.repositioning_address_blocks.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.address_layout.repositioning_address_blocks.xml)
 
 ## Assets Common  
 ### Pivot Measure White Space  
 ID: `mint_system.web.assets_common.pivot_measure_white_space`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="web.assets_common" priority="50">
 
@@ -75,13 +77,14 @@ ID: `mint_system.web.assets_common.pivot_measure_white_space`
     </xpath>
 
 </data>
+
 ```
 Source: [snippets/web.assets_common.pivot_measure_white_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.assets_common.pivot_measure_white_space.xml)
 
 ## Brand Promotion Message  
 ### Remove  
 ID: `mint_system.web.brand_promotion_message.remove`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="web.brand_promotion_message" priority="50">
 
@@ -90,13 +93,14 @@ ID: `mint_system.web.brand_promotion_message.remove`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/web.brand_promotion_message.remove.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.brand_promotion_message.remove.xml)
 
 ## External Layout Boxed  
 ### Footer Company Registry  
 ID: `mint_system.web.external_layout_boxed.footer_company_registry`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="web.external_layout_boxed" priority="50">
 
@@ -108,13 +112,14 @@ ID: `mint_system.web.external_layout_boxed.footer_company_registry`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/web.external_layout_boxed.footer_company_registry.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_boxed.footer_company_registry.xml)
 
 ## External Layout Standard  
 ### Eksb Layout  
 ID: `mint_system.web.external_layout_standard.eksb_layout`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
 
@@ -162,12 +167,13 @@ ID: `mint_system.web.external_layout_standard.eksb_layout`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/web.external_layout_standard.eksb_layout.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.eksb_layout.xml)
 
 ### Footer Company Registry  
 ID: `mint_system.web.external_layout_standard.footer_company_registry`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
 
@@ -179,12 +185,13 @@ ID: `mint_system.web.external_layout_standard.footer_company_registry`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/web.external_layout_standard.footer_company_registry.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.footer_company_registry.xml)
 
 ### Format Header Slogan  
 ID: `mint_system.web.external_layout_standard.format_header_slogan`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
 
@@ -198,12 +205,13 @@ ID: `mint_system.web.external_layout_standard.format_header_slogan`
     <h4 class="col-9 text-right" t-field="company.report_header" name="moto"/>
   </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/web.external_layout_standard.format_header_slogan.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.format_header_slogan.xml)
 
 ### Header Styles  
 ID: `mint_system.web.external_layout_standard.header_styles`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
 
@@ -215,12 +223,13 @@ ID: `mint_system.web.external_layout_standard.header_styles`
     </style>
 
   </xpath>
-</data>```
+</data>
+```
 Source: [snippets/web.external_layout_standard.header_styles.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.header_styles.xml)
 
 ### Increase Logo Size  
 ID: `mint_system.web.external_layout_standard.increase_logo_size`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
 
@@ -229,12 +238,13 @@ ID: `mint_system.web.external_layout_standard.increase_logo_size`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/web.external_layout_standard.increase_logo_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.increase_logo_size.xml)
 
 ### Remove Company Info Footer  
 ID: `mint_system.web.external_layout_standard.remove_company_info_footer`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
 
@@ -242,12 +252,13 @@ ID: `mint_system.web.external_layout_standard.remove_company_info_footer`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/web.external_layout_standard.remove_company_info_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.remove_company_info_footer.xml)
 
 ### Remove Contact  
 ID: `mint_system.web.external_layout_standard.remove_contact`  
-```console
+```xml
 <?xml version="1.0"?>
 <!-- Remove contact info in footer -->
 <data inherit_id="web.external_layout_standard" priority="50">
@@ -258,12 +269,13 @@ ID: `mint_system.web.external_layout_standard.remove_contact`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/web.external_layout_standard.remove_contact.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.remove_contact.xml)
 
 ### Remove Header Address  
 ID: `mint_system.web.external_layout_standard.remove_header_address`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
 
@@ -271,12 +283,13 @@ ID: `mint_system.web.external_layout_standard.remove_header_address`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/web.external_layout_standard.remove_header_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.remove_header_address.xml)
 
 ### Replace Footer  
 ID: `mint_system.web.external_layout_standard.replace_footer`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
 
@@ -288,12 +301,13 @@ ID: `mint_system.web.external_layout_standard.replace_footer`
      </div>
   </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/web.external_layout_standard.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.replace_footer.xml)
 
 ### Replace Header  
 ID: `mint_system.web.external_layout_standard.replace_header`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
 
@@ -330,12 +344,13 @@ ID: `mint_system.web.external_layout_standard.replace_header`
 
   </div>
 </xpath>
-</data>```
+</data>
+```
 Source: [snippets/web.external_layout_standard.replace_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.replace_header.xml)
 
 ### Replace Url  
 ID: `mint_system.web.external_layout_standard.replace_url`  
-```console
+```xml
 <?xml version="1.0"?>
 <!-- Replace website url in document footer -->
 <data inherit_id="web.external_layout_standard" priority="50">
@@ -345,13 +360,14 @@ ID: `mint_system.web.external_layout_standard.replace_url`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/web.external_layout_standard.replace_url.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.replace_url.xml)
 
 ## Internal Layout  
 ### Header Styles  
 ID: `mint_system.web.internal_layout.header_styles`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="web.internal_layout" priority="50">
 
@@ -363,12 +379,13 @@ ID: `mint_system.web.internal_layout.header_styles`
     </style>
 
   </xpath>
-</data>```
+</data>
+```
 Source: [snippets/web.internal_layout.header_styles.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.internal_layout.header_styles.xml)
 
 ### Replace Header  
 ID: `mint_system.web.internal_layout.replace_header`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="web.internal_layout" priority="50">
 
@@ -386,13 +403,14 @@ ID: `mint_system.web.internal_layout.replace_header`
 		</div>
 	</xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/web.internal_layout.replace_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.internal_layout.replace_header.xml)
 
 ## Styles Company Report  
 ### Set Font  
 ID: `mint_system.web.styles_company_report.set_font`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="web.styles_company_report" priority="50">
 
@@ -400,6 +418,7 @@ ID: `mint_system.web.styles_company_report.set_font`
     <t t-set="font" t-value="'arial'"/>
   </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/web.styles_company_report.set_font.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.styles_company_report.set_font.xml)
 

@@ -5,7 +5,7 @@ prev: ./snippets.md
 ## Mail Activity View Form Board  
 ### Enable Edit And Create  
 ID: `mint_system.mail_activity_board.mail_activity_view_form_board.enable_edit_and_create`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mail_activity_board.mail_activity_view_form_board" priority="50">
 
@@ -15,12 +15,13 @@ ID: `mint_system.mail_activity_board.mail_activity_view_form_board.enable_edit_a
   </form>
 
 </data>
+
 ```
 Source: [snippets/mail_activity_board.mail_activity_view_form_board.enable_edit_and_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail_activity_board.mail_activity_view_form_board.enable_edit_and_create.xml)
 
 ### Show Done Button  
 ID: `mint_system.mail_activity_board.mail_activity_view_form_board.show_done_button`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mail_activity_board.mail_activity_view_form_board" priority="50">
 
@@ -31,13 +32,14 @@ ID: `mint_system.mail_activity_board.mail_activity_view_form_board.show_done_but
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/mail_activity_board.mail_activity_view_form_board.show_done_button.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail_activity_board.mail_activity_view_form_board.show_done_button.xml)
 
 ## Mail Activity View Search  
 ### My Activities Filter  
 ID: `mint_system.mail_activity_board.mail_activity_view_search.my_activities_filter`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mail_activity_board.mail_activity_view_search" priority="50">
 
@@ -46,13 +48,14 @@ ID: `mint_system.mail_activity_board.mail_activity_view_search.my_activities_fil
   </filter>
 
 </data>
+
 ```
 Source: [snippets/mail_activity_board.mail_activity_view_search.my_activities_filter.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail_activity_board.mail_activity_view_search.my_activities_filter.xml)
 
 ## Open Boards Activities  
 ### My Activities Filter  
 ID: `mint_system.mail_activity_board.open_boards_activities.my_activities_filter`  
-```console
+```xml
 <?xml version="1.0"?>
 <odoo>
 
@@ -60,6 +63,7 @@ ID: `mint_system.mail_activity_board.open_boards_activities.my_activities_filter
     <field name="context">{'search_default_my_activities': 1}</field>
   </record>
 
-</odoo>```
+</odoo>
+```
 Source: [snippets/mail_activity_board.open_boards_activities.my_activities_filter.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail_activity_board.open_boards_activities.my_activities_filter.xml)
 

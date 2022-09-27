@@ -5,7 +5,7 @@ prev: ./snippets.md
 ## View Partner Property Form  
 ### Show Field  
 ID: `mint_system.sale_partner_incoterm.view_partner_property_form.show_field`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="sale_partner_incoterm.view_partner_property_form" priority="50">
 
@@ -14,6 +14,7 @@ ID: `mint_system.sale_partner_incoterm.view_partner_property_form.show_field`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/sale_partner_incoterm.view_partner_property_form.show_field.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_partner_incoterm.view_partner_property_form.show_field.xml)
 

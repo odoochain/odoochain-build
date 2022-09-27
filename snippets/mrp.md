@@ -5,7 +5,7 @@ prev: ./snippets.md
 ## Label Production View Pdf  
 ### Trimada  
 ID: `mint_system.mrp.label_production_view_pdf.trimada`  
-```console
+```xml
 <t t-name="mrp.label_production_view_pdf.trimada">
   <t t-call="web.basic_layout">
     <t t-foreach="docs" t-as="production">
@@ -112,13 +112,14 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
   </t>
 </t>
 
+
 ```
 Source: [snippets/mrp.label_production_view_pdf.trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view_pdf.trimada.xml)
 
 ## Label Production View  
 ### Tissa Etikette Ketten  
 ID: `mint_system.mrp.label_production_view.tissa_etikette_ketten`  
-```console
+```xml
 <?xml version="1.0"?>
 <t t-name="mrp.label_production_view.tissa_etikette_ketten">
  
@@ -191,12 +192,13 @@ ID: `mint_system.mrp.label_production_view.tissa_etikette_ketten`
       </div>
     </div>
 
-</t>```
+</t>
+```
 Source: [snippets/mrp.label_production_view.tissa_etikette_ketten.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view.tissa_etikette_ketten.xml)
 
 ### Tissa  
 ID: `mint_system.mrp.label_production_view.tissa`  
-```console
+```xml
 <t t-name="mrp.label_production_view.tissa">
 
     <t t-call="web.basic_layout">
@@ -236,13 +238,14 @@ ID: `mint_system.mrp.label_production_view.tissa`
         </t>
 
     </t>
-</t>```
+</t>
+```
 Source: [snippets/mrp.label_production_view.tissa.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view.tissa.xml)
 
 ## Mrp Bom Form View  
 ### X Note  
 ID: `mint_system.mrp.mrp_bom_form_view.x_note`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_bom_form_view" priority="50">
 
@@ -250,13 +253,14 @@ ID: `mint_system.mrp.mrp_bom_form_view.x_note`
     <field name="x_note"/>
   </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/mrp.mrp_bom_form_view.x_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_bom_form_view.x_note.xml)
 
 ## Mrp Bom Tree View  
 ### Sort Id  
 ID: `mint_system.mrp.mrp_bom_tree_view.sort_id`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_bom_tree_view" priority="50">
   
@@ -264,13 +268,14 @@ ID: `mint_system.mrp.mrp_bom_tree_view.sort_id`
         <attribute name="default_order">id desc</attribute>
   </xpath>
 	
-</data>```
+</data>
+```
 Source: [snippets/mrp.mrp_bom_tree_view.sort_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_bom_tree_view.sort_id.xml)
 
 ## Mrp Production Form View  
 ### Add Date Deadline2  
 ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline2`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_form_view" priority="50">
 
@@ -279,12 +284,13 @@ ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline2`
   </field>
 
 </data>
+
 ```
 Source: [snippets/mrp.mrp_production_form_view.add_date_deadline2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.add_date_deadline2.xml)
 
 ### Add Date Deadline  
 ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_form_view" priority="50">
 
@@ -305,12 +311,13 @@ ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline`
   </data>
 
 </data>
+
 ```
 Source: [snippets/mrp.mrp_production_form_view.add_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.add_date_deadline.xml)
 
 ### Hide Date Deadline  
 ID: `mint_system.mrp.mrp_production_form_view.hide_date_deadline`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_form_view" priority="50">
   
@@ -319,12 +326,13 @@ ID: `mint_system.mrp.mrp_production_form_view.hide_date_deadline`
   </xpath>  
 
 </data>
+
 ```
 Source: [snippets/mrp.mrp_production_form_view.hide_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.hide_date_deadline.xml)
 
 ### Replace Workorder Tree View  
 ID: `mint_system.mrp.mrp_production_form_view.replace_workorder_tree_view`  
-```console
+```xml
 <?xml version="1.0"?>
 
 <data inherit_id="mrp.mrp_production_form_view" priority="50">
@@ -367,12 +375,13 @@ ID: `mint_system.mrp.mrp_production_form_view.replace_workorder_tree_view`
     </tree>
   </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/mrp.mrp_production_form_view.replace_workorder_tree_view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.replace_workorder_tree_view.xml)
 
 ### Show Backorder And Procurement Group  
 ID: `mint_system.mrp.mrp_production_form_view.show_backorder_and_procurement_group`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_form_view" priority="50">
   
@@ -382,12 +391,13 @@ ID: `mint_system.mrp.mrp_production_form_view.show_backorder_and_procurement_gro
   	</xpath>
 
 </data>
+
 ```
 Source: [snippets/mrp.mrp_production_form_view.show_backorder_and_procurement_group.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.show_backorder_and_procurement_group.xml)
 
 ### Show Date Planned Finished  
 ID: `mint_system.mrp.mrp_production_form_view.show_date_planned_finished`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_form_view" priority="50">
 
@@ -396,12 +406,13 @@ ID: `mint_system.mrp.mrp_production_form_view.show_date_planned_finished`
   </field>
 
 </data>
+
 ```
 Source: [snippets/mrp.mrp_production_form_view.show_date_planned_finished.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.show_date_planned_finished.xml)
 
 ### Show X Date Deadline  
 ID: `mint_system.mrp.mrp_production_form_view.show_x_date_deadline`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_form_view" priority="50">
 
@@ -410,12 +421,13 @@ ID: `mint_system.mrp.mrp_production_form_view.show_x_date_deadline`
   </field>
 
 </data>
+
 ```
 Source: [snippets/mrp.mrp_production_form_view.show_x_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.show_x_date_deadline.xml)
 
 ### X Note  
 ID: `mint_system.mrp.mrp_production_form_view.x_note`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_form_view" priority="50">
   
@@ -424,13 +436,14 @@ ID: `mint_system.mrp.mrp_production_form_view.x_note`
   	</xpath>
 
 </data>
+
 ```
 Source: [snippets/mrp.mrp_production_form_view.x_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.x_note.xml)
 
 ## Mrp Production Tree View  
 ### Hide Date Deadline  
 ID: `mint_system.mrp.mrp_production_tree_view.hide_date_deadline`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_tree_view" priority="50">
   
@@ -438,12 +451,13 @@ ID: `mint_system.mrp.mrp_production_tree_view.hide_date_deadline`
   </xpath>
 	
 </data>
+
 ```
 Source: [snippets/mrp.mrp_production_tree_view.hide_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_tree_view.hide_date_deadline.xml)
 
 ### Show X Date Deadline  
 ID: `mint_system.mrp.mrp_production_tree_view.show_x_date_deadline`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_tree_view" priority="50">
   
@@ -452,12 +466,13 @@ ID: `mint_system.mrp.mrp_production_tree_view.show_x_date_deadline`
   </xpath>
 	
 </data>
+
 ```
 Source: [snippets/mrp.mrp_production_tree_view.show_x_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_tree_view.show_x_date_deadline.xml)
 
 ### Sort Date Planned Start  
 ID: `mint_system.mrp.mrp_production_tree_view.sort_date_planned_start`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_tree_view" priority="50">
   
@@ -466,25 +481,27 @@ ID: `mint_system.mrp.mrp_production_tree_view.sort_date_planned_start`
   </xpath>
 	
 </data>
+
 ```
 Source: [snippets/mrp.mrp_production_tree_view.sort_date_planned_start.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_tree_view.sort_date_planned_start.xml)
 
 ## Mrp Production Workorder Tree Editable View  
 ### Add Product Id  
 ID: `mint_system.mrp.mrp_production_workorder_tree_editable_view.add_product_id`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_workorder_tree_editable_view" priority="50">
 
 <xpath expr="//field[@name='workcenter_id']" position="after">
    <field name="product_id"/>
 </xpath>
-</data>```
+</data>
+```
 Source: [snippets/mrp.mrp_production_workorder_tree_editable_view.add_product_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_workorder_tree_editable_view.add_product_id.xml)
 
 ### Add Production Id  
 ID: `mint_system.mrp.mrp_production_workorder_tree_editable_view.add_production_id`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_workorder_tree_editable_view" priority="50">
 
@@ -492,12 +509,13 @@ ID: `mint_system.mrp.mrp_production_workorder_tree_editable_view.add_production_
    <field name="production_id"/>
 </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/mrp.mrp_production_workorder_tree_editable_view.add_production_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_workorder_tree_editable_view.add_production_id.xml)
 
 ### X Reservation State  
 ID: `mint_system.mrp.mrp_production_workorder_tree_editable_view.x_reservation_state`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_workorder_tree_editable_view" priority="50">
 
@@ -505,26 +523,28 @@ ID: `mint_system.mrp.mrp_production_workorder_tree_editable_view.x_reservation_s
    <field name="x_reservation_state"/>
 </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/mrp.mrp_production_workorder_tree_editable_view.x_reservation_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_workorder_tree_editable_view.x_reservation_state.xml)
 
 ## Mrp Production Workorder Tree View  
 ### Hide Production Id  
 ID: `mint_system.mrp.mrp_production_workorder_tree_view.hide_production_id`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_workorder_tree_view" priority="50">
 
 <xpath expr="//field[@name='production_id']" position="replace">
 </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/mrp.mrp_production_workorder_tree_view.hide_production_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_workorder_tree_view.hide_production_id.xml)
 
 ## Report Mrporder  
 ### Add Padding  
 ID: `mint_system.mrp.report_mrporder.add_padding`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
 
@@ -556,12 +576,13 @@ ID: `mint_system.mrp.report_mrporder.add_padding`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/mrp.report_mrporder.add_padding.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.add_padding.xml)
 
 ### List Quality Points  
 ID: `mint_system.mrp.report_mrporder.list_quality_points`  
-```console
+```xml
 <?xml version="1.0"?>
 <!-- List quality points in mrp order -->
 <data inherit_id="mrp.report_mrporder" priority="50">
@@ -573,12 +594,13 @@ ID: `mint_system.mrp.report_mrporder.list_quality_points`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/mrp.report_mrporder.list_quality_points.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.list_quality_points.xml)
 
 ### Modify Section Consumed Products  
 ID: `mint_system.mrp.report_mrporder.modify_section_consumed_products`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
 
@@ -612,12 +634,13 @@ ID: `mint_system.mrp.report_mrporder.modify_section_consumed_products`
 	
   </xpath>  
 </data>
+
 ```
 Source: [snippets/mrp.report_mrporder.modify_section_consumed_products.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.modify_section_consumed_products.xml)
 
 ### Modify Section Operations  
 ID: `mint_system.mrp.report_mrporder.modify_section_operations`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
 
@@ -686,12 +709,13 @@ ID: `mint_system.mrp.report_mrporder.modify_section_operations`
 
   </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/mrp.report_mrporder.modify_section_operations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.modify_section_operations.xml)
 
 ### Modify Section Order Definition  
 ID: `mint_system.mrp.report_mrporder.modify_section_order_definition`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
 
@@ -777,12 +801,13 @@ ID: `mint_system.mrp.report_mrporder.modify_section_order_definition`
 
   </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/mrp.report_mrporder.modify_section_order_definition.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.modify_section_order_definition.xml)
 
 ### Modify Section To Consume Products  
 ID: `mint_system.mrp.report_mrporder.modify_section_to_consume_products`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
 
@@ -868,12 +893,13 @@ ID: `mint_system.mrp.report_mrporder.modify_section_to_consume_products`
 
   </xpath>
 </data>
+
 ```
 Source: [snippets/mrp.report_mrporder.modify_section_to_consume_products.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.modify_section_to_consume_products.xml)
 
 ### Quality Points  
 ID: `mint_system.mrp.report_mrporder.quality_points`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
 
@@ -884,23 +910,25 @@ ID: `mint_system.mrp.report_mrporder.quality_points`
     </xpath>
 
 </data>
+
 ```
 Source: [snippets/mrp.report_mrporder.quality_points.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.quality_points.xml)
 
 ### Remove Barcode  
 ID: `mint_system.mrp.report_mrporder.remove_barcode`  
-```console
+```xml
 <?xml version="1.0"?>
 <!-- Remove barcode from mrp order -->
 <data inherit_id="mrp.report_mrporder" priority="50">
   <xpath expr="//table[1]/thead[1]/tr[1]/th[3]" position="replace"/>
   <xpath expr="//table[1]/tbody[1]/t[1]/tr[1]/td[3]" position="replace"/>
-</data>```
+</data>
+```
 Source: [snippets/mrp.report_mrporder.remove_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.remove_barcode.xml)
 
 ### Remove Responsible  
 ID: `mint_system.mrp.report_mrporder.remove_responsible`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
 
@@ -908,12 +936,13 @@ ID: `mint_system.mrp.report_mrporder.remove_responsible`
 </xpath>
 
 </data>
+
 ```
 Source: [snippets/mrp.report_mrporder.remove_responsible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.remove_responsible.xml)
 
 ### Replace Title Section To Consume Products  
 ID: `mint_system.mrp.report_mrporder.replace_title_section_to_consume_products`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
 
@@ -934,12 +963,13 @@ ID: `mint_system.mrp.report_mrporder.replace_title_section_to_consume_products`
       </tr>
     </table>
   </xpath>
-</data>```
+</data>
+```
 Source: [snippets/mrp.report_mrporder.replace_title_section_to_consume_products.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.replace_title_section_to_consume_products.xml)
 
 ### Show Expected  
 ID: `mint_system.mrp.report_mrporder.show_expected`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
 
@@ -949,12 +979,13 @@ ID: `mint_system.mrp.report_mrporder.show_expected`
 		</t>
 	</xpath>
 </data>
+
 ```
 Source: [snippets/mrp.report_mrporder.show_expected.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.show_expected.xml)
 
 ### Show Lot  
 ID: `mint_system.mrp.report_mrporder.show_lot`  
-```console
+```xml
 <?xml version="1.0"?>
 <!-- If lot is not available show forecasted days. -->
 <data inherit_id="mrp.report_mrporder" priority="50">
@@ -976,12 +1007,13 @@ ID: `mint_system.mrp.report_mrporder.show_lot`
 	</xpath>
 
 </data>
+
 ```
 Source: [snippets/mrp.report_mrporder.show_lot.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.show_lot.xml)
 
 ### Show Planned  
 ID: `mint_system.mrp.report_mrporder.show_planned`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
 
@@ -1018,12 +1050,13 @@ ID: `mint_system.mrp.report_mrporder.show_planned`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/mrp.report_mrporder.show_planned.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.show_planned.xml)
 
 ### Show Stock  
 ID: `mint_system.mrp.report_mrporder.show_stock`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="60">
 	<xpath expr="//table/thead/tr/th[2]" position="after">
@@ -1046,26 +1079,28 @@ ID: `mint_system.mrp.report_mrporder.show_stock`
             <br/>Los: <span t-field="o.lot_producing_id.name"/>
         </span>
     </xpath>
-</data>```
+</data>
+```
 Source: [snippets/mrp.report_mrporder.show_stock.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.show_stock.xml)
 
 ## Stock Report Delivery Kit Sections  
 ### Expand Section Heading  
 ID: `mint_system.mrp.stock_report_delivery_kit_sections.expand_section_heading`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.stock_report_delivery_kit_sections" priority="50">
 	
     <xpath expr="//span[@t-esc='kit.display_name']" position="after">
         <br/>bestehend aus:       
     </xpath>
-</data>```
+</data>
+```
 Source: [snippets/mrp.stock_report_delivery_kit_sections.expand_section_heading.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.stock_report_delivery_kit_sections.expand_section_heading.xml)
 
 ## View Mrp Bom Filter  
 ### Add Operation Ids  
 ID: `mint_system.mrp.view_mrp_bom_filter.add_operation_ids`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.view_mrp_bom_filter"  priority="50">
 
@@ -1074,12 +1109,13 @@ ID: `mint_system.mrp.view_mrp_bom_filter.add_operation_ids`
 		<filter string="Ohne Vorgänge" name="operation" domain="[('operation_ids', '=', False)]"/>
 	</xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/mrp.view_mrp_bom_filter.add_operation_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_bom_filter.add_operation_ids.xml)
 
 ### Add X Type Description  
 ID: `mint_system.mrp.view_mrp_bom_filter.add_x_type_description`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.view_mrp_bom_filter" priority="50">
 
@@ -1087,13 +1123,14 @@ ID: `mint_system.mrp.view_mrp_bom_filter.add_x_type_description`
 		<field name="x_type_description" string="Typenbezeichnung" filter_domain="['|', ('x_type_description', 'ilike', self), ('x_type_description_bom_line', 'ilike', self)]"/>
 	</xpath>
 
-</data> ```
+</data> 
+```
 Source: [snippets/mrp.view_mrp_bom_filter.add_x_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_bom_filter.add_x_type_description.xml)
 
 ## View Mrp Production Filter  
 ### Add Not Planned  
 ID: `mint_system.mrp.view_mrp_production_filter.add_not_planned`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.view_mrp_production_filter" priority="50">
 
@@ -1101,13 +1138,14 @@ ID: `mint_system.mrp.view_mrp_production_filter.add_not_planned`
 		<filter string="Nicht geplant" name="filter_not_planned" domain="[('is_planned', '!=', True)]" groups="mrp.group_mrp_routings"/>
 	</xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/mrp.view_mrp_production_filter.add_not_planned.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_filter.add_not_planned.xml)
 
 ## View Mrp Production Workorder Form View Filter  
 ### Add Date Planned Start Set  
 ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.add_date_planned_start_set`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.view_mrp_production_workorder_form_view_filter" priority="50">
 
@@ -1115,12 +1153,13 @@ ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.add_date_pla
    <filter string="Start Date Set" name="start_date_set" domain="[('date_planned_start', '!=', False)]"/>
 </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/mrp.view_mrp_production_workorder_form_view_filter.add_date_planned_start_set.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_workorder_form_view_filter.add_date_planned_start_set.xml)
 
 ### Add Planned  
 ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.add_planned`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.view_mrp_production_workorder_form_view_filter" priority="50">
 
@@ -1129,25 +1168,27 @@ ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.add_planned`
    <filter string="Nicht geplant" name="not_planned" domain="[('date_planned_start', '=', False)]"/>
 </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/mrp.view_mrp_production_workorder_form_view_filter.add_planned.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_workorder_form_view_filter.add_planned.xml)
 
 ### Add Product Id  
 ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.add_product_id`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.view_mrp_production_workorder_form_view_filter" priority="50">
 
 <xpath expr="//field[@name='production_id']" position="after">
     <field string="Produkt" name="product_id" filter_domain="['|', '|', '|', ('product_id.name', 'like', self), ('product_id.default_code', 'like', self), ('product_id.type_description', 'like', self), ('product_id.type_description2', 'like', self)]"/>
 </xpath>
-</data>```
+</data>
+```
 Source: [snippets/mrp.view_mrp_production_workorder_form_view_filter.add_product_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_workorder_form_view_filter.add_product_id.xml)
 
 ## View Mrp Production Work Order Search  
 ### Add Date Planned Start Set  
 ID: `mint_system.mrp.view_mrp_production_work_order_search.add_date_planned_start_set`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.view_mrp_production_work_order_search" priority="50">
 
@@ -1156,12 +1197,13 @@ ID: `mint_system.mrp.view_mrp_production_work_order_search.add_date_planned_star
    <filter string="Start Date Set" name="start_date_set" domain="[('date_planned_start', '!=', False)]"/>
 </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/mrp.view_mrp_production_work_order_search.add_date_planned_start_set.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_work_order_search.add_date_planned_start_set.xml)
 
 ### Add Material Is Available  
 ID: `mint_system.mrp.view_mrp_production_work_order_search.add_material_is_available`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.view_mrp_production_work_order_search" priority="50">
 
@@ -1170,12 +1212,13 @@ ID: `mint_system.mrp.view_mrp_production_work_order_search.add_material_is_avail
     <filter string="Material is available" name="material_is_available" domain="[('x_reservation_state', '=', 'assigned')]"/>
   </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/mrp.view_mrp_production_work_order_search.add_material_is_available.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_work_order_search.add_material_is_available.xml)
 
 ### Add Product Id  
 ID: `mint_system.mrp.view_mrp_production_work_order_search.add_product_id`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.view_mrp_production_work_order_search" priority="50">
 
@@ -1183,13 +1226,14 @@ ID: `mint_system.mrp.view_mrp_production_work_order_search.add_product_id`
         <field string="Produkt" name="product_id" filter_domain="['|', '|', '|', ('product_id.name', 'like', self), ('product_id.default_code', 'like', self), ('product_id.type_description', 'like', self), ('product_id.type_description2', 'like', self)]"/>
     </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/mrp.view_mrp_production_work_order_search.add_product_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_work_order_search.add_product_id.xml)
 
 ## Workcenter Line Kanban  
 ### Add Date Planned Start  
 ID: `mint_system.mrp.workcenter_line_kanban.add_date_planned_start`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.workcenter_line_kanban"  priority="50">
 
@@ -1211,12 +1255,13 @@ ID: `mint_system.mrp.workcenter_line_kanban.add_date_planned_start`
 
   </h5>
 </xpath>
-</data>```
+</data>
+```
 Source: [snippets/mrp.workcenter_line_kanban.add_date_planned_start.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.workcenter_line_kanban.add_date_planned_start.xml)
 
 ### Default Order Date Planned Start  
 ID: `mint_system.mrp.workcenter_line_kanban.default_order_date_planned_start`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.workcenter_line_kanban" priority="50">
 
@@ -1224,6 +1269,7 @@ ID: `mint_system.mrp.workcenter_line_kanban.default_order_date_planned_start`
     <attribute name="default_order">date_planned_start</attribute>
   </xpath>
 
-</data>```
+</data>
+```
 Source: [snippets/mrp.workcenter_line_kanban.default_order_date_planned_start.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.workcenter_line_kanban.default_order_date_planned_start.xml)
 

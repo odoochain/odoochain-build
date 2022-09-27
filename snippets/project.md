@@ -5,7 +5,7 @@ prev: ./snippets.md
 ## View Task Form2  
 ### Parent Domain  
 ID: `mint_system.project.view_task_form2.parent_domain`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="project.view_task_form2" priority="50">
 
@@ -14,12 +14,13 @@ ID: `mint_system.project.view_task_form2.parent_domain`
     </xpath>
 
 </data>
+
 ```
 Source: [snippets/project.view_task_form2.parent_domain.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.parent_domain.xml)
 
 ### Show Gantt Dates  
 ID: `mint_system.project.view_task_form2.show_gantt_dates`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="project.view_task_form2" priority="50">
 
@@ -36,12 +37,13 @@ ID: `mint_system.project.view_task_form2.show_gantt_dates`
     </field>
 
 </data>
+
 ```
 Source: [snippets/project.view_task_form2.show_gantt_dates.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.show_gantt_dates.xml)
 
 ### Show Invoice Type  
 ID: `mint_system.project.view_task_form2.show_invoice_type`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="project.view_task_form2" priority="50">
 
@@ -50,12 +52,13 @@ ID: `mint_system.project.view_task_form2.show_invoice_type`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/project.view_task_form2.show_invoice_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.show_invoice_type.xml)
 
 ### Show Key  
 ID: `mint_system.project.view_task_form2.show_key`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="project.view_task_form2" priority="50">
 
@@ -64,12 +67,13 @@ ID: `mint_system.project.view_task_form2.show_key`
     </xpath>
 
 </data>
+
 ```
 Source: [snippets/project.view_task_form2.show_key.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.show_key.xml)
 
 ### Timesheet Sort Date Desc  
 ID: `mint_system.project.view_task_form2.timesheet_sort_date_desc`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="project.view_task_form2" priority="50">
 
@@ -78,12 +82,13 @@ ID: `mint_system.project.view_task_form2.timesheet_sort_date_desc`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/project.view_task_form2.timesheet_sort_date_desc.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.timesheet_sort_date_desc.xml)
 
 ### X Business Requirement Id  
 ID: `mint_system.project.view_task_form2.x_business_requirement_id`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="project.view_task_form2" priority="50">
 
@@ -92,12 +97,13 @@ ID: `mint_system.project.view_task_form2.x_business_requirement_id`
   </field>
 
 </data>
+
 ```
 Source: [snippets/project.view_task_form2.x_business_requirement_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.x_business_requirement_id.xml)
 
 ### X Vehicle Id  
 ID: `mint_system.project.view_task_form2.x_vehicle_id`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="project.view_task_form2" priority="50">
 
@@ -106,13 +112,14 @@ ID: `mint_system.project.view_task_form2.x_vehicle_id`
     </xpath>
 
 </data>
+
 ```
 Source: [snippets/project.view_task_form2.x_vehicle_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.x_vehicle_id.xml)
 
 ## View Task Tree2  
 ### Sale Line Optional  
 ID: `mint_system.project.view_task_tree2.sale_line_optional`  
-```console
+```xml
 <?xml version="1.0"?>
 <data inherit_id="project.view_task_tree2" priority="50">
 
@@ -121,6 +128,7 @@ ID: `mint_system.project.view_task_tree2.sale_line_optional`
     </field>
 
 </data>
+
 ```
 Source: [snippets/project.view_task_tree2.sale_line_optional.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_tree2.sale_line_optional.xml)
 
