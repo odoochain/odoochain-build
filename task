@@ -171,7 +171,7 @@ function start() {
         locale
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
-        open-url-with-delay 'http://localhost:8069' & 
+        open-url-with-delay "http://localhost:8069?db=$GIT_BRANCH" & 
         odoo-bin --config 'config/odoo-native.conf' --dev=all
     fi
 }
