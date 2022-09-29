@@ -2896,3 +2896,18 @@ ID: `mint_system.sale.view_sales_order_line_filter.x_commitment_date`
 ```
 Source: [snippets/sale.view_sales_order_line_filter.x_commitment_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_sales_order_line_filter.x_commitment_date.xml)
 
+### X Date Order  
+ID: `mint_system.sale.view_sales_order_line_filter.x_date_order`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_sales_order_line_filter" priority="50">
+
+  <filter name="to_invoice" position="after">
+    <separator/>
+    <filter string="Auftragsdatum" name="date_order" date="x_date_order" />
+  </filter>
+  
+</data>
+```
+Source: [snippets/sale.view_sales_order_line_filter.x_date_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_sales_order_line_filter.x_date_order.xml)
+
