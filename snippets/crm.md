@@ -200,3 +200,21 @@ ID: `mint_system.crm.crm_lead_view_form.x_mobile`
 ```
 Source: [snippets/crm.crm_lead_view_form.x_mobile.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/crm.crm_lead_view_form.x_mobile.xml)
 
+### X Task Id  
+ID: `mint_system.crm.crm_lead_view_form.x_task_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="crm.crm_lead_view_form" priority="50">
+
+  <xpath expr="//field[@name='phone']/.." position="after">
+    <label for="x_task_id" class="oe_inline"/>
+    <div class="o_row">
+      <field name="x_task_id" id="x_task_id"/>
+    </div>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/crm.crm_lead_view_form.x_task_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/crm.crm_lead_view_form.x_task_id.xml)
+

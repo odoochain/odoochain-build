@@ -443,7 +443,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_infotable`
       <tr>
         <td width="17%">Bestelldatum</td>
         <td width="44%">
-          <span t-field='o.create_date' t-options='{ "widget": "date" }'/>
+          <span t-field='o.date_approve' t-options='{ "widget": "date" }'/>
         </td>
         <td width="14%"></td>
         <td width="25%"></td>

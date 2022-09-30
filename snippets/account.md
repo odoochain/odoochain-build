@@ -3653,6 +3653,21 @@ ID: `mint_system.account.view_bank_statement_form.x_cashbox_start_ids`
 ```
 Source: [snippets/account.view_bank_statement_form.x_cashbox_start_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_bank_statement_form.x_cashbox_start_ids.xml)
 
+## View Bank Statement Line Search  
+### Filter Move Id  
+ID: `mint_system.account.view_bank_statement_line_search.filter_move_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_bank_statement_line_search" priority="50">
+
+    <xpath expr="//field[@name='payment_ref']" position="before">
+        <field name="move_id"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_bank_statement_line_search.filter_move_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_bank_statement_line_search.filter_move_id.xml)
+
 ## View In Invoice Tree  
 ### Add Discount Date  
 ID: `mint_system.account.view_in_invoice_tree.add_discount_date`  

@@ -171,7 +171,7 @@ function start() {
         locale
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
-        open-url-with-delay 'http://localhost:8069' & 
+        open-url-with-delay "http://localhost:8069?db=$GIT_BRANCH" & 
         odoo-bin --config 'config/odoo-native.conf' --dev=all
     fi
 }
@@ -845,7 +845,7 @@ function update-docs() {
     echo "In Odoo everything is described as an XML document. \
     Snippets are modifications (edits) for these XML documents. \
     With a snippet you can e.g. hide a field on the contact form. \
-    A snippet name is unique and follows the \`\$AUTHOR.\$MODULE.\$XML_ID.\$DESCRIPTION\` schema." >> snippets.md
+    A snippet name is unique and follows the \`\$COMPANY.\$MODULE.\$XML_ID.\$DESCRIPTION\` schema." >> snippets.md
 
     PATH_URL="https://github.com/Mint-System/Odoo-Development/tree/14.0"
 
