@@ -455,9 +455,11 @@ function checkout() {
 
     switch-branch $1
 
-    echo "Sync checkout files."
+    echo "Checkout config files."
     git checkout $GIT_BRANCH config/checkout_files config/remove_files
-    git rm -r $(tr '\n' ' ' < ./config/remove_files) >/dev/null 2>&1
+    echo "Remove reset files."
+    git rm -r $(tr '\n' ' ' < ./config/reset_files) >/dev/null 2>&1
+    echo "Sync checkout files."
     git checkout $GIT_BRANCH $(tr '\n' ' ' < ./config/checkout_files)
 }
 
@@ -777,7 +779,7 @@ function remove-submodule() {
 function update-config() {
 
     # Read addons path list
-    ADDONS="$(tr '\n' ',' < ./config/addons_path)"
+    ADDONS="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | tr '\n' ',' |  sed 's/,*$//g')"
 
     # Check if dir exists
     for ADDON in $ADDONS; do

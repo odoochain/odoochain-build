@@ -86,3 +86,11 @@
 	path = oca/hr-attendance
 	url = git@github.com:OCA/hr-attendance.git
 	branch = 15.0
+[submodule "oca/knowledge"]
+	path = oca/knowledge
+	url = git@github.com:OCA/knowledge.git
+	branch = 15.0
+[submodule "oca/l10n-switzerland"]
+	path = oca/l10n-switzerland
+	url = git@github.com:OCA/l10n-switzerland.git
+	branch = 15.0
