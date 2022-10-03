@@ -112,6 +112,11 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                       .address-space-right {
                         padding-right: 3mm
                       }
+                      svg {
+                        position: absolute;
+                        left: 10px;
+                        margin-top: 10px
+                      }
                     </style>
                         <div class="page">
                             <div class="label">
@@ -187,7 +192,11 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                                 <span class="use-font-opensans-medium footer" t-field="res_company.city" />
                                 <br />
                                 <span class="use-font-opensans-medium footer">www.gotthard-zander.ch</span>
-
+                                <svg viewBox="0 0 110 70" width="110" height="70">
+                                  <ellipse style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 2px;" cx="55.406" cy="34.556" rx="50" ry="30" data-bx-origin="-1.166667 -2"></ellipse>
+                                  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; text-anchor: middle; white-space: pre;" data-bx-origin="-1.600941 -3.727571" transform="matrix(1, 0, 0, 1, -47.686543, -68.858284)"><tspan x="102.8" y="96.183">CH</tspan><tspan x="102.8" dy="1em">​</tspan><tspan>71758556</tspan></text>
+                                </svg>
+                                
                             </div>
                             <p style="page-break-before:always;" />
                         </div>
@@ -1961,20 +1970,22 @@ ID: `mint_system.stock.report_picking.get_position`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
-  <xpath expr="//th[@name='th_product']" position="before">
-    <t t-if="o.sale_id or o.purchase_id">
+  <!-- <xpath expr="//th[@name='th_product']" position="before">
+    <t t-if="o.sale_id or o.purchase_id"> -->
+  <xpath expr="//th[@id='default_code']" position="before">
       <th id="position">
         <strong>Pos</strong>
       </th>
-    </t>
+    <!-- </t> -->
   </xpath>
-  <!-- <xpath expr="//td[@id='description_picking']" position="before"> -->
-  <xpath expr="//span[@t-field='ml.product_id.description_picking']/.." position="before">
-    <t t-if="o.sale_id or o.purchase_id">
+  
+ <xpath expr="//td[@id='default_code']" position="before">
+  <!-- <xpath expr="//span[@t-field='ml.product_id.description_picking']/.." position="before"> -->
+    <!-- <t t-if="o.sale_id or o.purchase_id"> -->
       <td id="position">
         <span t-esc="move.position"/>
       </td>
-    </t>
+    <!-- </t> -->
   </xpath>
 
 </data>
@@ -2188,8 +2199,8 @@ ID: `mint_system.stock.report_picking.modify_no_reserved_product`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
-  <xpath expr="//table[3]/../t" position="attributes">
-    <attribute name="t-value">o.move_lines.filtered(lambda x: x.product_uom_qty != x.reserved_availability and x.state!='done')</attribute>
+  <xpath expr="//t[@t-set='no_reserved_product']" position="attributes">
+    <attribute name="t-value">o.move_lines.filtered(lambda x: x.product_uom_qty != x.reserved_availability)</attribute>
   </xpath>
   
 </data>
@@ -2270,8 +2281,10 @@ ID: `mint_system.stock.report_picking.product_description`
 				<span t-esc="move.product_id.type_description"/>
 			</strong>
 			<br/>
-			<span t-esc="move.description_picking"/>
-			<br/>
+			<t t-if="move.description_picking">
+			  <span t-esc="move.description_picking"/>
+      	<br/>
+			</t>
 			<t t-if="not move.description_picking">
 				<span t-esc="move.product_id.name"/>
 				<br/>
@@ -2364,6 +2377,33 @@ ID: `mint_system.stock.report_picking.remove_serial_number`
 
 ```
 Source: [snippets/stock.report_picking.remove_serial_number.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.remove_serial_number.xml)
+
+### Remove To  
+ID: `mint_system.stock.report_picking.remove_to`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//th[@name='th_to']" position="replace">
+    <th name="th_to" t-if="o.picking_type_id.code != 'outgoing' and o.picking_type_id.id != 12" groups="stock.group_stock_multi_locations">
+      <strong>To</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//td[@id='location_dest_id']" position="replace">
+    <td t-if="o.picking_type_id.code != 'outgoing' and o.picking_type_id.id != 12" groups="stock.group_stock_multi_locations">
+      <div>
+        <span t-field="ml.location_dest_id"/>
+        <t t-if="ml.result_package_id">
+          <span t-field="ml.result_package_id"/>
+        </t>
+      </div>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.remove_to.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.remove_to.xml)
 
 ### Replace Barcode  
 ID: `mint_system.stock.report_picking.replace_barcode`  

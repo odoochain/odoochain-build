@@ -424,6 +424,31 @@ ID: `mint_system.ir_model.crm_lead.x_mobile`
 ```
 Source: [snippets/ir_model.crm_lead.x_mobile.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.crm_lead.x_mobile.xml)
 
+### X Task Id  
+ID: `mint_system.ir_model.crm_lead.x_task_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_task_id" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Aufgabe</field>
+    <field name="model">business.requirement</field>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">x_task_id</field>
+    <field name="state">manual</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">project.task</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.crm_lead.x_task_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.crm_lead.x_task_id.xml)
+
 ## Helpdesk Ticket  
 ### X Date Deadline  
 ID: `mint_system.ir_model.helpdesk_ticket.x_date_deadline`  
@@ -1158,7 +1183,7 @@ ID: `mint_system.ir_model.sale_order_line.x_date_order`
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
-    <field name="ttype">date</field>
+    <field name="ttype">datetime</field>
     <field name="related">order_id.date_order</field>
   </record>
 

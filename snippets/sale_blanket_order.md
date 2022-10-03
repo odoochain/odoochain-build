@@ -189,6 +189,24 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.address_block`
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.address_block.xml)
 
+### Extend Title  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.extend_title`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+   <xpath expr="//h2" position="replace">
+      <h2>
+         <span t-if="doc.state not in ['draft','sent']">Blanket Order # </span>
+         <span t-if="doc.state in ['draft','sent']">Quotation # </span>
+         <span t-field="doc.name"/>
+      </h2>
+   </xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.extend_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.extend_title.xml)
+
 ### Format Qty With Decimal  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty_with_decimal`  
 ```xml
