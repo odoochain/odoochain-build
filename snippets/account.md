@@ -3619,6 +3619,21 @@ ID: `mint_system.account.view_bank_statement_form.show_cashbox`
 ```
 Source: [snippets/account.view_bank_statement_form.show_cashbox.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_bank_statement_form.show_cashbox.xml)
 
+### Show Move Id  
+ID: `mint_system.account.view_bank_statement_form.show_move_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_bank_statement_form" priority="50">
+
+    <xpath expr="//page[@name='statement_line_ids']//field[@name='ref']" position="after">
+        <field name="move_id" optional="hidden"/>
+    </xpath>
+
+</data>
+
+```
+Source: [snippets/account.view_bank_statement_form.show_move_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_bank_statement_form.show_move_id.xml)
+
 ### X Cashbox Start Ids  
 ID: `mint_system.account.view_bank_statement_form.x_cashbox_start_ids`  
 ```xml
