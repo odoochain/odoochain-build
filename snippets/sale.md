@@ -1711,6 +1711,23 @@ ID: `mint_system.sale.report_saleorder_document.replace_summary`
 ```
 Source: [snippets/sale.report_saleorder_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.replace_summary.xml)
 
+### Round Price2  
+ID: `mint_system.sale.report_saleorder_document.round_price2`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//span[@t-field='line.price_unit']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.50 -->
+    <!-- 34.75 -> 34.75 -->
+    <span t-esc="'%g' % line.price_unit if int(line.price_unit) == line.price_unit else '%.2f' % line.price_unit" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.round_price2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.round_price2.xml)
+
 ### Round Price  
 ID: `mint_system.sale.report_saleorder_document.round_price`  
 ```xml
