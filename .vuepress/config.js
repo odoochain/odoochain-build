@@ -41,6 +41,8 @@ module.exports = {
         }
     }),
     plugins: [
-        searchPlugin(),
+        searchPlugin({
+            maxSuggestions: 10
+        }),
     ],
 }
