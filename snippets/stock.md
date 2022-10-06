@@ -1519,6 +1519,54 @@ ID: `mint_system.stock.report_delivery_document.replace_table`
 ```
 Source: [snippets/stock.report_delivery_document.replace_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_table.xml)
 
+### Round Qty2  
+ID: `mint_system.stock.report_delivery_document.round_qty2`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//span[@id='qty']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.5 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="qty" t-esc="'%g' % move.product_uom_qty" />
+  </xpath>
+  
+  <xpath expr="//span[@id='open_qty']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.5 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="open_qty" t-esc="'%g' % bo_line.product_uom_qty" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.round_qty2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.round_qty2.xml)
+
+### Round Qty  
+ID: `mint_system.stock.report_delivery_document.round_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//span[@id='qty']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.50 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="qty" t-esc="'%g' % move.product_uom_qty if int(move.product_uom_qty) == move.product_uom_qty else '%.2f' % move.product_uom_qty" />
+  </xpath>
+  
+  <xpath expr="//span[@id='open_qty']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.50 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="open_qty" t-esc="'%g' % bo_line.product_uom_qty if int(bo_line.product_uom_qty) == bo_line.product_uom_qty else '%.2f' % bo_line.product_uom_qty" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.round_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.round_qty.xml)
+
 ### Sale Order Note  
 ID: `mint_system.stock.report_delivery_document.sale_order_note`  
 ```xml
@@ -2659,6 +2707,54 @@ ID: `mint_system.stock.report_picking.replace_table`
   </data>
 ```
 Source: [snippets/stock.report_picking.replace_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.replace_table.xml)
+
+### Round Qty2  
+ID: `mint_system.stock.report_picking.round_qty2`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//span[@id='product_uom_qty']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.5 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty" />
+  </xpath>
+
+  <xpath expr="//span[@id='qty_available']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.5 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="qty_available" t-esc="'%g' % ml.product_id.qty_available" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.round_qty2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.round_qty2.xml)
+
+### Round Qty  
+ID: `mint_system.stock.report_picking.round_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//span[@id='product_uom_qty']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.50 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty if int(ml.product_uom_qty) == ml.product_uom_qty else '%.2f' % ml.product_uom_qty" />
+  </xpath>
+
+  <xpath expr="//span[@id='qty_available']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.50 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="qty_available" t-esc="'%g' % ml.product_id.qty_available if int(ml.product_id.qty_available) == ml.product_id.qty_available else '%.2f' % ml.product_id.qty_available" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.round_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.round_qty.xml)
 
 ### Set Ids  
 ID: `mint_system.stock.report_picking.set_ids`  
