@@ -104,11 +104,11 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_infotable`
         font-size: 9pt;
         font-family: arial;
       }
-        table#info tr {
+      table#info tr {
         line-height: 1.2;
         text-align: left;
       }
-        .note {
+      .note {
         font-size: 9pt;
       }
     </style>

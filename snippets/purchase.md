@@ -114,6 +114,20 @@ ID: `mint_system.purchase.purchase_order_form.modify_readonly_date_approve`
 ```
 Source: [snippets/purchase.purchase_order_form.modify_readonly_date_approve.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_form.modify_readonly_date_approve.xml)
 
+### Modify Readonly Invoice Status  
+ID: `mint_system.purchase.purchase_order_form.modify_readonly_invoice_status`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.purchase_order_form" priority="50">
+
+  <xpath expr="//field[@name='invoice_status']" position="attributes">
+    <attribute name="attrs">{"readonly": False}</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase.purchase_order_form.modify_readonly_invoice_status.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_form.modify_readonly_invoice_status.xml)
+
 ### Modify Visibility Button Confirm Reminder Mail  
 ID: `mint_system.purchase.purchase_order_form.modify_visibility_button_confirm_reminder_mail`  
 ```xml
