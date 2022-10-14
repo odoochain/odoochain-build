@@ -1094,6 +1094,29 @@ ID: `mint_system.ir_model.purchase_order.x_comment`
 Source: [snippets/ir_model.purchase_order.x_comment.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.purchase_order.x_comment.xml)
 
 ## Res Partner  
+### X External Ref  
+ID: `mint_system.ir_model.res_partner.x_external_ref`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_external_ref" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Externe Referenz</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_external_ref</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.res_partner.x_external_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.res_partner.x_external_ref.xml)
+
 ### X Stock Move Ids  
 ID: `mint_system.ir_model.res_partner.x_stock_move_ids`  
 ```xml

@@ -261,6 +261,21 @@ ID: `mint_system.base.view_partner_form.show_user_id`
 ```
 Source: [snippets/base.view_partner_form.show_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.show_user_id.xml)
 
+### X External Ref  
+ID: `mint_system.base.view_partner_form.x_external_ref`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <field name="x_external_ref"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.x_external_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.x_external_ref.xml)
+
 ## View Partner Tree  
 ### Add Ref Zip Type  
 ID: `mint_system.base.view_partner_tree.add_ref_zip_type`  
