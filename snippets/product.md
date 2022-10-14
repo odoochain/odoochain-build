@@ -257,6 +257,20 @@ ID: `mint_system.product.product_template_only_form_view.show_handle`
 ```
 Source: [snippets/product.product_template_only_form_view.show_handle.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.show_handle.xml)
 
+### X Calibre  
+ID: `mint_system.product.product_template_only_form_view.x_calibre`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_only_form_view" priority="50">
+
+    <field name="hs_code" position="after">
+        <field name="x_calibre" />
+    </field>
+
+</data>
+```
+Source: [snippets/product.product_template_only_form_view.x_calibre.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.x_calibre.xml)
+
 ### X Expiration Days  
 ID: `mint_system.product.product_template_only_form_view.x_expiration_days`  
 ```xml

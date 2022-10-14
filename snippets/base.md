@@ -156,10 +156,12 @@ ID: `mint_system.base.view_partner_form.add_commercial_partner_id`
 <?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
 
-  <xpath expr="//field[@name='vat']" position="after">
-    <field name="commercial_partner_id"/>
+  <xpath expr="//field[@name='bank_ids']/.." position="before">
+    <group>
+      <field name="commercial_partner_id" readonly="0" />
+    </group>
   </xpath>
-  
+
 </data>
 ```
 Source: [snippets/base.view_partner_form.add_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.add_commercial_partner_id.xml)

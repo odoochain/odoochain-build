@@ -747,6 +747,29 @@ ID: `mint_system.ir_model.product_set_line.x_categ_id`
 Source: [snippets/ir_model.product_set_line.x_categ_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_set_line.x_categ_id.xml)
 
 ## Product Template  
+### X Calibre  
+ID: `mint_system.ir_model.product_template.x_calibre`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_calibre" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Kaliber</field>
+    <field name="model">product.template</field>
+    <field name="model_id" ref="product.model_product_template"/>
+    <field name="name">x_calibre</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">char</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.product_template.x_calibre.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_calibre.xml)
+
 ### X Expiration Days  
 ID: `mint_system.ir_model.product_template.x_expiration_days`  
 ```xml
