@@ -3766,6 +3766,20 @@ ID: `mint_system.account.view_invoice_tree.x_account_codes`
 Source: [snippets/account.view_invoice_tree.x_account_codes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_invoice_tree.x_account_codes.xml)
 
 ## View Move Form  
+### Domain Partner Bank Ids  
+ID: `mint_system.account.view_move_form.domain_partner_bank_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <xpath expr="//group[@id='header_left_group']//field[@name='partner_bank_id']" position="attributes">
+        <attribute name="domain"></attribute>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_move_form.domain_partner_bank_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.domain_partner_bank_ids.xml)
+
 ### Hide Payment Reference  
 ID: `mint_system.account.view_move_form.hide_payment_reference`  
 ```xml
@@ -3819,6 +3833,7 @@ ID: `mint_system.account.view_move_form.show_commercial_partner_id`
     </field>
 
 </data>
+
 ```
 Source: [snippets/account.view_move_form.show_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_commercial_partner_id.xml)
 

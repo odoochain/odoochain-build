@@ -278,6 +278,21 @@ ID: `mint_system.base.view_partner_form.x_external_ref`
 ```
 Source: [snippets/base.view_partner_form.x_external_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.x_external_ref.xml)
 
+### X Packaging Ref  
+ID: `mint_system.base.view_partner_form.x_packaging_ref`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='ref']" position="after">
+    <field name="x_packaging_ref"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.x_packaging_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.x_packaging_ref.xml)
+
 ## View Partner Tree  
 ### Add Ref Zip Type  
 ID: `mint_system.base.view_partner_tree.add_ref_zip_type`  
@@ -363,6 +378,21 @@ ID: `mint_system.base.view_partner_tree.show_industry`
 
 ```
 Source: [snippets/base.view_partner_tree.show_industry.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_tree.show_industry.xml)
+
+### Show Property Product Pricelist  
+ID: `mint_system.base.view_partner_tree.show_property_product_pricelist`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="60">
+
+  <field name="country_id" position="after">
+    <field name="property_product_pricelist" optional="hide"/>
+  </field>
+  
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.show_property_product_pricelist.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_tree.show_property_product_pricelist.xml)
 
 ### Show Type  
 ID: `mint_system.base.view_partner_tree.show_type`  
