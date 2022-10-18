@@ -98,3 +98,7 @@
 	path = oca/server-auth
 	url = git@github.com:OCA/server-auth.git
 	branch = 15.0
+[submodule "addons/project"]
+	path = addons/project
+	url = git@github.com:Mint-System/Odoo-Apps-Project.git
+	branch = 15.0

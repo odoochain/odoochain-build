@@ -934,7 +934,19 @@ ID: `mint_system.account.report_invoice_document.replace_address`
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//div[@t-field='o.partner_id']" position="replace">
-    <div t-field="o.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+    <t t-if="o.partner_invoice_id.is_company == true">
+      <div t-esc="o.partner_invoice_id.name"/>
+      <div t-esc="o.partner_invoice_id.street"/>
+      <div t-esc="o.partner_invoice_id.street2"/>
+      <span t-esc="o.partner_invoice_id.zip"/>
+      <span t-esc="o.partner_invoice_id.city"/>
+      <t t-if="o.partner_invoice_id.country_id.code != 'CH'">
+        <div t-esc="oo.partner_invoice_id.country_id.name"/>
+      </t>
+    </t>
+    <t t-else="">
+      <div t-field="o.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+    </t>
   </xpath>
 
 </data>
@@ -2733,7 +2745,19 @@ ID: `mint_system.account.report_invoice_document.replace_address`
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//div[@t-field='o.partner_id']" position="replace">
-    <div t-field="o.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+    <t t-if="o.partner_invoice_id.is_company == true">
+      <div t-esc="o.partner_invoice_id.name"/>
+      <div t-esc="o.partner_invoice_id.street"/>
+      <div t-esc="o.partner_invoice_id.street2"/>
+      <span t-esc="o.partner_invoice_id.zip"/>
+      <span t-esc="o.partner_invoice_id.city"/>
+      <t t-if="o.partner_invoice_id.country_id.code != 'CH'">
+        <div t-esc="oo.partner_invoice_id.country_id.name"/>
+      </t>
+    </t>
+    <t t-else="">
+      <div t-field="o.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+    </t>
   </xpath>
 
 </data>
@@ -3742,6 +3766,20 @@ ID: `mint_system.account.view_invoice_tree.x_account_codes`
 Source: [snippets/account.view_invoice_tree.x_account_codes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_invoice_tree.x_account_codes.xml)
 
 ## View Move Form  
+### Domain Partner Bank Ids  
+ID: `mint_system.account.view_move_form.domain_partner_bank_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <xpath expr="//group[@id='header_left_group']//field[@name='partner_bank_id']" position="attributes">
+        <attribute name="domain"></attribute>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_move_form.domain_partner_bank_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.domain_partner_bank_ids.xml)
+
 ### Hide Payment Reference  
 ID: `mint_system.account.view_move_form.hide_payment_reference`  
 ```xml
@@ -3795,6 +3833,7 @@ ID: `mint_system.account.view_move_form.show_commercial_partner_id`
     </field>
 
 </data>
+
 ```
 Source: [snippets/account.view_move_form.show_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_commercial_partner_id.xml)
 
