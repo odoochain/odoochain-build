@@ -54,7 +54,7 @@ ID: `mint_system.product.product_packaging_tree_view.show_barcode`
 <?xml version="1.0"?>
 <data inherit_id="product.product_packaging_tree_view" priority="50">
 
-    <field name="name" position="after">
+    <field name="product_id" position="after">
         <field name="barcode" optional="show"/>
     </field>
 
