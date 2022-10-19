@@ -102,3 +102,7 @@
 	path = addons/project
 	url = git@github.com:Mint-System/Odoo-Apps-Project.git
 	branch = 15.0
+[submodule "addons/sale_workflow"]
+	path = addons/sale_workflow
+	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
+	branch = 15.0
