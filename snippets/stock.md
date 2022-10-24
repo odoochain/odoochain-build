@@ -3540,6 +3540,21 @@ ID: `mint_system.stock.view_move_form.show_locations`
 ```
 Source: [snippets/stock.view_move_form.show_locations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_locations.xml)
 
+### Show Lot Ids  
+ID: `mint_system.stock.view_move_form.show_lot_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_move_form" priority="50">
+
+  <field name="move_dest_ids" position="after">
+    <field name="lot_ids"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_move_form.show_lot_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_lot_ids.xml)
+
 ### Show Move Lines  
 ID: `mint_system.stock.view_move_form.show_move_lines`  
 ```xml
@@ -3556,6 +3571,21 @@ ID: `mint_system.stock.view_move_form.show_move_lines`
 
 ```
 Source: [snippets/stock.view_move_form.show_move_lines.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_move_lines.xml)
+
+### Show Order Finished Lot Ids  
+ID: `mint_system.stock.view_move_form.show_order_finished_lot_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_move_form" priority="50">
+
+  <field name="move_dest_ids" position="after">
+    <field name="order_finished_lot_ids"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_move_form.show_order_finished_lot_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_order_finished_lot_ids.xml)
 
 ### Show Packaging  
 ID: `mint_system.stock.view_move_form.show_packaging`  
@@ -3586,6 +3616,21 @@ ID: `mint_system.stock.view_move_form.show_partner`
 
 ```
 Source: [snippets/stock.view_move_form.show_partner.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_partner.xml)
+
+### Show Picking Id  
+ID: `mint_system.stock.view_move_form.show_picking_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_move_form" priority="50">
+
+  <field name="origin" position="after">
+    <field name="picking_id"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_move_form.show_picking_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_picking_id.xml)
 
 ### Show Production  
 ID: `mint_system.stock.view_move_form.show_production`  
@@ -3634,20 +3679,20 @@ ID: `mint_system.stock.view_move_line_form.enable_edit_and_create`
 ```
 Source: [snippets/stock.view_move_line_form.enable_edit_and_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_line_form.enable_edit_and_create.xml)
 
-### Show Move Id  
-ID: `mint_system.stock.view_move_line_form.show_move_id`  
+### Show Picking Id  
+ID: `mint_system.stock.view_move_line_form.show_picking_id`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_line_form" priority="50">
 
-  <field name="lot_id" position="before">
-    <field name="move_id"/>
+  <field name="origin" position="after">
+    <field name="picking_id"/>
   </field>
 
 </data>
 
 ```
-Source: [snippets/stock.view_move_line_form.show_move_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_line_form.show_move_id.xml)
+Source: [snippets/stock.view_move_line_form.show_picking_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_line_form.show_picking_id.xml)
 
 ## View Move Line Tree  
 ### Enable Create  
@@ -3888,6 +3933,21 @@ ID: `mint_system.stock.view_picking_form.show_details_visible`
 
 ```
 Source: [snippets/stock.view_picking_form.show_details_visible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_details_visible.xml)
+
+### Show Move Line Ids  
+ID: `mint_system.stock.view_picking_form.show_move_line_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_picking_form" priority="50">
+
+  <field name="backorder_id" position="after">
+    <field name="move_line_ids"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_picking_form.show_move_line_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_move_line_ids.xml)
 
 ### Show Weight  
 ID: `mint_system.stock.view_picking_form.show_weight`  

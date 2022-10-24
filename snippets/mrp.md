@@ -317,6 +317,21 @@ ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline`
 ```
 Source: [snippets/mrp.mrp_production_form_view.add_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.add_date_deadline.xml)
 
+### Finished Move Line Ids  
+ID: `mint_system.mrp.mrp_production_form_view.finished_move_line_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.mrp_production_form_view" priority="50">
+
+  <field name="bom_id" position="before">
+    <field name="finished_move_line_ids"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/mrp.mrp_production_form_view.finished_move_line_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.finished_move_line_ids.xml)
+
 ### Hide Date Deadline  
 ID: `mint_system.mrp.mrp_production_form_view.hide_date_deadline`  
 ```xml
@@ -331,6 +346,21 @@ ID: `mint_system.mrp.mrp_production_form_view.hide_date_deadline`
 
 ```
 Source: [snippets/mrp.mrp_production_form_view.hide_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.hide_date_deadline.xml)
+
+### Move Finished Ids  
+ID: `mint_system.mrp.mrp_production_form_view.move_finished_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.mrp_production_form_view" priority="50">
+
+  <field name="bom_id" position="before">
+    <field name="move_finished_ids"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/mrp.mrp_production_form_view.move_finished_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.move_finished_ids.xml)
 
 ### Replace Workorder Tree View  
 ID: `mint_system.mrp.mrp_production_form_view.replace_workorder_tree_view`  
@@ -411,6 +441,21 @@ ID: `mint_system.mrp.mrp_production_form_view.show_date_planned_finished`
 
 ```
 Source: [snippets/mrp.mrp_production_form_view.show_date_planned_finished.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.show_date_planned_finished.xml)
+
+### Show Move Dest Ids  
+ID: `mint_system.mrp.mrp_production_form_view.show_move_dest_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.mrp_production_form_view" priority="50">
+
+  <field name="bom_id" position="before">
+    <field name="move_dest_ids"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/mrp.mrp_production_form_view.show_move_dest_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.show_move_dest_ids.xml)
 
 ### Show X Date Deadline  
 ID: `mint_system.mrp.mrp_production_form_view.show_x_date_deadline`  
