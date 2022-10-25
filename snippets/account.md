@@ -3628,6 +3628,21 @@ ID: `mint_system.account.view_bank_statement_form.edit_balance`
 ```
 Source: [snippets/account.view_bank_statement_form.edit_balance.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_bank_statement_form.edit_balance.xml)
 
+### Edit Transactions  
+ID: `mint_system.account.view_bank_statement_form.edit_transactions`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_bank_statement_form" priority="50">
+
+    <field name="line_ids" position="attributes">
+        <attribute name="attrs">{'readonly': [('state', '=', 'confirm')]}</attribute>
+    </field>
+
+</data>
+
+```
+Source: [snippets/account.view_bank_statement_form.edit_transactions.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_bank_statement_form.edit_transactions.xml)
+
 ### Show Cashbox  
 ID: `mint_system.account.view_bank_statement_form.show_cashbox`  
 ```xml
@@ -3707,6 +3722,22 @@ ID: `mint_system.account.view_bank_statement_line_search.filter_move_id`
 ```
 Source: [snippets/account.view_bank_statement_line_search.filter_move_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_bank_statement_line_search.filter_move_id.xml)
 
+## View Bank Statement Line Tree  
+### Enable Create  
+ID: `mint_system.account.view_bank_statement_line_tree.enable_create`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_bank_statement_line_tree" priority="50">
+
+    <tree position="attributes">
+        <attribute name="create">1</attribute>
+    </tree>
+
+</data>
+
+```
+Source: [snippets/account.view_bank_statement_line_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_bank_statement_line_tree.enable_create.xml)
+
 ## View In Invoice Tree  
 ### Add Discount Date  
 ID: `mint_system.account.view_in_invoice_tree.add_discount_date`  
@@ -3766,6 +3797,20 @@ ID: `mint_system.account.view_invoice_tree.x_account_codes`
 Source: [snippets/account.view_invoice_tree.x_account_codes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_invoice_tree.x_account_codes.xml)
 
 ## View Move Form  
+### Domain Partner Bank Ids  
+ID: `mint_system.account.view_move_form.domain_partner_bank_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <xpath expr="//group[@id='header_left_group']//field[@name='partner_bank_id']" position="attributes">
+        <attribute name="domain"></attribute>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_move_form.domain_partner_bank_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.domain_partner_bank_ids.xml)
+
 ### Hide Payment Reference  
 ID: `mint_system.account.view_move_form.hide_payment_reference`  
 ```xml
@@ -3779,6 +3824,24 @@ ID: `mint_system.account.view_move_form.hide_payment_reference`
 
 ```
 Source: [snippets/account.view_move_form.hide_payment_reference.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.hide_payment_reference.xml)
+
+### Hide Send Button On Refund  
+ID: `mint_system.account.view_move_form.hide_send_button_on_refund`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <xpath expr="//button[@name='action_invoice_sent'][1]" position="attributes">
+        <attribute name="attrs"> {'invisible':['|', '|', ('state', '!=', 'posted'), ('is_move_sent', '=', True), ('move_type', 'not in', ('out_invoice'))]}</attribute>
+    </xpath>
+
+    <xpath expr="//button[@name='action_invoice_sent'][2]" position="attributes">
+        <attribute name="attrs">{'invisible':['|', '|', ('state', '!=', 'posted'), ('is_move_sent', '=', False), ('move_type', 'not in', ('out_invoice', 'in_invoice', 'in_refund'))]}</attribute>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_move_form.hide_send_button_on_refund.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.hide_send_button_on_refund.xml)
 
 ### Payment Reference Readonly  
 ID: `mint_system.account.view_move_form.payment_reference_readonly`  
@@ -3819,6 +3882,7 @@ ID: `mint_system.account.view_move_form.show_commercial_partner_id`
     </field>
 
 </data>
+
 ```
 Source: [snippets/account.view_move_form.show_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_commercial_partner_id.xml)
 

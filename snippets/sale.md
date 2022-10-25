@@ -2237,6 +2237,25 @@ ID: `mint_system.sale.sale_order_view_search_inherit_sale.filter_commitment_date
 ```
 Source: [snippets/sale.sale_order_view_search_inherit_sale.filter_commitment_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.sale_order_view_search_inherit_sale.filter_commitment_date.xml)
 
+## Variants  
+### Remove Variant Extra Price  
+ID: `mint_system.sale.variants.remove_variant_extra_price`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.variants" priority="50">
+
+    <xpath expr="//span[hasclass('variant_price_extra')]" position="before">
+        <style>
+            li.variant_attribute .badge {
+                display: none;
+            }
+        </style>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale.variants.remove_variant_extra_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.variants.remove_variant_extra_price.xml)
+
 ## View Order Form  
 ### Add Blanket Order Id  
 ID: `mint_system.sale.view_order_form.add_blanket_order_id`  
@@ -2802,6 +2821,21 @@ ID: `mint_system.sale.view_order_tree.show_partner_shipping`
 
 ```
 Source: [snippets/sale.view_order_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_tree.show_partner_shipping.xml)
+
+### Show State  
+ID: `mint_system.sale.view_order_tree.show_state`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_tree" priority="50">
+
+  <field name="invoice_status" position="after">
+    <field name="state" decoration-success="state == 'sale' or state == 'done'" decoration-info="state == 'draft' or state == 'sent'" widget="badge" optional="show"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/sale.view_order_tree.show_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_tree.show_state.xml)
 
 ### X Product Uom Qty  
 ID: `mint_system.sale.view_order_tree.x_product_uom_qty`  
