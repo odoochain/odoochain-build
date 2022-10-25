@@ -5,11 +5,16 @@
 		<style>
 			.o_company_1_layout {
 				font-family: Arial;
-				color: #000000;
+				font-size: 9pt;
+			}
+			.address {
+       		padding-bottom:33mm;
 			}
 			h2 {
        			margin-top:10mm;
        			margin-bottom:3mm;
+       			font-size: 13pt;
+				font-weight: bold;
 			}
 	
 		</style>
