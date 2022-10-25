@@ -1546,6 +1546,7 @@ ID: `mint_system.ir_model.stock_move.x_count_boxes`
                 # qty_up = (qty - 0.1)
                     
                 # Set factor
+                factor_xs = 6
                 if delivery_name == 'Gebinde':
                     factor_xs = 6
                 elif delivery_name == 'Gebinde Migros':

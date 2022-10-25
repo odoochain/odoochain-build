@@ -1528,8 +1528,7 @@ ID: `mint_system.sale.report_saleorder_document.remove_vat`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-<xpath expr="//p[@t-if='doc.partner_id.vat']" position="replace">
-</xpath>
+<xpath expr="//p[@t-if='doc.partner_id.vat']" position="replace"/>
 
 </data>
 ```
