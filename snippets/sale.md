@@ -1528,8 +1528,7 @@ ID: `mint_system.sale.report_saleorder_document.remove_vat`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-<xpath expr="//p[@t-if='doc.partner_id.vat']" position="replace">
-</xpath>
+<xpath expr="//p[@t-if='doc.partner_id.vat']" position="replace"/>
 
 </data>
 ```
@@ -2821,6 +2820,21 @@ ID: `mint_system.sale.view_order_tree.show_partner_shipping`
 
 ```
 Source: [snippets/sale.view_order_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_tree.show_partner_shipping.xml)
+
+### Show State  
+ID: `mint_system.sale.view_order_tree.show_state`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_tree" priority="50">
+
+  <field name="invoice_status" position="after">
+    <field name="state" decoration-success="state == 'sale' or state == 'done'" decoration-info="state == 'draft' or state == 'sent'" widget="badge" optional="show"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/sale.view_order_tree.show_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_tree.show_state.xml)
 
 ### X Product Uom Qty  
 ID: `mint_system.sale.view_order_tree.x_product_uom_qty`  

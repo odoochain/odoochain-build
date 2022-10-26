@@ -173,6 +173,23 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_product_uo
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_product_uom_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_product_uom_id.xml)
 
+### Address Block  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.address_block`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//t/div/div[1]" position="before">
+    <t t-set="o" t-value="o.with_context(lang=o.vendor_id.lang)"/>
+        <t t-set="address">
+            <div t-field="o.vendor_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+        </t>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.address_block.xml)
+
 ### Add User Id  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_user_id`  
 ```xml
@@ -216,8 +233,12 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_details`
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
+<!--
 <xpath expr="//div/t[2]" position="replace">  
 </xpath>
+-->
+
+  <xpath expr="//table[@id='details']" position="replace"/>
   
 </data>
 ```
@@ -236,18 +257,22 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_origin`
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_origin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_origin.xml)
 
-### Hide Title H3  
-ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_title_h3`  
+### Hide Title Product  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_title_product`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
+<!--
 <xpath expr="//h3" position="replace">  
 </xpath>
-  
+-->
+
+ <xpath expr="//h3[@id='title_product']" position="replace"/> 
+
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_title_h3.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_title_h3.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_title_product.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_title_product.xml)
 
 ### Hide Type Id  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_type_id`  
@@ -291,6 +316,26 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_name_w
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_name_with_partner_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.replace_name_with_partner_ref.xml)
 
+### Replace Product Description  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_product_description`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+<xpath expr="//span[@t-field='l.product_id']" position="replace">
+  <t t-if="l.product_id.type_description">
+		<span style="font-weight: bold" t-field="l.product_id.type_description"/>
+  </t>
+  <t t-if="not l.product_id.type_description">
+    <span t-field="l.name"/>
+  </t>
+
+</xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_product_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.replace_product_description.xml)
+
 ### Replace Product Uom Id With Schedule Date  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_product_uom_id_with_schedule_date`  
 ```xml
@@ -330,6 +375,74 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_schedu
 </data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_schedule_date_with_price_unit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.replace_schedule_date_with_price_unit.xml)
+
+### Replace Title  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_title`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//h2" position="replace">
+    <t t-if="state_blanket_order == draft">
+      <h2>Request for Quotation purchase contract <span t-field="o.name"/></h2>
+    </t>
+    <t t-else="">
+			<h2>Purchase contract <span t-field="o.name"/></h2>
+		</t>
+  </xpath>  
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.replace_title.xml)
+
+### Second Row  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.second_row`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/t/tr[1]" position="attributes">
+    <attribute name="t-att-class">"first"</attribute>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/t/tr[1]" position="after">
+    <t t-if="l.product_id.type_description">
+    <tr class="second">
+      <td></td>
+      <td colspan="6">
+        <span t-field="l.name"/><br/>
+        <t t-if="l.product_id.country_of_origin_id.code">
+          Ursprungsland:
+          <span t-field="l.product_id.country_of_origin_id.code" />
+        </t>
+        <t t-if="l.product_id.hs_code">
+          / Zollposition:
+          <span t-field="l.product_id.hs_code" />
+        </t>
+      </td>
+    </tr>
+    </t>
+    <t t-if="not l.product_id.type_description">
+    <tr class="second">
+      <td></td>
+      <td colspan="6">
+        <t t-if="l.product_id.country_of_origin_id.code">
+          Ursprungsland:
+          <span t-field="l.product_id.country_of_origin_id.code" />
+        </t>
+        <t t-if="l.product_id.hs_code">
+          / Zollposition:
+          <span t-field="l.product_id.hs_code" />
+        </t>
+      </td>
+    </tr>
+    </t>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.second_row.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.second_row.xml)
 
 ### Sequence In Table  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.sequence_in_table`  
@@ -375,6 +488,25 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.set_ids`
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.set_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.set_ids.xml)
 
+### Show Default Code  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.show_default_code`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//h2" position="replace">
+    <t t-if="state_blanket_order == draft">
+      <h2>Request for Quotation purchase contract <span t-field="o.name"/></h2>
+    </t>
+    <t t-else="">
+			<h2>Purchase contract <span t-field="o.name"/></h2>
+		</t>
+  </xpath>  
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.show_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.show_default_code.xml)
+
 ### Style Gelso  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.style_gelso`  
 ```xml
@@ -412,11 +544,16 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.style_trimada`
 		<style>
 			.o_company_1_layout {
 				font-family: Arial;
-				color: #000000;
+				font-size: 9pt;
+			}
+			.address {
+       		padding-bottom:33mm;
 			}
 			h2 {
        			margin-top:10mm;
        			margin-bottom:3mm;
+       			font-size: 13pt;
+				font-weight: bold;
 			}
 	
 		</style>
