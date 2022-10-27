@@ -3560,6 +3560,21 @@ ID: `mint_system.stock.view_move_form.show_lot_ids`
 ```
 Source: [snippets/stock.view_move_form.show_lot_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_lot_ids.xml)
 
+### Show Move Finished Ids  
+ID: `mint_system.stock.view_move_form.show_move_finished_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_move_form" priority="50">
+
+  <xpath expr="//field[@name='procure_method']" position="after">
+    <field name="move_finished_ids"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.view_move_form.show_move_finished_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_move_finished_ids.xml)
+
 ### Show Move Lines  
 ID: `mint_system.stock.view_move_form.show_move_lines`  
 ```xml
@@ -4059,4 +4074,19 @@ ID: `mint_system.stock.vpicktree.show_delivery_note`
 
 ```
 Source: [snippets/stock.vpicktree.show_delivery_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.vpicktree.show_delivery_note.xml)
+
+### Weight Sum  
+ID: `mint_system.stock.vpicktree.weight_sum`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.vpicktree" priority="50">
+
+  <xpath expr="//field[@name='weight']" position="attributes">
+    <attribute name="sum"></attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.vpicktree.weight_sum.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.vpicktree.weight_sum.xml)
 
