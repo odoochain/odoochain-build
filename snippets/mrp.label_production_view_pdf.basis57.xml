@@ -1,4 +1,4 @@
-<t t-name="stock.label_transfer_template_view.basis57">
+<t t-name="mrp.label_production_view_pdf.basis57">
     <t t-call="web.basic_layout">
         <style>
             .external-ref {
@@ -15,7 +15,6 @@
             }
             .box.address {
                 font-size: 14mm;
-                font-weight: bolder;
             }
             .barcode {
                 font-size: 6mm;
@@ -49,8 +48,8 @@
             }
         </style>
 
-        <t t-foreach="docs" t-as="picking">
-            <t t-foreach="picking.move_lines.filtered(lambda m: m.quantity_done > 0)" t-as="move">
+        <t t-foreach="docs" t-as="production">
+            <t t-foreach="production.move_finished_ids.filtered(lambda m: m.quantity_done > 0)" t-as="move">
 
                 <!--Set default values-->
                 <t t-set="count_boxes" t-value="0" />
@@ -58,8 +57,7 @@
                 <t t-set="temperature" t-value="2" />
                 <t t-set="today" t-value="context_timestamp(datetime.datetime.now())" />
                 <t t-set="print_weight" t-value="False" />
-                <t t-set="packaging" t-value="move.product_packaging" />
-                <t t-set="external_ref" t-value="picking.partner_id.x_external_ref" />
+                <t t-set="packaging" t-value="move.product_id.packaging_ids[0]" />
                 <t t-set="print_header" t-value="True" />
                 <t t-set="print_delivery_date_only" t-value="False" />
 
@@ -99,14 +97,6 @@
                     </t>
                     <t t-set="count_pages" t-value="int(count_labels + count_boxes)" />
 
-                    <!--<span>count_boxes:</span><span t-esc="count_boxes" />-->
-                    <!--<span>qty_done:</span><span t-esc="move_line.qty_done" />-->
-                    <!--<span>quantity_done:</span><span t-esc="move.quantity_done" />-->
-                    <!--<span>x_count_boxes:</span><span t-esc="move.x_count_boxes" />-->
-                    <!--<span>count_labels:</span><span t-esc="count_labels" />-->
-                    <!--<span>count_pages:</span><span t-esc="count_pages" />-->
-                    <!--<br/>-->
-
                     <!--Print report for each label and box count-->
                     <t t-foreach="range(0, count_pages)" t-as="page">
 
@@ -133,17 +123,12 @@
                         <div class="page">
                             <div class="label">
 
-                                <t t-if="picking.partner_id.hide_address or not print_header">
-                                    <br />
-                                    <br />
-                                </t>
+                                <br />
+                                <br />
                                 <br />
                                 <br />
 
                                 <t t-if="print_header">
-                                    <t t-if="picking.partner_id.x_packaging_ref">
-                                        <span class="text-uppercase use-font-opensans-medium title space-right" t-esc="picking.partner_id.x_packaging_ref" />
-                                    </t>
                                     <span class="text-uppercase use-font-opensans-medium title">Gotthard-Zander</span>
                                     <br />
                                     <span class="text-uppercase use-font-opensans-bold title" t-esc="move.product_id.name" />
@@ -167,39 +152,6 @@
 
                                 <br />
                                 <br />
-
-                                <t t-if="not picking.partner_id.hide_address">
-                                    <div id="address">
-                                        <t t-if="external_ref and print_header">
-                                            <span class="use-font-opensans-bold external-ref" t-esc="external_ref" />
-                                            <br />
-                                            <span class="use-font-opensans-bold address" t-field="picking.partner_id.name" />
-                                            <br />
-                                            <span class="use-font-opensans-bold address address-space-right" t-field="picking.partner_id.zip" />
-                                            <span class="use-font-opensans-bold address" t-field="picking.partner_id.city" />
-                                            <br />
-                                            <br />
-                                        </t>
-                                        <t t-if="external_ref and not print_header">
-                                            <span class="use-font-opensans-bold box external-ref" t-esc="external_ref" />
-                                            <br />
-                                            <span class="use-font-opensans-bold box address" t-field="picking.partner_id.name" />
-                                            <br />
-                                            <span class="use-font-opensans-bold box address address-space-right" t-field="picking.partner_id.zip" />
-                                            <span class="use-font-opensans-bold box address" t-field="picking.partner_id.city" />
-                                            <br />
-                                            <br />
-                                        </t>
-                                        <t t-if="not external_ref and print_header">
-                                            <span class="use-font-opensans-bold address" t-field="picking.partner_id.name" />
-                                            <br />
-                                            <span class="use-font-opensans-bold address address-space-right" t-field="picking.partner_id.zip" />
-                                            <span class="use-font-opensans-bold address" t-field="picking.partner_id.city" />
-                                            <br />
-                                            <br />
-                                        </t>
-                                    </div>
-                                </t>
 
                                 <t t-if="not print_delivery_date_only">
                                     <span class="use-font-opensans-medium default">Verpackt am: </span>

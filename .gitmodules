@@ -230,3 +230,7 @@
 	path = oca/iot
 	url = git@github.com:OCA/iot.git
 	branch = 14.0
+[submodule "oca/manufacture"]
+	path = oca/manufacture
+	url = git@github.com:OCA/manufacture.git
+	branch = 14.0
