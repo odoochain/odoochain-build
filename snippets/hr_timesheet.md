@@ -19,6 +19,25 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details`
 ```
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml)
 
+### Show Partner Id  
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.show_partner_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+
+  <xpath expr="//field[@name='project_id']" position="before">
+    <field name="partner_id"/>
+  </xpath>
+
+  <xpath expr="//field[@name='project_id']" position="attributes">
+    <attribute name="domain">[('partner_id', '=', partner_id)]</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.show_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.show_partner_id.xml)
+
 ## Portal My Timesheets  
 ### Show Billable  
 ID: `mint_system.hr_timesheet.portal_my_timesheets.show_billable`  
@@ -56,6 +75,12 @@ ID: `mint_system.hr_timesheet.report_timesheet.group_by_invoice_type`
         <t t-foreach="docs" t-as="l">
             <t t-set="timesheet_invoice_type" t-value="timesheet_invoice_type+[l.timesheet_invoice_type]"/>
         </t>
+        
+        <style>
+          td#date {
+            white-space: nowrap;
+          }
+        </style>
 
         <!-- Foreach timesheet type list entries -->
         <t t-foreach="set(timesheet_invoice_type)" t-as="type">
@@ -68,8 +93,8 @@ ID: `mint_system.hr_timesheet.report_timesheet.group_by_invoice_type`
             <tr t-foreach="docs" t-as="l">
                 <t t-if="type==l.timesheet_invoice_type">
 
-                    <td>
-                        <span t-field="l.date"/>
+                    <td id="date">
+                        <span t-field="l.date"/><br/><span t-field="l.employee_id.name"/>
                     </td>
                     <td>
                         <span t-field="l.name" t-options="{'widget': 'text'}"/>
@@ -134,7 +159,16 @@ ID: `mint_system.hr_timesheet.report_timesheet.user_report`
     <xpath expr="//table[1]/thead[1]/tr[1]/th[2]" position="replace"/>
     <xpath expr="//table[1]/tbody[1]/tr[2]/td[2]" position="replace"/>
     <xpath expr="/t[1]/t[1]/t[1]/div[1]/div[2]/div[1]" position="replace"/>
-
+    
+    <!--Combine Responsible and Date-->
+    <xpath expr="//table[1]/thead[1]/tr[1]/th[1]" position="replace">
+      <th><span>Datum</span><br/><span>Author</span></th>
+    </xpath>
+    <xpath expr="//table[1]/tbody[1]/tr[1]/td[1]" position="replace">
+      <td><span t-field="l.date"/><br/><span t-field="l.employee_id.name"/></td>
+    </xpath>
+    
+    
 </data>
 
 ```

@@ -90,6 +90,20 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_header_and_
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.add_header_and_footer_note.xml)
 
+### Add Header Space  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_header_space`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+	<xpath expr="//h2" position="attributes">
+		 <attribute name="style">padding-top: 5rem</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.add_header_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.add_header_space.xml)
+
 ### Add Infotable  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_infotable`  
 ```xml
@@ -325,6 +339,38 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.remove_informat
 
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.remove_informations.xml)
+
+### Remove Vat  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.remove_vat`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+<xpath expr="//p[@t-if='doc.partner_id.vat']" position="replace"/>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.remove_vat.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.remove_vat.xml)
+
+### Replace Partner Id  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_partner_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">>
+
+ <xpath expr="//div[@t-field='doc.partner_id']" position="replace">    
+      <t t-if="doc.partner_contact_id.parent_name">
+        <div t-field="doc.partner_contact_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" name="partner_contact_id"/>
+      </t>
+      <t t-if="not doc.partner_contact_id.parent_name">
+        <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" name="partner_contact_id"/>
+      </t>   
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.replace_partner_id.xml)
 
 ### Replace Product Description  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_product_description`  
@@ -647,8 +693,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.title_margin`
 Source: [snippets/sale_blanket_order.report_blanketorder_document.title_margin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.title_margin.xml)
 
 ## View Blanket Order Form  
-### Modify Attributes Date Order  
-ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_date_order`  
+### Modify Attributes Date Confirmed  
+ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.view_blanket_order_form" priority="50">
@@ -659,7 +705,7 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_da
 
 </data>
 ```
-Source: [snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_order.xml)
+Source: [snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml)
 
 ## View Blanket Order Search  
 ### Replace Filter  
