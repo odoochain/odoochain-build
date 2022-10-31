@@ -23,6 +23,7 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
             }
             .box.address {
                 font-size: 14mm;
+                font-weight: bolder;
             }
             .barcode {
                 font-size: 6mm;
@@ -675,11 +676,10 @@ ID: `mint_system.stock.report_delivery_document.backorder_signature_section`
 <data inherit_id="stock.report_delivery_document" priority="50">
 
   <xpath expr="//table[@name='stock_move_line_table']" position="after">
-    <p>Retouren:<br/>
-		KEG:             ___________  Anzahl<br/>
-		Harassen:  ___________  Anzahl<br/>
-    <br/>
-		Waren erhalten:  Datum:  ___________  Unterschrift:  ______________________
+    <p>Retouren:<br/><br/>
+		KEG:             ___________  Anzahl<br/><br/>
+		Harassen:  ___________  Anzahl<br/><br/>
+		Waren erhalten:   Datum:  ______________________  Unterschrift:  _________________________________
     </p>
   </xpath>
 
