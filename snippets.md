@@ -26,6 +26,7 @@ In Odoo everything is described as an XML document.     Snippets are modificatio
 ## [Ir Model](snippets/ir_model.md)
 ## [Ir Ui View](snippets/ir_ui_view.md)
 ## [L10n Ch](snippets/l10n_ch.md)
+## [L10n Ch Qr Isr Invoice Import](snippets/l10n_ch_qr_isr_invoice_import.md)
 ## [Mail](snippets/mail.md)
 ## [Mail Activity Board](snippets/mail_activity_board.md)
 ## [Mrp](snippets/mrp.md)

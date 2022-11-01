@@ -3999,6 +3999,38 @@ ID: `mint_system.stock.view_picking_form.x_count_boxes`
 ```
 Source: [snippets/stock.view_picking_form.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.x_count_boxes.xml)
 
+## View Production Lot Form  
+### X Net Weight  
+ID: `mint_system.stock.view_production_lot_form.x_net_weight`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_production_lot_form" priority="50">
+
+  <xpath expr="//group[@name='main_group']/group/div" position="after">
+    <label for="x_net_weight" attrs="{'invisible': [('display_complete', '=', False)]}"/>
+    <div class="o_row" attrs="{'invisible': [('display_complete', '=', False)]}">
+      <field name="x_net_weight" readonly="1"/>
+    </div>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.view_production_lot_form.x_net_weight.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_production_lot_form.x_net_weight.xml)
+
+### X Weight Uom Id  
+ID: `mint_system.stock.view_production_lot_form.x_weight_uom_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_production_lot_form" priority="50">
+
+  <xpath expr="//field[@name='x_net_weight']" position="after">
+    <field name="x_weight_uom_id" readonly="1"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.view_production_lot_form.x_weight_uom_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_production_lot_form.x_weight_uom_id.xml)
+
 ## View Stock Quant Tree Editable  
 ### Show Reserved Quantity  
 ID: `mint_system.stock.view_stock_quant_tree_editable.show_reserved_quantity`  
