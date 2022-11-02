@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_net_weight_kg" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Nettogewicht in kg</field>
+    <field name="model">stock.production.lot</field>
+    <field name="model_id" ref="stock.model_stock_production_lot"/>
+    <field name="name">x_net_weight_kg</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">float</field> 
+    <field name="depends">product_qty, product_id.weight, product_id.weight_uom_id</field>
+    <field name="compute">for record in self:
+  record['x_net_weight_kg'] = (record.product_qty * record.product_id.weight) / record.product_id.product_tmpl_id.weight_uom_id.factor
+    </field>
+  </record>
+
+</odoo>
