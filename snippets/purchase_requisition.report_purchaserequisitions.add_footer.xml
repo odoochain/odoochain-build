@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-<xpath expr="//table[@id='summary']" position="after">
+<xpath expr="//table[@id='main_table']" position="after">
   <style>
       table#footer {
         width: 100%;
@@ -13,8 +13,8 @@
     </style>
     <table id='footer'>
       <tr>
-        <td width="40%" t-if="doc.payment_term_id.note">Payment terms 
-          <span t-field="doc.payment_term_id.note"/>
+        <td width="40%" t-if="o.payment_term_id.note">Payment terms 
+          <span t-field="o.payment_term_id.note"/>
         </td>
         <td width="60%">
           Delivery according to our general delivery conditions
@@ -22,7 +22,7 @@
       </tr>
       <tr>
         <td >VAT no: 
-           <span t-field="doc.company_id.vat"/>
+           <span t-field="o.company_id.vat"/>
         </td>
         <td>
           <table width="100%">
