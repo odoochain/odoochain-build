@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<data inherit_id="stock.view_production_lot_form" priority="50">
-
-  <xpath expr="//field[@name='x_net_weight']" position="after">
-    <field name="x_weight_uom_id" readonly="1"/>
-  </xpath>
-
-</data>
