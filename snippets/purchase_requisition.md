@@ -72,6 +72,92 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_drawing`
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_drawing.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_drawing.xml)
 
+### Add Footer  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_footer`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+<xpath expr="//table[@id='summary']" position="after">
+  <style>
+      table#footer {
+        width: 100%;
+        font-size: 8pt;
+      }
+      table#footer tr, td {
+        vertical-align: top;
+      }
+    </style>
+    <table id='footer'>
+      <tr>
+        <td width="40%" t-if="doc.payment_term_id.note">Payment terms 
+          <span t-field="doc.payment_term_id.note"/>
+        </td>
+        <td width="60%">
+          Delivery according to our general delivery conditions
+        </td>
+      </tr>
+      <tr>
+        <td >VAT no: 
+           <span t-field="doc.company_id.vat"/>
+        </td>
+        <td>
+          <table width="100%">
+          <tr>
+            <td width="35%">
+               Bank accounts:
+            </td>
+              <td width="65%">
+              UBS AG, 6301 Zug, BLZ 273, SWIFT UBSWCHZH80A
+             </td>
+          </tr> 
+          <tr> 
+             <td>
+            </td>
+            <td>
+            (CHF) IBAN CH63 0027 3273 Q978 6962 0
+            </td>
+          </tr>
+       
+          <tr>
+            <td>
+            </td>
+            <td>
+            (EUR) IBAN CH59 0027 3273 HN10 3698 0
+            </td>
+          </tr>
+          </table> 
+        </td>
+      </tr>
+    </table>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_footer.xml)
+
+### Add Header And Footer Note  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_header_and_footer_note`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+ 
+  <xpath expr="//table[@id='info']" position="after">
+    <t t-if="doc.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="doc.note_header"/>
+    </t>
+  </xpath>
+
+  <xpath expr="//table[2]" position="after">
+    <t t-if="doc.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="doc.note_footer"/>
+    </t>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_header_and_footer_note.xml)
+
 ### Add Incoterm Id  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_incoterm_id`  
 ```xml
@@ -159,6 +245,18 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_infotable`
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_infotable.xml)
 
+### Add Price Unit  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_price_unit`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_price_unit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_price_unit.xml)
+
 ### Add Product Uom Id  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_product_uom_id`  
 ```xml
@@ -207,6 +305,18 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_user_id`
 </data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_user_id.xml)
+
+### Format Product Qty  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.format_product_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.format_product_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.format_product_qty.xml)
 
 ### Format Qty With Decimal  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.format_qty_with_decimal`  
@@ -257,6 +367,19 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_origin`
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_origin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_origin.xml)
 
+### Hide Product Uom  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_product_uom`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//th[@id='product_uom']" position="replace"/>
+  <xpath expr="//td[@id='product_uom']" position="replace"/>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_product_uom.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_product_uom.xml)
+
 ### Hide Title Product  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_title_product`  
 ```xml
@@ -286,6 +409,28 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_type_id`
 </data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_type_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_type_id.xml)
+
+### Relocate Schedule Date  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.relocate_schedule_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//th[@id='schedule_date']" position="replace"/>
+  <xpath expr="//td[@id='schedule_date']" position="replace"/>
+  
+  <xpath expr="//th[@id='name']" position="after">
+    <th class="text-right"><strong>Scheduled Date</strong></th>
+  </xpath>
+  <xpath expr="//td[@id='name']" position="after">
+    <td class="text-right">
+      <span t-field="line_ids.schedule_date"/>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.relocate_schedule_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.relocate_schedule_date.xml)
 
 ### Remove Informations  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.remove_informations`  
@@ -394,6 +539,20 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_title`
 </data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.replace_title.xml)
+
+### Round Price  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.round_price`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+<xpath expr="//span[@t-field='l.price_unit']" position="replace">
+		 <span t-esc="'%g' % l.price_unit if str(l.price_unit)[::-1].find('.') >= 3 else '%.2f' % l.price_unit"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.round_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.round_price.xml)
 
 ### Second Row  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.second_row`  
