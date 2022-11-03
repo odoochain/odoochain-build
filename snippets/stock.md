@@ -23,6 +23,7 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
             }
             .box.address {
                 font-size: 14mm;
+                font-weight: bolder;
             }
             .barcode {
                 font-size: 6mm;
@@ -675,11 +676,10 @@ ID: `mint_system.stock.report_delivery_document.backorder_signature_section`
 <data inherit_id="stock.report_delivery_document" priority="50">
 
   <xpath expr="//table[@name='stock_move_line_table']" position="after">
-    <p>Retouren:<br/>
-		KEG:             ___________  Anzahl<br/>
-		Harassen:  ___________  Anzahl<br/>
-    <br/>
-		Waren erhalten:  Datum:  ___________  Unterschrift:  ______________________
+    <p>Retouren:<br/><br/>
+		KEG:             ___________  Anzahl<br/><br/>
+		Harassen:  ___________  Anzahl<br/><br/>
+		Waren erhalten:   Datum:  ______________________  Unterschrift:  _________________________________
     </p>
   </xpath>
 
@@ -3560,6 +3560,21 @@ ID: `mint_system.stock.view_move_form.show_lot_ids`
 ```
 Source: [snippets/stock.view_move_form.show_lot_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_lot_ids.xml)
 
+### Show Move Finished Ids  
+ID: `mint_system.stock.view_move_form.show_move_finished_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_move_form" priority="50">
+
+  <xpath expr="//field[@name='procure_method']" position="after">
+    <field name="move_finished_ids"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.view_move_form.show_move_finished_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_move_finished_ids.xml)
+
 ### Show Move Lines  
 ID: `mint_system.stock.view_move_form.show_move_lines`  
 ```xml
@@ -3984,6 +3999,24 @@ ID: `mint_system.stock.view_picking_form.x_count_boxes`
 ```
 Source: [snippets/stock.view_picking_form.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.x_count_boxes.xml)
 
+## View Production Lot Form  
+### X Weight Uom  
+ID: `mint_system.stock.view_production_lot_form.x_weight_uom`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_production_lot_form" priority="50">
+
+  <xpath expr="//group[@name='main_group']/group/div" position="after">
+    <label for="x_weight_uom" attrs="{'invisible': [('display_complete', '=', False)]}"/>
+    <div class="o_row" attrs="{'invisible': [('display_complete', '=', False)]}">
+      <field name="x_weight_uom" readonly="1"/>
+    </div>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.view_production_lot_form.x_weight_uom.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_production_lot_form.x_weight_uom.xml)
+
 ## View Stock Quant Tree Editable  
 ### Show Reserved Quantity  
 ID: `mint_system.stock.view_stock_quant_tree_editable.show_reserved_quantity`  
@@ -4059,4 +4092,19 @@ ID: `mint_system.stock.vpicktree.show_delivery_note`
 
 ```
 Source: [snippets/stock.vpicktree.show_delivery_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.vpicktree.show_delivery_note.xml)
+
+### Weight Sum  
+ID: `mint_system.stock.vpicktree.weight_sum`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.vpicktree" priority="50">
+
+  <xpath expr="//field[@name='weight']" position="attributes">
+    <attribute name="sum"></attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.vpicktree.weight_sum.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.vpicktree.weight_sum.xml)
 

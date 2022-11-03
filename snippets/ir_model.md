@@ -1736,6 +1736,33 @@ ID: `mint_system.ir_model.stock_move.x_scrap_id`
 ```
 Source: [snippets/ir_model.stock_move.x_scrap_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_scrap_id.xml)
 
+## Stock Production Lot  
+### X Weight Uom  
+ID: `mint_system.ir_model.stock_production_lot.x_weight_uom`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_weight_uom" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Nettogewicht [kg]</field>
+    <field name="model">stock.production.lot</field>
+    <field name="model_id" ref="stock.model_stock_production_lot"/>
+    <field name="name">x_weight_uom</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">float</field> 
+    <field name="depends">product_qty, product_id.weight, product_id.weight_uom_id</field>
+    <field name="compute">for record in self:
+      record['x_weight_uom'] = record.product_id.product_tmpl_id.weight_uom_id._compute_quantity(record.product_id.weight, self.env.ref('uom.product_uom_kgm'))
+    </field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_production_lot.x_weight_uom.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_production_lot.x_weight_uom.xml)
+
 ## Stock Quant  
 ### X Last Delivery Partner Id  
 ID: `mint_system.ir_model.stock_quant.x_last_delivery_partner_id`  
