@@ -2,9 +2,9 @@
 <data inherit_id="stock.view_production_lot_form" priority="50">
 
   <xpath expr="//group[@name='main_group']/group/div" position="after">
-    <label for="x_net_weight_kg" attrs="{'invisible': [('display_complete', '=', False)]}"/>
+    <label for="x_weight_uom" attrs="{'invisible': [('display_complete', '=', False)]}"/>
     <div class="o_row" attrs="{'invisible': [('display_complete', '=', False)]}">
-      <field name="x_net_weight_kg" readonly="1"/>
+      <field name="x_weight_uom" readonly="1"/>
     </div>
   </xpath>
 
