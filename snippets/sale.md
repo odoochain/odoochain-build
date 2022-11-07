@@ -2300,6 +2300,22 @@ ID: `mint_system.sale.view_order_form.domain_partner_type`
 ```
 Source: [snippets/sale.view_order_form.domain_partner_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.domain_partner_type.xml)
 
+### Edit Name  
+ID: `mint_system.sale.view_order_form.edit_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='name']" position="attributes">
+    <attribute name="readonly">0</attribute>
+    <attribute name="attrs">{'readonly': [('project_id', '=', False)]}</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/sale.view_order_form.edit_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.edit_name.xml)
+
 ### Filter Customer Is Company  
 ID: `mint_system.sale.view_order_form.filter_customer_is_company`  
 ```xml

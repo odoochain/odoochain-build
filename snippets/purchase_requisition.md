@@ -78,7 +78,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_footer`
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-<xpath expr="//table[@id='summary']" position="after">
+<xpath expr="//table[@id='main_table']" position="after">
   <style>
       table#footer {
         width: 100%;
@@ -90,8 +90,8 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_footer`
     </style>
     <table id='footer'>
       <tr>
-        <td width="40%" t-if="doc.payment_term_id.note">Payment terms 
-          <span t-field="doc.payment_term_id.note"/>
+        <td width="40%" t-if="o.payment_term_id.note">Payment terms 
+          <span t-field="o.payment_term_id.note"/>
         </td>
         <td width="60%">
           Delivery according to our general delivery conditions
@@ -99,7 +99,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_footer`
       </tr>
       <tr>
         <td >VAT no: 
-           <span t-field="doc.company_id.vat"/>
+           <span t-field="o.company_id.vat"/>
         </td>
         <td>
           <table width="100%">
@@ -143,14 +143,14 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_header_and
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
  
   <xpath expr="//table[@id='info']" position="after">
-    <t t-if="doc.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-      <span class="note" t-field="doc.note_header"/>
+    <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="o.note_header"/>
     </t>
   </xpath>
 
-  <xpath expr="//table[2]" position="after">
-    <t t-if="doc.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-      <span class="note" t-field="doc.note_footer"/>
+  <xpath expr="//table[@id='main_table']" position="after">
+    <t t-if="o.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="o.note_footer"/>
     </t>
   </xpath>
 
@@ -190,11 +190,11 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_infotable`
         font-size: 9pt;
         font-family: arial;
       }
-      table#info tr {
+        table#info tr {
         line-height: 1.2;
         text-align: left;
       }
-      .note {
+        .note {
         font-size: 9pt;
       }
     </style>
@@ -202,7 +202,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_infotable`
       <tr>
         <td width="17%">Date</td>
         <td width="44%">
-          <span t-field='doc.date_confirmed' t-options='{ "widget": "date" }'/>
+          <span t-field='o.ordering_date' t-options='{ "widget": "date" }'/>
         </td>
         <td width="14%"></td>
         <td width="25%"></td>
@@ -210,31 +210,31 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_infotable`
       <tr>
         <td>Customer No.</td>
         <td>
-          <span t-field='doc.partner_id.ref'/>
+          <span t-field='o.vendor_id.ref'/>
         </td>
         <td>Our Reference</td>
         <td>
-          <span t-field='doc.user_id'/>
+          <span t-field='o.user_id'/>
         </td>
       </tr>
       <tr>
         <td>Order</td>
         <td>
-          <span t-field='doc.client_order_ref'/>
+          <span t-field='o.partner_ref'/>
         </td>
         <td>Delivery Method</td>
         <td>
-          <span t-field='doc.carrier_id'/>
+         
         </td>
       </tr>
       <tr>
         <td>Reference</td>
         <td>
-          <span t-field='doc.comment'/>
+          <span t-field='o.comment'/>
         </td>
         <td>Incoterm</td>
         <td>
-          <span t-field='doc.incoterm'/>
+          <span t-field='o.incoterm_id'/>
         </td>
       </tr>
     </table>
@@ -251,8 +251,18 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_price_unit
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-
-
+  <xpath expr="//th[@id='product_qty']" position="after">
+    <th id="price_unit" class="text-right">
+      <strong>Unit Price</strong>
+    </th>
+  </xpath>
+  
+  <xpath expr="//td[@id='product_qty']" position="after">
+    <td id="price_unit" class="text-right">
+       <span t-field="line_ids.price_unit"/>
+    </td>
+  </xpath>
+  
 </data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_price_unit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_price_unit.xml)
@@ -312,7 +322,12 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.format_product
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-
+  <xpath expr="//td[@id='product_qty']" position="replace">
+    <td id="product_qty" class="text-right">
+      <span id="qty" t-field="line_ids.product_qty"/>
+      <span t-field="line_ids.product_uom_id"/>
+   </td>
+  </xpath>
 
 </data>
 ```
@@ -324,12 +339,12 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.format_qty_wit
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-    <xpath expr="//span[@id='product_qty']" position="replace">
+    <xpath expr="//span[@id='qty']" position="replace">
         <t t-if="line_ids.product_uom_id.id == 1">
-            <span id="product_qty" t-field="line_ids.product_qty" t-options="{'widget': 'integer'}"/>
+            <span id="qty" t-field="line_ids.product_qty" t-options="{'widget': 'integer'}"/>
         </t>
         <t t-else="">
-            <span id="product_qty" t-field="line_ids.product_qty"/>
+            <span id="qty" t-field="line_ids.product_qty"/>
         </t>
     </xpath>
 
@@ -467,15 +482,16 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_produc
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-<xpath expr="//span[@t-field='l.product_id']" position="replace">
-  <t t-if="l.product_id.type_description">
-		<span style="font-weight: bold" t-field="l.product_id.type_description"/>
-  </t>
-  <t t-if="not l.product_id.type_description">
-    <span t-field="l.name"/>
-  </t>
-
-</xpath>
+  <xpath expr="//td[@id='name']" position="replace">
+    <td id="name" >
+      <t t-if="o.product_id.type_description">
+        <span style="font-weight: bold" t-field="o.product_id.type_description"/>
+      </t>
+      <t t-if="not o.product_id.type_description">
+        <span t-field="o.product_id.name"/>
+      </t>
+    </td>
+  </xpath>
 
 </data>
 ```
@@ -546,8 +562,10 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.round_price`
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-<xpath expr="//span[@t-field='l.price_unit']" position="replace">
-		 <span t-esc="'%g' % l.price_unit if str(l.price_unit)[::-1].find('.') >= 3 else '%.2f' % l.price_unit"/>
+<xpath expr="//td[@id='price_unit']" position="replace">
+		 <td id="price_unit" class="text-right">
+		 <span t-esc="'%g' % line_ids.price_unit if str(line_ids.price_unit)[::-1].find('.') >= 3 else '%.2f' % line_ids.price_unit"/>
+		 </td>
   </xpath>
 
 </data>
@@ -560,39 +578,38 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.second_row`
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-
-  <xpath expr="//tbody[hasclass('sale_tbody')]/t/tr[1]" position="attributes">
+  <xpath expr="//tr[@id='first']" position="attributes">
     <attribute name="t-att-class">"first"</attribute>
   </xpath>
 
-  <xpath expr="//tbody[hasclass('sale_tbody')]/t/tr[1]" position="after">
-    <t t-if="l.product_id.type_description">
+  <xpath expr="//tr[@id='first']" position="after">
+    <t t-if="o.product_id.type_description">
     <tr class="second">
       <td></td>
-      <td colspan="6">
-        <span t-field="l.name"/><br/>
-        <t t-if="l.product_id.country_of_origin_id.code">
+      <td colspan="5">
+        <span t-field="o.product_id.name"/><br/>
+        <t t-if="o.product_id.country_of_origin_id.code">
           Ursprungsland:
-          <span t-field="l.product_id.country_of_origin_id.code" />
+          <span t-field="o.product_id.country_of_origin_id.code" />
         </t>
-        <t t-if="l.product_id.hs_code">
+        <t t-if="o.product_id.hs_code">
           / Zollposition:
-          <span t-field="l.product_id.hs_code" />
+          <span t-field="o.product_id.hs_code" />
         </t>
       </td>
     </tr>
     </t>
-    <t t-if="not l.product_id.type_description">
+    <t t-if="not o.product_id.type_description">
     <tr class="second">
       <td></td>
-      <td colspan="6">
-        <t t-if="l.product_id.country_of_origin_id.code">
+      <td colspan="5">
+        <t t-if="o.product_id.country_of_origin_id.code">
           Ursprungsland:
-          <span t-field="l.product_id.country_of_origin_id.code" />
+          <span t-field="o.product_id.country_of_origin_id.code" />
         </t>
-        <t t-if="l.product_id.hs_code">
+        <t t-if="o.product_id.hs_code">
           / Zollposition:
-          <span t-field="l.product_id.hs_code" />
+          <span t-field="o.product_id.hs_code" />
         </t>
       </td>
     </tr>
@@ -642,6 +659,54 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.set_ids`
 	<xpath expr="//span[@t-field='o.ordering_date']/../.." position="attributes">
 		<attribute name="id">informations</attribute>
 	</xpath>
+	
+	<xpath expr="//t[1]/table" position="attributes">
+		<attribute name="id">main_table</attribute>
+	</xpath>
+	
+	<xpath expr="//t[2]" position="attributes">
+		<attribute name="id">details</attribute>
+	</xpath>
+	
+	<xpath expr="//t[1]/h3" position="attributes">
+		<attribute name="id">title_product</attribute>
+	</xpath>
+	
+	<xpath expr="//t[1]/table/tbody/tr/td[1]" position="attributes">
+		<attribute name="id">name</attribute>
+	</xpath>
+	
+	<xpath expr="//t[1]/table/tbody/tr" position="attributes">
+		<attribute name="id">first</attribute>
+	</xpath>
+	
+	<xpath expr="//t[1]/table/thead/tr/th[1]" position="attributes">
+		<attribute name="id">name</attribute>
+	</xpath>
+	
+	<xpath expr="//t[1]/table/thead/tr/th[2]" position="attributes">
+		<attribute name="id">product_qty</attribute>
+	</xpath>
+	
+	<xpath expr="//t[1]/table/tbody/tr/td[2]" position="attributes">
+		<attribute name="id">product_qty</attribute>
+	</xpath>
+		
+	<xpath expr="//t[1]/table/thead/tr/th[3]" position="attributes">
+		<attribute name="id">product_uom</attribute>
+	</xpath>
+
+	<xpath expr="//t[1]/table/tbody/tr/t/td" position="attributes">
+		<attribute name="id">product_uom</attribute>
+	</xpath>
+	
+	<xpath expr="//t[1]/table/thead/tr/th[4]" position="attributes">
+		<attribute name="id">schedule_date</attribute>
+	</xpath>
+	
+	<xpath expr="//t[1]/table/tbody/tr/td[3]" position="attributes">
+		<attribute name="id">schedule_date</attribute>
+	</xpath>
 
 </data>
 ```
@@ -653,14 +718,17 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.show_default_c
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-  <xpath expr="//h2" position="replace">
-    <t t-if="state_blanket_order == draft">
-      <h2>Request for Quotation purchase contract <span t-field="o.name"/></h2>
-    </t>
-    <t t-else="">
-			<h2>Purchase contract <span t-field="o.name"/></h2>
-		</t>
-  </xpath>  
+  <xpath expr="//table[@id='main_table']/thead/tr/th[1]" position="before">
+    <th id="default_code">
+      <strong >Part No.</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//table[@id='main_table']/tbody/tr/td[1]" position="before">
+    <td id="default_code">
+      <span t-field="line_ids.product_id.default_code"/>
+    </td>
+  </xpath>
 
 </data>
 ```
@@ -714,8 +782,45 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.style_trimada`
        			font-size: 13pt;
 				font-weight: bold;
 			}
+			.first td {
+				padding-bottom: 0;
+			}
+			.second td {
+				padding-top: 0;
+			}
+			.second {
+				border-bottom: 1px solid rgb(220,220,220);
+			}
+			table.trimada thead tr {
+				border-top:solid 1px;
+				border-bottom: solid 1px;
+				color: black;
+			}
+			table.trimada thead th#description {
+				width: 70mm;
+			}
+			table.trimada tr.first td {
+				padding-bottom: 0;
+			}
+			table.trimada tr.second td {
+				padding-top: 0;
+			}
+			table.trimada tr.second {
+				border-bottom: 1px solid rgb(220,220,220);
+			}
+			table.trimada thead th#default_code {
+			  width: 27mm;
+			  text-align: left;
+			}
+			span#qty {
+			  font-weight: bold;
+			}
 	
 		</style>
+	</xpath>
+	
+	<xpath expr="//table[@id='main_table']" position="attributes">
+		<attribute name="class" separator=" " add="trimada table-borderless"/>
 	</xpath>
 
 </data>
