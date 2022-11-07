@@ -12,8 +12,12 @@
     <field name="copied" eval="False"/>
     <field name="ttype">char</field>
     <field name="depends">x_production_ids</field>
-    <field name="compute">for record in self:
-  record['x_production_id'] = record.x_production_ids[0].name if record.x_production_ids else 0</field>    
+    <field name="compute">for rec in self:
+      if rec.x_production_ids:
+        rec['x_production_id'] = rec.x_production_ids[0].name.split('-')[0]
+      else:
+        rec['x_production_id'] = ''
+    </field>
   </record>
 
 </odoo>

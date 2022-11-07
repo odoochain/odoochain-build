@@ -3796,6 +3796,20 @@ ID: `mint_system.account.view_invoice_tree.x_account_codes`
 ```
 Source: [snippets/account.view_invoice_tree.x_account_codes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_invoice_tree.x_account_codes.xml)
 
+### X Recurring Inverval  
+ID: `mint_system.account.view_invoice_tree.x_recurring_inverval`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_invoice_tree" priority="50">
+
+    <field name="invoice_date" position="after">
+        <field name="x_recurring_inverval" optional="show"/>
+    </field>
+
+</data>
+```
+Source: [snippets/account.view_invoice_tree.x_recurring_inverval.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_invoice_tree.x_recurring_inverval.xml)
+
 ## View Move Form  
 ### Domain Partner Bank Ids  
 ID: `mint_system.account.view_move_form.domain_partner_bank_ids`  
@@ -3941,6 +3955,20 @@ ID: `mint_system.account.view_move_form.show_user_id`
 </data>
 ```
 Source: [snippets/account.view_move_form.show_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_user_id.xml)
+
+### X Recurring Inverval  
+ID: `mint_system.account.view_move_form.x_recurring_inverval`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <field name="invoice_date" position="after">
+        <field name="x_recurring_inverval" />
+    </field>
+
+</data>
+```
+Source: [snippets/account.view_move_form.x_recurring_inverval.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.x_recurring_inverval.xml)
 
 ### X Sale Order Id  
 ID: `mint_system.account.view_move_form.x_sale_order_id`  
