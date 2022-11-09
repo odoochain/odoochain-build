@@ -2442,6 +2442,20 @@ ID: `mint_system.sale.view_order_form.show_carrier_method`
 ```
 Source: [snippets/sale.view_order_form.show_carrier_method.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_carrier_method.xml)
 
+### Show Order Line Project Id  
+ID: `mint_system.sale.view_order_form.show_order_line_project_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="after">
+    <field name="project_id" optional="hide" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.show_order_line_project_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_order_line_project_id.xml)
+
 ### Show Project  
 ID: `mint_system.sale.view_order_form.show_project`  
 ```xml

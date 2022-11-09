@@ -78,8 +78,9 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_footer`
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-<xpath expr="//table[@id='main_table']" position="after">
-  <style>
+  <xpath expr="//table[@id='main_table']" position="after">
+
+    <style>
       table#footer {
         width: 100%;
         font-size: 8pt;
@@ -90,43 +91,16 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_footer`
     </style>
     <table id='footer'>
       <tr>
-        <td width="40%" t-if="o.payment_term_id.note">Payment terms 
+        <td width="50%" t-if="o.payment_term_id.note">Zahlungsbedingungen 
           <span t-field="o.payment_term_id.note"/>
         </td>
-        <td width="60%">
-          Delivery according to our general delivery conditions
+        <td width="50%">
+          Lieferung gemäss unseren allgemeinen Einkaufsbedingungen
         </td>
       </tr>
       <tr>
-        <td >VAT no: 
-           <span t-field="o.company_id.vat"/>
-        </td>
-        <td>
-          <table width="100%">
-          <tr>
-            <td width="35%">
-               Bank accounts:
-            </td>
-              <td width="65%">
-              UBS AG, 6301 Zug, BLZ 273, SWIFT UBSWCHZH80A
-             </td>
-          </tr> 
-          <tr> 
-             <td>
-            </td>
-            <td>
-            (CHF) IBAN CH63 0027 3273 Q978 6962 0
-            </td>
-          </tr>
-       
-          <tr>
-            <td>
-            </td>
-            <td>
-            (EUR) IBAN CH59 0027 3273 HN10 3698 0
-            </td>
-          </tr>
-          </table> 
+        <td >MWST-Nr: 
+          <span t-field="o.company_id.vat"/>
         </td>
       </tr>
     </table>
@@ -870,6 +844,20 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_attr
 </data>
 ```
 Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_origin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_origin.xml)
+
+### Modify Attributes Type Id  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_attributes_type_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
+
+  <xpath expr="//field[@name='type_id']" position="attributes">
+      <attribute name="attrs">{'readonly': 1}</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_type_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_type_id.xml)
 
 ### Show Schedule Date In Notebook  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.show_schedule_date_in_notebook`  
