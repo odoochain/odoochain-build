@@ -4017,6 +4017,22 @@ ID: `mint_system.stock.view_production_lot_form.x_weight_uom`
 ```
 Source: [snippets/stock.view_production_lot_form.x_weight_uom.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_production_lot_form.x_weight_uom.xml)
 
+## View Production Lot Tree  
+### Show Qty  
+ID: `mint_system.stock.view_production_lot_tree.show_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_production_lot_tree" priority="50">
+
+  <field name="product_id" position="after">
+    <field name="product_qty"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_production_lot_tree.show_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_production_lot_tree.show_qty.xml)
+
 ## View Stock Quant Tree Editable  
 ### Show Reserved Quantity  
 ID: `mint_system.stock.view_stock_quant_tree_editable.show_reserved_quantity`  
@@ -4048,6 +4064,22 @@ ID: `mint_system.stock.view_stock_quant_tree.show_reserved_quantity`
 
 ```
 Source: [snippets/stock.view_stock_quant_tree.show_reserved_quantity.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_stock_quant_tree.show_reserved_quantity.xml)
+
+## View Warehouse Orderpoint Tree Editable  
+### Show Lead Days Date  
+ID: `mint_system.stock.view_warehouse_orderpoint_tree_editable.show_lead_days_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_warehouse_orderpoint_tree_editable" priority="50">
+
+  <field name="json_lead_days_popover" position="after">
+    <field name="lead_days_date"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_warehouse_orderpoint_tree_editable.show_lead_days_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_warehouse_orderpoint_tree_editable.show_lead_days_date.xml)
 
 ## Vpicktree  
 ### Add Weight Uom Name  
