@@ -1865,7 +1865,7 @@ ID: `mint_system.ir_model.stock_production_lot.x_weight_uom`
     <field name="ttype">float</field> 
     <field name="depends">product_qty, product_id.weight, product_id.weight_uom_id</field>
     <field name="compute">for record in self:
-      record['x_weight_uom'] = record.product_id.product_tmpl_id.weight_uom_id._compute_quantity(record.product_id.weight, self.env.ref('uom.product_uom_kgm'))
+  record['x_weight_uom'] = record.product_qty * record.product_id.product_tmpl_id.weight_uom_id._compute_quantity(record.product_id.weight, self.env.ref('uom.product_uom_kgm'))
     </field>
   </record>
 

@@ -3608,6 +3608,21 @@ ID: `mint_system.account.res_config_settings_view_form.domain_expense_currency_e
 ```
 Source: [snippets/account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml)
 
+## View Account Payment Register Form  
+### Show Partner Id  
+ID: `mint_system.account.view_account_payment_register_form.show_partner_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_account_payment_register_form" priority="50" >
+
+    <field name="partner_bank_id" position="before">
+        <field name="partner_id"/>
+    </field>
+
+</data>
+```
+Source: [snippets/account.view_account_payment_register_form.show_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_account_payment_register_form.show_partner_id.xml)
+
 ## View Bank Statement Form  
 ### Edit Balance  
 ID: `mint_system.account.view_bank_statement_form.edit_balance`  
@@ -3885,6 +3900,21 @@ ID: `mint_system.account.view_move_form.remove_isr_button`
 ```
 Source: [snippets/account.view_move_form.remove_isr_button.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.remove_isr_button.xml)
 
+### Show Bank Partner Id  
+ID: `mint_system.account.view_move_form.show_bank_partner_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <field name="partner_id" position="after">
+        <field name="bank_partner_id"/>
+    </field>
+
+</data>
+
+```
+Source: [snippets/account.view_move_form.show_bank_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_bank_partner_id.xml)
+
 ### Show Commercial Partner Id  
 ID: `mint_system.account.view_move_form.show_commercial_partner_id`  
 ```xml
@@ -3913,6 +3943,24 @@ ID: `mint_system.account.view_move_form.show_invoice_origin`
 </data>
 ```
 Source: [snippets/account.view_move_form.show_invoice_origin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_invoice_origin.xml)
+
+### Show Line Partner Id  
+ID: `mint_system.account.view_move_form.show_line_partner_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='partner_id']" position="replace">
+        <field name="partner_id" optional="hide" />
+    </xpath>
+
+    <xpath expr="//field[@name='line_ids']/tree/field[@name='partner_id']" position="replace">
+        <field name="partner_id" domain="['|', ('parent_id', '=', False), ('is_company', '=', True)]"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_move_form.show_line_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_line_partner_id.xml)
 
 ### Show Posted Before  
 ID: `mint_system.account.view_move_form.show_posted_before`  

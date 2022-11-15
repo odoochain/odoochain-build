@@ -76,6 +76,25 @@ ID: `mint_system.product.product_packaging_tree_view.x_description`
 ```
 Source: [snippets/product.product_packaging_tree_view.x_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_packaging_tree_view.x_description.xml)
 
+## Product Pricelist Item Tree View  
+### Make Editable  
+ID: `mint_system.product.product_pricelist_item_tree_view.make_editable`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_pricelist_item_tree_view" priority="50">
+
+    <tree position="attributes">
+        <attribute name="editable">bottom</attribute>
+    </tree>
+
+    <field name="price" position="after">
+        <field name="fixed_price" />
+    </field>
+
+</data>
+```
+Source: [snippets/product.product_pricelist_item_tree_view.make_editable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_pricelist_item_tree_view.make_editable.xml)
+
 ## Product Pricelist View  
 ### Show Product  
 ID: `mint_system.product.product_pricelist_view.show_product`  
