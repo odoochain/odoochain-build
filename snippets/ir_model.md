@@ -873,6 +873,29 @@ ID: `mint_system.ir_model.product_template.x_hide_on_delivery`
 ```
 Source: [snippets/ir_model.product_template.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_hide_on_delivery.xml)
 
+### X Hide On Sale Order  
+ID: `mint_system.ir_model.product_template.x_hide_on_sale_order`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_hide_on_sale_order" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Auf Verkaufsangebot ausblenden</field>
+    <field name="model">product.template</field>
+    <field name="model_id" ref="product.model_product_template"/>
+    <field name="name">x_hide_on_sale_order</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">boolean</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.product_template.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_hide_on_sale_order.xml)
+
 ### X Product Label  
 ID: `mint_system.ir_model.product_template.x_product_label`  
 ```xml
@@ -1865,7 +1888,7 @@ ID: `mint_system.ir_model.stock_production_lot.x_weight_uom`
     <field name="ttype">float</field> 
     <field name="depends">product_qty, product_id.weight, product_id.weight_uom_id</field>
     <field name="compute">for record in self:
-      record['x_weight_uom'] = record.product_id.product_tmpl_id.weight_uom_id._compute_quantity(record.product_id.weight, self.env.ref('uom.product_uom_kgm'))
+  record['x_weight_uom'] = record.product_qty * record.product_id.product_tmpl_id.weight_uom_id._compute_quantity(record.product_id.weight, self.env.ref('uom.product_uom_kgm'))
     </field>
   </record>
 

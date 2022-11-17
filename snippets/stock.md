@@ -4000,6 +4000,20 @@ ID: `mint_system.stock.view_picking_form.x_count_boxes`
 Source: [snippets/stock.view_picking_form.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.x_count_boxes.xml)
 
 ## View Production Lot Form  
+### X Production Id  
+ID: `mint_system.stock.view_production_lot_form.x_production_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_production_lot_form" priority="50">
+
+  <xpath expr="//group[@name='main_group']/group/div" position="after">
+    <field name="x_production_id" readonly="1"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.view_production_lot_form.x_production_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_production_lot_form.x_production_id.xml)
+
 ### X Weight Uom  
 ID: `mint_system.stock.view_production_lot_form.x_weight_uom`  
 ```xml
@@ -4007,10 +4021,7 @@ ID: `mint_system.stock.view_production_lot_form.x_weight_uom`
 <data inherit_id="stock.view_production_lot_form" priority="50">
 
   <xpath expr="//group[@name='main_group']/group/div" position="after">
-    <label for="x_weight_uom" attrs="{'invisible': [('display_complete', '=', False)]}"/>
-    <div class="o_row" attrs="{'invisible': [('display_complete', '=', False)]}">
-      <field name="x_weight_uom" readonly="1"/>
-    </div>
+    <field name="x_weight_uom" readonly="1"/>
   </xpath>
 
 </data>
