@@ -1975,6 +1975,20 @@ ID: `mint_system.sale.report_saleorder_document.style_trimada`
 ```
 Source: [snippets/sale.report_saleorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.style_trimada.xml)
 
+### X Hide On Sale Order  
+ID: `mint_system.sale.report_saleorder_document.x_hide_on_sale_order`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+	  <xpath expr="//t[@t-foreach='doc.order_line']" position="attributes">
+		<attribute name="t-foreach">doc.order_line.filtered(lambda l: not l.product_id.x_hide_on_sale_order)</attribute>
+	  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.x_hide_on_sale_order.xml)
+
 ### X Sudio Description  
 ID: `mint_system.sale.report_saleorder_document.x_sudio_description`  
 ```xml
