@@ -76,6 +76,25 @@ ID: `mint_system.product.product_packaging_tree_view.x_description`
 ```
 Source: [snippets/product.product_packaging_tree_view.x_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_packaging_tree_view.x_description.xml)
 
+## Product Pricelist Item Tree View  
+### Make Editable  
+ID: `mint_system.product.product_pricelist_item_tree_view.make_editable`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_pricelist_item_tree_view" priority="50">
+
+    <tree position="attributes">
+        <attribute name="editable">bottom</attribute>
+    </tree>
+
+    <field name="price" position="after">
+        <field name="fixed_price" />
+    </field>
+
+</data>
+```
+Source: [snippets/product.product_pricelist_item_tree_view.make_editable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_pricelist_item_tree_view.make_editable.xml)
+
 ## Product Pricelist View  
 ### Show Product  
 ID: `mint_system.product.product_pricelist_view.show_product`  
@@ -298,6 +317,20 @@ ID: `mint_system.product.product_template_only_form_view.x_hide_on_delivery`
 </data>
 ```
 Source: [snippets/product.product_template_only_form_view.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.x_hide_on_delivery.xml)
+
+### X Hide On Sale Order  
+ID: `mint_system.product.product_template_only_form_view.x_hide_on_sale_order`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_only_form_view" priority="50">
+
+    <field name="description_sale" position="after">
+        <field name="x_hide_on_sale_order" widget="boolean_toggle" />
+    </field>
+
+</data>
+```
+Source: [snippets/product.product_template_only_form_view.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.x_hide_on_sale_order.xml)
 
 ### X Storage Temperature  
 ID: `mint_system.product.product_template_only_form_view.x_storage_temperature`  
