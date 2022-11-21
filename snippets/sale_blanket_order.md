@@ -738,7 +738,7 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_search.replace_filter`
 
       <!-- Suche -->
       <group>
-        <field name="name" string="Auftrag"/>
+        <field name="name" string="Order" filter_domain="['|', '|', ('name', 'ilike', self), ('client_order_ref', 'ilike', self), ('partner_id', 'child_of', self)]"/>
         <field name="partner_id"/>
         <field name="user_id"/>
         <field name="team_id"/>
