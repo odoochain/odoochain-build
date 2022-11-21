@@ -219,6 +219,28 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_infotable`
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_infotable.xml)
 
+### Add Price Subtotal  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_price_subtotal`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//th[@id='price_unit']" position="after">
+    <th id="price_subtotal" class="text-right">
+      <strong>Price Subtotal</strong>
+    </th>
+  </xpath>
+  
+  <xpath expr="//td[@id='price_unit']" position="after">
+    <td id="price_subtotal" class="text-right">
+       <span t-field="line_ids.price_subtotal"/>
+    </td>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_price_subtotal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_price_subtotal.xml)
+
 ### Add Price Unit  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_price_unit`  
 ```xml
@@ -271,6 +293,43 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.address_block`
 </data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.address_block.xml)
+
+### Add Summary  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_summary`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+   <xpath expr="//table[@id='main_table']" position="after">
+
+     <table id="summary" class="table table-condensed trimada table-borderless" style="margin-top:20px; width:100%; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
+      <tr>
+        <td style="width:15.5%; text-align:left">
+          <strong>Subtotal</strong>
+        </td>
+        <td style="width:23%; text-align:left">
+          <span t-field="o.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+        </td>
+        <td style="width:12%; text-align:left">
+          <span>VAT</span>
+        </td>
+        <td style="width:17%; text-align:left">
+          <span t-field="o.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+        </td>
+        <td style="width:14%; text-align:right">
+          <strong>Total</strong>
+        </td>
+        <td style="width:18%; text-align:right">
+          <span t-field="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+        </td>
+      </tr>
+    </table>
+
+  </xpath>
+
+</data> 
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_summary.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_summary.xml)
 
 ### Add User Id  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_user_id`  
@@ -458,11 +517,11 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_produc
 
   <xpath expr="//td[@id='name']" position="replace">
     <td id="name" >
-      <t t-if="o.product_id.type_description">
-        <span style="font-weight: bold" t-field="o.product_id.type_description"/>
+      <t t-if="line_ids.product_id.type_description">
+        <span style="font-weight: bold" t-field="line_ids.product_id.type_description"/>
       </t>
-      <t t-if="not o.product_id.type_description">
-        <span t-field="o.product_id.name"/>
+      <t t-if="not line_ids.product_id.type_description">
+        <span t-field="line_ids.product_id.name"/>
       </t>
     </td>
   </xpath>
@@ -518,7 +577,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_title`
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
   <xpath expr="//h2" position="replace">
-    <t t-if="state_blanket_order == draft">
+    <t t-if="o.state_blanket_order == 'draft'">
       <h2>Request for Quotation purchase contract <span t-field="o.name"/></h2>
     </t>
     <t t-else="">
@@ -552,41 +611,42 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.second_row`
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-  <xpath expr="//tr[@id='first']" position="attributes">
+  <xpath expr="//table[@id='main_table']/tbody[1]/tr[1]" position="attributes">
     <attribute name="t-att-class">"first"</attribute>
   </xpath>
 
-  <xpath expr="//tr[@id='first']" position="after">
-    <t t-if="o.product_id.type_description">
-    <tr class="second">
-      <td></td>
-      <td colspan="5">
-        <span t-field="o.product_id.name"/><br/>
-        <t t-if="o.product_id.country_of_origin_id.code">
+  <xpath expr="//table[@id='main_table']/tbody[1]/tr[1]/td[3]" position="after">
+    <t t-if="line_ids.product_id.type_description">
+      <tr class="second">
+        <td></td>
+        <td colspan="5">
+          <span t-field="line_ids.product_id.name"/>
+          <br/>
+          <t t-if="line_ids.product_id.country_of_origin_id.code">
           Ursprungsland:
-          <span t-field="o.product_id.country_of_origin_id.code" />
-        </t>
-        <t t-if="o.product_id.hs_code">
+            <span t-field="line_ids.product_id.country_of_origin_id.code" />
+          </t>
+          <t t-if="line_ids.product_id.hs_code">
           / Zollposition:
-          <span t-field="o.product_id.hs_code" />
-        </t>
-      </td>
-    </tr>
+            <span t-field="line_ids.product_id.hs_code" />
+          </t>
+        </td>
+      </tr>
     </t>
-    <t t-if="not o.product_id.type_description">
-    <tr class="second">
-      <td></td>
-      <td colspan="5">
-        <t t-if="o.product_id.country_of_origin_id.code">
+    <t t-if="not line_ids.product_id.type_description">
+      <tr class="second">
+        <td></td>
+        <td colspan="5">
+          <t t-if="line_ids.product_id.country_of_origin_id.code">
           Ursprungsland:
-          <span t-field="o.product_id.country_of_origin_id.code" />
-        </t>
-        <t t-if="o.product_id.hs_code">
+            <span t-field="line_ids.product_id.country_of_origin_id.code" />
+          </t>
+          <t t-if="line_ids.product_id.hs_code">
           / Zollposition:
-          <span t-field="o.product_id.hs_code" />
-        </t>
-      </td>
-    </tr>
+            <span t-field="line_ids.product_id.hs_code" />
+          </t>
+        </td>
+      </tr>
     </t>
   </xpath>
 
@@ -788,6 +848,9 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.style_trimada`
 			}
 			span#qty {
 			  font-weight: bold;
+			}
+			table#summary td {
+			  padding: 0.3rem;
 			}
 	
 		</style>

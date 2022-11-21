@@ -393,6 +393,46 @@ ID: `mint_system.stock.label_transfer_template_view.trimada`
 ```
 Source: [snippets/stock.label_transfer_template_view.trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.label_transfer_template_view.trimada.xml)
 
+## Product Template Search Form View Stock  
+### Hide Location Id  
+ID: `mint_system.stock.product_template_search_form_view_stock.hide_location_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.product_template_search_form_view_stock" priority="50">
+  
+  <xpath expr="//field[@name='location_id']" position="replace">   
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.product_template_search_form_view_stock.hide_location_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.product_template_search_form_view_stock.hide_location_id.xml)
+
+### Hide Pricelist Id  
+ID: `mint_system.stock.product_template_search_form_view_stock.hide_pricelist_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.product_template_search_form_view_stock" priority="50">
+  
+  <xpath expr="//field[@name='pricelist_id']" position="replace">   
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.product_template_search_form_view_stock.hide_pricelist_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.product_template_search_form_view_stock.hide_pricelist_id.xml)
+
+### Hide Warehouse Id  
+ID: `mint_system.stock.product_template_search_form_view_stock.hide_warehouse_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.product_template_search_form_view_stock" priority="50">
+  
+  <xpath expr="//field[@name='warehouse_id']" position="replace">   
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.product_template_search_form_view_stock.hide_warehouse_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.product_template_search_form_view_stock.hide_warehouse_id.xml)
+
 ## Report Bordero  
 ### Basis57  
 ID: `mint_system.stock.report_bordero.basis57`  
@@ -3998,6 +4038,22 @@ ID: `mint_system.stock.view_picking_form.x_count_boxes`
 
 ```
 Source: [snippets/stock.view_picking_form.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.x_count_boxes.xml)
+
+## View Picking Internal Search  
+### Filter Groupby Expected Date  
+ID: `mint_system.stock.view_picking_internal_search.filter_groupby_expected_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_picking_internal_search" priority="50">
+
+  <filter name="expected_date" position="after">
+    <filter string="Scheduled Date by Day" name="expected_date_day" domain="[]" context="{'group_by': 'scheduled_date:day'}"/>
+  </filter>
+
+</data>
+
+```
+Source: [snippets/stock.view_picking_internal_search.filter_groupby_expected_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_internal_search.filter_groupby_expected_date.xml)
 
 ## View Production Lot Form  
 ### X Production Id  

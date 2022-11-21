@@ -362,6 +362,20 @@ ID: `mint_system.product.product_template_search_view.add_type_description`
 ```
 Source: [snippets/product.product_template_search_view.add_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_search_view.add_type_description.xml)
 
+### Modify Name  
+ID: `mint_system.product.product_template_search_view.modify_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_search_view" priority="50">
+
+  <xpath expr="//field[@name='name']" position="replace">
+    <field name="name" string="Product" filter_domain="['|', '|', '|', '|','|',('default_code', 'ilike', self), ('product_variant_ids.default_code', 'ilike', self),('name', 'ilike', self), ('barcode', 'ilike', self), ('type_description', 'ilike', self), ('type_description2', 'ilike', self)]"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/product.product_template_search_view.modify_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_search_view.modify_name.xml)
+
 ## Product Template Tree View  
 ### Add Default Code And Type Description  
 ID: `mint_system.product.product_template_tree_view.add_default_code_and_type_description`  
