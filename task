@@ -161,7 +161,7 @@ function start() {
     fi
 
     if [[ "$1" =~ "db" ]]; then
-        docker-compose up -d db pgadmin
+        docker-compose up -d db admin
         echo "Open http://localhost:8000 url in your browser."
     fi
 
@@ -177,7 +177,25 @@ function start() {
         open-url-with-delay "http://localhost:8069?db=$GIT_BRANCH" & 
         odoo-bin --config 'config/odoo-native.conf' --dev=all
     fi
+
+    if [[ "$1" =~ "mail" ]]; then
+        docker-compose up -d mail
+        echo "Run \`docker exec -it mail setup email add odoo@example.com\`"
+        echo "Run \`docker exec -it mail setup email add test@example.com\`"
+    fi
 }
+
+function down() {
+    if test -z "$1"; then
+        docker-compose down -v
+    fi
+
+    if [[ "$1" =~ "mail" ]]; then
+        docker-compose rm -f -s -v mail
+    fi
+}
+
+
 
 function restart() {
     if test -z "$1"; then
@@ -931,7 +949,7 @@ case "$1" in
         stop $2
         ;;
     kill)
-        docker-compose down -v
+        down $2
         ;;
     logs)
         docker logs odoo -f
