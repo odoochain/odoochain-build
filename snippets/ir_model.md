@@ -1946,6 +1946,8 @@ ID: `mint_system.ir_model.stock_valuation_layer.x_quant_location_id`
         record['x_quant_location_id'] = record.stock_move_id.location_id.id
       elif (record.stock_move_id.picking_code == "incoming"):
         record['x_quant_location_id'] = record.stock_move_id.location_dest_id.id
+      else:
+        record['x_quant_location_id'] = record.stock_move_id.location_dest_id.id
     </field>
   </record>
 
