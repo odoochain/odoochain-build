@@ -3677,6 +3677,21 @@ ID: `mint_system.stock.view_move_form.show_partner`
 ```
 Source: [snippets/stock.view_move_form.show_partner.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_partner.xml)
 
+### Show Picking Code  
+ID: `mint_system.stock.view_move_form.show_picking_code`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_move_form" priority="50">
+
+  <field name="origin" position="after">
+    <field name="picking_code"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_move_form.show_picking_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_picking_code.xml)
+
 ### Show Picking Id  
 ID: `mint_system.stock.view_move_form.show_picking_id`  
 ```xml
