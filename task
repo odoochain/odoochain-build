@@ -195,8 +195,6 @@ function down() {
     fi
 }
 
-
-
 function restart() {
     if test -z "$1"; then
         docker-compose restart
@@ -312,22 +310,6 @@ function generate-module-translation() {
     odoo-bin -d $DATABASE --config 'config/odoo-native.conf' --modules $MODULE_NAME -l $ODOO_LANGUAGE --i18n-export "$MODULE_PATH/i18n/de.po"
 }
 
-function restore-database() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
-
-    # Get database name
-
-    # Extract zip file.
-
-    # Drop database
-
-    # Import databse
-
-    # Copy filestore
-    
-}
-
 function install-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
@@ -402,23 +384,6 @@ function set-admin() {
 
     docker exec db psql postgres://odoo:odoo@localhost:5432/$DATABASE -c "UPDATE res_users SET active=true,password='\$pbkdf2-sha512\$25000\$JuScEwIg5JzTGqNUivFeqw\$yWTOcix2Afr3XGP2NPY7w4w49e9vpsu14NRndDYXAkbtMF4zkrmx6inVsoLl0zZY30xI/0GzhwonWsK9TUmjWA' WHERE id=2;"
     docker exec db psql postgres://odoo:odoo@localhost:5432/$DATABASE -c "SELECT login, password FROM res_users WHERE id=2;"
-}
-
-function send-support-mail() {
-    echo "Send mail for support@localhost using curl."
-
-    mkdir -p tmp
-    cat >tmp/email.txt <<EOL
-From: Lara User <user@yourcompany.example.com>
-To: Odoo Support <support@localhost>
-Subject: Support Request
-echo "\$2 is
-Dear Odoo Support,
-
-I request your help
-EOL
-
-    curl smtp://localhost --mail-from admin@yourcompany.example.com --mail-rcpt support@localhost --upload-file tmp/email.txt
 }
 
 function clear-assets() {
@@ -509,12 +474,6 @@ function git-pull-submodules() {
         fi;
         cd $CWD
     done
-    # git submodule foreach '
-    #     update=$(git config -f $toplevel/.gitmodules submodule.$name.update)
-    #     if [ -z $update ]; then
-    #         git pull
-    #     fi;
-    # ' | tee git-pull-submodules.log
 }
 
 function release-module() {

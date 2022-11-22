@@ -27,7 +27,7 @@
 | install-native              |                  | Install Odoo requirements in source folder.                                               |
 | install-odoo-scripts        |                  | Install Odoo scripts.                                                                     |
 | install-snippet             | [env][path]      | Install snippet xml definition.                                                           |
-| kill                        |                  | Remove docker containers and volumes.                                                     |
+| kill                        | [name]           | Remove docker containers and volumes.                                                     |
 | lint-module                 | [path]           | Run pylint odoo for module.                                                               |
 | lint-snippets               |                  | Run checks for all snippets.                                                              |
 | list                        |                  | List docker services.                                                                     |
@@ -40,7 +40,6 @@
 | remove-module               | [db][name]       | Remove target Odoo module.                                                                |
 | remove-submodule            | [path]           | Remove git submodule.                                                                     |
 | restart                     | [name]           | Restart docker container.                                                                 |
-| restore-database            | [path][name]     | Restore target database zip.                                                              |
 | save-config                 | [name]           | Save Odoo database config                                                                 |
 | send-support-mail           |                  | Sends an mail for support@local to smtp://localhost                                       |
 | set-admin                   | [db]             | Sets the password for the first user in database.   Default is branch name.               |
