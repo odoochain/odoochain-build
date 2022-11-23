@@ -937,3 +937,66 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.show_schedu
 ```
 Source: [snippets/purchase_requisition.view_purchase_requisition_form.show_schedule_date_in_notebook.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.show_schedule_date_in_notebook.xml)
 
+## View Purchase Requisition Tree  
+### Add Comment  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_tree.add_comment`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_tree" priority="50">
+
+  <xpath expr="//field[@name='partner_ref']" position="after">
+    <field name="comment"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_tree.add_comment.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_tree.add_comment.xml)
+
+### Add Partner Ref  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_tree.add_partner_ref`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_tree" priority="50">
+
+  <xpath expr="//field[@name='name']" position="after">
+    <field name="partner_ref"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_tree.add_partner_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_tree.add_partner_ref.xml)
+
+### Add Vendor Id  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_tree.add_vendor_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_tree" priority="50">
+
+  <xpath expr="//field[@name='ordering_date']" position="after">
+    <field name="vendor_id"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_tree.add_vendor_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_tree.add_vendor_id.xml)
+
+### Relocate User Id  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_tree.relocate_user_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_tree" priority="50">
+
+  <xpath expr="//field[@name='user_id']" position="replace">
+  </xpath>
+
+  <xpath expr="//field[@name='partner_ref']" position="after">
+    <field name="user_id"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_tree.relocate_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_tree.relocate_user_id.xml)
+

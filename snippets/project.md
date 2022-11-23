@@ -50,6 +50,66 @@ ID: `mint_system.project.view_task_form2.parent_domain`
 ```
 Source: [snippets/project.view_task_form2.parent_domain.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.parent_domain.xml)
 
+### Show Allow Timesheets  
+ID: `mint_system.project.view_task_form2.show_allow_timesheets`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.view_task_form2" priority="50">
+
+  <xpath expr="//field[@name='analytic_account_id']" position="after">
+    <field name="allow_timesheets"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/project.view_task_form2.show_allow_timesheets.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.show_allow_timesheets.xml)
+
+### Show Analytic Account Active  
+ID: `mint_system.project.view_task_form2.show_analytic_account_active`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.view_task_form2" priority="50">
+
+  <xpath expr="//field[@name='analytic_account_id']" position="after">
+    <field name="analytic_account_active"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/project.view_task_form2.show_analytic_account_active.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.show_analytic_account_active.xml)
+
+### Show Display Timesheet Timer  
+ID: `mint_system.project.view_task_form2.show_display_timesheet_timer`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.view_task_form2" priority="50">
+
+  <xpath expr="//field[@name='analytic_account_id']" position="after">
+    <field name="display_timesheet_timer"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/project.view_task_form2.show_display_timesheet_timer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.show_display_timesheet_timer.xml)
+
+### Show Encode Uom In Days  
+ID: `mint_system.project.view_task_form2.show_encode_uom_in_days`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.view_task_form2" priority="50">
+
+  <xpath expr="//field[@name='analytic_account_id']" position="after">
+    <field name="encode_uom_in_days"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/project.view_task_form2.show_encode_uom_in_days.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.show_encode_uom_in_days.xml)
+
 ### Show Gantt Dates  
 ID: `mint_system.project.view_task_form2.show_gantt_dates`  
 ```xml

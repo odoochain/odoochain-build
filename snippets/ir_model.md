@@ -1921,3 +1921,37 @@ ID: `mint_system.ir_model.stock_quant.x_last_delivery_partner_id`
 ```
 Source: [snippets/ir_model.stock_quant.x_last_delivery_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_quant.x_last_delivery_partner_id.xml)
 
+## Stock Valuation Layer  
+### X Quant Location Id  
+ID: `mint_system.ir_model.stock_valuation_layer.x_quant_location_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+
+  <record id="x_quant_location_id" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Lagerort Bestand</field>
+    <field name="model">stock.valuation.layer</field>
+    <field name="model_id" ref="stock.model_stock_valuation_layer" />
+    <field name="name">x_quant_location_id</field>
+    <field name="state">manual</field>
+    <field name="store" eval="True" />
+    <field name="readonly" eval="True" />
+    <field name="copied" eval="False" />
+    <field name="ttype">many2one</field>
+    <field name="relation">stock.location</field>
+    <field name="depends">stock_move_id.location_id,stock_move_id.location_dest_id</field>
+    <field name="compute">for record in self:
+      if (record.stock_move_id.picking_code == "outgoing"):
+        record['x_quant_location_id'] = record.stock_move_id.location_id.id
+      elif (record.stock_move_id.picking_code == "incoming"):
+        record['x_quant_location_id'] = record.stock_move_id.location_dest_id.id
+      else:
+        record['x_quant_location_id'] = record.stock_move_id.location_dest_id.id
+    </field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_valuation_layer.x_quant_location_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_valuation_layer.x_quant_location_id.xml)
+
