@@ -2,6 +2,48 @@
 prev: ./snippets.md
 ---
 # Product
+## Product Normal Form View  
+### Add Feeder Id  
+ID: `mint_system.product.product_normal_form_view.add_feeder_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_normal_form_view" priority="50">
+
+    <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
+     <field name="feeder_id"/>
+    </xpath>
+</data>
+```
+Source: [snippets/product.product_normal_form_view.add_feeder_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.add_feeder_id.xml)
+
+### Hide Default Code  
+ID: `mint_system.product.product_normal_form_view.hide_default_code`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_normal_form_view" priority="50">
+
+    <xpath expr="//page[@name='general_information']//field[@name='default_code']" position="replace"/>
+
+</data>
+```
+Source: [snippets/product.product_normal_form_view.hide_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.hide_default_code.xml)
+
+### Relocate Barcode  
+ID: `mint_system.product.product_normal_form_view.relocate_barcode`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_normal_form_view" priority="50">
+
+    <xpath expr="//page[@name='general_information']//field[@name='barcode']" position="replace"/>
+
+    <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
+        <field name="barcode"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/product.product_normal_form_view.relocate_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.relocate_barcode.xml)
+
 ## Product Normal Only Form View  
 ### Add X Product Label  
 ID: `mint_system.product.product_normal_only_form_view.add_x_product_label`  
