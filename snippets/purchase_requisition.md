@@ -922,6 +922,22 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_attr
 ```
 Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_type_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_type_id.xml)
 
+### Replace Title  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_form.replace_title`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
+
+  <xpath expr="///h1/../label" position="replace">
+    <span class="o_form_label" attrs="{'invisible': [('state','not in',('draft','sent'))]}">Request for Quotation </span>
+    <span class="o_form_label" attrs="{'invisible': [('state','in',('draft','sent'))]}">Purchase Order </span>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.replace_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.replace_title.xml)
+
 ### Show Schedule Date In Notebook  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.show_schedule_date_in_notebook`  
 ```xml
