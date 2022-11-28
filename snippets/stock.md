@@ -3737,6 +3737,21 @@ ID: `mint_system.stock.view_move_form.show_quantity_done`
 ```
 Source: [snippets/stock.view_move_form.show_quantity_done.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_quantity_done.xml)
 
+### Show Stock Valuation Layer Ids  
+ID: `mint_system.stock.view_move_form.show_stock_valuation_layer_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_move_form" priority="50">
+
+  <field name="move_dest_ids" position="after">
+    <field name="stock_valuation_layer_ids"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_move_form.show_stock_valuation_layer_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_stock_valuation_layer_ids.xml)
+
 ## View Move Line Form  
 ### Enable Edit And Create  
 ID: `mint_system.stock.view_move_line_form.enable_edit_and_create`  
@@ -3753,6 +3768,21 @@ ID: `mint_system.stock.view_move_line_form.enable_edit_and_create`
 
 ```
 Source: [snippets/stock.view_move_line_form.enable_edit_and_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_line_form.enable_edit_and_create.xml)
+
+### Show Move Id  
+ID: `mint_system.stock.view_move_line_form.show_move_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_move_line_form" priority="50">
+
+  <field name="origin" position="after">
+    <field name="move_id"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_move_line_form.show_move_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_line_form.show_move_id.xml)
 
 ### Show Picking Id  
 ID: `mint_system.stock.view_move_line_form.show_picking_id`  
