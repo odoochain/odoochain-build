@@ -122,3 +122,7 @@
 	path = oca/server-ux
 	url = git@github.com:OCA/server-ux.git
 	branch = 15.0
+[submodule "addons/partner_contact"]
+	path = addons/partner_contact
+	url = git@github.com:mint-system/odoo-apps-partner-contact.git
+	branch = 15.0
