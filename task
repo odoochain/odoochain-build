@@ -51,9 +51,6 @@ function update-readme() {
         SUMMARY=$(grep 'summary' "$MANIFEST_FILE" -A 1 | tail -1)
         echo "| [$MODULE_NAME]($MODULE_NAME) | $SUMMARY |" >> $1
     done
-
-    # Stage readme file
-    git add REAMDE.md
 }
 
 function get-module-version() {
@@ -720,8 +717,8 @@ function upload-module() {
             curl -u "$NEXTCLOUD_USERNAME:$NEXTCLOUD_PASSWORD" -T "$FILE_PATH" "$NEXTCLOUD_UPLOAD_URL"
             echo "File $FILE_PATH uploaded to $NEXTCLOUD_UPLOAD_URL."
             
-            UPLOADS+="- name: $MODULE\n"
-            UPLOADS+="  version: $VERSION\n"
+            UPLOADS+="  - name: $MODULE\n"
+            UPLOADS+="    version: $VERSION\n"
         fi
     done
 
