@@ -7,7 +7,7 @@
         <span style="font-weight: bold" t-field="line_ids.product_id.type_description"/>
       </t>
       <t t-if="not line_ids.product_id.type_description">
-        <span t-field="line_ids.product_id.name"/>
+        <span t-field="line_ids.product_description_variants"/>
       </t>
     </td>
   </xpath>
