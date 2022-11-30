@@ -521,7 +521,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_produc
         <span style="font-weight: bold" t-field="line_ids.product_id.type_description"/>
       </t>
       <t t-if="not line_ids.product_id.type_description">
-        <span t-field="line_ids.product_id.name"/>
+        <span t-field="line_ids.product_description_variants"/>
       </t>
     </td>
   </xpath>
@@ -620,7 +620,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.second_row`
       <tr class="second">
         <td></td>
         <td colspan="5">
-          <span t-field="line_ids.product_id.name"/>
+          <span t-field="line_ids.product_description_variants"/>
           <br/>
           <t t-if="line_ids.product_id.country_of_origin_id.code">
           Ursprungsland:
@@ -864,6 +864,50 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.style_trimada`
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.style_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.style_trimada.xml)
 
+## View Purchase Requisition Filter  
+### Replace Filter  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_filter.replace_filter`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_filter" priority="50">
+
+  <xpath expr="/search" position="replace">
+    <search>
+
+      <!-- Filter -->
+      <filter name="my_orders" string="Meine Aufträge" domain="[('user_id', '=', uid)]"/>
+      <filter string="Meine Aufträge in Arbeit" name="in_progress" domain="['&amp;',('user_id', '=', uid),('state', 'in', ('draft','sent', 'open', 'expired'))]"/>
+      <separator/>
+      <filter string="Entwurf" name="filter_state_draft" domain="[('state', '=', 'draft')]"/>
+      <filter string="Gesendet" name="filter_state_sent" domain="[('state', '=', 'sent')]"/>
+      <filter string="Offen" name="filter_state_open" domain="[('state', '=', 'open')]"/>
+      <filter string="Erledigt" name="filter_state_erledigt" domain="[('state', '=', 'done')]"/>
+      <filter string="Abgelaufen" name="filter_state_expired" domain="[('state', '=', 'expired')]"/>
+      <filter string="Abgebrochen" name="filter_state_cancel" domain="[('state', '=', 'cancel')]"/>
+      <separator/>
+      <filter string="Auftragsdatum" name="filter_ordering_date" date="ordering_date"/>
+
+      <!-- Gruppierung -->
+      <filter string="Einkaufsbeauftragter" name="user_id" domain="[]" context="{'group_by': 'user_id'}"/>
+      <filter string="Lieferant" name="vendor_id" domain="[]" context="{'group_by': 'vendor_id'}"/>
+      <filter string="Datum" name="ordering_date" domain="[]" context="{'group_by': 'ordering_date'}"/>
+      <filter string="Status" name="state" domain="[]" context="{'group_by': 'state'}"/>
+
+      <!-- Suche -->
+      <group>
+        <field name="name" string="Order" filter_domain="['|', '|', ('name', 'ilike', self), ('partner_ref', 'ilike', self), ('vendor_id', 'child_of', self)]"/>
+        <field name="vendor_id"/>
+        <field name="user_id"/>
+        <field name="product_id" filter_domain="['|','|',('line_ids.product_id', 'ilike', self),('line_ids.product_id.type_description', 'ilike', self),('line_ids.product_id.type_description2', 'ilike', self)]"/>
+      </group>
+
+    </search>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_filter.replace_filter.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_filter.replace_filter.xml)
+
 ## View Purchase Requisition Form  
 ### Filter Customer Is Company  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.filter_customer_is_company`  
@@ -922,13 +966,78 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_attr
 ```
 Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_type_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_type_id.xml)
 
+### Modify Status Workflow  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_status_workflow`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
+
+    <xpath expr="//button[@name='493']" position="after">
+        <button name="action_order_send" states="draft,sent,open" string="Send by Email" type="object" class="btn-primary"/>
+        <button name="action_open" states="sent" string="Validate" type="object" class="btn-primary"/>
+    </xpath>
+
+    <xpath expr="//button[@name='action_cancel']" position="attributes">
+        <attribute name="states">open</attribute>
+    </xpath>
+
+    <field name="state_blanket_order" position="attributes">
+        <attribute name="statusbar_visible">draft,sent,open,cancel,done</attribute>
+    </field>
+
+    <xpath expr="//button[@name='493']" position="replace">
+        <button name="493" type="action" string="New Quotation" class="btn-primary" attrs="{'invisible': [('state', 'in', ('draft','sent','done','cancel'))]}"/>
+    </xpath>
+
+    <xpath expr="//button[@name='action_draft']" position="attributes">
+        <attribute name="states">done,cancel,done</attribute>
+    </xpath>
+
+    <xpath expr="//button[@name='action_in_progress']" position="replace">
+        <button name="action_open" states="draft" string="Validate" type="object" class="btn-primary"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_status_workflow.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_status_workflow.xml)
+
+### Relocate Price Unit  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_form.relocate_price_unit`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
+
+  <xpath expr="//page[@name='products']//field[@name='price_unit']" position="replace"/>
+  <xpath expr="//page[@name='products']//field[@name='product_uom_id']" position="after">
+    <field name="price_unit"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.relocate_price_unit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.relocate_price_unit.xml)
+
+### Relocate Qty Ordered  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_form.relocate_qty_ordered`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
+
+  <xpath expr="//page[@name='products']//field[@name='qty_ordered']" position="replace"/>
+  <xpath expr="//page[@name='products']//field[@name='schedule_date']" position="after">
+    <field name="qty_ordered" optional="show"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.relocate_qty_ordered.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.relocate_qty_ordered.xml)
+
 ### Replace Title  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.replace_title`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
 
-  <xpath expr="///h1/../label" position="replace">
+  <xpath expr="//h1/../label" position="replace">
     <span class="o_form_label" attrs="{'invisible': [('state','not in',('draft','sent'))]}">Request for Quotation </span>
     <span class="o_form_label" attrs="{'invisible': [('state','in',('draft','sent'))]}">Purchase Order </span>
   </xpath>
