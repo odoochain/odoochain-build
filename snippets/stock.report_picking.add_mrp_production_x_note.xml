@@ -3,7 +3,7 @@
 
   <xpath expr="//table[@id='main_table']" position="after">
     <t t-if="o.group_id.mrp_production_ids.x_note != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-      <span class="note" t-field="o.group_id.mrp_production_ids.x_note"/>
+      <p class="mrp_note" t-field="o.group_id.mrp_production_ids.x_note"/>
     </t>
   </xpath>
 
