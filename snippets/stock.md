@@ -2030,6 +2030,22 @@ ID: `mint_system.stock.report_picking.add_delivery_note`
 ```
 Source: [snippets/stock.report_picking.add_delivery_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.add_delivery_note.xml)
 
+### Add Mrp Production X Note  
+ID: `mint_system.stock.report_picking.add_mrp_production_x_note`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//table[@id='main_table']" position="after">
+    <t t-if="o.group_id.mrp_production_ids.x_note != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <p class="mrp_note" t-field="o.group_id.mrp_production_ids.x_note"/>
+    </t>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.add_mrp_production_x_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.add_mrp_production_x_note.xml)
+
 ### Barcode Label  
 ID: `mint_system.stock.report_picking.barcode_label`  
 ```xml
@@ -2353,7 +2369,7 @@ ID: `mint_system.stock.report_picking.modify_no_reserved_product`
 <data inherit_id="stock.report_picking" priority="50">
 
   <xpath expr="//t[@t-set='no_reserved_product']" position="attributes">
-    <attribute name="t-value">o.move_lines.filtered(lambda x: x.product_uom_qty != x.reserved_availability)</attribute>
+    <attribute name="t-value">o.move_lines.filtered(lambda x: x.product_uom_qty != x.reserved_availability and x.state!='done')</attribute>
   </xpath>
   
 </data>
@@ -2464,12 +2480,22 @@ ID: `mint_system.stock.report_picking.relocate_quantity`
 		</th>
 	</xpath>
 
-	<xpath expr="//td[@id='product_uom_qty']" position="replace"/>
-
-	<xpath expr="//td[@id='location_dest_id']" position="after">
+  <xpath expr="//td[@id='product_uom_qty']" position="replace"/>
+  
+  <xpath expr="//td[@id='location_dest_id']" position="after">
 		<td id="product_uom_qty">
-			<span id="product_uom_qty" t-if="o.state != 'done'" t-field="ml.product_uom_qty"/>
-			<span id="product_uom_qty_done" t-if="o.state == 'done'" t-field="ml.qty_done"/>
+		  
+			<t t-if="o.state != 'done'">
+			  <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
+			</t>
+			
+			<t t-if="o.state == 'done'">
+			  <span id="qty_done">
+			    (<span t-esc="'%g' % ml.qty_done"/>)
+			  </span>
+			  <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
+			</t>
+	
 			<span t-field="ml.product_uom_id" groups="uom.group_uom"/>
 			<br/>
 			<span id="qty_available" t-field="ml.product_id.qty_available"/>
@@ -2882,6 +2908,10 @@ ID: `mint_system.stock.report_picking.set_ids`
 	<xpath expr="//td[@t-if='has_barcode']" position="attributes">
 		<attribute name="id">barcode</attribute>
 	</xpath>
+	
+	<xpath expr="//th[@name='th_product']/../../.." position="attributes">
+	  <attribute name="id">main_table</attribute>
+	</xpath>
 
 </data>
 ```
@@ -3106,7 +3136,7 @@ ID: `mint_system.stock.report_picking.style_trimada`
 			  text-align: right !important;
 			}
 			table.trimada thead th#product_uom_qty {
-			  width: 25mm;
+			  width: 35mm;
 			  text-align: right;
 			}
 			table.trimada tbody td#position {
@@ -3138,6 +3168,10 @@ ID: `mint_system.stock.report_picking.style_trimada`
 			table.trimada tbody td span#qty_available_uom_id {
 			  font-size: 7pt;
 			}
+			table.trimada tbody td span#qty_done {
+			  font-weight: normal;
+			  font-size: 9pt;
+			}
 			table.trimada #barcode {
 			  text-align: right;
 			}
@@ -3155,6 +3189,11 @@ ID: `mint_system.stock.report_picking.style_trimada`
 			.note {
 				font-size: 9pt;
 				font-family: arial;
+			}
+			.mrp_note {
+				font-size: 9pt;
+				font-family: arial;
+				padding-bottom: 3mm;
 			}
 		</style>
 	</xpath>
