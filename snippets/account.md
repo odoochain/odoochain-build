@@ -4004,6 +4004,24 @@ ID: `mint_system.account.view_move_form.show_user_id`
 ```
 Source: [snippets/account.view_move_form.show_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_user_id.xml)
 
+### X Duplicate Found  
+ID: `mint_system.account.view_move_form.x_duplicate_found`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <header position="after">
+        <field name="x_duplicate_found" invisible="1"/>
+        <div groups="account.group_account_invoice" class="alert alert-warning" role="alert" style="margin-bottom:0px;" attrs="{'invisible': [('x_duplicate_found', '=', False)]}">
+            Es existiert eine bestehende Rechnung mit dem gleichen Partner und Total. Stellen sicher, dass diese Rechnung kein Duplikat ist. 
+            <!-- A duplicate invoice with the same partner and total exists. Make sure this invoice is not a duplicate before posting. -->
+        </div>
+    </header>
+
+</data>
+```
+Source: [snippets/account.view_move_form.x_duplicate_found.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.x_duplicate_found.xml)
+
 ### X Recurring Inverval  
 ID: `mint_system.account.view_move_form.x_recurring_inverval`  
 ```xml

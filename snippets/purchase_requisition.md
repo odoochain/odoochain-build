@@ -248,17 +248,22 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_price_unit
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
   <xpath expr="//th[@id='product_qty']" position="after">
-    <th id="price_unit" class="text-right">
-      <strong>Unit Price</strong>
-    </th>
+    <t t-if="o.state_blanket_order != 'draft'">
+      <th id="price_unit" class="text-right">
+        <span t-field="o.state"/>
+        <strong>Unit Price</strong>
+      </th>
+    </t>
   </xpath>
-  
+
   <xpath expr="//td[@id='product_qty']" position="after">
-    <td id="price_unit" class="text-right">
-       <span t-field="line_ids.price_unit"/>
-    </td>
+    <t t-if="o.state_blanket_order != 'draft'">
+      <td id="price_unit" class="text-right">
+        <span t-field="line_ids.price_unit"/>
+      </td>
+    </t>
   </xpath>
-  
+
 </data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_price_unit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_price_unit.xml)
@@ -300,27 +305,41 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_summary`
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-   <xpath expr="//table[@id='main_table']" position="after">
+  <xpath expr="//table[@id='main_table']" position="after">
 
-     <table id="summary" class="table table-condensed trimada table-borderless" style="margin-top:20px; width:100%; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
+    <table id="summary" class="table table-condensed trimada table-borderless" style="margin-top:20px; width:100%; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
       <tr>
         <td style="width:15.5%; text-align:left">
           <strong>Subtotal</strong>
         </td>
         <td style="width:23%; text-align:left">
-          <span t-field="o.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+          <t t-if="o.state_blanket_order != 'draft'">
+            <span t-field="o.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+          </t>
+          <t t-else="">
+            <span>CHF</span>
+          </t>
         </td>
         <td style="width:12%; text-align:left">
-          <span>VAT</span>
+          <t t-if="o.state_blanket_order != 'draft'">
+            <span>VAT</span>
+          </t>
         </td>
         <td style="width:17%; text-align:left">
-          <span t-field="o.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+          <t t-if="o.state_blanket_order != 'draft'">
+            <span t-field="o.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+          </t>
         </td>
         <td style="width:14%; text-align:right">
           <strong>Total</strong>
         </td>
         <td style="width:18%; text-align:right">
-          <span t-field="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+          <t t-if="o.state_blanket_order != 'draft'">
+            <span t-field="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+          </t>
+          <t t-else="">
+            <span>CHF</span>
+          </t>
         </td>
       </tr>
     </table>
