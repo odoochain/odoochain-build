@@ -304,6 +304,7 @@ ID: `mint_system.stock.label_transfer_template_view.trimada`
                         font-weight: bold;
                         text-align: center;
                         border-bottom: solid 1px;
+                        line-height: 1;
                     }
                     .frame {
                         border-bottom: solid 1px;
@@ -343,7 +344,7 @@ ID: `mint_system.stock.label_transfer_template_view.trimada`
                 <div class="page">
                     <div class="label">
                         <div class="row title">
-                            <div class="col-6 box1">
+                            <div class="col-6 box2">
                                 <span t-esc="move.product_id.default_code"/>
                             </div>
                             <div t-if="move.product_id.barcode" class="col-6 box2 text-right">
