@@ -10,7 +10,7 @@
       <tr class="second">
         <td></td>
         <td colspan="5">
-          <span t-field="line_ids.product_id.name"/>
+          <span t-field="line_ids.product_description_variants"/>
           <br/>
           <t t-if="line_ids.product_id.country_of_origin_id.code">
           Ursprungsland:

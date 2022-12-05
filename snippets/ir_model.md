@@ -142,6 +142,41 @@ ID: `mint_system.ir_model.account_move.x_date_done`
 ```
 Source: [snippets/ir_model.account_move.x_date_done.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_date_done.xml)
 
+### X Duplicate Found  
+ID: `mint_system.ir_model.account_move.x_duplicate_found`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_duplicate_found" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Duplikat Gefunden</field>
+    <field name="model">account.move</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="name">x_duplicate_found</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">boolean</field>
+    <field name="depends">partner_id,amount_total,state</field>
+    <field name="compute">for rec in self:
+      if rec.state == 'draft' and rec.move_type == 'in_invoice':
+        invoice_id = self.env['account.move'].search([
+          ('state', '=', 'posted'),
+          ('partner_id', '=', rec.partner_id.id),
+          ('amount_total', '=', rec.amount_total)
+        ], limit=1)
+        if invoice_id:
+          rec['x_duplicate_found'] = True
+      else:
+        rec['x_duplicate_found'] = False</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.account_move.x_duplicate_found.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_duplicate_found.xml)
+
 ### X Picking List  
 ID: `mint_system.ir_model.account_move.x_picking_list`  
 ```xml

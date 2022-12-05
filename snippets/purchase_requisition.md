@@ -248,17 +248,22 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_price_unit
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
   <xpath expr="//th[@id='product_qty']" position="after">
-    <th id="price_unit" class="text-right">
-      <strong>Unit Price</strong>
-    </th>
+    <t t-if="o.state_blanket_order != 'draft'">
+      <th id="price_unit" class="text-right">
+        <span t-field="o.state"/>
+        <strong>Unit Price</strong>
+      </th>
+    </t>
   </xpath>
-  
+
   <xpath expr="//td[@id='product_qty']" position="after">
-    <td id="price_unit" class="text-right">
-       <span t-field="line_ids.price_unit"/>
-    </td>
+    <t t-if="o.state_blanket_order != 'draft'">
+      <td id="price_unit" class="text-right">
+        <span t-field="line_ids.price_unit"/>
+      </td>
+    </t>
   </xpath>
-  
+
 </data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_price_unit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_price_unit.xml)
@@ -300,27 +305,41 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_summary`
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-   <xpath expr="//table[@id='main_table']" position="after">
+  <xpath expr="//table[@id='main_table']" position="after">
 
-     <table id="summary" class="table table-condensed trimada table-borderless" style="margin-top:20px; width:100%; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
+    <table id="summary" class="table table-condensed trimada table-borderless" style="margin-top:20px; width:100%; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
       <tr>
         <td style="width:15.5%; text-align:left">
           <strong>Subtotal</strong>
         </td>
         <td style="width:23%; text-align:left">
-          <span t-field="o.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+          <t t-if="o.state_blanket_order != 'draft'">
+            <span t-field="o.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+          </t>
+          <t t-else="">
+            <span>CHF</span>
+          </t>
         </td>
         <td style="width:12%; text-align:left">
-          <span>VAT</span>
+          <t t-if="o.state_blanket_order != 'draft'">
+            <span>VAT</span>
+          </t>
         </td>
         <td style="width:17%; text-align:left">
-          <span t-field="o.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+          <t t-if="o.state_blanket_order != 'draft'">
+            <span t-field="o.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+          </t>
         </td>
         <td style="width:14%; text-align:right">
           <strong>Total</strong>
         </td>
         <td style="width:18%; text-align:right">
-          <span t-field="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+          <t t-if="o.state_blanket_order != 'draft'">
+            <span t-field="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+          </t>
+          <t t-else="">
+            <span>CHF</span>
+          </t>
         </td>
       </tr>
     </table>
@@ -521,7 +540,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_produc
         <span style="font-weight: bold" t-field="line_ids.product_id.type_description"/>
       </t>
       <t t-if="not line_ids.product_id.type_description">
-        <span t-field="line_ids.product_id.name"/>
+        <span t-field="line_ids.product_description_variants"/>
       </t>
     </td>
   </xpath>
@@ -620,7 +639,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.second_row`
       <tr class="second">
         <td></td>
         <td colspan="5">
-          <span t-field="line_ids.product_id.name"/>
+          <span t-field="line_ids.product_description_variants"/>
           <br/>
           <t t-if="line_ids.product_id.country_of_origin_id.code">
           Ursprungsland:
@@ -966,13 +985,78 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_attr
 ```
 Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_type_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_type_id.xml)
 
+### Modify Status Workflow  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_status_workflow`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
+
+    <xpath expr="//button[@name='493']" position="after">
+        <button name="action_order_send" states="draft,sent,open" string="Send by Email" type="object" class="btn-primary"/>
+        <button name="action_open" states="sent" string="Validate" type="object" class="btn-primary"/>
+    </xpath>
+
+    <xpath expr="//button[@name='action_cancel']" position="attributes">
+        <attribute name="states">open</attribute>
+    </xpath>
+
+    <field name="state_blanket_order" position="attributes">
+        <attribute name="statusbar_visible">draft,sent,open,cancel,done</attribute>
+    </field>
+
+    <xpath expr="//button[@name='493']" position="replace">
+        <button name="493" type="action" string="New Quotation" class="btn-primary" attrs="{'invisible': [('state', 'in', ('draft','sent','done','cancel'))]}"/>
+    </xpath>
+
+    <xpath expr="//button[@name='action_draft']" position="attributes">
+        <attribute name="states">done,cancel,done</attribute>
+    </xpath>
+
+    <xpath expr="//button[@name='action_in_progress']" position="replace">
+        <button name="action_open" states="draft" string="Validate" type="object" class="btn-primary"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_status_workflow.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_status_workflow.xml)
+
+### Relocate Price Unit  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_form.relocate_price_unit`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
+
+  <xpath expr="//page[@name='products']//field[@name='price_unit']" position="replace"/>
+  <xpath expr="//page[@name='products']//field[@name='product_uom_id']" position="after">
+    <field name="price_unit"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.relocate_price_unit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.relocate_price_unit.xml)
+
+### Relocate Qty Ordered  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_form.relocate_qty_ordered`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
+
+  <xpath expr="//page[@name='products']//field[@name='qty_ordered']" position="replace"/>
+  <xpath expr="//page[@name='products']//field[@name='schedule_date']" position="after">
+    <field name="qty_ordered" optional="show"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.relocate_qty_ordered.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.relocate_qty_ordered.xml)
+
 ### Replace Title  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.replace_title`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
 
-  <xpath expr="///h1/../label" position="replace">
+  <xpath expr="//h1/../label" position="replace">
     <span class="o_form_label" attrs="{'invisible': [('state','not in',('draft','sent'))]}">Request for Quotation </span>
     <span class="o_form_label" attrs="{'invisible': [('state','in',('draft','sent'))]}">Purchase Order </span>
   </xpath>

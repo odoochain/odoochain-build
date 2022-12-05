@@ -409,7 +409,7 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_summary
           <span t-field="doc.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.currency_id}"/>
         </td>
         <td style="width:12%; text-align:left">
-          <span>VAT 7.7%</span>
+          <span>VAT</span>
         </td>
         <td style="width:17%; text-align:left">
           <span t-field="doc.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.currency_id}"/>
@@ -426,7 +426,6 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_summary
   </xpath>
 
 </data>
-
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.replace_summary.xml)
 
