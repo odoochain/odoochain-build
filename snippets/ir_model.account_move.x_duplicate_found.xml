@@ -21,6 +21,8 @@
         ], limit=1)
         if invoice_id:
           rec['x_duplicate_found'] = True
+        else:
+          rec['x_duplicate_found'] = False
       else:
         rec['x_duplicate_found'] = False</field>
   </record>
