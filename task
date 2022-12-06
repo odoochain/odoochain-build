@@ -484,12 +484,17 @@ function release-module() {
 
     VERSION=$(get-module-version $1)
     cd $1
+    LAST_TAG=$(git describe --tags)
+    RELEASE_NOTES=$(git log $LAST_TAG..HEAD --oneline)
 
     echo "Tag with v$VERSION ..."
     git tag -a v$VERSION -m "v$VERSION"
 
-    echo "Create release $VERSION ..."
-    gh release create "v$VERSION" -t "Release $VERSION"
+    echo "Release notes:"
+    echo $RELEASE_NOTES
+
+    # echo "Create release $VERSION ..."
+    # gh release create "v$VERSION" -t "Release $VERSION"
 }
 
 function zip-module() {
