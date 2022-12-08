@@ -338,6 +338,54 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
 Source: [snippets/mrp.label_production_view_pdf.trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view_pdf.trimada.xml)
 
 ## Label Production View  
+### Tissa  
+ID: `mint_system.mrp.label_production_view.tissa`  
+```xml
+<t t-name="mrp.label_production_view.tissa">
+
+    <!--<t t-call="web.basic_layout">-->
+
+    <!--<span t-esc="docs"/>-->
+    <!--<span t-esc="docs.move_finished_ids"/>-->
+    <!--<span t-esc="docs.move_finished_ids.lot_ids"/>-->
+    <!--<span t-esc="docs.finished_lot_id"/>-->
+
+    <t t-set="lot_ids" t-value="docs.move_finished_ids.lot_ids or docs.finished_lot_id"/>
+    <t t-foreach="lot_ids" t-as="lot_id">
+
+        <t t-set="doc" t-value="" />
+        <t t-set="docs" t-value="lot_id" />
+
+        <!--<span t-esc="lot_id.product_id.x_product_label.name"/>-->
+
+        <t t-if="lot_id.product_id.x_product_label.name == 'Stücketikette Spheretex'">
+            <t t-call="studio_customization.studio_report_docume_87f02ec4-1346-4b76-bc5a-41f3abc30448"/>
+        </t>
+
+        <t t-if="lot_id.product_id.x_product_label.name == 'Stücketikette Standard'">
+            <t t-call="studio_customization.studio_report_docume_87f02ec4-1346-4b76-bc5a-41f3abc30448_copy_1"/>
+        </t>
+
+        <t t-if="lot_id.product_id.x_product_label.name == 'Stücketikette neutral'">
+            <t t-call="studio_customization.studio_report_docume_cd2541fa-1502-4c50-8f76-bf2ae39698a1"/>
+        </t>
+
+        <t t-if="lot_id.product_id.x_product_label.name == 'Stücketikette Sika'">
+            <t t-call="studio_customization.studio_report_docume_d6a31795-5d6c-4527-9c76-48ad7356e0ae"/>
+        </t>
+
+        <t t-if="lot_id.product_id.x_product_label.name == 'Etikette Ketten'">
+            <t t-call="studio_customization.studio_report_docume_e9a56ff9-0143-4e41-ad9d-9817a1f10c4b" />
+        </t>
+
+        <p style="page-break-after: always;"/>
+    </t>
+
+    <!--</t>-->
+</t>
+```
+Source: [snippets/mrp.label_production_view.tissa.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view.tissa.xml)
+
 ### Tissa Etikette Ketten  
 ID: `mint_system.mrp.label_production_view.tissa_etikette_ketten`  
 ```xml
@@ -417,54 +465,6 @@ ID: `mint_system.mrp.label_production_view.tissa_etikette_ketten`
 ```
 Source: [snippets/mrp.label_production_view.tissa_etikette_ketten.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view.tissa_etikette_ketten.xml)
 
-### Tissa  
-ID: `mint_system.mrp.label_production_view.tissa`  
-```xml
-<t t-name="mrp.label_production_view.tissa">
-
-    <!--<t t-call="web.basic_layout">-->
-
-    <!--<span t-esc="docs"/>-->
-    <!--<span t-esc="docs.move_finished_ids"/>-->
-    <!--<span t-esc="docs.move_finished_ids.lot_ids"/>-->
-    <!--<span t-esc="docs.finished_lot_id"/>-->
-
-    <t t-set="lot_ids" t-value="docs.move_finished_ids.lot_ids or docs.finished_lot_id"/>
-    <t t-foreach="lot_ids" t-as="lot_id">
-
-        <t t-set="doc" t-value="" />
-        <t t-set="docs" t-value="lot_id" />
-
-        <!--<span t-esc="lot_id.product_id.x_product_label.name"/>-->
-
-        <t t-if="lot_id.product_id.x_product_label.name == 'Stücketikette Spheretex'">
-            <t t-call="studio_customization.studio_report_docume_87f02ec4-1346-4b76-bc5a-41f3abc30448"/>
-        </t>
-
-        <t t-if="lot_id.product_id.x_product_label.name == 'Stücketikette Standard'">
-            <t t-call="studio_customization.studio_report_docume_87f02ec4-1346-4b76-bc5a-41f3abc30448_copy_1"/>
-        </t>
-
-        <t t-if="lot_id.product_id.x_product_label.name == 'Stücketikette neutral'">
-            <t t-call="studio_customization.studio_report_docume_cd2541fa-1502-4c50-8f76-bf2ae39698a1"/>
-        </t>
-
-        <t t-if="lot_id.product_id.x_product_label.name == 'Stücketikette Sika'">
-            <t t-call="studio_customization.studio_report_docume_d6a31795-5d6c-4527-9c76-48ad7356e0ae"/>
-        </t>
-
-        <t t-if="lot_id.product_id.x_product_label.name == 'Etikette Ketten'">
-            <t t-call="studio_customization.studio_report_docume_e9a56ff9-0143-4e41-ad9d-9817a1f10c4b" />
-        </t>
-
-        <p style="page-break-after: always;"/>
-    </t>
-
-    <!--</t>-->
-</t>
-```
-Source: [snippets/mrp.label_production_view.tissa.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view.tissa.xml)
-
 ## Mrp Bom Form View  
 ### X Note  
 ID: `mint_system.mrp.mrp_bom_form_view.x_note`  
@@ -496,21 +496,6 @@ ID: `mint_system.mrp.mrp_bom_tree_view.sort_id`
 Source: [snippets/mrp.mrp_bom_tree_view.sort_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_bom_tree_view.sort_id.xml)
 
 ## Mrp Production Form View  
-### Add Date Deadline2  
-ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline2`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="mrp.mrp_production_form_view" priority="50">
-
-  <field name="date_move" position="after">
-    <field name="date_deadline" attrs="{'readonly': 0}"/>
-  </field>
-
-</data>
-
-```
-Source: [snippets/mrp.mrp_production_form_view.add_date_deadline2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.add_date_deadline2.xml)
-
 ### Add Date Deadline  
 ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline`  
 ```xml
@@ -537,6 +522,21 @@ ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline`
 
 ```
 Source: [snippets/mrp.mrp_production_form_view.add_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.add_date_deadline.xml)
+
+### Add Date Deadline2  
+ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline2`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.mrp_production_form_view" priority="50">
+
+  <field name="date_move" position="after">
+    <field name="date_deadline" attrs="{'readonly': 0}"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/mrp.mrp_production_form_view.add_date_deadline2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.add_date_deadline2.xml)
 
 ### Finished Move Line Ids  
 ID: `mint_system.mrp.mrp_production_form_view.finished_move_line_ids`  
