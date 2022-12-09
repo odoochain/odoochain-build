@@ -3,6 +3,33 @@ prev: ./snippets.md
 ---
 # Sale Blanket Order
 ## Report Blanketorder Document  
+### Add Discount  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_discount`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+
+  <xpath expr="//th[@id='price_subtotal']" position="after">
+
+    <!-- Is there a discount on at least one line? -->
+    <t t-set="display_discount" t-value="any(l.discount for l in doc.line_ids)"/>
+
+    <th name="th_discount" t-if="display_discount" class="text-right" groups="product.group_discount_per_so_line">
+      <span>Disc.%</span>
+    </th>
+  </xpath>
+
+  <xpath expr="//td[@id='price_subtotal']" position="after">
+    <td t-if="display_discount" class="text-right" groups="product.group_discount_per_so_line">
+      <span t-field="l.discount"/>%
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.add_discount.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.add_discount.xml)
+
 ### Add Footer  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_footer`  
 ```xml
@@ -221,21 +248,6 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.extend_title`
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.extend_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.extend_title.xml)
 
-### Format Qty  
-ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
-
-	<span id="qty" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
-	</span>
-
-</data>
-
-```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.format_qty.xml)
-
 ### Format Qty With Decimal  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty_with_decimal`  
 ```xml
@@ -255,6 +267,21 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty_with
 
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml)
+
+### Format Qty  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
+
+	<span id="qty" position="attributes">
+		<attribute name="t-options-widget">"integer"</attribute>
+	</span>
+
+</data>
+
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.format_qty.xml)
 
 ### Get Position  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.get_position`  
@@ -277,6 +304,19 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.get_position`
 
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.get_position.xml)
+
+### Hide Date Schedule  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.hide_date_schedule`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+  <xpath expr="//th[@id='date_schedule']" position="replace"/>
+  <xpath expr="//td[@id='date_schedule']" position="replace"/>
+  
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.hide_date_schedule.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.hide_date_schedule.xml)
 
 ### Modify Information Block  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.modify_information_block`  
@@ -359,11 +399,11 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_partner
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">>
 
  <xpath expr="//div[@t-field='doc.partner_id']" position="replace">    
-      <t t-if="doc.partner_contact_id.parent_name">
-        <div t-field="doc.partner_contact_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" name="partner_contact_id"/>
+      <t t-if="doc.partner_contact_id">
+        <div t-field="doc.partner_contact_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}"/>
       </t>
-      <t t-if="not doc.partner_contact_id.parent_name">
-        <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" name="partner_contact_id"/>
+      <t t-if="not doc.partner_contact_id">
+        <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}"/>
       </t>   
   </xpath>
 
@@ -551,6 +591,10 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.set_ids`
 	</xpath>
 
 	<xpath expr="//table[2]//th[5]" position="attributes">
+		<attribute name="id">price_subtotal</attribute>
+	</xpath>
+	
+	xpath expr="//table[2]//td[5]" position="attributes">
 		<attribute name="id">price_subtotal</attribute>
 	</xpath>
 	

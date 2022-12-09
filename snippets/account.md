@@ -1055,72 +1055,6 @@ ID: `mint_system.account.report_invoice_document.replace_footer`
 ```
 Source: [snippets/account.report_invoice_document.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_footer.xml)
 
-### Replace Information Table  
-ID: `mint_system.account.report_invoice_document.replace_information_table`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="account.report_invoice_document" priority="50">
-  <xpath expr="//*[@id='informations']" position="replace">
-    <style>
-      table#informations{
-        white-space: nowrap;
-      }
-    </style>
-    <table id='informations' class="table table-borderless table-sm">
-      <tr>
-        <td>
-          <strong>Rechnungsdatum: </strong>
-          <span t-field="o.invoice_date"/>
-        </td>
-        <td>
-          <strong>Kontakt Rechnung: </strong>
-          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.name)" t-as="delivery_partner">
-            <span t-esc="delivery_partner.name" />
-          </t>
-        </td>
-        <td>
-          <strong>Zahlbar innert: </strong>
-          <span t-field="o.invoice_payment_term_id"/>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Kontakt Verkauf: </strong>
-          <span t-field="o.invoice_user_id" />
-        </td>
-        <td>
-          <strong>Tel. Direkt: </strong>
-          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.phone)" t-as="delivery_partner">
-            <span t-esc="delivery_partner.phone" />
-          </t>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Kunden-Nr.: </strong>
-          <span t-field="o.partner_id.ref" />
-        </td>
-        <td>
-          <strong>E-Mail:</strong>
-          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.email)" t-as="delivery_partner">
-            <span t-esc="delivery_partner.email" />
-          </t>
-        </td>
-        <td>
-          <!-- <strong>MWST: </strong>
-          <span t-field="res_company.vat" /> -->
-        </td>
-      </tr>
-    </table>
-  </xpath>
-
-</data>
-
-```
-Source: [snippets/account.report_invoice_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_information_table.xml)
-
 ### Replace Information Table2  
 ID: `mint_system.account.report_invoice_document.replace_information_table2`  
 ```xml
@@ -1209,6 +1143,72 @@ ID: `mint_system.account.report_invoice_document.replace_information_table2`
 
 ```
 Source: [snippets/account.report_invoice_document.replace_information_table2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_information_table2.xml)
+
+### Replace Information Table  
+ID: `mint_system.account.report_invoice_document.replace_information_table`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+  <xpath expr="//*[@id='informations']" position="replace">
+    <style>
+      table#informations{
+        white-space: nowrap;
+      }
+    </style>
+    <table id='informations' class="table table-borderless table-sm">
+      <tr>
+        <td>
+          <strong>Rechnungsdatum: </strong>
+          <span t-field="o.invoice_date"/>
+        </td>
+        <td>
+          <strong>Kontakt Rechnung: </strong>
+          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.name)" t-as="delivery_partner">
+            <span t-esc="delivery_partner.name" />
+          </t>
+        </td>
+        <td>
+          <strong>Zahlbar innert: </strong>
+          <span t-field="o.invoice_payment_term_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Kontakt Verkauf: </strong>
+          <span t-field="o.invoice_user_id" />
+        </td>
+        <td>
+          <strong>Tel. Direkt: </strong>
+          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.phone)" t-as="delivery_partner">
+            <span t-esc="delivery_partner.phone" />
+          </t>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Kunden-Nr.: </strong>
+          <span t-field="o.partner_id.ref" />
+        </td>
+        <td>
+          <strong>E-Mail:</strong>
+          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.email)" t-as="delivery_partner">
+            <span t-esc="delivery_partner.email" />
+          </t>
+        </td>
+        <td>
+          <!-- <strong>MWST: </strong>
+          <span t-field="res_company.vat" /> -->
+        </td>
+      </tr>
+    </table>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_information_table.xml)
 
 ### Replace Infotable  
 ID: `mint_system.account.report_invoice_document.replace_infotable`  
@@ -2892,72 +2892,6 @@ ID: `mint_system.account.report_invoice_document.replace_footer`
 ```
 Source: [snippets/account.report_invoice_document.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_footer.xml)
 
-### Replace Information Table  
-ID: `mint_system.account.report_invoice_document.replace_information_table`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="account.report_invoice_document" priority="50">
-  <xpath expr="//*[@id='informations']" position="replace">
-    <style>
-      table#informations{
-        white-space: nowrap;
-      }
-    </style>
-    <table id='informations' class="table table-borderless table-sm">
-      <tr>
-        <td>
-          <strong>Rechnungsdatum: </strong>
-          <span t-field="o.invoice_date"/>
-        </td>
-        <td>
-          <strong>Kontakt Rechnung: </strong>
-          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.name)" t-as="delivery_partner">
-            <span t-esc="delivery_partner.name" />
-          </t>
-        </td>
-        <td>
-          <strong>Zahlbar innert: </strong>
-          <span t-field="o.invoice_payment_term_id"/>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Kontakt Verkauf: </strong>
-          <span t-field="o.invoice_user_id" />
-        </td>
-        <td>
-          <strong>Tel. Direkt: </strong>
-          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.phone)" t-as="delivery_partner">
-            <span t-esc="delivery_partner.phone" />
-          </t>
-        </td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Kunden-Nr.: </strong>
-          <span t-field="o.partner_id.ref" />
-        </td>
-        <td>
-          <strong>E-Mail:</strong>
-          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.email)" t-as="delivery_partner">
-            <span t-esc="delivery_partner.email" />
-          </t>
-        </td>
-        <td>
-          <!-- <strong>MWST: </strong>
-          <span t-field="res_company.vat" /> -->
-        </td>
-      </tr>
-    </table>
-  </xpath>
-
-</data>
-
-```
-Source: [snippets/account.report_invoice_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_information_table.xml)
-
 ### Replace Information Table2  
 ID: `mint_system.account.report_invoice_document.replace_information_table2`  
 ```xml
@@ -3046,6 +2980,72 @@ ID: `mint_system.account.report_invoice_document.replace_information_table2`
 
 ```
 Source: [snippets/account.report_invoice_document.replace_information_table2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_information_table2.xml)
+
+### Replace Information Table  
+ID: `mint_system.account.report_invoice_document.replace_information_table`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+  <xpath expr="//*[@id='informations']" position="replace">
+    <style>
+      table#informations{
+        white-space: nowrap;
+      }
+    </style>
+    <table id='informations' class="table table-borderless table-sm">
+      <tr>
+        <td>
+          <strong>Rechnungsdatum: </strong>
+          <span t-field="o.invoice_date"/>
+        </td>
+        <td>
+          <strong>Kontakt Rechnung: </strong>
+          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.name)" t-as="delivery_partner">
+            <span t-esc="delivery_partner.name" />
+          </t>
+        </td>
+        <td>
+          <strong>Zahlbar innert: </strong>
+          <span t-field="o.invoice_payment_term_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Kontakt Verkauf: </strong>
+          <span t-field="o.invoice_user_id" />
+        </td>
+        <td>
+          <strong>Tel. Direkt: </strong>
+          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.phone)" t-as="delivery_partner">
+            <span t-esc="delivery_partner.phone" />
+          </t>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Kunden-Nr.: </strong>
+          <span t-field="o.partner_id.ref" />
+        </td>
+        <td>
+          <strong>E-Mail:</strong>
+          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.email)" t-as="delivery_partner">
+            <span t-esc="delivery_partner.email" />
+          </t>
+        </td>
+        <td>
+          <!-- <strong>MWST: </strong>
+          <span t-field="res_company.vat" /> -->
+        </td>
+      </tr>
+    </table>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_information_table.xml)
 
 ### Replace Infotable  
 ID: `mint_system.account.report_invoice_document.replace_infotable`  
