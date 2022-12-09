@@ -608,6 +608,22 @@ ID: `mint_system.purchase.report_purchaseorder_document.format_as_date`
 ```
 Source: [snippets/purchase.report_purchaseorder_document.format_as_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.format_as_date.xml)
 
+### Format Qty  
+ID: `mint_system.purchase.report_purchaseorder_document.format_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+  <xpath expr="//span[@t-field='order_line.product_qty']" position="replace">
+    <t t-if="order_line.product_uom.id == 1">
+      <span t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>
+    </t>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.format_qty.xml)
+
 ### Format Qty With Decimal  
 ID: `mint_system.purchase.report_purchaseorder_document.format_qty_with_decimal`  
 ```xml
@@ -626,22 +642,6 @@ ID: `mint_system.purchase.report_purchaseorder_document.format_qty_with_decimal`
 </data>
 ```
 Source: [snippets/purchase.report_purchaseorder_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.format_qty_with_decimal.xml)
-
-### Format Qty  
-ID: `mint_system.purchase.report_purchaseorder_document.format_qty`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
-
-  <xpath expr="//span[@t-field='order_line.product_qty']" position="replace">
-    <t t-if="order_line.product_uom.id == 1">
-      <span t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>
-    </t>
-  </xpath>
-  
-</data>
-```
-Source: [snippets/purchase.report_purchaseorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.format_qty.xml)
 
 ### Format Title  
 ID: `mint_system.purchase.report_purchaseorder_document.format_title`  
@@ -1362,6 +1362,22 @@ ID: `mint_system.purchase.report_purchasequotation_document.format_date`
 ```
 Source: [snippets/purchase.report_purchasequotation_document.format_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.format_date.xml)
 
+### Format Qty  
+ID: `mint_system.purchase.report_purchasequotation_document.format_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+
+  <xpath expr="//span[@t-field='order_line.product_qty']" position="replace">
+    <t t-if="order_line.product_uom.id == 1">
+      <span t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>
+    </t>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/purchase.report_purchasequotation_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.format_qty.xml)
+
 ### Format Qty With Decimal  
 ID: `mint_system.purchase.report_purchasequotation_document.format_qty_with_decimal`  
 ```xml
@@ -1380,22 +1396,6 @@ ID: `mint_system.purchase.report_purchasequotation_document.format_qty_with_deci
 </data>
 ```
 Source: [snippets/purchase.report_purchasequotation_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.format_qty_with_decimal.xml)
-
-### Format Qty  
-ID: `mint_system.purchase.report_purchasequotation_document.format_qty`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
-
-  <xpath expr="//span[@t-field='order_line.product_qty']" position="replace">
-    <t t-if="order_line.product_uom.id == 1">
-      <span t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>
-    </t>
-  </xpath>
-  
-</data>
-```
-Source: [snippets/purchase.report_purchasequotation_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.format_qty.xml)
 
 ### Get Position  
 ID: `mint_system.purchase.report_purchasequotation_document.get_position`  

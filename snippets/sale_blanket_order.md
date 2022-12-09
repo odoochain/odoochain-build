@@ -221,6 +221,21 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.extend_title`
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.extend_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.extend_title.xml)
 
+### Format Qty  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
+
+	<span id="qty" position="attributes">
+		<attribute name="t-options-widget">"integer"</attribute>
+	</span>
+
+</data>
+
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.format_qty.xml)
+
 ### Format Qty With Decimal  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty_with_decimal`  
 ```xml
@@ -240,21 +255,6 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty_with
 
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml)
-
-### Format Qty  
-ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
-
-	<span id="qty" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
-	</span>
-
-</data>
-
-```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.format_qty.xml)
 
 ### Get Position  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.get_position`  

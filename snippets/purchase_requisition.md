@@ -282,23 +282,6 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_product_uo
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_product_uom_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_product_uom_id.xml)
 
-### Address Block  
-ID: `mint_system.purchase_requisition.report_purchaserequisitions.address_block`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
-
-  <xpath expr="//t/div/div[1]" position="before">
-    <t t-set="o" t-value="o.with_context(lang=o.vendor_id.lang)"/>
-        <t t-set="address">
-            <div t-field="o.vendor_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-        </t>
-  </xpath>
-  
-</data>
-```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.address_block.xml)
-
 ### Add Summary  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_summary`  
 ```xml
@@ -367,6 +350,23 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_user_id`
 </data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_user_id.xml)
+
+### Address Block  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.address_block`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//t/div/div[1]" position="before">
+    <t t-set="o" t-value="o.with_context(lang=o.vendor_id.lang)"/>
+        <t t-set="address">
+            <div t-field="o.vendor_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+        </t>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.address_block.xml)
 
 ### Format Product Qty  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.format_product_qty`  
