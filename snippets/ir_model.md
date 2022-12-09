@@ -168,6 +168,8 @@ ID: `mint_system.ir_model.account_move.x_duplicate_found`
         ], limit=1)
         if invoice_id:
           rec['x_duplicate_found'] = True
+        else:
+          rec['x_duplicate_found'] = False
       else:
         rec['x_duplicate_found'] = False</field>
   </record>
@@ -742,29 +744,6 @@ ID: `mint_system.ir_model.mrp_workorder.x_reservation_state`
 ```
 Source: [snippets/ir_model.mrp_workorder.x_reservation_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_workorder.x_reservation_state.xml)
 
-### X Type Description2  
-ID: `mint_system.ir_model.mrp_workorder.x_type_description2`  
-```xml
-<?xml version='1.0' encoding='UTF-8' ?>
-<odoo>
-
-  <record id="x_type_description2" model="ir.model.fields">
-    <field name="domain">[]</field>
-    <field name="field_description">Typenbezeichnung 2</field>
-    <field name="model">mrp.workorder</field>
-    <field name="model_id" ref="mrp.model_mrp_workorder"/>
-    <field name="name">x_type_description2</field>
-    <field name="store" eval="False"/>
-    <field name="readonly" eval="True"/>
-    <field name="copied" eval="False"/>
-    <field name="related">product_id.type_description2</field>
-  </record>
-
-</odoo>
-
-```
-Source: [snippets/ir_model.mrp_workorder.x_type_description2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_workorder.x_type_description2.xml)
-
 ### X Type Description  
 ID: `mint_system.ir_model.mrp_workorder.x_type_description`  
 ```xml
@@ -787,6 +766,29 @@ ID: `mint_system.ir_model.mrp_workorder.x_type_description`
 
 ```
 Source: [snippets/ir_model.mrp_workorder.x_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_workorder.x_type_description.xml)
+
+### X Type Description2  
+ID: `mint_system.ir_model.mrp_workorder.x_type_description2`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_type_description2" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Typenbezeichnung 2</field>
+    <field name="model">mrp.workorder</field>
+    <field name="model_id" ref="mrp.model_mrp_workorder"/>
+    <field name="name">x_type_description2</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="related">product_id.type_description2</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.mrp_workorder.x_type_description2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_workorder.x_type_description2.xml)
 
 ## Product Packaging  
 ### X Description  
@@ -1852,30 +1854,6 @@ ID: `mint_system.ir_model.stock_move.x_scrap_id`
 Source: [snippets/ir_model.stock_move.x_scrap_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_scrap_id.xml)
 
 ## Stock Production Lot  
-### X Production Ids  
-ID: `mint_system.ir_model.stock_production_lot.x_production_ids`  
-```xml
-<?xml version='1.0' encoding='UTF-8' ?>
-<odoo>
-
-  <record id="x_production_ids" model="ir.model.fields">
-    <field name="domain">[]</field>
-    <field name="field_description">Fertigungsaufträge</field>
-    <field name="model">stock.production.lot</field>
-    <field name="model_id" ref="stock.model_stock_production_lot"/>
-    <field name="name">x_production_ids</field>
-    <field name="store" eval="True"/>
-    <field name="readonly" eval="True"/>
-    <field name="copied" eval="False"/>
-    <field name="ttype">One2many</field>
-    <field name="relation">mrp.production</field>
-    <field name="relation_field">lot_producing_id</field>    
-  </record>
-
-</odoo>
-```
-Source: [snippets/ir_model.stock_production_lot.x_production_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_production_lot.x_production_ids.xml)
-
 ### X Production Id  
 ID: `mint_system.ir_model.stock_production_lot.x_production_id`  
 ```xml
@@ -1904,6 +1882,30 @@ ID: `mint_system.ir_model.stock_production_lot.x_production_id`
 </odoo>
 ```
 Source: [snippets/ir_model.stock_production_lot.x_production_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_production_lot.x_production_id.xml)
+
+### X Production Ids  
+ID: `mint_system.ir_model.stock_production_lot.x_production_ids`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_production_ids" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Fertigungsaufträge</field>
+    <field name="model">stock.production.lot</field>
+    <field name="model_id" ref="stock.model_stock_production_lot"/>
+    <field name="name">x_production_ids</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">One2many</field>
+    <field name="relation">mrp.production</field>
+    <field name="relation_field">lot_producing_id</field>    
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_production_lot.x_production_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_production_lot.x_production_ids.xml)
 
 ### X Weight Uom  
 ID: `mint_system.ir_model.stock_production_lot.x_weight_uom`  

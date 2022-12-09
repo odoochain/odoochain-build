@@ -552,6 +552,7 @@ ID: `mint_system.product.report_producttemplatelabel.trimada`
             font-weight: bold;
             text-align: center;
             border-bottom: solid 1px;
+            line-height: 1;
         }
         .frame {
             border-bottom: solid 1px;
@@ -592,7 +593,7 @@ ID: `mint_system.product.report_producttemplatelabel.trimada`
         <div class="page">
           <div class="label">
             <div class="row title">
-              <div class="col-6 box1">
+              <div class="col-6 box2">
                 <span t-esc="product.default_code"/>
               </div>
               <div t-if="product.barcode" class="col-6 box2 text-right">
