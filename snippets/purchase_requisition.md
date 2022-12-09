@@ -24,17 +24,19 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_address_bl
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-  <xpath expr="//t/div/div[1]" position="after">
-    <div class="row address">
-      <div class="col-5"/>
-      <div class="col-5 offset-2" id="address_right">
-        <div t-field="o.vendor_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-      </div>
-    </div>
+  <xpath expr="//t/div/div[1]" position="before">
+    <t t-set="o" t-value="o.with_context(lang=o.vendor_id.lang)"/>
+        <t t-set="address">
+          <t t-if="o.partner_order_id">
+            <div id="address" t-field="o.partner_order_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+          </t>
+          <t t-else="">
+             <div id="address" t-field="o.vendor_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+          </t>
+        </t>
   </xpath>
-
+  
 </data>
-
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_address_block.xml)
 
@@ -175,30 +177,32 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_infotable`
     <table id='info'>
       <tr>
         <td width="17%">Date</td>
-        <td width="44%">
+        <td width="40%">
           <span t-field='o.ordering_date' t-options='{ "widget": "date" }'/>
         </td>
-        <td width="14%"></td>
-        <td width="25%"></td>
+        <td width="18%">Our Reference</td>
+        <td width="25%">
+          <span t-field='o.user_id'/>
+        </td>
       </tr>
       <tr>
         <td>Customer No.</td>
         <td>
           <span t-field='o.vendor_id.ref'/>
         </td>
-        <td>Our Reference</td>
+        <td>Incoterm</td>
         <td>
-          <span t-field='o.user_id'/>
+          <span t-field='o.incoterm_id'/>
         </td>
       </tr>
       <tr>
-        <td>Order</td>
+        <td></td>
         <td>
           <span t-field='o.partner_ref'/>
         </td>
-        <td>Delivery Method</td>
+        <td>Agreement Deadline</td>
         <td>
-         
+          <span t-field='o.date_end' t-options='{ "widget": "date" }'/>
         </td>
       </tr>
       <tr>
@@ -206,10 +210,8 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_infotable`
         <td>
           <span t-field='o.comment'/>
         </td>
-        <td>Incoterm</td>
-        <td>
-          <span t-field='o.incoterm_id'/>
-        </td>
+        <td></td>
+        <td></td>
       </tr>
     </table>
 
@@ -282,6 +284,23 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_product_uo
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_product_uom_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_product_uom_id.xml)
 
+### Address Block  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.address_block`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//t/div/div[1]" position="before">
+    <t t-set="o" t-value="o.with_context(lang=o.vendor_id.lang)"/>
+        <t t-set="address">
+            <div t-field="o.vendor_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+        </t>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.address_block.xml)
+
 ### Add Summary  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_summary`  
 ```xml
@@ -350,23 +369,6 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_user_id`
 </data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_user_id.xml)
-
-### Address Block  
-ID: `mint_system.purchase_requisition.report_purchaserequisitions.address_block`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
-
-  <xpath expr="//t/div/div[1]" position="before">
-    <t t-set="o" t-value="o.with_context(lang=o.vendor_id.lang)"/>
-        <t t-set="address">
-            <div t-field="o.vendor_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-        </t>
-  </xpath>
-  
-</data>
-```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.address_block.xml)
 
 ### Format Product Qty  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.format_product_qty`  
@@ -446,6 +448,19 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_product_u
 </data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_product_uom.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_product_uom.xml)
+
+### Hide Schedule Date  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_schedule_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//th[@id='schedule_date']" position="replace"/>
+  <xpath expr="//td[@id='schedule_date']" position="replace"/>
+  
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_schedule_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_schedule_date.xml)
 
 ### Hide Title Product  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_title_product`  
@@ -928,6 +943,20 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_filter.replace_f
 Source: [snippets/purchase_requisition.view_purchase_requisition_filter.replace_filter.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_filter.replace_filter.xml)
 
 ## View Purchase Requisition Form  
+### Date End Attributes Required  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_form.date_end_attributes_required`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
+
+  <xpath expr="//field[@name='date_end']" position="attributes">
+    <attribute name="required">1</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.date_end_attributes_required.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.date_end_attributes_required.xml)
+
 ### Filter Customer Is Company  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.filter_customer_is_company`  
 ```xml
@@ -1019,6 +1048,20 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_stat
 </data>
 ```
 Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_status_workflow.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_status_workflow.xml)
+
+### Ordering Date Attributes Required  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_form.ordering_date_attributes_required`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
+
+  <xpath expr="//field[@name='ordering_date']" position="attributes">
+    <attribute name="required">1</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.ordering_date_attributes_required.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.ordering_date_attributes_required.xml)
 
 ### Relocate Price Unit  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.relocate_price_unit`  

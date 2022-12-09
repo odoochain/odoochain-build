@@ -1352,24 +1352,6 @@ ID: `mint_system.sale.report_saleorder_document.format_note`
 ```
 Source: [snippets/sale.report_saleorder_document.format_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_note.xml)
 
-### Format Qty  
-ID: `mint_system.sale.report_saleorder_document.format_qty`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="sale.report_saleorder_document" priority="50">
-
-	<xpath expr="//span[@id='product_uom_qty']" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
-	</xpath>
-	
-	<xpath expr="//span[@id='product_uom_qty_confirmed']" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
-	</xpath>
-
-</data>
-```
-Source: [snippets/sale.report_saleorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_qty.xml)
-
 ### Format Qty With Decimal  
 ID: `mint_system.sale.report_saleorder_document.format_qty_with_decimal`  
 ```xml
@@ -1388,6 +1370,24 @@ ID: `mint_system.sale.report_saleorder_document.format_qty_with_decimal`
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_qty_with_decimal.xml)
+
+### Format Qty  
+ID: `mint_system.sale.report_saleorder_document.format_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+	<xpath expr="//span[@id='product_uom_qty']" position="attributes">
+		<attribute name="t-options-widget">"integer"</attribute>
+	</xpath>
+	
+	<xpath expr="//span[@id='product_uom_qty_confirmed']" position="attributes">
+		<attribute name="t-options-widget">"integer"</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_qty.xml)
 
 ### Format Title Trimada  
 ID: `mint_system.sale.report_saleorder_document.format_title_trimada`  
@@ -1719,20 +1719,6 @@ ID: `mint_system.sale.report_saleorder_document.replace_summary`
 ```
 Source: [snippets/sale.report_saleorder_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.replace_summary.xml)
 
-### Round Price  
-ID: `mint_system.sale.report_saleorder_document.round_price`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="sale.report_saleorder_document" priority="50">
-
-  <xpath expr="//span[@t-field='line.price_unit']" position="replace">
-     <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') >= 3 else '%.2f' % line.price_unit" /> 
-  </xpath>
-
-</data>
-```
-Source: [snippets/sale.report_saleorder_document.round_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.round_price.xml)
-
 ### Round Price2  
 ID: `mint_system.sale.report_saleorder_document.round_price2`  
 ```xml
@@ -1749,6 +1735,20 @@ ID: `mint_system.sale.report_saleorder_document.round_price2`
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.round_price2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.round_price2.xml)
+
+### Round Price  
+ID: `mint_system.sale.report_saleorder_document.round_price`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//span[@t-field='line.price_unit']" position="replace">
+     <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') >= 3 else '%.2f' % line.price_unit" /> 
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.round_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.round_price.xml)
 
 ### Round Total Price  
 ID: `mint_system.sale.report_saleorder_document.round_total_price`  
@@ -1893,6 +1893,25 @@ ID: `mint_system.sale.report_saleorder_document.show_default_code`
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.show_default_code.xml)
+
+### Show Partner Contact Id  
+ID: `mint_system.sale.report_saleorder_document.show_partner_contact_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//div[@t-field='doc.partner_id']" position="replace">
+    <t t-if="doc.partner_contact_id">
+      <div t-field="doc.partner_contact_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" />
+    </t>
+    <t t-if="not doc.partner_contact_id">
+      <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" />
+    </t>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.show_partner_contact_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.show_partner_contact_id.xml)
 
 ### Style Trimada  
 ID: `mint_system.sale.report_saleorder_document.style_trimada`  
