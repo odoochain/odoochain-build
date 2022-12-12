@@ -101,6 +101,26 @@ ID: `mint_system.web.assets_common.set_chatter_width`
 ```
 Source: [snippets/web.assets_common.set_chatter_width.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.assets_common.set_chatter_width.xml)
 
+### Set Form Width  
+ID: `mint_system.web.assets_common.set_form_width`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.assets_common" priority="50">
+
+  <xpath expr="." position="inside">
+    <style>
+          @media (min-width: 992px) {
+          .o_form_view .o_form_sheet_bg > .o_form_sheet {
+               max-width: 1450px !important;
+            }
+          }
+    </style>
+  </xpath>
+
+</data>
+```
+Source: [snippets/web.assets_common.set_form_width.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.assets_common.set_form_width.xml)
+
 ## Brand Promotion Message  
 ### Remove  
 ID: `mint_system.web.brand_promotion_message.remove`  
