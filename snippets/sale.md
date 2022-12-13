@@ -1001,26 +1001,18 @@ ID: `mint_system.sale.report_saleorder_document.add_infotable`
     <table id='info'>
       <tr>
         <td width="17%">Date</td>
-        <td width="44%">
+        <td width="40%">
           <span t-field='doc.date_order' t-options='{ "widget": "date" }'/>
         </td>
-        <td width="14%"></td>
-        <td width="25%"></td>
+        <td width="18%">Our Reference</td>
+        <td width="25%">
+          <span t-field='doc.user_id'/>
+        </td>
       </tr>
       <tr>
         <td>Customer No.</td>
         <td>
           <span t-field='doc.partner_id.ref'/>
-        </td>
-        <td>Our Reference</td>
-        <td>
-          <span t-field='doc.user_id'/>
-        </td>
-      </tr>
-      <tr>
-        <td>Order</td>
-        <td>
-          <span t-field='doc.client_order_ref'/>
         </td>
         <td>Delivery Method</td>
         <td>
@@ -1028,14 +1020,38 @@ ID: `mint_system.sale.report_saleorder_document.add_infotable`
         </td>
       </tr>
       <tr>
-        <td>Reference</td>
-        <td>
-          <span t-field='doc.comment'/>
-        </td>
+        <t t-if="not doc.blanket_order_id">
+          <td>Order</td>
+          <td>
+            <span t-field='doc.client_order_ref'/>
+          </td>
+        </t>
+        <t t-else="">
+          <td></td>
+          <td></td>
+        </t>
         <td>Incoterm</td>
         <td>
           <span t-field='doc.incoterm'/>
         </td>
+      </tr>
+      <tr>
+        <td>Reference</td>
+        <td>
+          <span t-field='doc.comment'/>
+        </td>
+        <t t-if="doc.blanket_order_id">
+          <td>Blanket Order</td>
+          <td>
+            <span t-field='doc.blanket_order_id'/>
+            <t t-if="doc.client_order_ref"> /              <span t-field='doc.client_order_ref'/>
+            </t>
+          </td>
+        </t>
+        <t t-else="">
+          <td></td>
+          <td></td>
+        </t>
       </tr>
     </table>
 

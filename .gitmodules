@@ -134,3 +134,11 @@
 	path = addons/swiss_payroll
 	url = git@gitlab.com:mint-system/odoo-apps-swiss-payroll.git
 	branch = 15.0
+[submodule "addons/contract"]
+	path = addons/contract
+	url = git@github.com:Mint-System/Odoo-Apps-Contract.git
+	branch = 15.0
+[submodule "oca/contract"]
+	path = oca/contract
+	url = git@github.com:OCA/contract.git
+	branch = 15.0

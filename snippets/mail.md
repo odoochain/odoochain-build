@@ -138,6 +138,19 @@ ID: `mint_system.mail.mail_notification_light.align_left`
 ```
 Source: [snippets/mail.mail_notification_light.align_left.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_light.align_left.xml)
 
+### Debrand  
+ID: `mint_system.mail.mail_notification_light.debrand`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.mail_notification_light" priority="50">
+
+  <xpath expr="//t[1]/table[1]/tr[2]" position="replace" />
+
+</data>
+
+```
+Source: [snippets/mail.mail_notification_light.debrand.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_light.debrand.xml)
+
 ### Reduce To Content  
 ID: `mint_system.mail.mail_notification_light.reduce_to_content`  
 ```xml
