@@ -37,8 +37,8 @@ ID: `mint_system.hr_holidays.hr_leave_view_form_manager_approve.report_note_grou
 Source: [snippets/hr_holidays.hr_leave_view_form_manager_approve.report_note_group.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_view_form_manager_approve.report_note_group.xml)
 
 ## Hr Leave View Form  
-### X Number Of Holidays  
-ID: `mint_system.hr_holidays.hr_leave_view_form.x_number_of_holidays`  
+### Show Number Of Hours Always  
+ID: `mint_system.hr_holidays.hr_leave_view_form.show_number_of_hours_always`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="hr_holidays.hr_leave_view_form" priority="50">
@@ -50,7 +50,7 @@ ID: `mint_system.hr_holidays.hr_leave_view_form.x_number_of_holidays`
 </data>
 
 ```
-Source: [snippets/hr_holidays.hr_leave_view_form.x_number_of_holidays.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_view_form.x_number_of_holidays.xml)
+Source: [snippets/hr_holidays.hr_leave_view_form.show_number_of_hours_always.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_view_form.show_number_of_hours_always.xml)
 
 ## Hr Leave View Timeline  
 ### View  
