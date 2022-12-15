@@ -251,8 +251,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_price_unit
 
   <xpath expr="//th[@id='product_qty']" position="after">
     <t t-if="o.state_blanket_order != 'draft'">
-      <th id="price_unit" class="text-right">
-        <span t-field="o.state"/>
+      <th id="price_unit" class="text-right">     
         <strong>Unit Price</strong>
       </th>
     </t>
