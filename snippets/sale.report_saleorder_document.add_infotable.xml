@@ -57,7 +57,7 @@
           <td>Blanket Order</td>
           <td>
             <span t-field='doc.blanket_order_id'/>
-            <t t-if="doc.client_order_ref"> /              <span t-field='doc.blanket_order_id.client_order_ref'/>
+            <t t-if="doc.blanket_order_id.client_order_ref"> /              <span t-field='doc.blanket_order_id.client_order_ref'/>
             </t>
           </td>
         </t>
