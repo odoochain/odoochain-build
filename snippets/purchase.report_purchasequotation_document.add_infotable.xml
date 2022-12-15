@@ -3,19 +3,19 @@
 
     <xpath expr="//h2" position="after">
         <style>
-        table#info {
+      table#info {
         width: 100%;
         margin-bottom: 25px;
         font-size: 9pt;
         font-family: arial;
-        }
+      }
         table#info tr {
         line-height: 1.2;
         text-align: left;
-        }
+      }
         .note {
         font-size: 9pt;
-        }
+      }
         </style>
         <table id='info'>
             <tr>
@@ -40,19 +40,14 @@
             </tr>
             <tr>
                 <td></td>
-                <t t-if="not o.requisition_id">
-                    <td>
-                        <span t-field='o.partner_ref'/>
-                    </td>
-                </t>
-                <t t-else="">
-                    <td></td>
-                </t>
+                <td>
+                    <span t-field='o.partner_ref'/>
+                </td>
                 <t t-if="o.requisition_id">
                     <td>Purchase Contract</td>
                     <td>
                         <span t-field='o.requisition_id'/>
-                        <t t-if="o.partner_ref"> / <span t-field='o.partner_ref'/>
+                        <t t-if="o.partner_ref"> / <span t-field='o.requisition_id.partner_ref'/>
                         </t>
                     </td>
                 </t>
