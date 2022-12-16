@@ -142,3 +142,7 @@
 	path = oca/contract
 	url = git@github.com:OCA/contract.git
 	branch = 15.0
+[submodule "addons/vertical_saas"]
+	path = addons/vertical_saas
+	url = git@github.com:Mint-System/Odoo-Apps-SaaS.git
+	branch = 15.0
