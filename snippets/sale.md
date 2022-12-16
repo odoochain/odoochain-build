@@ -1020,16 +1020,10 @@ ID: `mint_system.sale.report_saleorder_document.add_infotable`
         </td>
       </tr>
       <tr>
-        <t t-if="not doc.blanket_order_id">
-          <td>Order</td>
-          <td>
-            <span t-field='doc.client_order_ref'/>
-          </td>
-        </t>
-        <t t-else="">
-          <td></td>
-          <td></td>
-        </t>
+        <td>Order</td>
+        <td>
+          <span t-field='doc.client_order_ref'/>
+        </td>
         <td>Incoterm</td>
         <td>
           <span t-field='doc.incoterm'/>
@@ -1044,7 +1038,7 @@ ID: `mint_system.sale.report_saleorder_document.add_infotable`
           <td>Blanket Order</td>
           <td>
             <span t-field='doc.blanket_order_id'/>
-            <t t-if="doc.client_order_ref"> /              <span t-field='doc.client_order_ref'/>
+            <t t-if="doc.blanket_order_id.client_order_ref"> /              <span t-field='doc.blanket_order_id.client_order_ref'/>
             </t>
           </td>
         </t>

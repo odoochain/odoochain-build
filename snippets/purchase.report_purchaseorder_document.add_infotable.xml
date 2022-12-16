@@ -45,19 +45,16 @@
       </tr>
       <tr>
         <td></td>
-        <t t-if="not o.requisition_id">
-          <td>
-            <span t-field='o.partner_ref'/>
-          </td>
-        </t>
-        <t t-else="">
-          <td></td>
-        </t>
+
+        <td>
+          <span t-field='o.partner_ref'/>
+        </td>
+
         <t t-if="o.requisition_id">
           <td>Purchase Contract</td>
           <td>
             <span t-field='o.requisition_id'/>
-            <t t-if="o.partner_ref"> / <span t-field='o.partner_ref'/>
+            <t t-if="o.requisition_id.partner_ref"> /              <span t-field='o.requisition_id.partner_ref'/>
             </t>
           </td>
         </t>

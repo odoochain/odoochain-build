@@ -590,6 +590,33 @@ ID: `mint_system.ir_model.hr_contract.x_struct_id`
 ```
 Source: [snippets/ir_model.hr_contract.x_struct_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.hr_contract.x_struct_id.xml)
 
+## Hr Leave  
+### X Number Of Hours  
+ID: `mint_system.ir_model.hr_leave.x_number_of_hours`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_number_of_hours" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Dauer (Stunden)</field>
+    <field name="model">hr.leave</field>
+    <field name="model_id" ref="hr.model_hr_leave"/>
+    <field name="name">x_number_of_hours</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">float</field>
+    <field name="depends">number_of_hours_display</field>
+    <field name="compute">for leave in self:
+      leave['x_number_of_hours'] = round(leave.number_of_hours_display, 2)</field>ld>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.hr_leave.x_number_of_hours.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.hr_leave.x_number_of_hours.xml)
+
 ## Hr Payslip Line  
 ### X Code Name  
 ID: `mint_system.ir_model.hr_payslip_line.x_code_name`  
