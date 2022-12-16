@@ -4185,6 +4185,22 @@ ID: `mint_system.stock.view_production_lot_tree.show_qty`
 ```
 Source: [snippets/stock.view_production_lot_tree.show_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_production_lot_tree.show_qty.xml)
 
+## View Stock Move Line Operation Tree  
+### Edit Reserved Qty  
+ID: `mint_system.stock.view_stock_move_line_operation_tree.edit_reserved_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_stock_move_line_operation_tree" priority="50">
+
+  <field name="product_uom_qty" position="attributes">
+    <attribute name="readonly">0</attribute>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_stock_move_line_operation_tree.edit_reserved_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_stock_move_line_operation_tree.edit_reserved_qty.xml)
+
 ## View Stock Quant Tree Editable  
 ### Show Reserved Quantity  
 ID: `mint_system.stock.view_stock_quant_tree_editable.show_reserved_quantity`  
