@@ -942,6 +942,20 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_filter.replace_f
 Source: [snippets/purchase_requisition.view_purchase_requisition_filter.replace_filter.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_filter.replace_filter.xml)
 
 ## View Purchase Requisition Form  
+### Date End Attributes Readonly  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_form.date_end_attributes_readonly`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
+
+  <xpath expr="//field[@name='date_end']" position="attributes">
+    <attribute name="attrs">{'readonly': [('state','not in',('draft','sent','in_progress','open','ongoing'))]}</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.date_end_attributes_readonly.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.date_end_attributes_readonly.xml)
+
 ### Date End Attributes Required  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.date_end_attributes_required`  
 ```xml
