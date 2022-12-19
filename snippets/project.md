@@ -50,6 +50,23 @@ ID: `mint_system.project.view_task_form2.parent_domain`
 ```
 Source: [snippets/project.view_task_form2.parent_domain.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.parent_domain.xml)
 
+### Remove Timer Buttons  
+ID: `mint_system.project.view_task_form2.remove_timer_buttons`  
+```xml
+<?xml version="1.0"?>
+
+<data inherit_id="project.view_task_form2" priority="50">
+
+  <button name="action_timer_start" position="replace"/>
+  <button name="action_timer_stop" position="replace"/>
+  <button name="action_timer_pause" position="replace"/>
+  <button name="action_timer_resume" position="replace"/>
+
+</data>
+
+```
+Source: [snippets/project.view_task_form2.remove_timer_buttons.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.remove_timer_buttons.xml)
+
 ### Show Allow Timesheets  
 ID: `mint_system.project.view_task_form2.show_allow_timesheets`  
 ```xml
