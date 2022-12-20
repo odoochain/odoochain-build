@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<t t-name="stock.report_certificatecofc">
+  <t t-foreach="docs" t-as="o">
+    <t t-call="stock.report_certificatecofc_document" t-lang="o.partner_id.lang"/>
+  </t>
+</t>
