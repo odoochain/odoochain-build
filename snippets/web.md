@@ -303,6 +303,7 @@ ID: `mint_system.web.external_layout_standard.remove_contact`
 <!-- Remove contact info in footer -->
 <data inherit_id="web.external_layout_standard" priority="50">
 
+  <!-- Works until Odoo 14.0 -->
 	<xpath expr="//li[@t-if='company.phone']" position="replace">
   </xpath>
   <xpath expr="//li[@t-if='company.email']" position="replace">
@@ -395,6 +396,7 @@ ID: `mint_system.web.external_layout_standard.replace_url`
 <!-- Replace website url in document footer -->
 <data inherit_id="web.external_layout_standard" priority="50">
 
+  <!-- Works until Odoo 14.0 -->
   <xpath expr="//li[@t-if='company.website']" position="replace">
   	<li t-if="company.website" class="list-inline-item d-inline">www.example.ch</li>
   </xpath>

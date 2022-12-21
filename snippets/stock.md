@@ -466,6 +466,7 @@ ID: `mint_system.stock.report_bordero.basis57`
                             <t t-set="partner_moves" t-value="docs.move_ids_without_package.filtered(lambda x: x.partner_id == partner_id)"/>
                             <t t-set="count_boxes" t-value="sum(partner_moves.mapped('x_count_boxes'))"/>
                             <t t-set="boxes_weight" t-value="sum(partner_moves.mapped('weight'))"/>
+                            <t t-set="cold_storage" t-value="partner_moves.filtered(lambda m: m.product_id.x_storage_temperature &lt; -20)"/>
                             <t t-set="total_boxes" t-value="total_boxes + count_boxes"/>
                             <t t-set="total_weight" t-value="total_weight + boxes_weight"/>
 
@@ -483,6 +484,9 @@ ID: `mint_system.stock.report_bordero.basis57`
                             </td>
                             <td class="text-right">
                                 <span t-esc="count_boxes"/>
+                                <t t-if="cold_storage">
+                                  <span> (TK)</span>
+                                </t>
                             </td>
                             <td class="text-right">
                                 <span t-esc="round(boxes_weight,2)"/>
@@ -516,7 +520,11 @@ ID: `mint_system.stock.report_bordero.basis57`
                 </div>
                 
                 <br/>
-                <p>Bitte die Gebinde beim Kunden sofort zurücknehmen und beim Abholen in Erstfeld die Gebinde retournieren.<br/>Vielen Dank</p>
+                
+                <t t-set="footer" t-value="docs.env['ir.translation'].search([('src', '=', 'stock.report_bordero.basis57.footer')], limit=1)"/>
+                <t t-if="footer">
+                  <p><t t-raw="footer.value"/></p>
+                </t>
 
             </div>
         </t>
@@ -524,6 +532,22 @@ ID: `mint_system.stock.report_bordero.basis57`
 </t>
 ```
 Source: [snippets/stock.report_bordero.basis57.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_bordero.basis57.xml)
+
+## Report Certificatecofc Document  
+### =2.0.0 =4.0.0 Addons Config Default.Vim Docker-Compose.Yml Enterprise LICENSE Logo.Png Oca Odoo Package.Json Package-Lock.Json README.Md Scripts Snippets Snippets.Md Task Task.Md Template Themes Tmp Upgrade.Log Upgrade-Report.Html Venv13.0 Venv14.0 Venv15.0 Venv16.0  
+ID: `mint_system.stock.report_certificatecofc_document.*`  
+```xml
+
+```
+Source: [snippets/stock.report_certificatecofc_document.*.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_certificatecofc_document.*.xml)
+
+## Report Certificatecofc  
+### =2.0.0 =4.0.0 Addons Config Default.Vim Docker-Compose.Yml Enterprise LICENSE Logo.Png Oca Odoo Package.Json Package-Lock.Json README.Md Scripts Snippets Snippets.Md Task Task.Md Template Themes Tmp Upgrade.Log Upgrade-Report.Html Venv13.0 Venv14.0 Venv15.0 Venv16.0  
+ID: `mint_system.stock.report_certificatecofc.*`  
+```xml
+
+```
+Source: [snippets/stock.report_certificatecofc.*.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_certificatecofc.*.xml)
 
 ## Report Delivery Document  
 ### Add Date  
