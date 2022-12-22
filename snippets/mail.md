@@ -225,9 +225,11 @@ ID: `mint_system.mail.mail_notification_light.set_model_name`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="mail.mail_notification_light" priority="60">
+
   <xpath expr="//span[1]" position="replace">
     <span style="font-size: 10px;"><t t-esc="model_description or 'document'"/></span><br/>
   </xpath>
+  
 </data>
 ```
 Source: [snippets/mail.mail_notification_light.set_model_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_light.set_model_name.xml)
@@ -344,6 +346,20 @@ ID: `mint_system.mail.mail_notification_paynow.replace_footer`
 
 ```
 Source: [snippets/mail.mail_notification_paynow.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.replace_footer.xml)
+
+### Set Model Name  
+ID: `mint_system.mail.mail_notification_paynow.set_model_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.mail_notification_paynow" priority="60">
+
+  <xpath expr="//td[1]/span[1]" position="replace">
+    <span style="font-size: 10px;"><t t-esc="model_description or 'document'"/></span><br/>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/mail.mail_notification_paynow.set_model_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.set_model_name.xml)
 
 ### White Background  
 ID: `mint_system.mail.mail_notification_paynow.white_background`  

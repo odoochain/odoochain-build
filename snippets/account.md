@@ -116,6 +116,38 @@ ID: `mint_system.account.report_invoice_document.add_percentage_sign`
 ```
 Source: [snippets/account.report_invoice_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_percentage_sign.xml)
 
+### Add Sale Person  
+ID: `mint_system.account.report_invoice_document.add_sale_person`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <!-- Remove reference -->
+    <xpath expr="/t/t/div/div[1]/div[5]" position="replace">
+    </xpath>
+
+    <!-- Add sales person -->
+    <xpath expr="/t/t/div/div[1]/div[1]" position="after">
+        <div class="col-auto mw-100 mb-2" t-if="o.invoice_user_id" name="invoice_user_id">
+            <strong>Salesperson:</strong>
+            <p class="m-0" t-field="o.invoice_user_id.name" />
+        </div>
+    </xpath>
+
+    <!-- Add referencce to new line -->
+    <xpath expr="//div[@id='informations']" position="after">
+        <div id="informations2" class="row mt32 mb32" t-if="o.ref">
+            <div class="col-auto mw-100 mb-2" name="reference">
+                <strong>Reference:</strong>
+                <p class="m-0" t-field="o.ref" />
+            </div>
+        </div>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_sale_person.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_sale_person.xml)
+
 ### Add Salesperson  
 ID: `mint_system.account.report_invoice_document.add_salesperson`  
 ```xml
@@ -1952,6 +1984,38 @@ ID: `mint_system.account.report_invoice_document.add_percentage_sign`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_percentage_sign.xml)
+
+### Add Sale Person  
+ID: `mint_system.account.report_invoice_document.add_sale_person`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <!-- Remove reference -->
+    <xpath expr="/t/t/div/div[1]/div[5]" position="replace">
+    </xpath>
+
+    <!-- Add sales person -->
+    <xpath expr="/t/t/div/div[1]/div[1]" position="after">
+        <div class="col-auto mw-100 mb-2" t-if="o.invoice_user_id" name="invoice_user_id">
+            <strong>Salesperson:</strong>
+            <p class="m-0" t-field="o.invoice_user_id.name" />
+        </div>
+    </xpath>
+
+    <!-- Add referencce to new line -->
+    <xpath expr="//div[@id='informations']" position="after">
+        <div id="informations2" class="row mt32 mb32" t-if="o.ref">
+            <div class="col-auto mw-100 mb-2" name="reference">
+                <strong>Reference:</strong>
+                <p class="m-0" t-field="o.ref" />
+            </div>
+        </div>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_sale_person.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_sale_person.xml)
 
 ### Add Salesperson  
 ID: `mint_system.account.report_invoice_document.add_salesperson`  
@@ -3891,6 +3955,20 @@ ID: `mint_system.account.view_move_form.domain_partner_bank_ids`
 </data>
 ```
 Source: [snippets/account.view_move_form.domain_partner_bank_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.domain_partner_bank_ids.xml)
+
+### Edit Invoice Date  
+ID: `mint_system.account.view_move_form.edit_invoice_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <field name="invoice_date" position="attributes">
+        <attribute name="attrs">{}</attribute>
+    </field>
+
+</data>
+```
+Source: [snippets/account.view_move_form.edit_invoice_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.edit_invoice_date.xml)
 
 ### Hide Payment Reference  
 ID: `mint_system.account.view_move_form.hide_payment_reference`  
