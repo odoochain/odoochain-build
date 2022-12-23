@@ -234,3 +234,7 @@
 	path = oca/manufacture
 	url = git@github.com:OCA/manufacture.git
 	branch = 14.0
+[submodule "addons/odoo_sh_apps_partner"]
+	path = addons/odoo_sh_apps_partner
+	url = git@github.com:Mint-System/Odoo-sh-Apps-Partner.git
+	branch = 14.0
