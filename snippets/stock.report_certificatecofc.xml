@@ -22,8 +22,7 @@
                   }
                   table#subtitel {
                      margin-bottom: 5px;
-                  }
-                  
+                  }                  
                   table#info {
                      border: solid 1px;
                   }
