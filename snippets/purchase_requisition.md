@@ -26,17 +26,32 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_address_bl
 
   <xpath expr="//t/div/div[1]" position="before">
     <t t-set="o" t-value="o.with_context(lang=o.vendor_id.lang)"/>
-        <t t-set="address">
-          <t t-if="o.partner_order_id">
-            <div id="address" t-field="o.partner_order_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-          </t>
-          <t t-else="">
-             <div id="address" t-field="o.vendor_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-          </t>
-        </t>
+    <t t-set="address">
+      <t t-if="o.partner_order_id">
+        <div id="address" t-field="o.partner_order_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+      </t>
+      <t t-else="">
+        <div id="address" t-field="o.vendor_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+      </t>
+    </t>
   </xpath>
-  
+
 </data>
+
+<!--
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//t/div/div[1]" position="before">
+    <div class="container">
+      <div class="row">
+        <div id="address" class="col-5 offset-7" t-field="o.vendor_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+      </div>
+    </div>
+  </xpath>
+
+</data>
+-->
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_address_block.xml)
 
@@ -46,12 +61,12 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_descriptio
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-<xpath expr="//div/t[2]" position="after">
-  <div style="font-size:16px; margin-top: 4rem">
-    <p t-field="o.description"/>
-  </div>
-</xpath>
-  
+  <xpath expr="//div/t[2]" position="after">
+    <div id="description">
+      <p t-field="o.description"/>
+    </div>
+  </xpath>
+
 </data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_description.xml)
@@ -392,12 +407,12 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.format_qty_wit
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-    <xpath expr="//span[@id='qty']" position="replace">
+    <xpath expr="//span[@id='product_qty']" position="replace">
         <t t-if="line_ids.product_uom_id.id == 1">
-            <span id="qty" t-field="line_ids.product_qty" t-options="{'widget': 'integer'}"/>
+            <span id="product_qty" t-field="line_ids.product_qty" t-options="{'widget': 'integer'}"/>
         </t>
         <t t-else="">
-            <span id="qty" t-field="line_ids.product_qty"/>
+            <span id="product_qty" t-field="line_ids.product_qty"/>
         </t>
     </xpath>
 
@@ -410,11 +425,6 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_details`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
-
-<!--
-<xpath expr="//div/t[2]" position="replace">  
-</xpath>
--->
 
   <xpath expr="//table[@id='details']" position="replace"/>
   
@@ -461,16 +471,23 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_schedule_
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_schedule_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_schedule_date.xml)
 
+### Hide Title Details  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_title_details`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+ <xpath expr="//h3[@id='title_details']" position="replace"/> 
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_title_details.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_title_details.xml)
+
 ### Hide Title Product  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_title_product`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
-
-<!--
-<xpath expr="//h3" position="replace">  
-</xpath>
--->
 
  <xpath expr="//h3[@id='title_product']" position="replace"/> 
 
@@ -776,6 +793,29 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.set_ids`
 	</xpath>
 
 </data>
+
+<!--
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+	<xpath expr="//t[1]/h3" position="attributes">
+		<attribute name="id">title_product</attribute>
+	</xpath>
+
+	<xpath expr="//t[2]/h3" position="attributes">
+		<attribute name="id">title_details</attribute>
+	</xpath>
+	
+	<xpath expr="//span[@t-field='line_ids.product_qty']" position="attributes">
+		<attribute name="id">product_qty</attribute>
+	</xpath>
+	
+	<xpath expr="//t[2]/table" position="attributes">
+		<attribute name="id">details</attribute>
+	</xpath>
+
+</data>
+-->
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.set_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.set_ids.xml)
 
@@ -810,17 +850,25 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.style_gelso`
 	<xpath expr="//div[hasclass('page')]" position="before">
 		<style>
 			.o_company_1_layout {
-				font-family: Arial;
+				font-family: Roboto;
 				color: #000000;
 			}
-			h2 {
-       			margin-top:10mm;
-       			margin-bottom:3mm;
+			.o_report_layout_boxed {
+        		color: #495057;
 			}
-			div#address_right {
-				font-size: 9pt;
-      }
-	
+			.o_report_layout_boxed h2 {
+       			color: #000000;
+			}
+			.o_report_layout_boxed strong {
+       			color: #000000;
+			}
+			.col-3 {
+			  	margin-bottom: 1rem !important;
+			}
+			div#address {
+				font-size: 16px;
+				margin-bottom: 2rem;
+			}
 		</style>
 	</xpath>
 
