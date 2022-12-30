@@ -752,6 +752,24 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_da
 ```
 Source: [snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml)
 
+### X Product Uom Category Id  
+ID: `mint_system.sale_blanket_order.view_blanket_order_form.x_product_uom_category_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.view_blanket_order_form" priority="50">
+
+  <xpath expr="//page[@name='order_lines']//field[@name='product_uom']" position="before">
+    <field name="x_product_uom_category_id" invisible="1" />
+  </xpath>
+
+  <xpath expr="//page[@name='order_lines']//field[@name='product_uom']" position="attributes">
+    <attribute name="domain">[["category_id","=",x_product_uom_category_id]]</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.view_blanket_order_form.x_product_uom_category_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_blanket_order_form.x_product_uom_category_id.xml)
+
 ## View Blanket Order Search  
 ### Replace Filter  
 ID: `mint_system.sale_blanket_order.view_blanket_order_search.replace_filter`  
