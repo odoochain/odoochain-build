@@ -1332,6 +1332,32 @@ ID: `mint_system.ir_model.res_partner.x_stock_move_ids`
 ```
 Source: [snippets/ir_model.res_partner.x_stock_move_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.res_partner.x_stock_move_ids.xml)
 
+## Sale Blanket Order Line  
+### X Product Uom Category Id  
+ID: `mint_system.ir_model.sale_blanket_order_line.x_product_uom_category_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_product_uom_category_id" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Kategorie</field>
+    <field name="model">sale.blanket.order.line</field>
+    <field name="model_id" ref="sale.model_sale_blanket_order_line"/>
+    <field name="name">x_product_uom_category_id</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">Many2One</field>
+    <field name="relation">uom.category</field>
+    <field name="related">product_id.uom_id.category_id</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.sale_blanket_order_line.x_product_uom_category_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_blanket_order_line.x_product_uom_category_id.xml)
+
 ## Sale Order Line  
 ### X Categ Id  
 ID: `mint_system.ir_model.sale_order_line.x_categ_id`  
