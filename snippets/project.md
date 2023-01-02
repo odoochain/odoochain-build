@@ -210,6 +210,21 @@ ID: `mint_system.project.view_task_form2.x_business_requirement_id`
 ```
 Source: [snippets/project.view_task_form2.x_business_requirement_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.x_business_requirement_id.xml)
 
+### X Lead Id  
+ID: `mint_system.project.view_task_form2.x_lead_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.view_task_form2" priority="50">
+
+	<field name="partner_id" position="before">
+	   <field name="x_lead_id" attrs="{'invisible': [('x_lead_id','=', False)]}" />
+  </field>
+
+</data>
+
+```
+Source: [snippets/project.view_task_form2.x_lead_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.x_lead_id.xml)
+
 ### X Vehicle Id  
 ID: `mint_system.project.view_task_form2.x_vehicle_id`  
 ```xml

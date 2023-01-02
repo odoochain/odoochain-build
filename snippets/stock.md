@@ -3648,6 +3648,24 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.description_sa
 ```
 Source: [snippets/stock.stock_report_delivery_has_serial_move_line.description_sale.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_has_serial_move_line.description_sale.xml)
 
+### Get Position  
+ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.get_position`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
+
+    <xpath expr="//td[1]" position="before">
+         <t t-if="o.sale_id or o.purchase_id">
+            <td id="position">
+                <span t-esc="move_line.x_position.position"/>
+            </td>
+         </t>
+    </xpath>
+
+</data>
+```
+Source: [snippets/stock.stock_report_delivery_has_serial_move_line.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_has_serial_move_line.get_position.xml)
+
 ### Pos In Table  
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.pos_in_table`  
 ```xml

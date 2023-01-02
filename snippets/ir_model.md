@@ -1052,20 +1052,46 @@ ID: `mint_system.ir_model.project_task.x_business_requirement_id`
     <field name="name">x_business_requirement_id</field>
     <field name="state">manual</field>
     <field name="store" eval="True"/>
-    <field name="readonly" eval="False"/>
-    <field name="copied" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
     <field name="ttype">many2one</field>
     <field name="relation">business.requirement</field>
-    <field name="depends">project_id,name</field>
-    <field name="compute">for record in self:
-  record['x_business_requirement_id'] = self.env['business.requirement'].search([('x_task_id', '=', record.id)], limit=1)
-    </field>
+    <field name="depends">project_id,name,partner_id</field>
+    <field name="compute">for rec in self:
+      rec['x_business_requirement_id'] = self.env['business.requirement'].search([('x_task_id', '=', rec.id)], limit=1)</field>
   </record>
 
 </odoo>
 
 ```
 Source: [snippets/ir_model.project_task.x_business_requirement_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.project_task.x_business_requirement_id.xml)
+
+### X Lead Id  
+ID: `mint_system.ir_model.project_task.x_lead_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_lead_id" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Lead</field>
+    <field name="model">crm.lead</field>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">x_lead_id</field>
+    <field name="state">manual</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">crm.lead</field>
+    <field name="depends">project_id,name,partner_id</field>
+    <field name="compute">for rec in self:
+  rec['x_lead_id'] = self.env['crm.lead'].search([('x_task_id', '=', rec.id)], limit=1)</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.project_task.x_lead_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.project_task.x_lead_id.xml)
 
 ### X Vehicle Id  
 ID: `mint_system.ir_model.project_task.x_vehicle_id`  
@@ -1711,6 +1737,31 @@ ID: `mint_system.ir_model.stock_location.x_should_be_valued`
 </odoo>
 ```
 Source: [snippets/ir_model.stock_location.x_should_be_valued.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_location.x_should_be_valued.xml)
+
+## Stock Move Line  
+### X Position  
+ID: `mint_system.ir_model.stock_move_line.x_position`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_position" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Pos</field>
+    <field name="model">stock.move.line</field>
+    <field name="model_id" ref="stock.model_stock_move_line"/>
+    <field name="name">x_position</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">stock.move</field>
+    <field name="related">move_id</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_move_line.x_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move_line.x_position.xml)
 
 ## Stock Move  
 ### X Count Boxes  

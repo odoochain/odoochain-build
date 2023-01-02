@@ -847,3 +847,22 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_tree.reset_view`
 ```
 Source: [snippets/sale_blanket_order.view_blanket_order_tree.reset_view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_blanket_order_tree.reset_view.xml)
 
+## View Order Form  
+### Modify Attributes Blanket Order Line  
+ID: `mint_system.sale_blanket_order.view_order_form.modify_attributes_blanket_order_line`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='blanket_order_line']" position="before">
+    <field name="order_partner_id" invisible="1" />
+  </xpath>
+
+  <xpath expr="//field[@name='blanket_order_line']" position="attributes">
+    <attribute name="domain">[["partner_id","=",order_partner_id]]</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.view_order_form.modify_attributes_blanket_order_line.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_order_form.modify_attributes_blanket_order_line.xml)
+
