@@ -33,6 +33,21 @@ ID: `mint_system.purchase.mail_notification_confirm.modify_buttons`
 Source: [snippets/purchase.mail_notification_confirm.modify_buttons.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.mail_notification_confirm.modify_buttons.xml)
 
 ## Purchase Order Form  
+### Add Qty To Invoice  
+ID: `mint_system.purchase.purchase_order_form.add_qty_to_invoice`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.purchase_order_form" priority="50">
+
+  <xpath expr="//page[@name='products']//tree/field[@name='date_planned']" position="after">
+    <field name="qty_to_invoice" optional="hide"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/purchase.purchase_order_form.add_qty_to_invoice.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_form.add_qty_to_invoice.xml)
+
 ### Add X Comment  
 ID: `mint_system.purchase.purchase_order_form.add_x_comment`  
 ```xml
