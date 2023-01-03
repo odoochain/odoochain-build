@@ -40,6 +40,7 @@ In Odoo everything is described as an XML document.     Snippets are modificatio
 ## [Project](snippets/project.md)
 ## [Purchase](snippets/purchase.md)
 ## [Purchase Requisition](snippets/purchase_requisition.md)
+## [Purchase Requisition Send](snippets/purchase_requisition_send.md)
 ## [Res Groups](snippets/res_groups.md)
 ## [Sale](snippets/sale.md)
 ## [Sale Blanket Order](snippets/sale_blanket_order.md)

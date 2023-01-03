@@ -1047,6 +1047,34 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.hide_schedu
 ```
 Source: [snippets/purchase_requisition.view_purchase_requisition_form.hide_schedule_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.hide_schedule_date.xml)
 
+### Modify Attributes Button Action Cancel  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_attributes_button_action_cancel`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
+
+    <xpath expr="//button[@name='action_cancel']" position="attributes">
+        <attribute name="states">ongoing,open</attribute>
+    </xpath>
+    
+</data>
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_button_action_cancel.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_button_action_cancel.xml)
+
+### Modify Attributes Name  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_attributes_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
+
+  <xpath expr="//h1/field[@name='name']" position="attributes">
+      <attribute name="attrs">{'readonly': [('state', 'in', ('done','cancel'))]}</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_name.xml)
+
 ### Modify Attributes Origin  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_attributes_origin`  
 ```xml
