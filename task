@@ -816,13 +816,21 @@ function git-mig-branch(){
 
 function patch-database() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$1 is empty."; exit; fi
+
+    DATABASE=$1
+    MODULE_NAME=$(basename $2)
+
+    # Use default database if second param is not given 
+    if test -z "$2"; then
+        DATABASE="$GIT_BRANCH"
+        MODULE_NAME=$(basename $1)
+    fi
 
     # Generate view name from filename
-    FILENAME=$(basename $2)
+    FILENAME=$(basename $1)
 
-    echo "Apply patch $FILENAME to Database $1."
-    cat $2 | docker exec -i db psql postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost/$1
+    echo "Apply patch $FILENAME to Database $DATABASE."
+    cat $FILENAME | docker exec -i db psql postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost/$DATABASE
     echo "Patching database succeeded"
 }
 
