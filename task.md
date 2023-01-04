@@ -34,7 +34,7 @@
 | list-odoo-env               |                  | List odoo env files.                                                                      |
 | logs                        |                  | Tail Odoo Docker container logs.                                                          |
 | odoo-cloc                   | [db]             | Count custom line of codes. Default is branch name.                                       |
-| patch-database              | [db][path]       | Apply sql file to database                                                                |
+| patch-database              | [db][path]       | Apply sql file to database. Default database is branch name.                              |
 | ps                          |                  | List docker processes.                                                                    |
 | release-module              | [path]           | Create GitHub release for a module.                                                       |
 | remove-module               | [db][name]       | Remove target Odoo module.                                                                |
