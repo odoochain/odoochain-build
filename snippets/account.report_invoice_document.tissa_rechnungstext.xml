@@ -2,7 +2,11 @@
 <data inherit_id="account.report_invoice_document" priority="50">
   
   <xpath expr="//p[@name='payment_term']" position="after">
-     <span t-field="o.partner_id.x_studio_field_5jUpb"/>
+     
+     <t t-foreach="o.partner_id.x_studio_field_5jUpb" t-as="text">
+       <span t-raw="text.x_studio_rechnungstext" />
+     </t>
+     
   </xpath>
 
 </data>
