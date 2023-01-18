@@ -242,3 +242,7 @@
 	path = oca/account-financial-reporting
 	url = git@github.com:OCA/account-financial-reporting.git
 	branch = 14.0
+[submodule "oca/hr"]
+	path = oca/hr
+	url = git@github.com:OCA/hr.git
+	branch = 14.0
