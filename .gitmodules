@@ -146,3 +146,7 @@
 	path = addons/vertical_saas
 	url = git@github.com:Mint-System/Odoo-Apps-SaaS.git
 	branch = 15.0
+[submodule "addons/product_attribute"]
+	path = addons/product_attribute
+	url = git@github.com:Mint-System/Odoo-Apps-Product-Attribute.git
+	branch = 15.0
