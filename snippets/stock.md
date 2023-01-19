@@ -1490,6 +1490,56 @@ ID: `mint_system.stock.report_delivery_document.modify_main_table`
 ```
 Source: [snippets/stock.report_delivery_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.modify_main_table.xml)
 
+### Move Lines  
+ID: `mint_system.stock.report_delivery_document.move_lines`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//table[@name='stock_move_line_table']" position="before">
+
+    <table class="table table-sm">
+
+      <thead>
+        <tr>
+          <th>
+            <strong>Pos</strong>
+          </th>
+          <th>
+            <strong>Product</strong>
+          </th>
+          <th>
+            <strong></strong>
+          </th>
+          <th>
+            <strong>Quantity</strong>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <t t-set="moves" t-value="o.move_lines"/>
+        <tr t-foreach="moves" t-as="move">
+          <td>
+            <span t-esc="move.position"/>
+          </td>
+          <td>
+            <span t-esc="move.product_id.name"/>
+          </td>
+          <td></td>
+          <td>
+            <span t-esc="move.quantity_done"/>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.move_lines.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.move_lines.xml)
+
 ### Pos In Table  
 ID: `mint_system.stock.report_delivery_document.pos_in_table`  
 ```xml

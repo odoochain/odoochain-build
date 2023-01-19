@@ -1711,6 +1711,33 @@ ID: `mint_system.ir_model.sale_order.x_studio_description`
 ```
 Source: [snippets/ir_model.sale_order.x_studio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order.x_studio_description.xml)
 
+## Stock Location  
+### X Should Be Valued  
+ID: `mint_system.ir_model.stock_location.x_should_be_valued`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_should_be_valued" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Should be valued</field>
+    <field name="model">stock.location</field>
+    <field name="model_id" ref="stock.model_stock_location"/>
+    <field name="name">x_should_be_valued</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">boolean</field> 
+    <field name="depends">usage</field>
+    <field name="compute">for rec in self:
+      rec['x_should_be_valued'] = rec._should_be_valued()
+    </field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_location.x_should_be_valued.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_location.x_should_be_valued.xml)
+
 ## Stock Move  
 ### X Count Boxes  
 ID: `mint_system.ir_model.stock_move.x_count_boxes`  
