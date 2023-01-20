@@ -778,7 +778,7 @@ function update-config() {
     done
     # Update native config
     sed -i'' -e "s|addons_path.*|addons_path = odoo/addons,$ADDONS|g" "./config/odoo-native.conf"
-    ADDONS="$(echo "$ADDONS" | sed 's|,|,/mnt/|g')"
+    ADDONS="$(echo "$ADDONS" | sed 's|,|,/mnt/|g' | sed 's|,/mnt/odoo||g')"
     # Update docker config
     sed -i'' -e "s|addons_path.*|addons_path = /mnt/$ADDONS|g" "./config/odoo.conf"
 
