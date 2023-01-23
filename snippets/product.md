@@ -350,6 +350,23 @@ ID: `mint_system.product.product_template_only_form_view.replace_feeder_id`
 ```
 Source: [snippets/product.product_template_only_form_view.replace_feeder_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.replace_feeder_id.xml)
 
+### Show Can Be Expensed  
+ID: `mint_system.product.product_template_only_form_view.show_can_be_expensed`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_only_form_view" priority="50">
+
+  <xpath expr="//field[@name='sale_ok']/.." position="after">
+    <span class="d-inline-block">
+      <field name="can_be_expensed" />
+      <label for="can_be_expensed" />
+    </span>
+  </xpath>
+
+</data>
+```
+Source: [snippets/product.product_template_only_form_view.show_can_be_expensed.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.show_can_be_expensed.xml)
+
 ### Show Handle  
 ID: `mint_system.product.product_template_only_form_view.show_handle`  
 ```xml

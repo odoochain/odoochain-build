@@ -2790,6 +2790,21 @@ ID: `mint_system.sale.view_order_line_tree.show_price_tax`
 ```
 Source: [snippets/sale.view_order_line_tree.show_price_tax.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.show_price_tax.xml)
 
+### Show Price Total  
+ID: `mint_system.sale.view_order_line_tree.show_price_total`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_line_tree" priority="50">
+
+    <field name="price_subtotal" position="after">
+        <field name="price_total"  sum="Total" optional="show" />
+    </field>
+
+</data>
+
+```
+Source: [snippets/sale.view_order_line_tree.show_price_total.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.show_price_total.xml)
+
 ### Show Price Unit  
 ID: `mint_system.sale.view_order_line_tree.show_price_unit`  
 ```xml

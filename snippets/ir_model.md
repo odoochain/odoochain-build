@@ -1626,7 +1626,7 @@ ID: `mint_system.ir_model.sale_order_line.x_taxed_amount_invoiced`
     <field name="ttype">float</field>
     <field name="depends">untaxed_amount_invoiced,price_tax</field>
     <field name="compute">for rec in self:
-      rec['x_taxed_amount_invoiced'] = rec.price_unit * rec.qty_delivered + rec.price_tax</field>
+      rec['x_taxed_amount_invoiced'] = rec.price_unit * (1 - (rec.discount or 0.0) / 100.0) * rec.qty_delivered + rec.price_tax</field>
   </record>
 
 </odoo>
@@ -1789,7 +1789,9 @@ ID: `mint_system.ir_model.stock_move.x_count_boxes`
                         rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
                     else:
                         rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
-                        
+                elif rec.product_packaging.name == "Karton":
+                    rec['x_count_boxes'] = (rec.quantity_done)/5
+                    
                 elif rec.product_packaging.name == "Kiste":
                     # Filet mit Haut Tiefgekühlt
                     if rec.product_id.id == 68:
