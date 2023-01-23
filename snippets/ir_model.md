@@ -590,6 +590,30 @@ ID: `mint_system.ir_model.hr_contract.x_struct_id`
 ```
 Source: [snippets/ir_model.hr_contract.x_struct_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.hr_contract.x_struct_id.xml)
 
+## Hr Expense  
+### X Partner Id  
+ID: `mint_system.ir_model.hr_expense.x_partner_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_partner_id" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Kunde</field>
+    <field name="model">hr.expense</field>
+    <field name="model_id" ref="hr.model_hr_expense"/>
+    <field name="name">x_partner_id</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">res.partner</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.hr_expense.x_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.hr_expense.x_partner_id.xml)
+
 ## Hr Leave  
 ### X Number Of Hours  
 ID: `mint_system.ir_model.hr_leave.x_number_of_hours`  
