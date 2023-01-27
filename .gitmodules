@@ -246,3 +246,7 @@
 	path = oca/hr
 	url = git@github.com:OCA/hr.git
 	branch = 14.0
+[submodule "oca/brand"]
+	path = oca/brand
+	url = git@github.com:OCA/brand.git
+	branch = 14.0
