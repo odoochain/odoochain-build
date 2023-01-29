@@ -22,6 +22,7 @@ In Odoo everything is described as an XML document.     Snippets are modificatio
 ## [Hr](snippets/hr.md)
 ## [Hr Attendance](snippets/hr_attendance.md)
 ## [Hr Contract](snippets/hr_contract.md)
+## [Hr Expense](snippets/hr_expense.md)
 ## [Hr Holidays](snippets/hr_holidays.md)
 ## [Hr Holidays Delegations](snippets/hr_holidays_delegations.md)
 ## [Hr Payroll](snippets/hr_payroll.md)

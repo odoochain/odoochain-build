@@ -45,7 +45,9 @@
                                 <span t-field="partner_id.city"/>
                             </td>
                             <td class="text-right">
-                                <span><span t-esc="count_boxes"/> Frisch</span>
+                                <t t-if="count_boxes > 0">
+                                  <span><span t-esc="count_boxes"/> Frisch</span>
+                                </t>
                                 <t t-if="count_cold_storage_boxes > 0">
                                   <span><span t-esc="count_cold_storage_boxes"/> TK</span>
                                 </t>
