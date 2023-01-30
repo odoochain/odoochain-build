@@ -20,7 +20,7 @@
     </t>
   </xpath>
 
-  <xpath expr="//table[1]" position="after">
+  <xpath expr="//div[@id='summary']" position="after">
     <t t-if="doc.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
       <span class="note" t-field="doc.note_footer"/>
     </t>
