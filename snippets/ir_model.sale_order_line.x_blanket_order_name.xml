@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_blanket_order_name" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Name Rahmenauftrag</field>
+    <field name="model">sale.order.line</field>
+    <field name="model_id" ref="sale.model_sale_order_line"/>
+    <field name="name">x_blanket_order_nam</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">Many2One</field>
+    <field name="relation">sale.blanket.order</field>    	
+    <field name="related">blanket_order_line.order_id</field>
+    <field name="depends">blanket_order_line</field>
+    <field name="compute">rec['x_blanket_order_name'] = rec.x_blanket_order_name[0]</field>
+  </record>
+
+</odoo>
