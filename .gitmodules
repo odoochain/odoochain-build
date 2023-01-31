@@ -218,3 +218,19 @@
 	path = oca/bank-statement-import
 	url = git@github.com:OCA/bank-statement-import.git
 	branch = 15.0
+[submodule "oca/crm"]
+	path = oca/crm
+	url = git@github.com:OCA/crm.git
+	branch = 15.0
+[submodule "oca/server-backend"]
+	path = oca/server-backend
+	url = git@github.com:OCA/server-backend.git
+	branch = 15.0
+[submodule "oca/dms"]
+	path = oca/dms
+	url = git@github.com:OCA/dms.git
+	branch = 15.0
+[submodule "oca/hr"]
+	path = oca/hr
+	url = git@github.com:OCA/hr.git
+	branch = 15.0
