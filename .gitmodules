@@ -234,3 +234,7 @@
 	path = oca/hr
 	url = git@github.com:OCA/hr.git
 	branch = 15.0
+[submodule "oca/stock-logistics-warehouse"]
+	path = oca/stock-logistics-warehouse
+	url = git@github.com:OCA/stock-logistics-warehouse.git
+	branch = 15.0
