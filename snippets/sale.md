@@ -2539,6 +2539,21 @@ ID: `mint_system.sale.view_order_form.no_create_edit`
 ```
 Source: [snippets/sale.view_order_form.no_create_edit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.no_create_edit.xml)
 
+### Project Domain  
+ID: `mint_system.sale.view_order_form.project_domain`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <field name="project_id" position="attributes">
+    <attribute name="domain">[('partner_id', '=', partner_id)]</attribute>
+  </field>
+
+</data>
+
+```
+Source: [snippets/sale.view_order_form.project_domain.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.project_domain.xml)
+
 ### Remove Margin Percent  
 ID: `mint_system.sale.view_order_form.remove_margin_percent`  
 ```xml
