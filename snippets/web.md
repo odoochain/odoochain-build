@@ -449,6 +449,22 @@ ID: `mint_system.web.internal_layout.replace_header`
 ```
 Source: [snippets/web.internal_layout.replace_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.internal_layout.replace_header.xml)
 
+## Login Layout  
+### Disable Footer  
+ID: `mint_system.web.login_layout.disable_footer`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.login_layout" priority="50">
+
+  <xpath expr="//t/div" position="before">
+    <t t-set="disable_footer" t-value="True"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/web.login_layout.disable_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.login_layout.disable_footer.xml)
+
 ## Styles Company Report  
 ### Set Font  
 ID: `mint_system.web.styles_company_report.set_font`  
