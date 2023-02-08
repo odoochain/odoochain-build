@@ -2855,6 +2855,34 @@ ID: `mint_system.sale.view_order_form.x_sudio_description`
 Source: [snippets/sale.view_order_form.x_sudio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.x_sudio_description.xml)
 
 ## View Order Line Tree  
+### Add Is Downpayment  
+ID: `mint_system.sale.view_order_line_tree.add_is_downpayment`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_line_tree" priority="50">
+
+  <xpath expr="//field[@name='qty_delivered']" position="before">
+    <field name="is_downpayment" optional="hide"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_line_tree.add_is_downpayment.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.add_is_downpayment.xml)
+
+### Editable  
+ID: `mint_system.sale.view_order_line_tree.editable`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_line_tree" priority="50">
+
+  <tree position="attributes">
+    <attribute name="editable" />
+  </tree>
+
+</data>
+```
+Source: [snippets/sale.view_order_line_tree.editable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.editable.xml)
+
 ### Fields Optional Hide  
 ID: `mint_system.sale.view_order_line_tree.fields_optional_hide`  
 ```xml

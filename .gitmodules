@@ -74,10 +74,6 @@
 	path = oca/server-tools
 	url = git@github.com:OCA/server-tools.git
 	branch = 15.0
-[submodule "addons/vertical_aero"]
-	path = addons/vertical_aero
-	url = git@github.com:Mint-System/Odoo-Apps-Vertical-Aero.git
-	branch = 15.0
 [submodule "addons/server_tools"]
 	path = addons/server_tools
 	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
