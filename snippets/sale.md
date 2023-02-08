@@ -2325,6 +2325,21 @@ ID: `mint_system.sale.report_saleorder_pro_forma.append_signature`
 ```
 Source: [snippets/sale.report_saleorder_pro_forma.append_signature.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_pro_forma.append_signature.xml)
 
+## Sale Order Line View Form Readonly  
+### Show Invoice Lines  
+ID: `mint_system.sale.sale_order_line_view_form_readonly.show_invoice_lines`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.sale_order_line_view_form_readonly" priority="50" >
+
+    <field name="price_total" position="after">
+        <field name="invoice_lines" widget="many2many_tags"/>
+    </field>
+
+</data>
+```
+Source: [snippets/sale.sale_order_line_view_form_readonly.show_invoice_lines.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.sale_order_line_view_form_readonly.show_invoice_lines.xml)
+
 ## Sale Order Portal Content  
 ### Description  
 ID: `mint_system.sale.sale_order_portal_content.description`  
