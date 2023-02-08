@@ -2,7 +2,8 @@
     "files.watcherExclude": {
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
-        "**/node_modules/*/**": true
+        "**/node_modules/**": true,
+        "**/oca/**": true
     },
     "git.ignoreLimitWarning": true,
     "python.formatting.provider": "black"
