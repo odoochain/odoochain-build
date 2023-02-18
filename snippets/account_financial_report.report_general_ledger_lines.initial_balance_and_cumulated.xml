@@ -5,12 +5,13 @@
 
         <div class="act_as_row lines" style="font-style: italic">
 
-            <!--## date-->
+            <!--## col1 -->
             <div class="act_as_cell"/>
-            <!--## move -->
+            <!--## col2 -->
             <div class="act_as_cell"/>
-            <!--## -->
-            <div class="act_as_cell"/>
+            <!--## col3-->
+            <div class="act_as_cell left">Anfangssaldo
+            </div>
 
             <!--## matching_number-->
             <t t-set="misc_domain" t-value="[('account_id', '=', account['id']),('date', '&lt;', date_from)]"/>
@@ -94,12 +95,14 @@
             </t>
         </div>
 
-        <!--## date-->
+        <!--## col1-->
         <div class="act_as_cell">
         </div>
+        <!--## col2-->
         <div class="act_as_cell">
         </div>
-        <div class="act_as_cell">
+        <!--## col2-->
+        <div class="act_as_cell left" style="font-weight: bold">Endsaldo
         </div>        
 
         <!--## debit-->
