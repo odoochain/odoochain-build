@@ -1,7 +1,44 @@
 <?xml version="1.0"?>
-<data inherit_id="account_financial_report.internal_layout" priority="60">
+<t t-name="account_financial_report.internal_layout_trimada">
 
-	<xpath expr="//link" position="replace">
+	<t t-if="not o" t-set="o" t-value="doc"/>
+
+	<t t-if="not company">
+		<!-- Multicompany -->
+		<t t-if="company_id">
+			<t t-set="company" t-value="company_id"/>
+		</t>
+		<t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+			<t t-set="company" t-value="o.company_id.sudo()"/>
+		</t>
+		<t t-else="else">
+			<t t-set="company" t-value="res_company"/>
+		</t>
+	</t>
+
+	<div class="header">
+		<div class="row" style="height: 20px;">
+			<div class="col-3">
+				<span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+			</div>
+			<div class="col-2 offset-2 text-center">
+				<span t-esc="company_name"/>
+			</div>
+			<div class="col-2 offset-3 text-right">
+				<ul class="list-inline">
+					<li class="list-inline-item">
+						<span class="page"/>
+					</li>
+					<li class="list-inline-item">/</li>
+					<li class="list-inline-item">
+						<span class="topage"/>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="article o_account_financial_reports_page">
 
 		<style>
 			.act_as_table {
@@ -15,6 +52,9 @@
 			.act_as_cell {
 				display: table-cell !important;
 				page-break-inside: avoid;
+				
+				padding: 3px;
+				border-style: none none solid none !important;			
 			}
 			.act_as_thead {
 				display: table-header-group !important;
@@ -36,8 +76,8 @@
 			.list_table .act_as_row {
 				border-left: 0px;
 				border-right: 0px;
-				text-align: center;
-				font-size: 10px;
+				text-align: center;		
+				font-size: 12px;				
 				padding-right: 3px;
 				padding-left: 3px;
 				padding-top: 2px;
@@ -70,8 +110,8 @@
 			.initial_balance .act_as_cell {
 				font-style: italic;
 			}
-			.account_title {
-				font-size: 11px;
+			.account_title {			  			
+				font-size: 16px;				
 				font-weight: bold;
 			}
 			.account_title.labels {
@@ -112,12 +152,16 @@
 
 			.o_account_financial_reports_page {
 				padding-top: 10px;
-				width: 90%;
-				margin-right: auto;
-				margin-left: auto;
+				width: 100%;
+				margin-right: 0px;
+				margin-left: 0px;
 				font-family: Helvetica, Arial;
+			}
+			.title {
+			  font-weight: bold;
 			}
 		</style>
 
-	</xpath>
-</data>
+		<t t-raw="0"/>
+	</div>
+</t>
