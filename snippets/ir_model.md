@@ -1711,6 +1711,31 @@ ID: `mint_system.ir_model.sale_order_line.x_weight_delivered`
 Source: [snippets/ir_model.sale_order_line.x_weight_delivered.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_weight_delivered.xml)
 
 ## Sale Order  
+### X Incoterm Blanket Order  
+ID: `mint_system.ir_model.sale_order.x_incoterm_blanket_order`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_incoterm_blanket_order" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Incoterm Rahmenauftrag</field>
+    <field name="model">sale.order</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="name">x_incoterm_blanket_order</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">account.incoterms</field>
+    <field name="related">blanket_order_id.incoterm</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.sale_order.x_incoterm_blanket_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order.x_incoterm_blanket_order.xml)
+
 ### X Product Uom Qty  
 ID: `mint_system.ir_model.sale_order.x_product_uom_qty`  
 ```xml

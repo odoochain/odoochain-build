@@ -1668,6 +1668,27 @@ ID: `mint_system.sale.report_saleorder_document.replace_informations`
 ```
 Source: [snippets/sale.report_saleorder_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.replace_informations.xml)
 
+### Replace Note Content  
+ID: `mint_system.sale.report_saleorder_document.replace_note_content`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+  
+	<td name="td_note_line" position="replace">
+		<t t-if="'page-break' in line.name">
+		  <t t-raw="'asdf'" />
+		</t>
+		<t t-else="">
+			<td name="td_note_line" colspan="99">
+				<span t-field="line.name"/>
+			</td>
+		</t>
+	</td>	
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.replace_note_content.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.replace_note_content.xml)
+
 ### Replace Partner Id  
 ID: `mint_system.sale.report_saleorder_document.replace_partner_id`  
 ```xml
@@ -2217,9 +2238,13 @@ ID: `mint_system.sale.report_saleorder_document.x_hide_on_sale_order`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-	  <xpath expr="//t[@t-foreach='doc.order_line']" position="attributes">
-		<attribute name="t-foreach">doc.order_line.filtered(lambda l: not l.product_id.x_hide_on_sale_order)</attribute>
+	  <xpath expr="//t[@t-if='not line.display_type']" position="attributes">
+		  <attribute name="t-if">not line.display_type and not line.product_id.x_hide_on_sale_order</attribute>
 	  </xpath>
+
+	  <!--<xpath expr="//t[@t-foreach='doc.order_line']" position="attributes">-->
+		 <!-- <attribute name="t-foreach">doc.order_line.filtered(lambda l: not l.product_id.x_hide_on_sale_order)</attribute>-->
+	  <!--</xpath>-->
 
 </data>
 ```
@@ -2829,6 +2854,20 @@ ID: `mint_system.sale.view_order_form.x_drawing_file`
 
 ```
 Source: [snippets/sale.view_order_form.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.x_drawing_file.xml)
+
+### X Incoterm Blanket Order  
+ID: `mint_system.sale.view_order_form.x_incoterm_blanket_order`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='tag_ids']" position="after">
+    <field name="x_incoterm_blanket_order"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.x_incoterm_blanket_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.x_incoterm_blanket_order.xml)
 
 ### X Margin Percent  
 ID: `mint_system.sale.view_order_form.x_margin_percent`  
