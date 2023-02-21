@@ -234,3 +234,11 @@
 	path = oca/stock-logistics-warehouse
 	url = git@github.com:OCA/stock-logistics-warehouse.git
 	branch = 15.0
+[submodule "addons/account_finanical_reporting"]
+	path = addons/account_finanical_reporting
+	url = git@github.com:Mint-System/Odoo-Apps-Account-Financial-Reporting.git
+	branch = 15.0
+[submodule "addons/account_financial_reporting"]
+	path = addons/account_financial_reporting
+	url = git@github.com:Mint-System/Odoo-Apps-Account-Financial-Reporting.git
+	branch = 15.0
