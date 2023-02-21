@@ -594,6 +594,19 @@ ID: `mint_system.base.view_users_form.email`
 ```
 Source: [snippets/base.view_users_form.email.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_users_form.email.xml)
 
+### Specific Ations  
+ID: `mint_system.base.view_users_form.specific_ations`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_users_form" priority="50">
+
+  <xpath expr="//field[@name='in_group_88']" position="attributes">
+    <attribute name="help">Mächtige Server-Aktionen (zum Beispiel "Lagerbuchung abbrechen")</attribute>
+  </xpath>
+</data>
+```
+Source: [snippets/base.view_users_form.specific_ations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_users_form.specific_ations.xml)
+
 ### Write Partner Id  
 ID: `mint_system.base.view_users_form.write_partner_id`  
 ```xml

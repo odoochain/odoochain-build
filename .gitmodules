@@ -250,3 +250,7 @@
 	path = oca/brand
 	url = git@github.com:OCA/brand.git
 	branch = 14.0
+[submodule "addons/account_financial_reporting"]
+	path = addons/account_financial_reporting
+	url = git@github.com:Mint-System/Odoo-Apps-Account-Financial-Reporting.git
+	branch = 15.0
