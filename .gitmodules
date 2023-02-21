@@ -253,4 +253,4 @@
 [submodule "addons/account_financial_reporting"]
 	path = addons/account_financial_reporting
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Financial-Reporting.git
-	branch = 15.0
+	branch = 14.0
