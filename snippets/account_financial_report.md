@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Account Financial Report
 ## General Ledger  
@@ -18,6 +18,135 @@ ID: `mint_system.account_financial_report.general_ledger.replace_layout`
 Source: [snippets/account_financial_report.general_ledger.replace_layout.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_financial_report.general_ledger.replace_layout.xml)
 
 ## Internal Layout  
+### Style Trimada  
+ID: `mint_system.account_financial_report.internal_layout.style_trimada`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account_financial_report.internal_layout" priority="60">
+
+	<xpath expr="//link" position="replace">
+
+		<style>
+			.act_as_table {
+				display: table !important;
+				background-color: white;
+			}
+			.act_as_row {
+				display: table-row !important;
+				page-break-inside: avoid;
+			}
+			.act_as_cell {
+				display: table-cell !important;
+				page-break-inside: avoid;
+			}
+			.act_as_thead {
+				display: table-header-group !important;
+			}
+			.act_as_tbody {
+				display: table-row-group !important;
+			}
+			.list_table,
+			.data_table,
+			.totals_table {
+				width: 100% !important;
+			}
+			.act_as_row.labels {
+				background-color: #f0f0f0 !important;
+			}
+			.list_table,
+			.data_table,
+			.totals_table,
+			.list_table .act_as_row {
+				border-left: 0px;
+				border-right: 0px;
+				text-align: center;
+				font-size: 10px;
+				padding-right: 3px;
+				padding-left: 3px;
+				padding-top: 2px;
+				padding-bottom: 2px;
+				border-collapse: collapse;
+			}
+			.totals_table {
+				font-weight: bold;
+				text-align: center;
+			}
+			.list_table .act_as_row.labels,
+			.list_table .act_as_row.initial_balance,
+			.list_table .act_as_row.lines {
+				border-color: grey !important;
+				border-bottom: 1px solid lightGrey !important;
+			}
+			.data_table .act_as_cell {
+				border: 1px solid lightGrey;
+				text-align: center;
+			}
+			.data_table .act_as_cell,
+			.list_table .act_as_cell,
+			.totals_table .act_as_cell {
+				word-wrap: break-word;
+			}
+			.data_table .act_as_row.labels,
+			.totals_table .act_as_row.labels {
+				font-weight: bold;
+			}
+			.initial_balance .act_as_cell {
+				font-style: italic;
+			}
+			.account_title {
+				font-size: 11px;
+				font-weight: bold;
+			}
+			.account_title.labels {
+				background-color: #f0f0f0 !important;
+			}
+			.act_as_cell.amount {
+				word-wrap: normal;
+				text-align: right;
+			}
+			.act_as_cell.left {
+				text-align: left;
+			}
+			.act_as_cell.right {
+				text-align: right;
+			}
+			/*.list_table .act_as_cell {*/
+			/*    border-right:1px solid lightGrey;  uncomment to active column lines */
+			/*}*/
+			.list_table .act_as_cell.first_column {
+				padding-left: 0px;
+				/*    border-left:1px solid lightGrey; uncomment to active column lines */
+			}
+			.overflow_ellipsis {
+				text-overflow: ellipsis;
+				overflow: hidden;
+				white-space: nowrap;
+			}
+			.custom_footer {
+				font-size: 7px !important;
+			}
+			.page_break {
+				page-break-inside: avoid;
+			}
+
+			.button_row {
+				padding-bottom: 10px;
+			}
+
+			.o_account_financial_reports_page {
+				padding-top: 10px;
+				width: 90%;
+				margin-right: auto;
+				margin-left: auto;
+				font-family: Helvetica, Arial;
+			}
+		</style>
+
+	</xpath>
+</data>
+```
+Source: [snippets/account_financial_report.internal_layout.style_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_financial_report.internal_layout.style_trimada.xml)
+
 ### Trimada  
 ID: `mint_system.account_financial_report.internal_layout.trimada`  
 ```xml
@@ -211,10 +340,10 @@ ID: `mint_system.account_financial_report.report_general_ledger_base.replace_tit
 <data inherit_id="account_financial_report.report_general_ledger_base" priority="50">
 
 	<xpath expr="//h4/.." position="replace">
-		<div class="title">Kontoauszug vom <span t-esc="date_from" t-options='{"widget": "date"}'/>
- 			bis <span t-esc="date_to" t-options='{"widget": "date"}'/>
-	</div>
-</xpath>
+		<div class="title">Kontoauszug vom <span t-esc="date_from" t-options='{"widget": "date"}' />
+			bis <span t-esc="date_to" t-options='{"widget": "date"}' />
+		</div>
+	</xpath>
 
 </data>
 ```
