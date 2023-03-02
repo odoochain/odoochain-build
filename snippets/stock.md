@@ -4364,14 +4364,14 @@ Source: [snippets/stock.view_move_tree.show_create_details.xml](https://github.c
 ### Show Date  
 ID: `mint_system.stock.view_move_tree.show_date`  
 ```xml
-  <?xml version="1.0"?>
-  <data inherit_id="stock.view_move_tree" priority="50">
+<?xml version="1.0"?>
+<data inherit_id="stock.view_move_tree" priority="50">
 
-    <field name="location_dest_id" position="after">
-      <field name="date" optional="hide" />
-    </field>
+  <field name="location_dest_id" position="after">
+    <field name="date" optional="hide" />
+  </field>
 
-  </data>
+</data>
 
 ```
 Source: [snippets/stock.view_move_tree.show_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.show_date.xml)
