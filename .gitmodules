@@ -238,3 +238,7 @@
 	path = addons/account_financial_reporting
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Financial-Reporting.git
 	branch = 15.0
+[submodule "addons/odoo_apps_partner"]
+	path = addons/odoo_apps_partner
+	url = git@gitlab.com:mint-system/odoo-apps-partner.git
+	branch = 15.0
