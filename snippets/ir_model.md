@@ -660,13 +660,37 @@ ID: `mint_system.ir_model.hr_leave.x_number_of_hours`
     <field name="ttype">float</field>
     <field name="depends">number_of_hours_display</field>
     <field name="compute">for leave in self:
-      leave['x_number_of_hours'] = round(leave.number_of_hours_display, 2)</field>ld>
+      leave['x_number_of_hours'] = round(leave.number_of_hours_display, 2)</field>
   </record>
 
 </odoo>
 
 ```
 Source: [snippets/ir_model.hr_leave.x_number_of_hours.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.hr_leave.x_number_of_hours.xml)
+
+### X Requires Allocation  
+ID: `mint_system.ir_model.hr_leave.x_requires_allocation`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_requires_allocation" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Erfordert Zuweisung</field>
+    <field name="model">hr.leave</field>
+    <field name="model_id" ref="hr.model_hr_leave"/>
+    <field name="name">x_requires_allocation</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">selection</field>
+    <field name="related">holiday_status_id.requires_allocation</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.hr_leave.x_requires_allocation.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.hr_leave.x_requires_allocation.xml)
 
 ## Hr Payslip Line  
 ### X Code Name  
