@@ -455,29 +455,25 @@ ID: `mint_system.account.report_invoice_document.get_position`
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//table/thead/tr/th[1]" position="before">
-    <t t-if="o.invoice_line_ids.sale_line_ids">
+    <!-- <t t-if="o.invoice_line_ids.sale_line_ids or o.invoice_line_ids.purchase_line_id">
       <th id="position">
         <span>Pos</span>
       </th>
-    </t>
-    <t t-if="o.invoice_line_ids.purchase_line_id">
-      <th id="position">
-        <span>Pos</span>
-      </th>
-    </t>
+    </t> -->
+    <th id="position">
+      <span>Pos</span>
+    </th>
   </xpath>
 
   <xpath expr="//span[@t-field='line.name']/.." position="before">
-    <t t-if="line.sale_line_ids">
+    <!-- <t t-if="line.sale_line_ids or line.purchase_order_id">
       <td id="position">
         <span t-esc="line.position" />
       </td>
-    </t>
-    <t t-if="line.purchase_order_id">
-      <td id="position">
-        <span t-esc="line.position" />
-      </td>
-    </t>
+    </t> -->
+    <td id="position">
+      <span t-esc="line.position" />
+    </td>
   </xpath>
 
 </data>
@@ -1173,7 +1169,7 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
             <strong class="mr-2">Unser Kontakt:</strong>
             <span t-field="o.invoice_user_id.name" />
           </td>
-          <td rowspan="2">
+          <td t-if="o.ref" rowspan="2">
             <div><strong class="mr-2 ml-1">Ihre Referenz:</strong></div>
             <div t-field="o.ref" />
           </td>
@@ -1181,7 +1177,7 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
 
         <tr>
           <t t-set="order_id" t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]" />
-          <td colspan="2">
+          <td t-if="order_id" colspan="2">
             <strong class="mr-2">Unsere Referenz:</strong>
             <span t-field="order_id.name" />
           </td>
@@ -1818,7 +1814,7 @@ ID: `mint_system.account.report_invoice_document.show_default_code`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-  <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[1]" position="before">
+  <xpath expr="//table[@name='invoice_line_table']" position="before">
     <style>
       th#default_code,
       td#default_code {
@@ -1827,13 +1823,13 @@ ID: `mint_system.account.report_invoice_document.show_default_code`
     </style>
   </xpath>
   
-  <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[1]" position="before">
+  <xpath expr="//table[@name='invoice_line_table']//th[@name='th_description']" position="before">
     <th id="default_code">
       <strong >Referenz</strong>
     </th>
   </xpath>
 
-  <xpath expr="//table[@name='invoice_line_table']/tbody/t/tr/t[1]/td[1]" position="before">
+  <xpath expr="//table[@name='invoice_line_table']//td[@name='account_invoice_line_name']" position="before">
     <td id="default_code">
       <span t-field="line.product_id.default_code"/>
     </td>
@@ -2534,29 +2530,25 @@ ID: `mint_system.account.report_invoice_document.get_position`
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//table/thead/tr/th[1]" position="before">
-    <t t-if="o.invoice_line_ids.sale_line_ids">
+    <!-- <t t-if="o.invoice_line_ids.sale_line_ids or o.invoice_line_ids.purchase_line_id">
       <th id="position">
         <span>Pos</span>
       </th>
-    </t>
-    <t t-if="o.invoice_line_ids.purchase_line_id">
-      <th id="position">
-        <span>Pos</span>
-      </th>
-    </t>
+    </t> -->
+    <th id="position">
+      <span>Pos</span>
+    </th>
   </xpath>
 
   <xpath expr="//span[@t-field='line.name']/.." position="before">
-    <t t-if="line.sale_line_ids">
+    <!-- <t t-if="line.sale_line_ids or line.purchase_order_id">
       <td id="position">
         <span t-esc="line.position" />
       </td>
-    </t>
-    <t t-if="line.purchase_order_id">
-      <td id="position">
-        <span t-esc="line.position" />
-      </td>
-    </t>
+    </t> -->
+    <td id="position">
+      <span t-esc="line.position" />
+    </td>
   </xpath>
 
 </data>
@@ -3252,7 +3244,7 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
             <strong class="mr-2">Unser Kontakt:</strong>
             <span t-field="o.invoice_user_id.name" />
           </td>
-          <td rowspan="2">
+          <td t-if="o.ref" rowspan="2">
             <div><strong class="mr-2 ml-1">Ihre Referenz:</strong></div>
             <div t-field="o.ref" />
           </td>
@@ -3260,7 +3252,7 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
 
         <tr>
           <t t-set="order_id" t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]" />
-          <td colspan="2">
+          <td t-if="order_id" colspan="2">
             <strong class="mr-2">Unsere Referenz:</strong>
             <span t-field="order_id.name" />
           </td>
@@ -3897,7 +3889,7 @@ ID: `mint_system.account.report_invoice_document.show_default_code`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-  <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[1]" position="before">
+  <xpath expr="//table[@name='invoice_line_table']" position="before">
     <style>
       th#default_code,
       td#default_code {
@@ -3906,13 +3898,13 @@ ID: `mint_system.account.report_invoice_document.show_default_code`
     </style>
   </xpath>
   
-  <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[1]" position="before">
+  <xpath expr="//table[@name='invoice_line_table']//th[@name='th_description']" position="before">
     <th id="default_code">
       <strong >Referenz</strong>
     </th>
   </xpath>
 
-  <xpath expr="//table[@name='invoice_line_table']/tbody/t/tr/t[1]/td[1]" position="before">
+  <xpath expr="//table[@name='invoice_line_table']//td[@name='account_invoice_line_name']" position="before">
     <td id="default_code">
       <span t-field="line.product_id.default_code"/>
     </td>
