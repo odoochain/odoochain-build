@@ -1085,6 +1085,29 @@ ID: `mint_system.ir_model.product_template.x_storage_temperature`
 ```
 Source: [snippets/ir_model.product_template.x_storage_temperature.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_storage_temperature.xml)
 
+### X Warranty  
+ID: `mint_system.ir_model.product_template.x_warranty`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_warranty" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Garantie</field>
+    <field name="model">product.template</field>
+    <field name="model_id" ref="product.model_product_template"/>
+    <field name="name">x_warranty</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">char</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.product_template.x_warranty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_warranty.xml)
+
 ### X Xml Id  
 ID: `mint_system.ir_model.product_template.x_xml_id`  
 ```xml
@@ -1362,6 +1385,52 @@ ID: `mint_system.ir_model.purchase_order.x_comment`
 Source: [snippets/ir_model.purchase_order.x_comment.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.purchase_order.x_comment.xml)
 
 ## Res Partner  
+### X Birthdate  
+ID: `mint_system.ir_model.res_partner.x_birthdate`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_birthdate" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Geburtstag</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partnee"/>
+    <field name="name">x_birthdate</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">date</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.res_partner.x_birthdate.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.res_partner.x_birthdate.xml)
+
+### X Created On  
+ID: `mint_system.ir_model.res_partner.x_created_on`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_created_on" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Erstellt am</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partnee"/>
+    <field name="name">x_created_on</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">date</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.res_partner.x_created_on.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.res_partner.x_created_on.xml)
+
 ### X External Ref  
 ID: `mint_system.ir_model.res_partner.x_external_ref`  
 ```xml
