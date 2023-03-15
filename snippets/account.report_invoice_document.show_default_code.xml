@@ -12,7 +12,7 @@
   
   <xpath expr="//table[@name='invoice_line_table']//th[@name='th_description']" position="before">
     <th id="default_code">
-      <strong >Referenz</strong>
+      <span>Referenz</span>
     </th>
   </xpath>
 

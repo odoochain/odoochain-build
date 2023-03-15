@@ -42,6 +42,22 @@ ID: `mint_system.account.report_invoice_document.add_comment_space`
 ```
 Source: [snippets/account.report_invoice_document.add_comment_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_comment_space.xml)
 
+### Add Current Subtotal Space  
+ID: `mint_system.account.report_invoice_document.add_current_subtotal_space`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//span[@t-esc='current_subtotal']/../.." position="after">
+        <tr>
+            <td name="td_current_subtotal_space" colspan="99" height="25px" />
+        </tr>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_current_subtotal_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_current_subtotal_space.xml)
+
 ### Add Header And Footer Note  
 ID: `mint_system.account.report_invoice_document.add_header_and_footer_note`  
 ```xml
@@ -387,12 +403,12 @@ ID: `mint_system.account.report_invoice_document.format_line_total`
 <data inherit_id="account.report_invoice_document" priority="50">
 
     <xpath expr="//span[@t-field='line.price_subtotal']" position="replace">
-        <span class="text-nowrap" t-esc="'%.2f'%line.price_subtotal"
+        <span class="text-nowrap" t-esc="('{:,.2f}'.format(line.price_subtotal)).replace(',','\'')"
             groups="account.group_show_line_subtotals_tax_excluded" />
     </xpath>
 
     <xpath expr="//span[@t-field='line.price_total']" position="replace">
-        <span class="text-nowrap" t-esc="'%.2f'%line.price_total"
+        <span class="text-nowrap" t-esc="'{:,.2f}'.format(line.price_total).replace(',','\'')"
             groups="account.group_show_line_subtotals_tax_included" />
     </xpath>
 
@@ -433,6 +449,35 @@ ID: `mint_system.account.report_invoice_document.format_qty_with_decimal`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_qty_with_decimal.xml)
+
+### Format Table Border  
+ID: `mint_system.account.report_invoice_document.format_table_border`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//table[hasclass('table-timesheet-entries')]" position="before">
+    <style>
+      .border-solid-black td {
+      border-top: 1px solid black !important;
+      }
+      thead th {
+      color: #5c516e;
+      }
+    </style>
+  </xpath>
+
+  <xpath expr="//thead[1]/tr[1]" position="attributes">
+    <attribute name="class" separator=" " add="border-black" />
+  </xpath>
+
+  <xpath expr="//td[@id='line_sum_amount']/.." position="attributes">
+    <attribute name="class" separator=" " add="border-black" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.format_table_border.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_table_border.xml)
 
 ### Format Title  
 ID: `mint_system.account.report_invoice_document.format_title`  
@@ -1153,16 +1198,16 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
             <strong class="mr-2">Zahlungsbedingungen:</strong>
             <span t-field="o.invoice_payment_term_id" />
           </td>
-          <t t-set="partner_contact_id" t-value="o.invoice_line_ids.sale_line_ids.order_id.mapped('partner_contact_id')[:1]" />
-          <td  t-if="partner_contact_id">
-            <strong class="mr-2">Ihr Kontakt:</strong>
-            <span t-field="partner_contact_id.name" />
+          <!--<t t-set="partner_contact_id" t-value="o.invoice_line_ids.sale_line_ids.order_id.mapped('partner_contact_id')[:1]" />-->
+          <td  t-if="o.partner_sale_id">
+            <strong class="mr-2">&#160;&#160;&#160;&#160;&#160;Ihr Kontakt:</strong>
+            <span t-field="o.partner_sale_id.name" />
           </td>
         </tr>
 
         <tr>
           <td t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'">
-            <strong class="mr-2 ml-1">Fälligkeitsdatum:</strong>
+            <strong class="mr-2">&#160;Fälligkeitsdatum:</strong>
             <span t-field="o.invoice_date_due" t-options='{"widget": "date"}' />
           </td><td t-else=""></td>
           <td>
@@ -1170,7 +1215,7 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
             <span t-field="o.invoice_user_id.name" />
           </td>
           <td t-if="o.ref" rowspan="2">
-            <div><strong class="mr-2 ml-1">Ihre Referenz:</strong></div>
+            <div><strong class="mr-2">Ihre Referenz:</strong></div>
             <div t-field="o.ref" />
           </td>
         </tr>
@@ -1178,7 +1223,7 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
         <tr>
           <t t-set="order_id" t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]" />
           <td t-if="order_id" colspan="2">
-            <strong class="mr-2">Unsere Referenz:</strong>
+            <strong class="mr-2">&#160;Unsere Referenz:</strong>
             <span t-field="order_id.name" />
           </td>
         </tr>
@@ -1825,7 +1870,7 @@ ID: `mint_system.account.report_invoice_document.show_default_code`
   
   <xpath expr="//table[@name='invoice_line_table']//th[@name='th_description']" position="before">
     <th id="default_code">
-      <strong >Referenz</strong>
+      <span>Referenz</span>
     </th>
   </xpath>
 
@@ -2117,6 +2162,22 @@ ID: `mint_system.account.report_invoice_document.add_comment_space`
 ```
 Source: [snippets/account.report_invoice_document.add_comment_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_comment_space.xml)
 
+### Add Current Subtotal Space  
+ID: `mint_system.account.report_invoice_document.add_current_subtotal_space`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//span[@t-esc='current_subtotal']/../.." position="after">
+        <tr>
+            <td name="td_current_subtotal_space" colspan="99" height="25px" />
+        </tr>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_current_subtotal_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_current_subtotal_space.xml)
+
 ### Add Header And Footer Note  
 ID: `mint_system.account.report_invoice_document.add_header_and_footer_note`  
 ```xml
@@ -2462,12 +2523,12 @@ ID: `mint_system.account.report_invoice_document.format_line_total`
 <data inherit_id="account.report_invoice_document" priority="50">
 
     <xpath expr="//span[@t-field='line.price_subtotal']" position="replace">
-        <span class="text-nowrap" t-esc="'%.2f'%line.price_subtotal"
+        <span class="text-nowrap" t-esc="('{:,.2f}'.format(line.price_subtotal)).replace(',','\'')"
             groups="account.group_show_line_subtotals_tax_excluded" />
     </xpath>
 
     <xpath expr="//span[@t-field='line.price_total']" position="replace">
-        <span class="text-nowrap" t-esc="'%.2f'%line.price_total"
+        <span class="text-nowrap" t-esc="'{:,.2f}'.format(line.price_total).replace(',','\'')"
             groups="account.group_show_line_subtotals_tax_included" />
     </xpath>
 
@@ -2508,6 +2569,35 @@ ID: `mint_system.account.report_invoice_document.format_qty_with_decimal`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_qty_with_decimal.xml)
+
+### Format Table Border  
+ID: `mint_system.account.report_invoice_document.format_table_border`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//table[hasclass('table-timesheet-entries')]" position="before">
+    <style>
+      .border-solid-black td {
+      border-top: 1px solid black !important;
+      }
+      thead th {
+      color: #5c516e;
+      }
+    </style>
+  </xpath>
+
+  <xpath expr="//thead[1]/tr[1]" position="attributes">
+    <attribute name="class" separator=" " add="border-black" />
+  </xpath>
+
+  <xpath expr="//td[@id='line_sum_amount']/.." position="attributes">
+    <attribute name="class" separator=" " add="border-black" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.format_table_border.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_table_border.xml)
 
 ### Format Title  
 ID: `mint_system.account.report_invoice_document.format_title`  
@@ -3228,16 +3318,16 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
             <strong class="mr-2">Zahlungsbedingungen:</strong>
             <span t-field="o.invoice_payment_term_id" />
           </td>
-          <t t-set="partner_contact_id" t-value="o.invoice_line_ids.sale_line_ids.order_id.mapped('partner_contact_id')[:1]" />
-          <td  t-if="partner_contact_id">
-            <strong class="mr-2">Ihr Kontakt:</strong>
-            <span t-field="partner_contact_id.name" />
+          <!--<t t-set="partner_contact_id" t-value="o.invoice_line_ids.sale_line_ids.order_id.mapped('partner_contact_id')[:1]" />-->
+          <td  t-if="o.partner_sale_id">
+            <strong class="mr-2">&#160;&#160;&#160;&#160;&#160;Ihr Kontakt:</strong>
+            <span t-field="o.partner_sale_id.name" />
           </td>
         </tr>
 
         <tr>
           <td t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'">
-            <strong class="mr-2 ml-1">Fälligkeitsdatum:</strong>
+            <strong class="mr-2">&#160;Fälligkeitsdatum:</strong>
             <span t-field="o.invoice_date_due" t-options='{"widget": "date"}' />
           </td><td t-else=""></td>
           <td>
@@ -3245,7 +3335,7 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
             <span t-field="o.invoice_user_id.name" />
           </td>
           <td t-if="o.ref" rowspan="2">
-            <div><strong class="mr-2 ml-1">Ihre Referenz:</strong></div>
+            <div><strong class="mr-2">Ihre Referenz:</strong></div>
             <div t-field="o.ref" />
           </td>
         </tr>
@@ -3253,7 +3343,7 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
         <tr>
           <t t-set="order_id" t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]" />
           <td t-if="order_id" colspan="2">
-            <strong class="mr-2">Unsere Referenz:</strong>
+            <strong class="mr-2">&#160;Unsere Referenz:</strong>
             <span t-field="order_id.name" />
           </td>
         </tr>
@@ -3900,7 +3990,7 @@ ID: `mint_system.account.report_invoice_document.show_default_code`
   
   <xpath expr="//table[@name='invoice_line_table']//th[@name='th_description']" position="before">
     <th id="default_code">
-      <strong >Referenz</strong>
+      <span>Referenz</span>
     </th>
   </xpath>
 
