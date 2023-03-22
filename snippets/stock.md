@@ -89,7 +89,6 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                     </t>
                     <t t-if="move.product_packaging.name == 'Vakuum Klein'">
                         <t t-set="fix_weight">1'000g</t>
-
                         <t t-set="count_labels" t-value="move_line.qty_done" />
                     </t>
                     <t t-if="move.product_packaging.name == 'Vakuum Gross'">
@@ -98,7 +97,7 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                     </t>
                     <t t-if="move.product_packaging.name == 'Karton'">
                         <t t-set="fix_weight">5'000g</t>
-                        <t t-set="count_boxes" t-value="1" />
+                        <!--<t t-set="count_boxes" t-value="1" />-->
                     </t>
 
                     <!--Compute box count-->
@@ -1521,7 +1520,7 @@ ID: `mint_system.stock.report_delivery_document.move_lines`
       </thead>
       <tbody>
         <t t-set="moves" t-value="o.move_lines"/>
-        <tr t-foreach="moves" t-as="move">
+        <tr t-if="move.quantity_done > 0" t-foreach="moves" t-as="move">
           <td>
             <span t-esc="move.position"/>
           </td>
@@ -4631,6 +4630,20 @@ ID: `mint_system.stock.view_picking_internal_search.filter_groupby_expected_date
 Source: [snippets/stock.view_picking_internal_search.filter_groupby_expected_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_internal_search.filter_groupby_expected_date.xml)
 
 ## View Production Lot Form  
+### X Autoremove  
+ID: `mint_system.stock.view_production_lot_form.x_autoremove`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_production_lot_form" priority="50">
+
+  <field name="removal_date" position="after">
+    <field name="x_autoremove" />
+  </field>
+
+</data>
+```
+Source: [snippets/stock.view_production_lot_form.x_autoremove.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_production_lot_form.x_autoremove.xml)
+
 ### X Production Id  
 ID: `mint_system.stock.view_production_lot_form.x_production_id`  
 ```xml
