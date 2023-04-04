@@ -2,6 +2,22 @@
 prev: ./snippets
 ---
 # Hr Timesheet
+## Hr Timesheet Line Search  
+### Filter Order Id  
+ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_order_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.hr_timesheet_line_search" priority="50">
+
+  <xpath expr="//field[@name='order_id']" position="attributes">
+    <attribute name="domain">[]</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.hr_timesheet_line_search.filter_order_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_search.filter_order_id.xml)
+
 ## Hr Timesheet Line Tree  
 ### Always Show So Line  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.always_show_so_line`  
