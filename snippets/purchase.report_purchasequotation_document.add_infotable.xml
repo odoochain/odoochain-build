@@ -70,4 +70,41 @@
 
   </xpath>
 
+  <!--
+    <xpath expr="//h2" position="after">
+    <div id="informations">
+    <table width="100%">
+      <tr>
+        <td width="17%">Kunden-Nr.</td>
+        <td width="41%">
+          <span t-field="o.partner_id.ref"/>
+        </td>
+        <td width="17%">Datum</td>
+        <td width="25%">
+          <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+        </td>
+      </tr>
+      <tr>
+        <td>Ihre Referenz</td>
+        <td>
+          <span t-field="o.partner_ref"/>
+        </td>
+        <td>Kontaktperson</td>
+        <td>
+          <span t-field="o.user_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td/>
+        <td/>
+        <td>Mwst-Nr:</td>
+        <td>
+          <span t-field="res_company.vat"/> MWST
+        </td>
+      </tr>
+    </table>
+    </div> 
+ </xpath>
+  -->
+
 </data>  
