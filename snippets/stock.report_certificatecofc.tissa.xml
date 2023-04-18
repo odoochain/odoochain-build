@@ -22,9 +22,8 @@
           }
           div#subtitel {
               margin-bottom: 5px;
-              color: green;
           }                  
-          table#info {
+          .table_info {
               border: solid 1px;
           }
           table#workorder {
@@ -65,78 +64,100 @@
             </tr>
           </table>
 
-          <!-- Test -->
-          <table style="color: red">
-            <tr>
-              <td>
-                <span t-field="o.name"/>
-              </td>
-            </tr>
-          </table>
-
-          <table id='info'>
+          <table class="table_info">
             <tr>
               <td width="50%">Hersteller Bezeichnung:</td>
               <td width="50%">
                 <span t-field="o.product_id.categ_id"/>
               </td>
             </tr>
-            <tr>
+            <tr style="border-bottom: solid 1px">
               <td>Artikelnr.</td>
               <td width="50%">
                 <span t-field="o.product_id.name"/>
               </td>
             </tr>
             <tr>
+              <td>Liefermenge:</td>
+              <td>
+                <span t-field="o.move_lines.quantity_done"/>
+                <span t-field="o.move_lines.product_uom"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Lieferdatum:</td>
+              <td>
+                <span t-field="o.date_done" t-options='{"widget": "date"}'/>
+              </td>
+            </tr>
+            <tr style="border-bottom: solid 1px">
+              <td>Lieferschein-/Auftragsnummer:</td>
+              <td>
+                <span t-field="o.name"/>
+ / 
+                <span t-field="o.origin"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Kunde / Fax:</td>
+              <td>
+                <span t-field="o.partner_id"/>
+              </td>
+            </tr>
+            <tr style="border-bottom: solid 1px">
               <td></td>
+              <td>
+                <span t-field="o.partner_id.mobile"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Bestellnummer:</td>
+              <td>
+                <span t-field="o.x_studio_kundenreferenz"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Kunden Artikelbezeichnung:</td>
               <td>
                 <span t-field="o.product_id.x_studio_kundenartikelnr"/>
               </td>
             </tr>
             <tr>
-              <td>Liefermenge:</td>
               <td></td>
-            </tr>
-            <tr>
-              <td>Auftrag:</td>
               <td>
-                <span t-field="o.origin"/>
+                <span t-field="o.product_id.description_sale"/>
               </td>
             </tr>
+
+            <table class="table_info">
+              <tr>
+                <td width="50%">Gewebebindung:</td>
+                <td width="50%">
+                  <span t-field="o.product_id.x_studio_bindung_1"/>
+                </td>
+              </tr>
+            </table>
           </table>
 
           <table id='workorder'>
             <tr>
-              <th width="15%">Auftragsnr.</th>
+
               <th width="25%">Liefermenge</th>
-              <th width="25%">Chargennummer</th>
-              <th width="20%">Ausgangsmaterial</th>
-              <th width="15%">Los</th>
-              <th>Auftrag</th>
+              <th width="75%">Chargennummer</th>
+
             </tr>
 
             <tr>
               <t t-set="lines" t-value="o.move_line_ids"/>
               <tr t-foreach="lines" t-as="move_line">
-                <td width="15%">
-                  <span t-field="move_line.lot_id.x_production_id_long"/>
-                </td>
+
                 <td width="25%">
                   <span t-field="move_line.qty_done"/>
                 </td>
-                <td width="25%">
+                <td width="75%">
                   <span t-field="move_line.lot_id"/>
                 </td>
-                <td width="20%">
-                  <span t-field="move_line.lot_id.x_production_ids.move_raw_ids.product_id"/>
-                </td>
-                <td width="15%">
-                  <span t-field="move_line.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id"/>
-                </td>
-                <td>
-                  <span t-field="move_line.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
-                  <br/>
-                </td>
+
               </tr>
             </tr>
           </table>
@@ -148,62 +169,70 @@
 , 
       Auftrag <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
       </div>
-
+      
+      <t t-set="products" t-value="list(set([line.product_id for line in o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids]))" />
       <table id='tracing'>
         <tr>
           <th></th>
           <th colspan="5">Produktspez.Rohmaterial</th>
-          <th colspan="5">Produktspez.Kette</th>
+          <th colspan="4">Produktspez.Kette</th>
         </tr>
         <tr>
-          <th width="50%">Ressource</th>
+          <th width="25%">Ressource</th>
           <th width="5%">Tex</th>
-          <th width="5%">Rohmat</th>
+          <th width="10%">Rohmat.</th>
           <th width="5%">Filament</th>
           <th width="5%">Drehung</th>
-          <th width="5%"></th>
+          <th width="5%">Schlichte</th>
           <th width="5%">Tex</th>
           <th width="5%">Breite</th>
           <th width="5%">Faden</th>
-          <th width="5%">Nummer</th>
-          <th width="5%"></th>
+          <th width="10%">Los</th>
         </tr>
 
-        <t t-set="traceability_line_ids" t-value="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids"/>
-        <tr t-foreach="traceability_line_ids" t-as="traceability_line">
-          <td>
-            <span t-field="traceability_line.product_id"/>
-          </td>
 
-          <!--Produktspez.Rohmaterial -->
-          <td>
-            <span t-field="traceability_line.product_id.product_tmpl_id.x_studio_tex_2"/>
-          </td>
-          <td>
-            <span t-field="traceability_line.product_id.product_tmpl_id.x_studio_rohmaterialtyp"/>
-          </td>
-          <td>
-            <span t-field="traceability_line.product_id.product_tmpl_id.x_studio_filament"/>
-          </td>
-          <td>
-            <span t-field="traceability_line.product_id.product_tmpl_id.x_studio_drehung"/>
-          </td>
-          <td></td>
+        <tr t-foreach="products" t-as="product_line">
 
-          <!--Produktspez.Kette -->
-          <td>
-            <span t-field="traceability_line.product_id.product_tmpl_id.x_studio_tex_3"/>
-          </td>
-          <td>
-            <span t-field="traceability_line.product_id.product_tmpl_id.x_studio_field_XalgN"/>
-          </td>
-          <td>
-            <span t-field="traceability_line.product_id.product_tmpl_id.x_studio_faden_total"/>
-          </td>
-          <td>
-            <span t-field="traceability_line.product_id.product_tmpl_id.x_studio_laufende_nummer_1"/>
-          </td>
-          <td></td>
+
+          <t t-set="batches" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids" />
+          <tr t-foreach="batches" t-as="batch_line">
+
+            <t t-if="product_line.id == batch_line.product_id.id">
+              <td>
+                <span t-field="batch_line.product_id"/>
+              </td>
+
+              <td>
+                <span t-field="batch_line.product_id.product_tmpl_id.x_studio_tex_2"/>
+              </td>
+              <td>
+                <span t-field="batch_line.product_id.product_tmpl_id.x_studio_rohmaterialtyp"/>
+              </td>
+              <td>
+                <span t-field="batch_line.product_id.product_tmpl_id.x_studio_filament"/>
+              </td>
+              <td>
+                <span t-field="batch_line.product_id.product_tmpl_id.x_studio_drehung"/>
+              </td>
+              <td></td>
+
+              <!--Produktspez.Kette -->
+              <td>
+                <span t-field="batch_line.product_id.product_tmpl_id.x_studio_tex_3"/>
+              </td>
+              <td>
+                <span t-field="batch_line.product_id.product_tmpl_id.x_studio_field_XalgN"/>
+              </td>
+              <td>
+                <span t-field="batch_line.product_id.product_tmpl_id.x_studio_faden_total"/>
+              </td>
+
+              <td>
+                <span t-field="batch_line.lot_id"/>
+              </td>
+
+            </t>
+          </tr>
         </tr>
 
       </table>
@@ -224,6 +253,7 @@
             <span t-field="qualitycheck_line.x_studio_kette_1_fdcm"/>
           </td>
           <td>
+            <span t-field="qualitycheck_line.x_studio_kette_1_fdcm"/>
           </td>
         </tr>
         <tr>
@@ -232,6 +262,7 @@
             <span t-field="qualitycheck_line.x_studio_kette_2_fdcm"/>
           </td>
           <td>
+            <span t-field="qualitycheck_line.x_studio_kette_2_fdcm"/>
           </td>
         </tr>
         <tr>
@@ -240,6 +271,7 @@
             <span t-field="qualitycheck_line.x_studio_schuss_1_fdcm"/>
           </td>
           <td>
+            <span t-field="qualitycheck_line.x_studio_schuss_1_fdcm"/>
           </td>
         </tr>
         <tr>
@@ -265,7 +297,52 @@
           </td>
         </tr>
       </table>
+
+      <table>
+        <tr>
+          <td>
+            Unterschrift
+            <br></br>
+            <br></br>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Der Hersteller bescheinigt, dass das Glasgewebe den obigen Angaben entspricht.<br></br>
+            Mit freundlichen Grüssen
+            Tissa Glasweberei AG
+          </td>
+        </tr>
+      </table>
     </div>
+
+    <!--
+    <t t-set="products" t-value="list(set([line.product_id for line in o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids]))" />
+    
+    <table id="traceability">
+      <tr t-foreach="products" t-as="product_line">
+         <td style="font-weight: bold">
+           <span t-field="product_line.name"/>
+           (<span t-field="product_line.id"/>)
+         </td>
+         
+        <t t-set="batches" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids" />
+        <tr t-foreach="batches" t-as="batch_line">
+ 
+          <t t-if="product_line.id == batch_line.product_id.id">
+          <td>
+           <span t-field="batch_line.product_id"/>
+           (<span t-field="batch_line.product_id.id"/>)
+           <span t-field="batch_line.lot_id"/>
+          </td>
+  
+         </t>
+        </tr>
+
+    </tr>
+    </table>
+    -->
+
   </t>
 </t>
 </t>
