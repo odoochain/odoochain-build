@@ -1978,8 +1978,7 @@ ID: `mint_system.ir_model.stock_move.x_count_boxes`
                     
                 elif rec.product_packaging.name == "Vakuum Gross":
                     rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
-                elif rec.product_packaging.name == "Aktionären Gutschein":
-                    rec['x_count_boxes'] = ((rec.quantity_done + 9)/20)
+                    
                 elif rec.product_packaging.name == "Vakuum Klein":
                     if rec.product_id.id == 68:
                         rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
@@ -2001,7 +2000,7 @@ ID: `mint_system.ir_model.stock_move.x_count_boxes`
                     # Zander ganz / rund
                     else:
                         rec['x_count_boxes'] = (rec.product_uom_qty + 14)/15
-    </field>
+              </field>
   </record>
 
 </odoo>
