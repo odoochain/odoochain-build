@@ -72,6 +72,20 @@ ID: `mint_system.product.product_normal_form_view.x_hide_on_sale_order`
 ```
 Source: [snippets/product.product_normal_form_view.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.x_hide_on_sale_order.xml)
 
+### X Warranty  
+ID: `mint_system.product.product_normal_form_view.x_warranty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_normal_form_view" priority="50">
+
+    <field name="product_tag_ids" position="after">
+        <field name="x_warranty"/>
+    </field>
+    
+</data>
+```
+Source: [snippets/product.product_normal_form_view.x_warranty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.x_warranty.xml)
+
 ## Product Normal Only Form View  
 ### Add X Product Label  
 ID: `mint_system.product.product_normal_only_form_view.add_x_product_label`  
