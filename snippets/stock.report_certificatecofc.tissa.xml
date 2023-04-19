@@ -20,9 +20,6 @@
           table#title {
               background-color: rgb(216,216,216);
           }
-          div#subtitel {
-              margin-bottom: 5px;
-          }                  
           .table_info {
               border: solid 1px;
           }
@@ -96,6 +93,7 @@
                 <span t-field="o.name"/>
  / 
                 <span t-field="o.origin"/>
+ /                <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
               </td>
             </tr>
             <tr>
@@ -141,182 +139,207 @@
 
           <table id='workorder'>
             <tr>
-
-              <th width="25%">Liefermenge</th>
-              <th width="75%">Chargennummer</th>
-
+              <th width="75%">Liefermenge</th>
+              <th width="25%">Chargennummer</th>
             </tr>
-
             <tr>
               <t t-set="lines" t-value="o.move_line_ids"/>
               <tr t-foreach="lines" t-as="move_line">
-
                 <td width="25%">
                   <span t-field="move_line.qty_done"/>
                 </td>
                 <td width="75%">
                   <span t-field="move_line.lot_id"/>
                 </td>
-
               </tr>
             </tr>
           </table>
 
-          <div id="subtitel">
-      Ausgangsmaterial <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.product_id"/>
-, 
-      Los <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id"/>
-, 
-      Auftrag <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
-      </div>
-      
-      <t t-set="products" t-value="list(set([line.product_id for line in o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids]))" />
-      <table id='tracing'>
-        <tr>
-          <th></th>
-          <th colspan="5">Produktspez.Rohmaterial</th>
-          <th colspan="4">Produktspez.Kette</th>
-        </tr>
-        <tr>
-          <th width="25%">Ressource</th>
-          <th width="5%">Tex</th>
-          <th width="10%">Rohmat.</th>
-          <th width="5%">Filament</th>
-          <th width="5%">Drehung</th>
-          <th width="5%">Schlichte</th>
-          <th width="5%">Tex</th>
-          <th width="5%">Breite</th>
-          <th width="5%">Faden</th>
-          <th width="10%">Los</th>
-        </tr>
+          <t t-set="products" t-value="list(set([line.product_id for line in o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids]))" />
+          <table id='tracing'>
+            <tr>
+              <th></th>
+              <th colspan="5">Produktspez.Rohmaterial</th>
+              <th colspan="4">Produktspez.Kette</th>
+            </tr>
+            <tr>
+              <th width="25%">Ressource</th>
+              <th width="5%">Tex</th>
+              <th width="10%">Rohmat.</th>
+              <th width="5%">Filament</th>
+              <th width="5%">Drehung</th>
+              <th width="5%">Schlichte</th>
+              <th width="5%">Tex</th>
+              <th width="5%">Breite</th>
+              <th width="5%">Faden</th>
+              <th width="10%">Los</th>
+            </tr>
 
+            <tr t-foreach="products" t-as="product_line">
 
-        <tr t-foreach="products" t-as="product_line">
-
-
-          <t t-set="batches" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids" />
-          <tr t-foreach="batches" t-as="batch_line">
-
-            <t t-if="product_line.id == batch_line.product_id.id">
-              <td>
-                <span t-field="batch_line.product_id"/>
+              <!--
+           <td>
+                <span t-field="product_line.name"/>
+                (<span t-field="product_line.id"/>)
               </td>
-
+              
               <td>
-                <span t-field="batch_line.product_id.product_tmpl_id.x_studio_tex_2"/>
+                <span t-field="product_line.product_tmpl_id.x_studio_tex_2"/>
               </td>
               <td>
-                <span t-field="batch_line.product_id.product_tmpl_id.x_studio_rohmaterialtyp"/>
+                <span t-field="product_line.product_tmpl_id.x_studio_rohmaterialtyp"/>
               </td>
               <td>
-                <span t-field="batch_line.product_id.product_tmpl_id.x_studio_filament"/>
+                <span t-field="product_line.product_tmpl_id.x_studio_filament"/>
               </td>
               <td>
-                <span t-field="batch_line.product_id.product_tmpl_id.x_studio_drehung"/>
+                <span t-field="product_line.product_tmpl_id.x_studio_drehung"/>
               </td>
               <td></td>
 
-              <!--Produktspez.Kette -->
               <td>
-                <span t-field="batch_line.product_id.product_tmpl_id.x_studio_tex_3"/>
+                <span t-field="product_line.product_tmpl_id.x_studio_tex_3"/>
               </td>
               <td>
-                <span t-field="batch_line.product_id.product_tmpl_id.x_studio_field_XalgN"/>
+                <span t-field="product_line.product_tmpl_id.x_studio_field_XalgN"/>
               </td>
               <td>
-                <span t-field="batch_line.product_id.product_tmpl_id.x_studio_faden_total"/>
+                <span t-field="product_line.product_tmpl_id.x_studio_faden_total"/>
               </td>
+          -->
 
-              <td>
-                <span t-field="batch_line.lot_id"/>
-              </td>
+              <t t-set="lots_seen" t-value="[]" />
+              <t t-set="move_lines" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids.filtered(lambda l: product_line.id == l.product_id.id)"/>
 
-            </t>
-          </tr>
-        </tr>
+              <tr t-foreach="move_lines" t-as="move_line">
 
-      </table>
+                <t t-if="move_line.lot_id not in lots_seen">
+                  <t t-esc="lots_seen.append(move_line.lot_id)"/>
 
-      <t t-set="qualitycheck_line" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.x_quality_check_ids"/>
-      <div id="subtitel">
+                  <t t-if="move_line.product_id.product_tmpl_id.categ_id.x_relevant_for_certificate == true">
+
+                    <td>
+                      <span t-field="move_line.product_id"/>
+                    </td>
+                    <td>
+                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_tex_2"/>
+                    </td>
+                    <td>
+                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_rohmaterialtyp"/>
+                    </td>
+                    <td>
+                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_filament"/>
+                    </td>
+                    <td>
+                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_drehung"/>
+                    </td>
+                    <td></td>
+
+                    <td>
+                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_tex_3"/>
+                    </td>
+                    <td>
+                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_field_XalgN"/>
+                    </td>
+                    <td>
+                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_faden_total"/>
+                    </td>
+                    <td>
+                      <span t-field="move_line.lot_id"/>
+                    </td>
+                  </t>
+                </t>
+              </tr>
+            </tr>
+          </table>
+
+          <t t-set="qualitycheck_line" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.x_quality_check_ids"/>
+          <div id="subtitel">
       Qualitätsprüfung <span t-field="qualitycheck_line.name"/>
-      </div>
-      <table id="quality">
-        <tr>
-          <th width="50%"></th>
-          <th width="25%">Sollwert</th>
-          <th width="25%">Istwert</th>
-        </tr>
-        <tr>
-          <td>Fadendichte per cm Kette 1:</td>
-          <td>
-            <span t-field="qualitycheck_line.x_studio_kette_1_fdcm"/>
-          </td>
-          <td>
-            <span t-field="qualitycheck_line.x_studio_kette_1_fdcm"/>
-          </td>
-        </tr>
-        <tr>
-          <td>Fadendichte per cm Kette 2:</td>
-          <td>
-            <span t-field="qualitycheck_line.x_studio_kette_2_fdcm"/>
-          </td>
-          <td>
-            <span t-field="qualitycheck_line.x_studio_kette_2_fdcm"/>
-          </td>
-        </tr>
-        <tr>
-          <td>Fadendichte per cm Schuss 1::</td>
-          <td>
-            <span t-field="qualitycheck_line.x_studio_schuss_1_fdcm"/>
-          </td>
-          <td>
-            <span t-field="qualitycheck_line.x_studio_schuss_1_fdcm"/>
-          </td>
-        </tr>
-        <tr>
-          <td>Gewebebreite in mm:</td>
-          <td>
-            <span t-field="qualitycheck_line.x_studio_breite_von_mm"/>
-            <span> - </span>
-            <span t-field="qualitycheck_line.x_studio_breite_bis_mm"/>
-          </td>
-          <td>
-            <span t-field="qualitycheck_line.x_studio_breite_ist_mm"/>
-          </td>
-        </tr>
-        <tr>
-          <td>Flächengewicht gr per m2:</td>
-          <td>
-            <span t-field="qualitycheck_line.x_studio_gewicht_von_gm2"/>
-            <span> - </span>
-            <span t-field="qualitycheck_line.x_studio_gewicht_bis_gm2"/>
-          </td>
-          <td>
-            <span t-field="qualitycheck_line.x_studio_gewicht_ist_gm2"/>
-          </td>
-        </tr>
-      </table>
+          </div>
+          <table id="quality">
+            <tr>
+              <th width="50%"></th>
+              <th width="25%">Sollwert</th>
+              <th width="25%">Istwert</th>
+            </tr>
+            <tr>
+              <td>Fadendichte per cm Kette 1:</td>
+              <td>
+                <span t-field="qualitycheck_line.x_studio_kette_1_fdcm"/>
+              </td>
+              <td>
+                <span t-field="qualitycheck_line.x_studio_kette_1_fdcm"/>
+              </td>
+            </tr>
 
-      <table>
-        <tr>
-          <td>
+            <t t-if="qualitycheck_line.x_studio_kette_2_fdcm > 0">
+              <tr>
+                <td>Fadendichte per cm Kette 2:</td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_kette_2_fdcm"/>
+                </td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_kette_2_fdcm"/>
+                </td>
+              </tr>
+            </t>
+
+            <t t-if="qualitycheck_line.x_studio_schuss_1_fdcm > 0">
+              <tr>
+                <td>Fadendichte per cm Schuss 1::</td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_schuss_1_fdcm"/>
+                </td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_schuss_1_fdcm"/>
+                </td>
+              </tr>
+            </t>
+
+            <tr>
+              <td>Gewebebreite in mm:</td>
+              <td>
+                <span t-field="qualitycheck_line.x_studio_breite_von_mm"/>
+                <span> - </span>
+                <span t-field="qualitycheck_line.x_studio_breite_bis_mm"/>
+              </td>
+              <td>
+                <span t-field="qualitycheck_line.x_studio_breite_ist_mm"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Flächengewicht gr per m2:</td>
+              <td>
+                <span t-field="qualitycheck_line.x_studio_gewicht_von_gm2"/>
+                <span> - </span>
+                <span t-field="qualitycheck_line.x_studio_gewicht_bis_gm2"/>
+              </td>
+              <td>
+                <span t-field="qualitycheck_line.x_studio_gewicht_ist_gm2"/>
+              </td>
+            </tr>
+          </table>
+
+          <table>
+            <tr>
+              <td>
             Unterschrift
-            <br></br>
-            <br></br>
-          </td>
-        </tr>
-        <tr>
-          <td>
+                <br></br>
+                <br></br>
+              </td>
+            </tr>
+            <tr>
+              <td>
             Der Hersteller bescheinigt, dass das Glasgewebe den obigen Angaben entspricht.<br></br>
             Mit freundlichen Grüssen
             Tissa Glasweberei AG
-          </td>
-        </tr>
-      </table>
-    </div>
+              </td>
+            </tr>
+          </table>
+        </div>
 
-    <!--
+        <!--
     <t t-set="products" t-value="list(set([line.product_id for line in o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids]))" />
     
     <table id="traceability">
@@ -343,7 +366,7 @@
     </table>
     -->
 
+      </t>
+    </t>
   </t>
-</t>
-</t>
 </t>
