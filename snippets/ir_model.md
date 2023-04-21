@@ -199,6 +199,30 @@ ID: `mint_system.ir_model.account_move.x_duplicate_found`
 ```
 Source: [snippets/ir_model.account_move.x_duplicate_found.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_duplicate_found.xml)
 
+### X Invoice Warn Msg  
+ID: `mint_system.ir_model.account_move.x_invoice_warn_msg`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_invoice_warn_msg" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Nachricht zu Rechnung</field>
+    <field name="model">account.move</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="name">x_duplicate_found</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">text</field>
+    <field name="relation">partner_id.invoice_warn_msg</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.account_move.x_invoice_warn_msg.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_invoice_warn_msg.xml)
+
 ### X Picking List  
 ID: `mint_system.ir_model.account_move.x_picking_list`  
 ```xml
