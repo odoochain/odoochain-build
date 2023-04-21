@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Ir Model
 ## Account Analytic Line  
 ### X Sale Order Id  
@@ -878,6 +875,30 @@ ID: `mint_system.ir_model.mrp_workorder.x_type_description`
 
 ```
 Source: [snippets/ir_model.mrp_workorder.x_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_workorder.x_type_description.xml)
+
+## Product Category  
+### X Relevant For Certificate  
+ID: `mint_system.ir_model.product_category.x_relevant_for_certificate`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_relevant_for_certificate" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Für Werkszeugnis relevant</field>
+    <field name="model">product.category</field>
+    <field name="model_id" ref="product.product_category"/>
+    <field name="name">x_relevant_for_certificate</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">boolean</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.product_category.x_relevant_for_certificate.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_category.x_relevant_for_certificate.xml)
 
 ## Product Packaging  
 ### X Description  

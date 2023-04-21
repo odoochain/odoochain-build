@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Purchase
 ## Mail Notification Confirm  
 ### Modify Buttons  

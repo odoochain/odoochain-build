@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Sale
 ## Report Blanketorder Document  
 ### Add Drawing  

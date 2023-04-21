@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Mail
 ## Activity  
 ### X Reference  
