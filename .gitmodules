@@ -254,3 +254,7 @@
 	path = addons/account_financial_reporting
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Financial-Reporting.git
 	branch = 14.0
+[submodule "oca/credit-control"]
+	path = oca/credit-control
+	url = https://github.com/OCA/credit-control
+	branch = 14.0
