@@ -97,7 +97,9 @@
                 <span t-field="o.name"/>
  / 
                 <span t-field="o.origin"/>
- /                <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
+                <t t-if="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_id">
+                     /                  <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
+                </t>
               </td>
             </tr>
             <tr>
@@ -157,7 +159,50 @@
                 </td>
               </tr>
             </tr>
-          </table>      
+          </table>
+
+          <t t-set="products" t-value="list(set([line.product_id for line in o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids]))" />
+          <table id='tracing'>
+            <tr>
+              <th width="45%">Ressource</th>
+              <th width="10%">Tex</th>
+              <th width="10%">Rohmat.</th>
+              <th width="10%">Filament</th>
+              <th width="10%">Drehung</th>
+              <th width="15%">Schlichte</th>
+            </tr>
+
+            <t t-foreach="products" t-as="product_line">
+
+              <t t-if="product_line.product_tmpl_id.categ_id.x_relevant_for_certificate == true">
+                <tr>
+                  <td>
+                    <span t-field="product_line.name"/>
+                  </td>
+                  <td>
+                    <span t-field="product_line.x_studio_tex_2"/>
+                  </td>
+                  <td>
+                    <span t-field="product_line.x_studio_rohmaterialtyp"/>
+                  </td>
+                  <td>
+                    <span t-field="product_line.x_studio_filament"/>
+                  </td>
+                  <td>
+                    <span t-field="product_line.x_studio_drehung"/>
+                  </td>
+                  <td>
+                    <span t-field="product_line.product_template_attribute_value_ids.name"/>
+                  </td>
+
+                </tr>
+              </t>
+
+            </t>
+            <tr>
+              <td colspan="6"></td>
+            </tr>
+          </table>
 
           <t t-set="qualitycheck_line" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.x_quality_check_ids"/>
           <div id="subtitle">

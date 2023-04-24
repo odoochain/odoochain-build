@@ -97,7 +97,9 @@
                 <span t-field="o.name"/>
  / 
                 <span t-field="o.origin"/>
- /                <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
+                <t t-if="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_id">
+                     /                  <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
+                </t>
               </td>
             </tr>
             <tr>
