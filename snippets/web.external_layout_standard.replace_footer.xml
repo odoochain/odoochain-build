@@ -3,7 +3,7 @@
 
   <xpath expr="/t/div[3]" position="replace">
     <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
-      <div align="right" style="color:black; font-size:9pt">
+      <div align="right" >
          Page: <span class="page"/>
  /        <span class="topage"/>
       </div>

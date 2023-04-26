@@ -20,6 +20,9 @@
      	h2.mt-4 {
      	 	margin-top: 70px !important;
      	}
+     	th#taxes_amount {
+     	 	text-align: right;
+     	}
      	td#taxes_amount {
      	 	text-align: right;
      	}
