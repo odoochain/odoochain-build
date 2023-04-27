@@ -2,7 +2,7 @@
   
   <xpath expr="//th[@name='th_subtotal']" position="after">
     <th id="tax_amount">
-      <span>Taxes</span>
+      <span/>
     </th>
   </xpath>
 
