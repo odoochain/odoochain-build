@@ -97,7 +97,7 @@
                 <span t-field="o.name"/>
  / 
                 <span t-field="o.origin"/>
-                <t t-if="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_id">
+                <t t-if="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id">
                      /                  <span t-field="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_id"/>
                 </t>
               </td>
@@ -133,15 +133,20 @@
               </td>
             </tr>
 
-            <table class="table_info">
-              <tr>
-                <td width="50%">Gewebebindung:</td>
-                <td width="50%">
-                  <span t-field="o.product_id.x_studio_bindung_1"/>
-                </td>
-              </tr>
-            </table>
+            <t t-if="o.product_id.x_studio_bindung_1">
+
+              <table class="table_info">
+                <tr>
+                  <td width="50%">Gewebebindung:</td>
+                  <td width="50%">
+                    <span t-field="o.product_id.x_studio_bindung_1"/>
+                  </td>
+                </tr>
+              </table>
+            </t>
+
           </table>
+
 
           <table id='workorder'>
             <tr>
@@ -161,170 +166,177 @@
             </tr>
           </table>
 
-          <t t-set="products" t-value="list(set([line.product_id for line in o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids]))" />
-          <table id='tracing'>
-            <tr>
-              <th width="25%">Ressource</th>
-              <th width="10%">Tex</th>
-              <th width="10%">Rohmat.</th>
-              <th width="10%">Filament</th>
-              <th width="10%">Drehung</th>
-              <th width="15%">Schlichte</th>
-              <th width="20%">Los</th>
-            </tr>
+          <t t-if="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids.product_id">
 
+            <t t-set="products" t-value="list(set([line.product_id for line in o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids]))" />
+            <table id='tracing'>
+              <tr>
+                <th width="25%">Ressource</th>
+                <th width="10%">Tex</th>
+                <th width="10%">Rohmat.</th>
+                <th width="10%">Filament</th>
+                <th width="10%">Drehung</th>
+                <th width="15%">Schlichte</th>
+                <th width="15%">Los</th>
+                <th width="5%">Kurzz.</th>
+              </tr>
 
+              <t t-foreach="products" t-as="product_line">
 
-            <t t-foreach="products" t-as="product_line">
+                <t t-set="lots_seen" t-value="[]" />
+                <t t-set="move_lines" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids.filtered(lambda l: product_line.id == l.product_id.id)"/>
 
-              <t t-set="lots_seen" t-value="[]" />
-              <t t-set="move_lines" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids.filtered(lambda l: product_line.id == l.product_id.id)"/>
+                <tr t-foreach="move_lines" t-as="move_line">
 
-              <tr t-foreach="move_lines" t-as="move_line">
+                  <t t-if="move_line.lot_id not in lots_seen">
+                    <t t-esc="lots_seen.append(move_line.lot_id)"/>
 
-                <t t-if="move_line.lot_id not in lots_seen">
-                  <t t-esc="lots_seen.append(move_line.lot_id)"/>
+                    <t t-if="move_line.product_id.product_tmpl_id.categ_id.x_relevant_for_certificate == true">
 
-                  <t t-if="move_line.product_id.product_tmpl_id.categ_id.x_relevant_for_certificate == true">
-
-                    <td>
-                      <span t-field="move_line.product_id"/>
-                    </td>
-                    <td>
-                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_tex_2"/>
-                    </td>
-                    <td>
-                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_rohmaterialtyp"/>
-                    </td>
-                    <td>
-                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_filament"/>
-                    </td>
-                    <td>
-                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_drehung"/>
-                    </td>
-                    <td>
-                      <span t-field="move_line.product_id.product_template_attribute_value_ids.name"/>
-
-                    </td>
-                    <td>
-                      <span t-field="move_line.lot_id"/>
-                    </td>
+                      <td>
+                        <span t-field="move_line.product_id"/>
+                      </td>
+                      <td>
+                        <span t-field="move_line.product_id.product_tmpl_id.x_studio_tex_2"/>
+                      </td>
+                      <td>
+                        <span t-field="move_line.product_id.product_tmpl_id.x_studio_rohmaterialtyp"/>
+                      </td>
+                      <td>
+                        <span t-field="move_line.product_id.product_tmpl_id.x_studio_filament"/>
+                      </td>
+                      <td>
+                        <span t-field="move_line.product_id.product_tmpl_id.x_studio_drehung"/>
+                      </td>
+                      <td>
+                        <span t-field="move_line.product_id.product_template_attribute_value_ids.name"/>
+                      </td>
+                      <td>
+                        <span t-field="move_line.lot_id"/>
+                      </td>
+                      <td>
+                        <span t-field="move_line.move_id.bom_line_id.x_studio_kurzz_1"/>
+                      </td>
+                    </t>
                   </t>
-                </t>
+                </tr>
+
+              </t>
+              <tr>
+                <td colspan="8"></td>
               </tr>
+            </table>
+          </t>
 
-            </t>
-            <tr>
-              <td colspan="7"></td>
-            </tr>
-          </table>
+          <t t-if="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.x_quality_check_ids">
 
-          <t t-set="qualitycheck_line" t-value="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_ids[0].x_quality_check_ids[0]"/>
-          <div id="subtitle">
+            <t t-set="qualitycheck_line" t-value="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_ids[0].x_quality_check_ids[0]"/>
+            <div id="subtitle">
       Qualitätsprüfung <span t-field="qualitycheck_line.name"/>
-          </div>
-          <table id="quality">
-            <tr>
-              <th width="50%"></th>
-              <th width="25%">Sollwert</th>
-              <th width="25%">Istwert</th>
-            </tr>
-
-            <t t-if="qualitycheck_line.x_studio_kette_1_fdcm > 0">
+            </div>
+            <table id="quality">
               <tr>
-                <td>Fadendichte per cm Kette 1:</td>
+                <th width="50%"></th>
+                <th width="25%">Sollwert</th>
+                <th width="25%">Istwert</th>
+              </tr>
+
+              <t t-if="qualitycheck_line.x_studio_kette_1_fdcm > 0">
+                <tr>
+                  <td>Fadendichte per cm Kette 1:</td>
+                  <td>
+                    <span t-field="qualitycheck_line.x_studio_kette_1_fdcm"/>
+                  </td>
+                  <td>
+                    <span t-field="qualitycheck_line.x_studio_kette_1_fdcm"/>
+                  </td>
+                </tr>
+              </t>
+
+              <t t-if="qualitycheck_line.x_studio_kette_2_fdcm > 0">
+                <tr>
+                  <td>Fadendichte per cm Kette 2:</td>
+                  <td>
+                    <span t-field="qualitycheck_line.x_studio_kette_2_fdcm"/>
+                  </td>
+                  <td>
+                    <span t-field="qualitycheck_line.x_studio_kette_2_fdcm"/>
+                  </td>
+                </tr>
+              </t>
+
+              <t t-if="qualitycheck_line.x_studio_kette_3_fdcm > 0">
+                <tr>
+                  <td>Fadendichte per cm Kette 3:</td>
+                  <td>
+                    <span t-field="qualitycheck_line.x_studio_kette_3_fdcm"/>
+                  </td>
+                  <td>
+                    <span t-field="qualitycheck_line.x_studio_kette_3_fdcm"/>
+                  </td>
+                </tr>
+              </t>
+
+              <t t-if="qualitycheck_line.x_studio_kette_4_fdcm > 0">
+                <tr>
+                  <td>Fadendichte per cm Kette 4:</td>
+                  <td>
+                    <span t-field="qualitycheck_line.x_studio_kette_4_fdcm"/>
+                  </td>
+                  <td>
+                    <span t-field="qualitycheck_line.x_studio_kette_4_fdcm"/>
+                  </td>
+                </tr>
+              </t>
+
+              <t t-if="qualitycheck_line.x_studio_schuss_1_fdcm > 0">
+                <tr>
+                  <td>Fadendichte per cm Schuss 1:</td>
+                  <td>
+                    <span t-field="qualitycheck_line.x_studio_schuss_1_fdcm"/>
+                  </td>
+                  <td>
+                    <span t-field="qualitycheck_line.x_studio_schuss_1_fdcm"/>
+                  </td>
+                </tr>
+              </t>
+
+              <t t-if="qualitycheck_line.x_studio_schuss_2_fdcm > 0">
+                <tr>
+                  <td>Fadendichte per cm Schuss 2:</td>
+                  <td>
+                    <span t-field="qualitycheck_line.x_studio_schuss_2_fdcm"/>
+                  </td>
+                  <td>
+                    <span t-field="qualitycheck_line.x_studio_schuss_2_fdcm"/>
+                  </td>
+                </tr>
+              </t>
+
+              <tr>
+                <td>Gewebebreite in mm:</td>
                 <td>
-                  <span t-field="qualitycheck_line.x_studio_kette_1_fdcm"/>
+                  <span t-field="qualitycheck_line.x_studio_breite_von_mm"/>
+                  <span> - </span>
+                  <span t-field="qualitycheck_line.x_studio_breite_bis_mm"/>
                 </td>
                 <td>
-                  <span t-field="qualitycheck_line.x_studio_kette_1_fdcm"/>
+                  <span t-field="qualitycheck_line.x_studio_breite_ist_mm"/>
                 </td>
               </tr>
-            </t>
-
-            <t t-if="qualitycheck_line.x_studio_kette_2_fdcm > 0">
               <tr>
-                <td>Fadendichte per cm Kette 2:</td>
+                <td>Flächengewicht gr per m2:</td>
                 <td>
-                  <span t-field="qualitycheck_line.x_studio_kette_2_fdcm"/>
+                  <span t-field="qualitycheck_line.x_studio_gewicht_von_gm2"/>
+                  <span> - </span>
+                  <span t-field="qualitycheck_line.x_studio_gewicht_bis_gm2"/>
                 </td>
                 <td>
-                  <span t-field="qualitycheck_line.x_studio_kette_2_fdcm"/>
+                  <span t-field="qualitycheck_line.x_studio_gewicht_ist_gm2"/>
                 </td>
               </tr>
-            </t>
-
-            <t t-if="qualitycheck_line.x_studio_kette_3_fdcm > 0">
-              <tr>
-                <td>Fadendichte per cm Kette 3:</td>
-                <td>
-                  <span t-field="qualitycheck_line.x_studio_kette_3_fdcm"/>
-                </td>
-                <td>
-                  <span t-field="qualitycheck_line.x_studio_kette_3_fdcm"/>
-                </td>
-              </tr>
-            </t>
-
-            <t t-if="qualitycheck_line.x_studio_kette_4_fdcm > 0">
-              <tr>
-                <td>Fadendichte per cm Kette 4:</td>
-                <td>
-                  <span t-field="qualitycheck_line.x_studio_kette_4_fdcm"/>
-                </td>
-                <td>
-                  <span t-field="qualitycheck_line.x_studio_kette_4_fdcm"/>
-                </td>
-              </tr>
-            </t>
-
-            <t t-if="qualitycheck_line.x_studio_schuss_1_fdcm > 0">
-              <tr>
-                <td>Fadendichte per cm Schuss 1:</td>
-                <td>
-                  <span t-field="qualitycheck_line.x_studio_schuss_1_fdcm"/>
-                </td>
-                <td>
-                  <span t-field="qualitycheck_line.x_studio_schuss_1_fdcm"/>
-                </td>
-              </tr>
-            </t>
-
-            <t t-if="qualitycheck_line.x_studio_schuss_2_fdcm > 0">
-              <tr>
-                <td>Fadendichte per cm Schuss 2:</td>
-                <td>
-                  <span t-field="qualitycheck_line.x_studio_schuss_2_fdcm"/>
-                </td>
-                <td>
-                  <span t-field="qualitycheck_line.x_studio_schuss_2_fdcm"/>
-                </td>
-              </tr>
-            </t>
-
-            <tr>
-              <td>Gewebebreite in mm:</td>
-              <td>
-                <span t-field="qualitycheck_line.x_studio_breite_von_mm"/>
-                <span> - </span>
-                <span t-field="qualitycheck_line.x_studio_breite_bis_mm"/>
-              </td>
-              <td>
-                <span t-field="qualitycheck_line.x_studio_breite_ist_mm"/>
-              </td>
-            </tr>
-            <tr>
-              <td>Flächengewicht gr per m2:</td>
-              <td>
-                <span t-field="qualitycheck_line.x_studio_gewicht_von_gm2"/>
-                <span> - </span>
-                <span t-field="qualitycheck_line.x_studio_gewicht_bis_gm2"/>
-              </td>
-              <td>
-                <span t-field="qualitycheck_line.x_studio_gewicht_ist_gm2"/>
-              </td>
-            </tr>
-          </table>
+            </table>
+          </t>
 
           <table>
             <tr>
