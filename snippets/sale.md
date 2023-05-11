@@ -1474,6 +1474,20 @@ ID: `mint_system.sale.report_saleorder_document.convert_html_note`
 ```
 Source: [snippets/sale.report_saleorder_document.convert_html_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.convert_html_note.xml)
 
+### Display Shipping And Delivery Address  
+ID: `mint_system.sale.report_saleorder_document.display_shipping_and_delivery_address`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="55">
+
+    <xpath expr="//t[@t-set='information_block']/.." position="attributes">
+        <attribute name="t-if"></attribute>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.display_shipping_and_delivery_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.display_shipping_and_delivery_address.xml)
+
 ### Expand Product Description  
 ID: `mint_system.sale.report_saleorder_document.expand_product_description`  
 ```xml
@@ -1854,41 +1868,55 @@ Source: [snippets/sale.report_saleorder_document.repeat_table_header.xml](https:
 ### Replace Informations  
 ID: `mint_system.sale.report_saleorder_document.replace_informations`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
     <div id="informations" position="replace">
+        <style>
+            div#informations th {}
+            div#informations td {}
+        </style>
         <div id="informations">
-            <table width="100%">
+            <table class="table table-borderless table-sm">
                 <tr>
-                    <td width="17%">Kunden-Nr.</td>
-                    <td width="41%">
-                        <span t-field="doc.partner_id.ref"/>
+                    <td>
+                        <strong class="mr-4">Datum:</strong>
+                        <span t-field="doc.date_order" t-options='{"widget": "date"}' />
                     </td>
-                    <td width="17%">Datum</td>
-                    <td width="25%">
-                        <span t-field="doc.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    <td>
+                        <strong class="mr-2">Zahlungsbedingungen:</strong>
+                        <span t-field="doc.payment_term_id" />
+                    </td>
+                    <td>
+                        <strong t-if="doc.partner_sale_id" class="mr-2">Ihr Kontakt:</strong>
+                        <span t-if="doc.partner_sale_id" t-field="doc.partner_sale_id.name" />
                     </td>
                 </tr>
                 <tr>
-                    <td>Ihre Referenz</td>
                     <td>
-                        <span t-field="doc.client_order_ref"/>
+                        <strong t-if="doc.validity_date and doc.state in ['draft','sent']"
+                            class="mr-2">Gültigkeit:</strong>
+                        <span t-if="doc.validity_date and doc.state in ['draft','sent']"
+                            t-field="doc.validity_date" t-options='{"widget": "date"}' />
                     </td>
-                    <td>Kontaktperson</td>
                     <td>
-                        <span t-field="doc.user_id"/>
+                        <strong class="mr-2">Unser Kontakt:</strong>
+                        <span t-field="doc.user_id" />
+                    </td>
+                    <td>
+                        <strong t-if="doc.client_order_ref" class="mr-2">Ihre Referenz:</strong>
+                        <span t-if="doc.client_order_ref" t-field="doc.client_order_ref" />
                     </td>
                 </tr>
                 <tr>
-                    <td/>
-                    <td/>
-                    <td>Mwst-Nr:</td>
-                    <td>
-                        <span t-field="res_company.vat"/>MWST
+                    <td colspan="2">
+                        <strong class="mr-2" t-if="doc.project_id">Unsere Referenz:</strong>
+                        <span t-field="doc.project_id" />
                     </td>
                 </tr>
             </table>
         </div>
+
     </div>
 
 </data>
@@ -2038,6 +2066,29 @@ ID: `mint_system.sale.report_saleorder_document.replace_summary`
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.replace_summary.xml)
+
+### Replace Title  
+ID: `mint_system.sale.report_saleorder_document.replace_title`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//h2" position="replace">
+    <h2 class="mt16">
+      <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
+        <span t-if="doc.state not in ['draft','sent']">Order </span>
+        <span t-if="doc.state in ['draft','sent']">Quotation </span>
+      </t>
+      <t t-if="env.context.get('proforma', False) or is_pro_forma">
+        <span>Pro-Forma Invoice </span>
+      </t>
+      <span t-field="doc.name" />
+    </h2>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.replace_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.replace_title.xml)
 
 ### Round Price2  
 ID: `mint_system.sale.report_saleorder_document.round_price2`  
@@ -2275,16 +2326,15 @@ ID: `mint_system.sale.report_saleorder_document.set_title_font_size`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-  <xpath expr="//div[hasclass('page')]" position="inside">
-    <style>
-        h2 {
-            font-size: 1.5rem;
-        }
-    </style>
-</xpath>
+    <xpath expr="//div[hasclass('page')]" position="inside">
+        <style>
+            h2 {
+                font-size: 1.5rem;
+            }
+        </style>
+    </xpath>
 
 </data>
-
 ```
 Source: [snippets/sale.report_saleorder_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.set_title_font_size.xml)
 
