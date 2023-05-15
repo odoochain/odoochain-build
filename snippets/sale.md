@@ -1305,6 +1305,32 @@ ID: `mint_system.sale.report_saleorder_document.add_shipping_address_space`
 ```
 Source: [snippets/sale.report_saleorder_document.add_shipping_address_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_shipping_address_space.xml)
 
+### Add Signature Note  
+ID: `mint_system.sale.report_saleorder_document.add_signature_note`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <p t-field="doc.note" position="after">
+        <style>
+            div#signature {
+                padding-top: 50px;
+                padding-left: 75px;
+                padding-right: 75px;
+            }
+        </style>
+        <div id="signature">
+            <p> Hiermit bestelle wir die Produkte/Dienstleistungen gemäss diesem Angebot.<br />
+            <br />
+            <br />
+            Ort/Datum: _________________ Unterschrift Kunde: __________________________________ </p>
+        </div>
+    </p>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.add_signature_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_signature_note.xml)
+
 ### Add Taxes  
 ID: `mint_system.sale.report_saleorder_document.add_taxes`  
 ```xml
@@ -1639,6 +1665,25 @@ ID: `mint_system.sale.report_saleorder_document.format_qty`
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_qty.xml)
+
+### Format Shipping And Delivery Address  
+ID: `mint_system.sale.report_saleorder_document.format_shipping_and_delivery_address`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <div t-field="doc.partner_invoice_id" position="replace">
+      <div t-field="doc.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+    </div>
+    
+    <div t-field="doc.partner_shipping_id" position="replace">
+      <div t-field="doc.partner_shipping_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+    </div>
+    
+
+</data> 
+```
+Source: [snippets/sale.report_saleorder_document.format_shipping_and_delivery_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_shipping_and_delivery_address.xml)
 
 ### Format Table Border  
 ID: `mint_system.sale.report_saleorder_document.format_table_border`  
@@ -2218,14 +2263,6 @@ ID: `mint_system.sale.report_saleorder_document.set_address_name`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-
-    <div t-field="doc.partner_invoice_id" position="replace">
-      <div t-field="doc.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
-    </div>
-    
-    <div t-field="doc.partner_shipping_id" position="replace">-->
-      <div t-field="doc.partner_shipping_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
-    </div>
 
     <div t-field="doc.partner_invoice_id" position="before">
       <div>
@@ -3248,6 +3285,25 @@ ID: `mint_system.sale.view_order_form.remove_margin_percent`
 
 ```
 Source: [snippets/sale.view_order_form.remove_margin_percent.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.remove_margin_percent.xml)
+
+### Set Groups Date Order  
+ID: `mint_system.sale.view_order_form.set_groups_date_order`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <field name="date_order" position="attributes">
+    <attribute name="groups"></attribute>
+  </field>
+
+  <xpath expr="//label[@for='date_order']/.." position="attributes">
+    <attribute name="groups"></attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/sale.view_order_form.set_groups_date_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.set_groups_date_order.xml)
 
 ### Show Carrier Method  
 ID: `mint_system.sale.view_order_form.show_carrier_method`  
