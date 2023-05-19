@@ -1879,7 +1879,7 @@ ID: `mint_system.account.report_invoice_document.show_customer_info_product_code
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <span t-field="line.name" position="before">
-    <t t-set="customer_info" t-value="line.product_id._select_customerinfo(partner=o.partner_id)" />
+    <t t-set="customer_info" t-value="line.product_id._select_customerinfo(partner=o.commercial_partner_id)" />
     <t t-if="customer_info">
       <span t-esc="'[%s] ' % customer_info[0].product_code" />
     </t>
@@ -4038,7 +4038,7 @@ ID: `mint_system.account.report_invoice_document.show_customer_info_product_code
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <span t-field="line.name" position="before">
-    <t t-set="customer_info" t-value="line.product_id._select_customerinfo(partner=o.partner_id)" />
+    <t t-set="customer_info" t-value="line.product_id._select_customerinfo(partner=o.commercial_partner_id)" />
     <t t-if="customer_info">
       <span t-esc="'[%s] ' % customer_info[0].product_code" />
     </t>
