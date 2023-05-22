@@ -973,6 +973,29 @@ ID: `mint_system.ir_model.product_packaging.x_description`
 ```
 Source: [snippets/ir_model.product_packaging.x_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_packaging.x_description.xml)
 
+### X Qty Description  
+ID: `mint_system.ir_model.product_packaging.x_qty_description`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_qty_description" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Label Gewicht</field>
+    <field name="model">product.packaging</field>
+    <field name="model_id" ref="product.model_product_packaging"/>
+    <field name="name">x_qty_description</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">char</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.product_packaging.x_qty_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_packaging.x_qty_description.xml)
+
 ## Product Set Line  
 ### X Categ Id  
 ID: `mint_system.ir_model.product_set_line.x_categ_id`  
