@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<data inherit_id="web.external_layout_worksheet" priority="50">
+<data inherit_id="web.external_layout" priority="50">
 
-    <t t-name="web.external_layout_worksheet">
+    <t t-name="web.external_layout.worksheet">
         <t t-if="not o" t-set="o" t-value="doc"/>
 
         <t t-if="not company">
