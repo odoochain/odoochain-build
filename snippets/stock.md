@@ -1467,7 +1467,7 @@ Source: [snippets/stock.report_delivery_document.barcode_customer_reference.xml]
 ID: `mint_system.stock.report_delivery_document.description_sale`  
 ```xml
 <?xml version="1.0"?>
-<data inherit_id="stock.report_delivery_document" priority="50">
+<data inherit_id="stock.report_delivery_document" priority="55">
 
   <xpath expr="//span[@t-field='move.product_id']" position="replace">
     <t t-if="move.product_id.description_sale">
@@ -2455,7 +2455,7 @@ Source: [snippets/stock.report_delivery_document.sale_order_note.xml](https://gi
 ID: `mint_system.stock.report_delivery_document.sale_stock_picking_note`  
 ```xml
 <?xml version="1.0"?>
-<data inherit_id="stock.report_delivery_document" priority="51">
+<data inherit_id="stock.report_delivery_document" priority="55">
 
   <xpath expr="//p[@t-if='o.customer_note']" position="replace">
   </xpath>
@@ -2568,36 +2568,13 @@ ID: `mint_system.stock.report_delivery_document.show_customer_info_product_code`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
-  <xpath expr="//table[@name='stock_move_table']/thead/tr/th[1]" position="before">
-    <th id="default_code">
-      <strong >Nr.</strong>
-    </th>
-  </xpath>
-  
-  <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[1]" position="before">
-    <th id="default_code">
-      <strong >Nr.</strong>
-    </th>
-  </xpath>
-  
-  <xpath expr="//table[@name='stock_move_line_table']/thead/tr/th[1]" position="before">
-    <th id="default_code">
-      <strong >Nr.</strong>
-    </th>
-  </xpath>
+<span t-field="move.product_id" position="before">
+    <t t-set="customer_info" t-value="move.product_id._select_customerinfo(partner=o.partner_id)" />
+    <t t-if="customer_info">
+      <span t-esc="'[%s] ' % customer_info[0].product_code" />
+    </t>
+  </span>
 
-  <xpath expr="//table[@name='stock_move_table']/tbody//tr/td[1]" position="before">
-    <td id="default_code">
-      <t t-set="customer_info" t-value="move.product_id._select_customerinfo(partner=move.partner_id)" />
-      <t t-if="customer_info">
-        <span t-esc="customer_info[0].product_code"/>
-      </t>
-      <t t-else="">
-        <span t-field="move.product_id.default_code"/>
-      </t> 
-    </td>
-  </xpath>
-  
 </data>
 ```
 Source: [snippets/stock.report_delivery_document.show_customer_info_product_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.show_customer_info_product_code.xml)
