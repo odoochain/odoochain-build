@@ -1291,6 +1291,52 @@ ID: `mint_system.ir_model.project_task.x_not_billable`
 ```
 Source: [snippets/ir_model.project_task.x_not_billable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.project_task.x_not_billable.xml)
 
+### X Systemname  
+ID: `mint_system.ir_model.project_task.x_systemname`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_systemname" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Benutzer</field>
+    <field name="model">project.task</field>
+    <field name="model_id" ref="project.model_project_task"/>
+    <field name="ttype">char</field>
+    <field name="name">x_systemname</field>
+    <field name="required" eval="True"/>
+    <field name="store" eval="True"/>
+    <field name="copied" eval="True"/>        
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.project_task.x_systemname.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.project_task.x_systemname.xml)
+
+### X User Text  
+ID: `mint_system.ir_model.project_task.x_user_text`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_user_text" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Benutzer</field>
+    <field name="model">project.task</field>
+    <field name="model_id" ref="project.model_project_task"/>
+    <field name="ttype">char</field>
+    <field name="name">x_user_text</field>
+    <field name="required" eval="True"/>
+    <field name="store" eval="True"/>
+    <field name="copied" eval="True"/>        
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.project_task.x_user_text.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.project_task.x_user_text.xml)
+
 ### X Vehicle Id  
 ID: `mint_system.ir_model.project_task.x_vehicle_id`  
 ```xml
