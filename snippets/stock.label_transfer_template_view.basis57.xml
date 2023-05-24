@@ -98,6 +98,9 @@
                      <t t-if="packaging.name == 'Aktionären Gutschein'">
                         <t t-set="count_labels" t-value="move_line.qty_done/packaging.qty" />
                     </t>
+                    <t t-if="packaging.name == 'Karton'">
+                        <t t-set="count_labels" t-value="move_line.qty_done/packaging.qty" />
+                    </t>
 
                     <!--Compute box count-->
                     <t t-if="count_boxes == 0">
