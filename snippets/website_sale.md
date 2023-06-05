@@ -1,6 +1,3 @@
----
-prev: ./snippets.md
----
 # Website Sale
 ## Address  
 ### Overwrite Required  

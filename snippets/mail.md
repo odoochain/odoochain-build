@@ -1,6 +1,3 @@
----
-prev: ./snippets.md
----
 # Mail
 ## Activity  
 ### X Reference  
@@ -15,7 +12,6 @@ ID: `mint_system.mail.activity.x_reference`
     <field name="model">mail.activity</field>
     <field name="model_id" ref="mail.model_mail_activity"/>
     <field name="name">x_reference</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -122,6 +118,22 @@ ID: `mint_system.mail.mail_notification_email.remove_logo`
 ```
 Source: [snippets/mail.mail_notification_email.remove_logo.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_email.remove_logo.xml)
 
+## Mail Notification Layout  
+### Remove Access Link  
+ID: `mint_system.mail.mail_notification_layout.remove_access_link`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.mail_notification_layout" priority="60">
+
+  <xpath expr="//body[1]/t[1]" position="after">
+    <t t-set="has_button_access" t-value="False"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/mail.mail_notification_layout.remove_access_link.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_layout.remove_access_link.xml)
+
 ## Mail Notification Light  
 ### Align Left  
 ID: `mint_system.mail.mail_notification_light.align_left`  
@@ -137,6 +149,19 @@ ID: `mint_system.mail.mail_notification_light.align_left`
 
 ```
 Source: [snippets/mail.mail_notification_light.align_left.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_light.align_left.xml)
+
+### Debrand  
+ID: `mint_system.mail.mail_notification_light.debrand`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.mail_notification_light" priority="50">
+
+  <xpath expr="//t[1]/table[1]/tr[2]" position="replace" />
+
+</data>
+
+```
+Source: [snippets/mail.mail_notification_light.debrand.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_light.debrand.xml)
 
 ### Reduce To Content  
 ID: `mint_system.mail.mail_notification_light.reduce_to_content`  
@@ -207,6 +232,20 @@ ID: `mint_system.mail.mail_notification_light.replace_footer`
 ```
 Source: [snippets/mail.mail_notification_light.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_light.replace_footer.xml)
 
+### Set Model Name  
+ID: `mint_system.mail.mail_notification_light.set_model_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.mail_notification_light" priority="60">
+
+  <xpath expr="//span[1]" position="replace">
+    <span style="font-size: 10px;"><t t-esc="model_description or 'document'"/></span><br/>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/mail.mail_notification_light.set_model_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_light.set_model_name.xml)
+
 ### White Background  
 ID: `mint_system.mail.mail_notification_light.white_background`  
 ```xml
@@ -273,6 +312,19 @@ ID: `mint_system.mail.mail_notification_paynow.reduce_to_content`
 ```
 Source: [snippets/mail.mail_notification_paynow.reduce_to_content.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.reduce_to_content.xml)
 
+### Remove Access Link  
+ID: `mint_system.mail.mail_notification_paynow.remove_access_link`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.mail_notification_paynow" priority="60">
+
+  <t t-if="record._name == 'sale.order'" position="remove"/>
+
+</data>
+
+```
+Source: [snippets/mail.mail_notification_paynow.remove_access_link.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.remove_access_link.xml)
+
 ### Remove Logo  
 ID: `mint_system.mail.mail_notification_paynow.remove_logo`  
 ```xml
@@ -320,6 +372,20 @@ ID: `mint_system.mail.mail_notification_paynow.replace_footer`
 ```
 Source: [snippets/mail.mail_notification_paynow.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.replace_footer.xml)
 
+### Set Model Name  
+ID: `mint_system.mail.mail_notification_paynow.set_model_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.mail_notification_paynow" priority="60">
+
+  <xpath expr="//td[1]/span[1]" position="replace">
+    <span style="font-size: 10px;"><t t-esc="model_description or 'document'"/></span><br/>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/mail.mail_notification_paynow.set_model_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.set_model_name.xml)
+
 ### White Background  
 ID: `mint_system.mail.mail_notification_paynow.white_background`  
 ```xml
@@ -331,4 +397,85 @@ ID: `mint_system.mail.mail_notification_paynow.white_background`
 </data> 
 ```
 Source: [snippets/mail.mail_notification_paynow.white_background.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.white_background.xml)
+
+## Message Activity Assigned  
+### Redirect Access Link  
+ID: `mint_system.mail.message_activity_assigned.redirect_access_link`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.message_activity_assigned" priority="50">
+
+  <xpath expr="//p[1]" position="replace">
+    <p style="margin: 16px 0px 16px 0px;">
+      <span t-esc="activity._name" />
+      <span t-esc="activity.id" />
+      <a t-att-href="access_link" t-att-data-oe-model="activity._name" t-att-data-oe-id="activity.id" style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;">
+        View Activity
+      </a>
+      <a href="#" t-att-data-oe-model="activity._name" t-att-data-oe-id="activity.id">
+        View Activity
+      </a>
+    </p>
+  </xpath>
+
+</data>
+```
+Source: [snippets/mail.message_activity_assigned.redirect_access_link.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.message_activity_assigned.redirect_access_link.xml)
+
+### Remove Access Link  
+ID: `mint_system.mail.message_activity_assigned.remove_access_link`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.message_activity_assigned" priority="50">
+
+  <xpath expr="//p[1]" position="replace" />
+
+</data>
+```
+Source: [snippets/mail.message_activity_assigned.remove_access_link.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.message_activity_assigned.remove_access_link.xml)
+
+### Set Access Link My Activities  
+ID: `mint_system.mail.message_activity_assigned.set_access_link_my_activities`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.message_activity_assigned" priority="50">
+
+  <xpath expr="//p[1]" position="replace">
+    <p style="margin: 16px 0px 16px 0px;">
+      <t t-if="activity.res_model == 'hr.employee'">
+        <a href="/web?debug=1#action=365&amp;model=mail.activity&amp;view_type=kanban&amp;cids=1&amp;menu_id=1" style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;">
+          My Activities
+        </a>
+      </t>
+      <t t-else="">
+        <a t-att-href="access_link" t-att-data-oe-model="activity.res_model" t-att-data-oe-id="activity.res_id" style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;">
+          View <t t-esc="model_description or 'document'"/>
+        </a>
+      </t>
+    </p>
+  </xpath>
+
+</data>
+```
+Source: [snippets/mail.message_activity_assigned.set_access_link_my_activities.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.message_activity_assigned.set_access_link_my_activities.xml)
+
+## View Mail Tree  
+### Editable  
+ID: `mint_system.mail.view_mail_tree.editable`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.view_mail_tree" priority="50">
+
+    <tree position="attributes">
+      <attribute name="editable" />
+    </tree>
+
+    <field name="subject" position="after">
+      <field name="email_from" />
+    </field>
+
+</data>
+
+```
+Source: [snippets/mail.view_mail_tree.editable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.view_mail_tree.editable.xml)
 

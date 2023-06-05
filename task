@@ -15,6 +15,8 @@ echo
 PATH="$PATH:./odoo"
 GIT_TAG=0
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
+OS_RELEASE=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
+
 export POSTGRES_USER=odoo
 export POSTGRES_PASSWORD=odoo
 export ODOO_REVISION=$GIT_BRANCH
@@ -58,17 +60,21 @@ function get-module-version() {
     then
         echo "\$1 is empty."
     else
-        # get version of module
+        # Get version of module
         VERSION=$(grep 'version' "$1/__manifest__.py" | sed "s;';\";g"  | sed "s/,//g" )
         VERSION=$(echo "{ $VERSION }" | jq .version | sed 's/"//g' | sed 's/null//g')
 
-        # set default version
+        # Set default version
         [ -z "$VERSION" ] && VERSION=0.0
 
+        COUNT_DOTS=$(echo "$VERSION" | grep -o "\." | wc -l)
+
         # check if oca version or enterprise version
-        if echo "$VERSION" | grep -qe "^[0-9]\."
-        then
-            VERSION="$GIT_BRANCH.$VERSION.$GIT_TAG"
+        if [[ $COUNT_DOTS == 2 ]]; then
+            VERSION="$GIT_BRANCH.$VERSION"
+        fi
+        if [[ $COUNT_DOTS == 1 ]]; then
+            VERSION="$GIT_BRANCH.$VERSION"
         fi
 
         echo $VERSION
@@ -113,11 +119,23 @@ function install-native() {
     init-venv
     activate-venv
     
-    echo "Install wkhtmltopdf"
-    sudo apt install wkhtmltopdf
+    if [[ "Ubuntu|Debian" =~ "$OS_RELEASE" ]]; then
 
-    echo "Install xmllint"
-    sudo apt install libxml2-utils
+        # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
+        echo "Install wkhtmltopdf"
+        sudo apt remove wkhtmltopdf
+        cd ~
+        wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+        tar xvf wkhtmltox*.tar.xz
+        sudo mv wkhtmltox/bin/wkhtmlto* /usr/bin
+        sudo apt-get install -y openssl build-essential libssl-dev libxrender-dev git-core libx11-dev libxext-dev libfontconfig1-dev libfreetype6-dev fontconfig
+
+        echo "Install xmllint"
+        sudo apt install libxml2-utils
+
+    else
+        echo "The operating system $OS_RELEASE is not supported."
+    fi
 
     echo "Install pylint odoo"
     pip install --upgrade --pre pylint-odoo
@@ -151,14 +169,25 @@ function open-url-with-delay(){
     xdg-open $1
 }
 
-function start() {
+function start() {    
+    DATABASE=$2
+    # Use default database if second param is not given
+    if test -z "$2"; then
+        DATABASE="$GIT_BRANCH"
+    fi
+
     if test -z "$1"; then
         echo "Open http://localhost:8069 url in your browser."
         docker-compose up -d
     fi
 
     if [[ "$1" =~ "db" ]]; then
-        docker-compose up -d db pgadmin
+        docker-compose up -d db
+        echo "Open http://localhost:8000 url in your browser."
+    fi
+
+    if [[ "$1" =~ "admin" ]]; then
+        docker-compose up -d admin
         echo "Open http://localhost:8000 url in your browser."
     fi
 
@@ -171,8 +200,24 @@ function start() {
         locale
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
-        open-url-with-delay "http://localhost:8069?db=$GIT_BRANCH" & 
-        odoo-bin --config 'config/odoo-native.conf' --dev=all
+        open-url-with-delay "http://localhost:8069/web?db=$DATABASE" & 
+        odoo-bin --config 'config/odoo-native.conf' --dev=all --log-handler odoo.tools.convert:DEBUG
+    fi
+
+    if [[ "$1" =~ "mail" ]]; then
+        docker-compose up -d mail
+        echo "Run \`docker exec -it mail setup email add odoo@example.com\`"
+        echo "Run \`docker exec -it mail setup email add test@example.com\`"
+    fi
+}
+
+function down() {
+    if test -z "$1"; then
+        docker-compose down -v
+    fi
+
+    if [[ "$1" =~ "mail" ]]; then
+        docker-compose rm -f -s -v mail
     fi
 }
 
@@ -217,7 +262,6 @@ function init-db() {
     locale
     activate-venv
     echo "Make sure only one odoo process is running when initalizing the database."
-    # odoo-bin --init base -d $DATABASE --db_host=localhost --db_password=odoo --db_user=odoo --no-http
     odoo-bin --init base -d $DATABASE --config 'config/odoo-native.conf' --stop-after-init --no-http --load-language $ODOO_LANGUAGE
 }
 
@@ -276,35 +320,23 @@ function generate-module-translation() {
     DATABASE=$1
     MODULE_PATH=$2
     MODULE_NAME=$(basename $2)
+    LANGUAGE=$3    
 
-    # Use default database if second param is not given 
     if test -z "$2"; then
         DATABASE="$GIT_BRANCH"
         MODULE_PATH=$1
         MODULE_NAME=$(basename $1)
     fi
 
+    if test -z "$3"; then
+        LANGUAGE="$ODOO_LANGUAGE"
+    fi
+
     locale
     activate-venv
-    echo "Generate tranlsation file for $MODULE_NAME on $DATABASE ..."
+    echo "Generate $LANGUAGE tranlsation file for $MODULE_NAME on $DATABASE ..."
     mkdir -p "$MODULE_PATH/i18n/"
-    odoo-bin -d $DATABASE --config 'config/odoo-native.conf' --modules $MODULE_NAME -l $ODOO_LANGUAGE --i18n-export "$MODULE_PATH/i18n/de.po"
-}
-
-function restore-database() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
-
-    # Get database name
-
-    # Extract zip file.
-
-    # Drop database
-
-    # Import databse
-
-    # Copy filestore
-    
+    odoo-bin -d $DATABASE --config 'config/odoo-native.conf' --modules $MODULE_NAME -l $LANGUAGE --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
 }
 
 function install-module() {
@@ -383,23 +415,6 @@ function set-admin() {
     docker exec db psql postgres://odoo:odoo@localhost:5432/$DATABASE -c "SELECT login, password FROM res_users WHERE id=2;"
 }
 
-function send-support-mail() {
-    echo "Send mail for support@localhost using curl."
-
-    mkdir -p tmp
-    cat >tmp/email.txt <<EOL
-From: Lara User <user@yourcompany.example.com>
-To: Odoo Support <support@localhost>
-Subject: Support Request
-echo "\$2 is
-Dear Odoo Support,
-
-I request your help
-EOL
-
-    curl smtp://localhost --mail-from admin@yourcompany.example.com --mail-rcpt support@localhost --upload-file tmp/email.txt
-}
-
 function clear-assets() {
     DATABASE=$1
     DATABASE=${DATABASE:="$GIT_BRANCH"}
@@ -456,11 +471,11 @@ function checkout() {
     switch-branch $1
 
     echo "Checkout config files."
-    git checkout $GIT_BRANCH config/checkout_files config/reset_files
+    git checkout $GIT_BRANCH -- config/checkout_files config/reset_files
     echo "Remove reset files."
     git rm -r $(tr '\n' ' ' < ./config/reset_files) >/dev/null 2>&1
     echo "Sync checkout files."
-    git checkout $GIT_BRANCH $(tr '\n' ' ' < ./config/checkout_files)
+    git checkout $GIT_BRANCH -- $(tr '\n' ' ' < ./config/checkout_files)
 }
 
 function checkout-revision() {
@@ -488,12 +503,6 @@ function git-pull-submodules() {
         fi;
         cd $CWD
     done
-    # git submodule foreach '
-    #     update=$(git config -f $toplevel/.gitmodules submodule.$name.update)
-    #     if [ -z $update ]; then
-    #         git pull
-    #     fi;
-    # ' | tee git-pull-submodules.log
 }
 
 function release-module() {
@@ -501,12 +510,17 @@ function release-module() {
 
     VERSION=$(get-module-version $1)
     cd $1
+    LAST_TAG=$(git describe --tags)
+    RELEASE_NOTES=$(git log $LAST_TAG..HEAD --oneline)
 
     echo "Tag with v$VERSION ..."
     git tag -a v$VERSION -m "v$VERSION"
 
-    echo "Create release $VERSION ..."
-    gh release create "v$VERSION" -t "Release $VERSION"
+    echo "Release notes:"
+    echo $RELEASE_NOTES
+
+    # echo "Create release $VERSION ..."
+    # gh release create "v$VERSION" -t "Release $VERSION"
 }
 
 function zip-module() {
@@ -719,7 +733,7 @@ function upload-module() {
 
     # Check if path is root folder
     MODULES=$2
-    if [ -f "$2/README.md" ]; then
+    if [ ! -f "$2/__manifest__.py" ]; then
         echo "Identified as root folder"
         MODULES="$MODULES/*"
     fi
@@ -740,8 +754,8 @@ function upload-module() {
             curl -u "$NEXTCLOUD_USERNAME:$NEXTCLOUD_PASSWORD" -T "$FILE_PATH" "$NEXTCLOUD_UPLOAD_URL"
             echo "File $FILE_PATH uploaded to $NEXTCLOUD_UPLOAD_URL."
             
-            UPLOADS+="- name: $MODULE\n"
-            UPLOADS+="  version: $VERSION\n"
+            UPLOADS+="  - name: $MODULE\n"
+            UPLOADS+="    version: $VERSION\n"
         fi
     done
 
@@ -790,7 +804,7 @@ function update-config() {
     done
     # Update native config
     sed -i'' -e "s|addons_path.*|addons_path = odoo/addons,$ADDONS|g" "./config/odoo-native.conf"
-    ADDONS="$(echo "$ADDONS" | sed 's|,|,/mnt/|g')"
+    ADDONS="$(echo "$ADDONS" | sed 's|,|,/mnt/|g' | sed 's|,/mnt/odoo||g')"
     # Update docker config
     sed -i'' -e "s|addons_path.*|addons_path = /mnt/$ADDONS|g" "./config/odoo.conf"
 
@@ -828,13 +842,18 @@ function git-mig-branch(){
 
 function patch-database() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$1 is empty."; exit; fi
 
-    # Generate view name from filename
-    FILENAME=$(basename $2)
+    DATABASE=$1
+    FILENAME=$2
 
-    echo "Apply patch $FILENAME to Database $1."
-    cat $2 | docker exec -i db psql postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost/$1
+    # Use default database if second param is not given 
+    if test -z "$2"; then
+        DATABASE="$GIT_BRANCH"
+        FILENAME=$1
+    fi
+
+    echo "Apply patch $FILENAME to Database $DATABASE."
+    cat $FILENAME | docker exec -i db psql postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost/$DATABASE
     echo "Patching database succeeded"
 }
 
@@ -861,7 +880,7 @@ function update-docs() {
 
         # Create doc file for each module
         DOCFILE="snippets/$MODULE.md"
-        echo -e "---\nprev: ./snippets.md\n---\n# $TITLE" > $DOCFILE
+        echo -e "# $TITLE" > $DOCFILE
         echo "## [$TITLE](snippets/$MODULE.md)" >> snippets.md
         SIDEBAR_ENTRIES+="'/snippets/$MODULE.md',"
         
@@ -895,7 +914,7 @@ function update-docs() {
             done
         done
     done
-    echo "module.exports = [$SIDEBAR_ENTRIES]" > .vuepress/sidebar_snippet.js
+    echo "export default [$SIDEBAR_ENTRIES]" > .vuepress/sidebar.js
 }
 
 
@@ -919,7 +938,7 @@ case "$1" in
         docker ps --format 'table {{.Names}}\t{{.Image}}\t{{(.Label "description")}}\t{{.Status}}'
         ;;
     start)
-        start $2
+        start $2 $3
         ;;
     restart)
         restart $2
@@ -928,7 +947,7 @@ case "$1" in
         stop $2
         ;;
     kill)
-        docker-compose down -v
+        down $2
         ;;
     logs)
         docker logs odoo -f
@@ -1035,6 +1054,9 @@ case "$1" in
     git-list-submodules)
         git-list-submodules
         ;;
+    get-module-version)
+        get-module-version $2
+        ;;
     git-feature-branch)
         git-feature-branch $2
         ;;
@@ -1063,7 +1085,7 @@ case "$1" in
         upload-module $2 $3
         ;;
     generate-module-translation)
-        generate-module-translation $2 $3
+        generate-module-translation $2 $3 $4
         ;;
     patch-database)
         patch-database $2 $3

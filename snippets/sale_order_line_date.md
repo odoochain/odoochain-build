@@ -1,6 +1,3 @@
----
-prev: ./snippets.md
----
 # Sale Order Line Date
 ## Report Saleorder Document  
 ### Hide In State Draft  

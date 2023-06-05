@@ -1,6 +1,3 @@
----
-prev: ./snippets.md
----
 # Sale Margin
 ## Sale Margin Sale Order  
 ### Hide Margin  

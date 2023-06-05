@@ -1,6 +1,3 @@
----
-prev: ./snippets.md
----
 # Web
 ## Address Layout  
 ### Format Address Block  
@@ -81,6 +78,46 @@ ID: `mint_system.web.assets_common.pivot_measure_white_space`
 ```
 Source: [snippets/web.assets_common.pivot_measure_white_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.assets_common.pivot_measure_white_space.xml)
 
+### Set Chatter Width  
+ID: `mint_system.web.assets_common.set_chatter_width`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.assets_common" priority="50">
+
+    <xpath expr="." position="inside">
+        <style>
+          @media (min-width: 1534px) {
+            .o_FormRenderer_chatterContainer {
+              max-width: 600px !important;
+            }
+          }
+        </style>
+    </xpath>
+
+</data>
+```
+Source: [snippets/web.assets_common.set_chatter_width.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.assets_common.set_chatter_width.xml)
+
+### Set Form Width  
+ID: `mint_system.web.assets_common.set_form_width`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.assets_common" priority="50">
+
+  <xpath expr="." position="inside">
+    <style>
+          @media (min-width: 992px) {
+          .o_form_view .o_form_sheet_bg > .o_form_sheet {
+               max-width: 1450px !important;
+            }
+          }
+    </style>
+  </xpath>
+
+</data>
+```
+Source: [snippets/web.assets_common.set_form_width.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.assets_common.set_form_width.xml)
+
 ## Brand Promotion Message  
 ### Remove  
 ID: `mint_system.web.brand_promotion_message.remove`  
@@ -96,6 +133,45 @@ ID: `mint_system.web.brand_promotion_message.remove`
 
 ```
 Source: [snippets/web.brand_promotion_message.remove.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.brand_promotion_message.remove.xml)
+
+## External Layout Bold  
+### Remove Background Image  
+ID: `mint_system.web.external_layout_bold.remove_background_image`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_bold" priority="50">
+
+  <xpath expr="/t/div[2]" position="replace">
+    <div t-attf-class="article o_report_layout_bold o_company_#{company.id}_layout {{  'o_layout_background' if company.layout_background in ['Geometric', 'Custom']  else  '' }}" t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % company.layout_background_image.decode('utf-8') if company.layout_background_image and company.layout_background == 'Custom' else '' }});" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+        <t t-call="web.address_layout"/>
+        <t t-out="0"/>
+    </div>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/web.external_layout_bold.remove_background_image.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_bold.remove_background_image.xml)
+
+### Set Header Footer Font Size  
+ID: `mint_system.web.external_layout_bold.set_header_footer_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_bold" priority="50">
+
+  <xpath expr="/t/div[1]" position="before">
+    <style>
+      div.footer,
+      div.header {
+        font-size: 0.9rem;
+      }
+    </style>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/web.external_layout_bold.set_header_footer_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_bold.set_header_footer_font_size.xml)
 
 ## External Layout Boxed  
 ### Footer Company Registry  
@@ -227,6 +303,18 @@ ID: `mint_system.web.external_layout_standard.header_styles`
 ```
 Source: [snippets/web.external_layout_standard.header_styles.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.header_styles.xml)
 
+### Hide Header  
+ID: `mint_system.web.external_layout_standard.hide_header`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="50">
+
+  <xpath expr="/t/div" position="replace" />
+
+</data>
+```
+Source: [snippets/web.external_layout_standard.hide_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.hide_header.xml)
+
 ### Increase Logo Size  
 ID: `mint_system.web.external_layout_standard.increase_logo_size`  
 ```xml
@@ -234,13 +322,34 @@ ID: `mint_system.web.external_layout_standard.increase_logo_size`
 <data inherit_id="web.external_layout_standard" priority="50">
 
   <xpath expr="//img[@t-if='company.logo']" position="attributes">
-    <attribute name="style">max-height: 90px;</attribute>
+    <!-- <attribute name="style">max-height: 90px;</attribute> -->
+    <attribute name="style">max-width: 250px; margin-top: 10px</attribute>
   </xpath>
 
 </data>
 
 ```
 Source: [snippets/web.external_layout_standard.increase_logo_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.increase_logo_size.xml)
+
+### Move Company Details  
+ID: `mint_system.web.external_layout_standard.move_company_details`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="50">
+
+  <xpath expr="//div[@class='row'][2]" position="replace" />
+
+  <xpath expr="//div[@name='moto']" position="replace">
+    <div class="col-6 text-right" style="margin-top:22px;" t-field="company.report_header"
+      name="moto" />
+    <div class="col-3" name="company_address">
+      <span t-if="company.company_details" t-field="company.company_details" />
+    </div>
+  </xpath>
+
+</data>
+```
+Source: [snippets/web.external_layout_standard.move_company_details.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.move_company_details.xml)
 
 ### Remove Company Info Footer  
 ID: `mint_system.web.external_layout_standard.remove_company_info_footer`  
@@ -263,6 +372,7 @@ ID: `mint_system.web.external_layout_standard.remove_contact`
 <!-- Remove contact info in footer -->
 <data inherit_id="web.external_layout_standard" priority="50">
 
+  <!-- Works until Odoo 14.0 -->
 	<xpath expr="//li[@t-if='company.phone']" position="replace">
   </xpath>
   <xpath expr="//li[@t-if='company.email']" position="replace">
@@ -295,11 +405,22 @@ ID: `mint_system.web.external_layout_standard.replace_footer`
 
   <xpath expr="/t/div[3]" position="replace">
     <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
-     <div align="right" style="color:black; font-size:9pt">
-         Page: <span class="page"/> / <span class="topage"/>
-     </div>
-     </div>
-  </xpath>
+      <div align="right" style="color:black; font-size:9pt">
+         Page: <span class="page"/>
+ /        <span class="topage"/>
+      </div>
+    </div>
+
+    <!--
+    <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+      <div align="right">
+         Seite: <span class="page"/>
+ /      <span class="topage"/>
+      </div>
+    </div>
+    -->
+    
+</xpath>
 
 </data>
 ```
@@ -355,6 +476,7 @@ ID: `mint_system.web.external_layout_standard.replace_url`
 <!-- Replace website url in document footer -->
 <data inherit_id="web.external_layout_standard" priority="50">
 
+  <!-- Works until Odoo 14.0 -->
   <xpath expr="//li[@t-if='company.website']" position="replace">
   	<li t-if="company.website" class="list-inline-item d-inline">www.example.ch</li>
   </xpath>
@@ -363,6 +485,80 @@ ID: `mint_system.web.external_layout_standard.replace_url`
 
 ```
 Source: [snippets/web.external_layout_standard.replace_url.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.replace_url.xml)
+
+### Set Header Footer Font Size  
+ID: `mint_system.web.external_layout_standard.set_header_footer_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="50">
+
+  <!-- <xpath expr="/t/div[1]" position="before">
+    <style>
+      div.footer,
+      div.header {
+      font-size: 0.8rem;
+      }
+    </style>
+  </xpath> -->
+
+  <xpath expr="//div[@t-field='company.report_footer']" position="replace">
+    <div style="font-size: 0.8rem;" class="mt-1" t-field="company.report_footer" />
+  </xpath>
+
+  <xpath expr="//div[@t-field='company.report_footer']/../../div" position="replace">
+    <div t-if="report_type == 'pdf'" style="font-size: 0.8rem;" class="text-muted">
+      Page: <span class="page"/> / <span class="topage"/>
+    </div>
+  </xpath>
+
+  <xpath expr="//span[@t-field='company.company_details']" position="replace">
+    <span t-if="company.company_details" style="font-size: 0.8rem;"
+      t-field="company.company_details" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/web.external_layout_standard.set_header_footer_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.set_header_footer_font_size.xml)
+
+## External Layout  
+### Worksheet  
+ID: `mint_system.web.external_layout.worksheet`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout" priority="50">
+
+    <t t-name="web.external_layout.worksheet">
+        <t t-if="not o" t-set="o" t-value="doc"/>
+
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
+
+        <div t-attf-class="article">
+            <t t-out="0"/>
+        </div>
+
+        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+            <div align="right">
+         Page: <span class="page"/>
+ /            <span class="topage"/>
+        </div>
+    </div>
+
+</t>
+
+</data>
+```
+Source: [snippets/web.external_layout.worksheet.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout.worksheet.xml)
 
 ## Internal Layout  
 ### Header Styles  
@@ -406,6 +602,98 @@ ID: `mint_system.web.internal_layout.replace_header`
 </data>
 ```
 Source: [snippets/web.internal_layout.replace_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.internal_layout.replace_header.xml)
+
+### Trimada  
+ID: `mint_system.web.internal_layout.trimada`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.internal_layout" priority="16">
+
+    <t t-name="web.internal_layout.trimada">
+
+        <t t-if="not o" t-set="o" t-value="doc" />
+
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id" />
+            </t>
+            <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                <t t-set="company" t-value="o.company_id.sudo()" />
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company" />
+            </t>
+        </t>
+
+        <div class="header trimada">
+            <div class="row">
+                <div class="col-3">
+                    <span
+                        t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')" />
+                </div>
+                <div class="col-2 offset-2 text-center">
+                    <span t-esc="company.name" />
+                </div>
+                <div class="col-2 offset-3 text-right">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <span class="page" />
+                        </li>
+                        <li class="list-inline-item">/</li>
+                        <li class="list-inline-item">
+                            <span class="topage" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="article" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id"
+            t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <t t-raw="0" />
+        </div>
+
+    </t>
+
+</data>
+```
+Source: [snippets/web.internal_layout.trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.internal_layout.trimada.xml)
+
+## Layout  
+### Color Navbar  
+ID: `mint_system.web.layout.color_navbar`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.layout" priority="50">
+
+  <!-- The id's of the companies have to be adjusted -->
+
+  <xpath expr="//body" position="inside">
+      <t t-if="request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'">
+        <style>.o_main_navbar {background-color: #57596F!important;border-bottom: 0px;}</style></t> 
+      <t t-if="request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '4'">
+        <style>.o_main_navbar {background-color: #6B3C3C!important;border-bottom: 0px;}</style></t>
+  </xpath>
+
+</data>
+```
+Source: [snippets/web.layout.color_navbar.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.layout.color_navbar.xml)
+
+## Login Layout  
+### Disable Footer  
+ID: `mint_system.web.login_layout.disable_footer`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.login_layout" priority="50">
+
+  <xpath expr="//t/div" position="before">
+    <t t-set="disable_footer" t-value="True"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/web.login_layout.disable_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.login_layout.disable_footer.xml)
 
 ## Styles Company Report  
 ### Set Font  

@@ -1,7 +1,104 @@
----
-prev: ./snippets.md
----
 # Product
+## Product Category Form View  
+### X Relevant For Certificate  
+ID: `mint_system.product.product_category_form_view.x_relevant_for_certificate`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_category_form_view" priority="50">
+
+    <field name="parent_id" position="after">
+        <field name="x_relevant_for_certificate"/>
+    </field>
+
+</data>
+
+```
+Source: [snippets/product.product_category_form_view.x_relevant_for_certificate.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_category_form_view.x_relevant_for_certificate.xml)
+
+## Product Normal Form View  
+### Add Feeder Id  
+ID: `mint_system.product.product_normal_form_view.add_feeder_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_normal_form_view" priority="50">
+
+    <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
+        <field name="feeder_id" />
+    </xpath>
+
+</data>
+```
+Source: [snippets/product.product_normal_form_view.add_feeder_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.add_feeder_id.xml)
+
+### Hide Default Code  
+ID: `mint_system.product.product_normal_form_view.hide_default_code`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_normal_form_view" priority="50">
+
+    <xpath expr="//page[@name='general_information']//field[@name='default_code']" position="replace"/>
+
+</data>
+```
+Source: [snippets/product.product_normal_form_view.hide_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.hide_default_code.xml)
+
+### Relocate Barcode  
+ID: `mint_system.product.product_normal_form_view.relocate_barcode`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_normal_form_view" priority="50">
+
+    <xpath expr="//page[@name='general_information']//field[@name='barcode']" position="replace"/>
+
+    <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
+        <field name="barcode"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/product.product_normal_form_view.relocate_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.relocate_barcode.xml)
+
+### Remove Barcode  
+ID: `mint_system.product.product_normal_form_view.remove_barcode`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_normal_form_view" priority="50">
+
+    <xpath expr="//field[@name='barcode']" position="replace" />
+
+</data>
+
+```
+Source: [snippets/product.product_normal_form_view.remove_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.remove_barcode.xml)
+
+### X Hide On Sale Order  
+ID: `mint_system.product.product_normal_form_view.x_hide_on_sale_order`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_normal_form_view" priority="50">
+
+    <field name="description_sale" position="after">
+        <field name="x_hide_on_sale_order" />
+    </field>
+
+</data>
+```
+Source: [snippets/product.product_normal_form_view.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.x_hide_on_sale_order.xml)
+
+### X Warranty  
+ID: `mint_system.product.product_normal_form_view.x_warranty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_normal_form_view" priority="50">
+
+    <field name="product_tag_ids" position="after">
+        <field name="x_warranty"/>
+    </field>
+    
+</data>
+```
+Source: [snippets/product.product_normal_form_view.x_warranty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.x_warranty.xml)
+
 ## Product Normal Only Form View  
 ### Add X Product Label  
 ID: `mint_system.product.product_normal_only_form_view.add_x_product_label`  
@@ -47,6 +144,50 @@ ID: `mint_system.product.product_packaging_form_view.x_packaging_uom_id`
 ```
 Source: [snippets/product.product_packaging_form_view.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_packaging_form_view.x_packaging_uom_id.xml)
 
+### X Print Parent Only  
+ID: `mint_system.product.product_packaging_form_view.x_print_parent_only`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_packaging_form_view" priority="50">
+
+  <field name="barcode" position="before">
+    <field name="x_print_parent_only"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/product.product_packaging_form_view.x_print_parent_only.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_packaging_form_view.x_print_parent_only.xml)
+
+### X Print Without Parent  
+ID: `mint_system.product.product_packaging_form_view.x_print_without_parent`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_packaging_form_view" priority="50">
+
+  <field name="barcode" position="before">
+    <field name="x_print_without_parent"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/product.product_packaging_form_view.x_print_without_parent.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_packaging_form_view.x_print_without_parent.xml)
+
+### X Qty Description  
+ID: `mint_system.product.product_packaging_form_view.x_qty_description`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_packaging_form_view" priority="50">
+
+    <field name="barcode" position="before">
+        <field name="x_qty_description"/>
+    </field>
+
+</data>
+```
+Source: [snippets/product.product_packaging_form_view.x_qty_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_packaging_form_view.x_qty_description.xml)
+
 ## Product Packaging Tree View  
 ### Show Barcode  
 ID: `mint_system.product.product_packaging_tree_view.show_barcode`  
@@ -75,6 +216,25 @@ ID: `mint_system.product.product_packaging_tree_view.x_description`
 </data>
 ```
 Source: [snippets/product.product_packaging_tree_view.x_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_packaging_tree_view.x_description.xml)
+
+## Product Pricelist Item Tree View  
+### Make Editable  
+ID: `mint_system.product.product_pricelist_item_tree_view.make_editable`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_pricelist_item_tree_view" priority="50">
+
+    <tree position="attributes">
+        <attribute name="editable">bottom</attribute>
+    </tree>
+
+    <field name="price" position="after">
+        <field name="fixed_price" />
+    </field>
+
+</data>
+```
+Source: [snippets/product.product_pricelist_item_tree_view.make_editable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_pricelist_item_tree_view.make_editable.xml)
 
 ## Product Pricelist View  
 ### Show Product  
@@ -107,6 +267,47 @@ ID: `mint_system.product.product_template_form_view.add_type_description`
 </data>
 ```
 Source: [snippets/product.product_template_form_view.add_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_form_view.add_type_description.xml)
+
+### Remove List Price  
+ID: `mint_system.product.product_template_form_view.remove_list_price`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_form_view" priority="50">
+
+    <xpath expr="//group[@name='group_standard_price']//div[@name='pricing']" position="replace" />
+    <xpath expr="//group[@name='group_standard_price']//label[@for='list_price']" position="replace" />
+
+</data>
+
+```
+Source: [snippets/product.product_template_form_view.remove_list_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_form_view.remove_list_price.xml)
+
+### Remove Standard Price  
+ID: `mint_system.product.product_template_form_view.remove_standard_price`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_form_view" priority="50">
+
+    <xpath expr="//group[@name='group_standard_price']//div[@name='standard_price_uom']" position="replace" />
+    <xpath expr="//group[@name='group_standard_price']//label[@for='standard_price']" position="replace" />
+
+</data>
+
+```
+Source: [snippets/product.product_template_form_view.remove_standard_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_form_view.remove_standard_price.xml)
+
+### Remove Uom Po Id  
+ID: `mint_system.product.product_template_form_view.remove_uom_po_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_form_view" priority="50">
+
+    <xpath expr="//group[@name='group_general']/field[@name='uom_po_id']" position="replace" />
+
+</data>
+
+```
+Source: [snippets/product.product_template_form_view.remove_uom_po_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_form_view.remove_uom_po_id.xml)
 
 ### Replace Title  
 ID: `mint_system.product.product_template_form_view.replace_title`  
@@ -211,11 +412,25 @@ ID: `mint_system.product.product_template_only_form_view.hide_default_code`
 <?xml version="1.0"?>
 <data inherit_id="product.product_template_only_form_view" priority="50">
 
-<xpath expr="///group[@name='group_general']/field[@name='default_code']" position="replace"/>
+    <xpath expr="//group[@name='group_general']/field[@name='default_code']" position="replace" />
 
 </data>
+
 ```
 Source: [snippets/product.product_template_only_form_view.hide_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.hide_default_code.xml)
+
+### Remove Barcode  
+ID: `mint_system.product.product_template_only_form_view.remove_barcode`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_only_form_view" priority="50">
+
+    <xpath expr="//field[@name='barcode']" position="replace" />
+
+</data>
+
+```
+Source: [snippets/product.product_template_only_form_view.remove_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.remove_barcode.xml)
 
 ### Replace Feeder Id  
 ID: `mint_system.product.product_template_only_form_view.replace_feeder_id`  
@@ -233,6 +448,23 @@ ID: `mint_system.product.product_template_only_form_view.replace_feeder_id`
 </data>
 ```
 Source: [snippets/product.product_template_only_form_view.replace_feeder_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.replace_feeder_id.xml)
+
+### Show Can Be Expensed  
+ID: `mint_system.product.product_template_only_form_view.show_can_be_expensed`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_only_form_view" priority="50">
+
+  <xpath expr="//field[@name='sale_ok']/.." position="after">
+    <span class="d-inline-block">
+      <field name="can_be_expensed" />
+      <label for="can_be_expensed" />
+    </span>
+  </xpath>
+
+</data>
+```
+Source: [snippets/product.product_template_only_form_view.show_can_be_expensed.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.show_can_be_expensed.xml)
 
 ### Show Handle  
 ID: `mint_system.product.product_template_only_form_view.show_handle`  
@@ -299,6 +531,20 @@ ID: `mint_system.product.product_template_only_form_view.x_hide_on_delivery`
 ```
 Source: [snippets/product.product_template_only_form_view.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.x_hide_on_delivery.xml)
 
+### X Hide On Sale Order  
+ID: `mint_system.product.product_template_only_form_view.x_hide_on_sale_order`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_only_form_view" priority="50">
+
+    <field name="description_sale" position="after">
+        <field name="x_hide_on_sale_order" />
+    </field>
+
+</data>
+```
+Source: [snippets/product.product_template_only_form_view.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.x_hide_on_sale_order.xml)
+
 ### X Storage Temperature  
 ID: `mint_system.product.product_template_only_form_view.x_storage_temperature`  
 ```xml
@@ -312,6 +558,20 @@ ID: `mint_system.product.product_template_only_form_view.x_storage_temperature`
 </data>
 ```
 Source: [snippets/product.product_template_only_form_view.x_storage_temperature.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.x_storage_temperature.xml)
+
+### X Warranty  
+ID: `mint_system.product.product_template_only_form_view.x_warranty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_only_form_view" priority="50">
+
+    <field name="product_tag_ids" position="after">
+        <field name="x_warranty"/>
+    </field>
+
+</data>
+```
+Source: [snippets/product.product_template_only_form_view.x_warranty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.x_warranty.xml)
 
 ## Product Template Search View  
 ### Add Type Description  
@@ -328,6 +588,20 @@ ID: `mint_system.product.product_template_search_view.add_type_description`
 </data>
 ```
 Source: [snippets/product.product_template_search_view.add_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_search_view.add_type_description.xml)
+
+### Modify Name  
+ID: `mint_system.product.product_template_search_view.modify_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_search_view" priority="50">
+
+  <xpath expr="//field[@name='name']" position="replace">
+    <field name="name" string="Product" filter_domain="['|', '|', '|', '|','|',('default_code', 'ilike', self), ('product_variant_ids.default_code', 'ilike', self),('name', 'ilike', self), ('barcode', 'ilike', self), ('type_description', 'ilike', self), ('type_description2', 'ilike', self)]"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/product.product_template_search_view.modify_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_search_view.modify_name.xml)
 
 ## Product Template Tree View  
 ### Add Default Code And Type Description  
@@ -463,6 +737,7 @@ ID: `mint_system.product.report_producttemplatelabel.trimada`
             font-weight: bold;
             text-align: center;
             border-bottom: solid 1px;
+            line-height: 1;
         }
         .frame {
             border-bottom: solid 1px;
@@ -503,7 +778,7 @@ ID: `mint_system.product.report_producttemplatelabel.trimada`
         <div class="page">
           <div class="label">
             <div class="row title">
-              <div class="col-6 box1">
+              <div class="col-6 box2">
                 <span t-esc="product.default_code"/>
               </div>
               <div t-if="product.barcode" class="col-6 box2 text-right">

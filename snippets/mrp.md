@@ -1,6 +1,3 @@
----
-prev: ./snippets.md
----
 # Mrp
 ## Label Production View Pdf  
 ### Basis57  
@@ -231,13 +228,18 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
   <t t-call="web.basic_layout">
     <t t-foreach="docs" t-as="production">
       <t t-foreach="production.move_finished_ids" t-as="move">
-
         <style>
-          . .label {
+          .label {
             font-family: arial;
           }
           .box {
               margin: 0 0 2mm 0;
+          }
+          .box2 {
+            margin: 7mm 0 2mm 0;
+          }
+          .box3 {
+            margin: 2mm 0 2mm 0;
           }
           .padding {
               padding-bottom: 3mm;
@@ -248,7 +250,7 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
               font-weight: bold;
               text-align: center;
               border-bottom: solid 1px;
-              line-height: 30mm;
+              line-height: 1;
           }
           .description {
               font-size: 9mm;
@@ -273,7 +275,7 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
           }
           .order {
               font-size: 7mm;
-              margin: 10mm 3mm 0 3mm;
+              margin: 3mm 3mm 0 3mm;
               text-align: left;
               border-bottom: solid 1px;
               line-height: 1;
@@ -288,15 +290,19 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
               height: 8mm;
               line-height: 10mm;
           }
+          .col-6 {
+            padding-right: 0;
+            padding-left: 0;
+          }
         </style>
 
         <div class="page">
           <div class="label">
             <div class="row title">
-              <div class="col-6">
+              <div class="col-6 box2">
                 <span t-esc="move.product_id.default_code"/>
               </div>
-              <div t-if="move.product_id.barcode" class="col-6 box text-right">
+              <div t-if="move.product_id.barcode" class="col-6 box2 text-right">
                 <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', move.product_id.barcode, 250, 85)" alt="Barcode"/>
               </div>
             </div>
@@ -307,7 +313,7 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
               <span class="sub2" t-esc="move.product_id.type_description"/>
             </div>
             <div class="row order">
-              <div class="col-6 box">
+              <div class="col-6 box3">
                 <div class="padding info">
                   <span t-esc="production.date_planned_finished" t-options="{'widget': 'date'}"/>
                 </div>
@@ -544,9 +550,9 @@ ID: `mint_system.mrp.mrp_production_form_view.finished_move_line_ids`
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_form_view" priority="50">
 
-  <field name="bom_id" position="before">
-    <field name="finished_move_line_ids"/>
-  </field>
+  <xpath expr="//page[@name='miscellaneous']//field[@name='location_dest_id']" position="after">
+    <field name="finished_move_line_ids" widget="many2many_tags"/>
+  </xpath>
 
 </data>
 
@@ -574,9 +580,9 @@ ID: `mint_system.mrp.mrp_production_form_view.move_finished_ids`
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_form_view" priority="50">
 
-  <field name="bom_id" position="before">
-    <field name="move_finished_ids"/>
-  </field>
+  <xpath expr="//page[@name='miscellaneous']//field[@name='location_dest_id']" position="after">
+    <field name="move_finished_ids" widget="many2many_tags"/>
+  </xpath>
 
 </data>
 
@@ -1235,6 +1241,33 @@ ID: `mint_system.mrp.report_mrporder.replace_title_section_to_consume_products`
 ```
 Source: [snippets/mrp.report_mrporder.replace_title_section_to_consume_products.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.replace_title_section_to_consume_products.xml)
 
+### Show Dest Location  
+ID: `mint_system.mrp.report_mrporder.show_dest_location`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.report_mrporder" priority="50">
+
+    <xpath expr="//div[@class='row mt32 mb32'][1]" position="inside">
+        <t t-if="o.finished_move_line_ids">
+            <div class="col-3">
+                <strong>Destination:</strong>
+                <br />
+                <span t-field="o.finished_move_line_ids.location_dest_id.name" />
+            </div>
+        </t>
+        <t t-elif="o.move_finished_ids">
+            <div class="col-3">
+                <strong>Destination:</strong>
+                <br />
+                <span t-field="o.move_finished_ids.location_dest_id.name" />
+            </div>
+        </t>
+    </xpath>
+
+</data>
+```
+Source: [snippets/mrp.report_mrporder.show_dest_location.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.show_dest_location.xml)
+
 ### Show Expected  
 ID: `mint_system.mrp.report_mrporder.show_expected`  
 ```xml
@@ -1322,6 +1355,27 @@ ID: `mint_system.mrp.report_mrporder.show_planned`
 ```
 Source: [snippets/mrp.report_mrporder.show_planned.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.show_planned.xml)
 
+### Show Put Away Rule Out Location  
+ID: `mint_system.mrp.report_mrporder.show_put_away_rule_out_location`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.report_mrporder" priority="50">
+
+    <xpath expr="//div[@class='row mt32 mb32'][1]" position="inside">
+        <t t-set="putaway_rule_id" t-value="o.location_dest_id.putaway_rule_ids.filtered(lambda p: p.product_id == o.product_id)[:1]" />
+        <t t-if="putaway_rule_id">
+            <div class="col-3">
+                <strong>Einlagerungsort:</strong>
+                <br />
+                <span t-field="putaway_rule_id.location_out_id.name" />
+            </div>
+        </t>
+    </xpath>
+
+</data>
+```
+Source: [snippets/mrp.report_mrporder.show_put_away_rule_out_location.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.show_put_away_rule_out_location.xml)
+
 ### Show Stock  
 ID: `mint_system.mrp.report_mrporder.show_stock`  
 ```xml
@@ -1394,6 +1448,21 @@ ID: `mint_system.mrp.view_mrp_bom_filter.add_x_type_description`
 </data> 
 ```
 Source: [snippets/mrp.view_mrp_bom_filter.add_x_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_bom_filter.add_x_type_description.xml)
+
+## View Mrp Document Form  
+### Show Public  
+ID: `mint_system.mrp.view_mrp_document_form.show_public`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.view_mrp_document_form" priority="50" >
+
+    <field name="url" position="after">
+        <field name="public" />
+    </field>
+
+</data>
+```
+Source: [snippets/mrp.view_mrp_document_form.show_public.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_document_form.show_public.xml)
 
 ## View Mrp Production Filter  
 ### Add Not Planned  

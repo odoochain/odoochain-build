@@ -1,6 +1,3 @@
----
-prev: ./snippets.md
----
 # Base
 ## Contact Name  
 ### Modify Name  
@@ -29,6 +26,38 @@ ID: `mint_system.base.contact_name.modify_name`
 </data>
 ```
 Source: [snippets/base.contact_name.modify_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.contact_name.modify_name.xml)
+
+### Remove Parent Name  
+ID: `mint_system.base.contact_name.remove_parent_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.contact_name" priority="50">
+
+  <xpath expr="//t[2]" position="replace" />
+
+  <xpath expr="//span[@itemprop='name']" position="attributes">
+    <attribute name="t-esc">object.name</attribute>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/base.contact_name.remove_parent_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.contact_name.remove_parent_name.xml)
+
+## Ir Cron View Tree  
+### Show Ir Actions Server Id  
+ID: `mint_system.base.ir_cron_view_tree.show_ir_actions_server_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.ir_cron_view_tree" priority="50">
+
+  <field name="model_id" position="after">
+    <field name="ir_actions_server_id" optional="hide"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/base.ir_cron_view_tree.show_ir_actions_server_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.ir_cron_view_tree.show_ir_actions_server_id.xml)
 
 ## Ir Filters View Form  
 ### Remove Domain Widget  
@@ -149,6 +178,53 @@ ID: `mint_system.base.view_bank_form.add_display_name`
 ```
 Source: [snippets/base.view_bank_form.add_display_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_bank_form.add_display_name.xml)
 
+## View Company Form  
+### Show Account Onboarding Panel  
+ID: `mint_system.base.view_company_form.show_account_onboarding_panel`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_company_form" priority="50">
+
+	<field name="website" position="after">
+		<field name="account_dashboard_onboarding_state" />
+	</field>
+
+</data>
+
+```
+Source: [snippets/base.view_company_form.show_account_onboarding_panel.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_company_form.show_account_onboarding_panel.xml)
+
+### Show Analytic Plan Id  
+ID: `mint_system.base.view_company_form.show_analytic_plan_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_company_form" priority="50">
+
+	<field name="website" position="after">
+		<field name="analytic_plan_id" />
+	</field>
+
+</data>
+
+```
+Source: [snippets/base.view_company_form.show_analytic_plan_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_company_form.show_analytic_plan_id.xml)
+
+## View Model Fields Form  
+### Show State  
+ID: `mint_system.base.view_model_fields_form.show_state`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_model_fields_form" priority="50">
+
+  <field name="ttype" position="after">
+    <field name="state"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/base.view_model_fields_form.show_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_model_fields_form.show_state.xml)
+
 ## View Partner Form  
 ### Add Commercial Partner Id  
 ID: `mint_system.base.view_partner_form.add_commercial_partner_id`  
@@ -263,6 +339,35 @@ ID: `mint_system.base.view_partner_form.show_user_id`
 ```
 Source: [snippets/base.view_partner_form.show_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.show_user_id.xml)
 
+### X Birthdate  
+ID: `mint_system.base.view_partner_form.x_birthdate`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <field name="x_birthdate" attrs="{'invisible': [('is_company','=',True)]}"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/base.view_partner_form.x_birthdate.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.x_birthdate.xml)
+
+### X Created On  
+ID: `mint_system.base.view_partner_form.x_created_on`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <field name="x_created_on"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.x_created_on.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.x_created_on.xml)
+
 ### X External Ref  
 ID: `mint_system.base.view_partner_form.x_external_ref`  
 ```xml
@@ -363,6 +468,21 @@ ID: `mint_system.base.view_partner_tree.optional_zip`
 
 ```
 Source: [snippets/base.view_partner_tree.optional_zip.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_tree.optional_zip.xml)
+
+### Property Payment Term Id  
+ID: `mint_system.base.view_partner_tree.property_payment_term_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="50">
+
+  <field name="category_id" position="after">
+    <field name="property_payment_term_id" optional="hide"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.property_payment_term_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_tree.property_payment_term_id.xml)
 
 ### Show Industry  
 ID: `mint_system.base.view_partner_tree.show_industry`  
@@ -534,6 +654,19 @@ ID: `mint_system.base.view_users_form.email`
 </data>
 ```
 Source: [snippets/base.view_users_form.email.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_users_form.email.xml)
+
+### Specific Ations  
+ID: `mint_system.base.view_users_form.specific_ations`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_users_form" priority="50">
+
+  <xpath expr="//field[@name='in_group_88']" position="attributes">
+    <attribute name="help">Mächtige Server-Aktionen (zum Beispiel "Lagerbuchung abbrechen")</attribute>
+  </xpath>
+</data>
+```
+Source: [snippets/base.view_users_form.specific_ations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_users_form.specific_ations.xml)
 
 ### Write Partner Id  
 ID: `mint_system.base.view_users_form.write_partner_id`  

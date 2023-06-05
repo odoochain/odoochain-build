@@ -1,6 +1,3 @@
----
-prev: ./snippets.md
----
 # Helpdesk
 ## Helpdesk Tickets View Search  
 ### Advanced Search  

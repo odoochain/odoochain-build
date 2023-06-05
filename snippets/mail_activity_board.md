@@ -1,6 +1,3 @@
----
-prev: ./snippets.md
----
 # Mail Activity Board
 ## Mail Activity View Form Board  
 ### Enable Edit And Create  

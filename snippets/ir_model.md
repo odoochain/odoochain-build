@@ -1,7 +1,58 @@
----
-prev: ./snippets.md
----
 # Ir Model
+## Account Analytic Line  
+### X Sale Order Id  
+ID: `mint_system.ir_model.account_analytic_line.x_sale_order_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_sale_order_id" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Verkaufsauftrag</field>
+    <field name="model">account.move.line</field>
+    <field name="model_id" ref="account.model_account_analytic_line"/>
+    <field name="name">x_sale_order_id</field>
+    
+    <field name="readonly" eval="True"/>
+    <field name="store" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">sale.order</field>
+    <field name="related">task_id.sale_order_id</field>
+  </record>
+  
+</odoo>
+
+```
+Source: [snippets/ir_model.account_analytic_line.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_analytic_line.x_sale_order_id.xml)
+
+### X Timesheet Invoice Type  
+ID: `mint_system.ir_model.account_analytic_line.x_timesheet_invoice_type`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_timesheet_invoice_type" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Abrechenbarer Typ</field>
+    <field name="model">account.move.line</field>
+    <field name="model_id" ref="account.model_account_analytic_line"/>
+    <field name="name">x_timesheet_invoice_type</field>
+    <field name="readonly" eval="True"/>
+    <field name="store" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="depends">so_line</field>
+    <field name="selection">[('non_billable','Nicht abrechenbare Aufwände'),('billable_time','Abrechenbare Aufwände')]</field>
+    <field name="compute">for rec in self:
+  rec['x_timesheet_invoice_type'] = 'billable_time' if rec.so_line.price_unit > 0 else 'non_billable'</field>
+  </record>
+  
+</odoo>
+
+```
+Source: [snippets/ir_model.account_analytic_line.x_timesheet_invoice_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_analytic_line.x_timesheet_invoice_type.xml)
+
 ## Account Bank Statement  
 ### X Cashbox End Ids  
 ID: `mint_system.ir_model.account_bank_statement.x_cashbox_end_ids`  
@@ -15,8 +66,7 @@ ID: `mint_system.ir_model.account_bank_statement.x_cashbox_end_ids`
     <field name="model">account.bank.statement</field>
     <field name="model_id" ref="account.model_account_bank_statement"/>
     <field name="name">x_cashbox_end_ids</field>
-    <field name="state">manual</field>
-    <field name="store" eval="False"/>
+        <field name="store" eval="False"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
     <field name="ttype">many2one</field>
@@ -42,7 +92,6 @@ ID: `mint_system.ir_model.account_bank_statement.x_cashbox_start_ids`
     <field name="model">account.bank.statement</field>
     <field name="model_id" ref="account.model_account_bank_statement"/>
     <field name="name">x_cashbox_start_ids</field>
-    <field name="state">manual</field>
     <field name="store" eval="False"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -70,7 +119,6 @@ ID: `mint_system.ir_model.account_move_line.x_sale_order_id`
     <field name="model">account.move.line</field>
     <field name="model_id" ref="account.model_account_move_line"/>
     <field name="name">x_sale_order_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="False"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -96,11 +144,10 @@ ID: `mint_system.ir_model.account_move.x_account_codes`
 
   <record id="x_account_codes" model="ir.model.fields">
     <field name="domain">[]</field>
-    <field name="field_description">Account Codes</field>
+    <field name="field_description">Kontos</field>
     <field name="model">account.move</field>
     <field name="model_id" ref="account.model_account_move"/>
     <field name="name">x_account_codes</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -142,6 +189,67 @@ ID: `mint_system.ir_model.account_move.x_date_done`
 ```
 Source: [snippets/ir_model.account_move.x_date_done.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_date_done.xml)
 
+### X Duplicate Found  
+ID: `mint_system.ir_model.account_move.x_duplicate_found`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_duplicate_found" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Duplikat Gefunden</field>
+    <field name="model">account.move</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="name">x_duplicate_found</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">boolean</field>
+    <field name="depends">partner_id,amount_total,state</field>
+    <field name="compute">for rec in self:
+      if rec.state == 'draft' and rec.move_type == 'in_invoice':
+        invoice_id = self.env['account.move'].search([
+          ('state', '=', 'posted'),
+          ('partner_id', '=', rec.partner_id.id),
+          ('amount_total', '=', rec.amount_total)
+        ], limit=1)
+        if invoice_id:
+          rec['x_duplicate_found'] = True
+        else:
+          rec['x_duplicate_found'] = False
+      else:
+        rec['x_duplicate_found'] = False</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.account_move.x_duplicate_found.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_duplicate_found.xml)
+
+### X Invoice Warn Msg  
+ID: `mint_system.ir_model.account_move.x_invoice_warn_msg`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_invoice_warn_msg" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Nachricht zu Rechnung</field>
+    <field name="model">account.move</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="name">x_duplicate_found</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">text</field>
+    <field name="relation">partner_id.invoice_warn_msg</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.account_move.x_invoice_warn_msg.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_invoice_warn_msg.xml)
+
 ### X Picking List  
 ID: `mint_system.ir_model.account_move.x_picking_list`  
 ```xml
@@ -154,7 +262,6 @@ ID: `mint_system.ir_model.account_move.x_picking_list`
     <field name="model">account.move</field>
     <field name="model_id" ref="account.model_account_move"/>
     <field name="name">x_picking_list</field>
-    <field name="state">manual</field>
     <field name="store" eval="False"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -173,6 +280,35 @@ ID: `mint_system.ir_model.account_move.x_picking_list`
 ```
 Source: [snippets/ir_model.account_move.x_picking_list.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_picking_list.xml)
 
+### X Recurring Inverval  
+ID: `mint_system.ir_model.account_move.x_recurring_inverval`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_recurring_inverval" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Abrechnungsintervall</field>
+    <field name="model">account.move</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="name">x_recurring_inverval</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">selection</field>
+    <field name="selection_id">[
+      {'value':'daily','name':'Daily'},
+      {'value':'monthly','name':'Monthly'},
+      {'value':'quarterly','name':'Quarterly'},
+      {'value':'yearly','name':'Yearly'}
+    ]</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.account_move.x_recurring_inverval.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_recurring_inverval.xml)
+
 ### X Studio Description  
 ID: `mint_system.ir_model.account_move.x_studio_description`  
 ```xml
@@ -185,7 +321,6 @@ ID: `mint_system.ir_model.account_move.x_studio_description`
     <field name="model">account.move</field>
     <field name="model_id" ref="sale.model_sale_order"/>
     <field name="name">x_studio_description</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="ttype">text</field>
     <field name="copied" eval="True"/>
@@ -258,7 +393,6 @@ ID: `mint_system.ir_model.business_requirement.x_estimated_cost`
     <field name="model">business.requirement</field>
     <field name="model_id" ref="business_requirement.model_business_requirement"/>
     <field name="name">x_estimated_cost</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
@@ -282,7 +416,6 @@ ID: `mint_system.ir_model.business_requirement.x_planned_hours`
     <field name="model">business.requirement</field>
     <field name="model_id" ref="business_requirement.model_business_requirement"/>
     <field name="name">x_planned_hours</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
@@ -306,7 +439,6 @@ ID: `mint_system.ir_model.business_requirement.x_project_id`
     <field name="model">business.requirement</field>
     <field name="model_id" ref="business_requirement.model_business_requirement"/>
     <field name="name">x_project_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
@@ -331,7 +463,6 @@ ID: `mint_system.ir_model.business_requirement.x_task_id`
     <field name="model">business.requirement</field>
     <field name="model_id" ref="business_requirement.model_business_requirement"/>
     <field name="name">x_task_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
@@ -436,7 +567,6 @@ ID: `mint_system.ir_model.crm_lead.x_task_id`
     <field name="model">business.requirement</field>
     <field name="model_id" ref="crm.model_crm_lead"/>
     <field name="name">x_task_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
@@ -511,7 +641,6 @@ ID: `mint_system.ir_model.hr_contract.x_struct_id`
     <field name="model">hr.applicant</field>
     <field name="model_id" ref="hr.model_hr_contract"/>
     <field name="name">x_struct_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
@@ -523,6 +652,108 @@ ID: `mint_system.ir_model.hr_contract.x_struct_id`
 
 ```
 Source: [snippets/ir_model.hr_contract.x_struct_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.hr_contract.x_struct_id.xml)
+
+## Hr Expense  
+### X Partner Id  
+ID: `mint_system.ir_model.hr_expense.x_partner_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_partner_id" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Kunde</field>
+    <field name="model">hr.expense</field>
+    <field name="model_id" ref="hr.model_hr_expense"/>
+    <field name="name">x_partner_id</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">res.partner</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.hr_expense.x_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.hr_expense.x_partner_id.xml)
+
+## Hr Leave  
+### X Number Of Hours  
+ID: `mint_system.ir_model.hr_leave.x_number_of_hours`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_number_of_hours" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Dauer (Stunden)</field>
+    <field name="model">hr.leave</field>
+    <field name="model_id" ref="hr.model_hr_leave"/>
+    <field name="name">x_number_of_hours</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">float</field>
+    <field name="depends">number_of_hours_display</field>
+    <field name="compute">for leave in self:
+      leave['x_number_of_hours'] = round(leave.number_of_hours_display, 2)</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.hr_leave.x_number_of_hours.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.hr_leave.x_number_of_hours.xml)
+
+### X Requires Allocation  
+ID: `mint_system.ir_model.hr_leave.x_requires_allocation`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_requires_allocation" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Erfordert Zuweisung</field>
+    <field name="model">hr.leave</field>
+    <field name="model_id" ref="hr.model_hr_leave"/>
+    <field name="name">x_requires_allocation</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">selection</field>
+    <field name="related">holiday_status_id.requires_allocation</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.hr_leave.x_requires_allocation.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.hr_leave.x_requires_allocation.xml)
+
+## Hr Payslip Line  
+### X Code Name  
+ID: `mint_system.ir_model.hr_payslip_line.x_code_name`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_code_name" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Code mit Name</field>
+    <field name="model">hr.payslip.line</field>
+    <field name="model_id" ref="hr_payroll.model_hr_payslip_line"/>
+    <field name="name">x_code_name</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field>
+    <field name="depends">name,code</field>
+    <field name="compute">for rec in self:
+      rec['x_code_name'] = rec.code + ' ' + rec.name</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.hr_payslip_line.x_code_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.hr_payslip_line.x_code_name.xml)
 
 ## Mrp Bom  
 ### X Note  
@@ -625,6 +856,31 @@ ID: `mint_system.ir_model.mrp_production.x_note`
 ```
 Source: [snippets/ir_model.mrp_production.x_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_production.x_note.xml)
 
+### X Quality Check Ids  
+ID: `mint_system.ir_model.mrp_production.x_quality_check_ids`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_quality_check_ids" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Qualitätsprüfungen</field>
+    <field name="model">mrp.production</field>
+    <field name="model_id" ref="mrp.model_mrp_production"/>
+    <field name="name">x_quality_check_ids</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">One2many</field> 
+    <field name="relation">quality.check</field>
+    <field name="relation_field">production_id</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.mrp_production.x_quality_check_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_production.x_quality_check_ids.xml)
+
 ## Mrp Workorder  
 ### X Reservation State  
 ID: `mint_system.ir_model.mrp_workorder.x_reservation_state`  
@@ -696,6 +952,30 @@ ID: `mint_system.ir_model.mrp_workorder.x_type_description`
 ```
 Source: [snippets/ir_model.mrp_workorder.x_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_workorder.x_type_description.xml)
 
+## Product Category  
+### X Relevant For Certificate  
+ID: `mint_system.ir_model.product_category.x_relevant_for_certificate`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_relevant_for_certificate" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Für Werkszeugnis relevant</field>
+    <field name="model">product.category</field>
+    <field name="model_id" ref="product.product_category"/>
+    <field name="name">x_relevant_for_certificate</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">boolean</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.product_category.x_relevant_for_certificate.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_category.x_relevant_for_certificate.xml)
+
 ## Product Packaging  
 ### X Description  
 ID: `mint_system.ir_model.product_packaging.x_description`  
@@ -720,6 +1000,29 @@ ID: `mint_system.ir_model.product_packaging.x_description`
 ```
 Source: [snippets/ir_model.product_packaging.x_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_packaging.x_description.xml)
 
+### X Qty Description  
+ID: `mint_system.ir_model.product_packaging.x_qty_description`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_qty_description" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Label Gewicht</field>
+    <field name="model">product.packaging</field>
+    <field name="model_id" ref="product.model_product_packaging"/>
+    <field name="name">x_qty_description</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">char</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.product_packaging.x_qty_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_packaging.x_qty_description.xml)
+
 ## Product Set Line  
 ### X Categ Id  
 ID: `mint_system.ir_model.product_set_line.x_categ_id`  
@@ -729,7 +1032,7 @@ ID: `mint_system.ir_model.product_set_line.x_categ_id`
 
   <record id="x_categ_id" model="ir.model.fields">
     <field name="domain">[]</field>
-    <field name="field_description">Kategorei</field>
+    <field name="field_description">Produktkategorie</field>
     <field name="model">product.set.line</field>
     <field name="model_id" ref="product.model_product_set_line"/>
     <field name="name">x_categ_id</field>
@@ -816,6 +1119,29 @@ ID: `mint_system.ir_model.product_template.x_hide_on_delivery`
 ```
 Source: [snippets/ir_model.product_template.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_hide_on_delivery.xml)
 
+### X Hide On Sale Order  
+ID: `mint_system.ir_model.product_template.x_hide_on_sale_order`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_hide_on_sale_order" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Auf Verkaufsangebot ausblenden</field>
+    <field name="model">product.template</field>
+    <field name="model_id" ref="product.model_product_template"/>
+    <field name="name">x_hide_on_sale_order</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">boolean</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.product_template.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_hide_on_sale_order.xml)
+
 ### X Product Label  
 ID: `mint_system.ir_model.product_template.x_product_label`  
 ```xml
@@ -866,6 +1192,29 @@ ID: `mint_system.ir_model.product_template.x_storage_temperature`
 ```
 Source: [snippets/ir_model.product_template.x_storage_temperature.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_storage_temperature.xml)
 
+### X Warranty  
+ID: `mint_system.ir_model.product_template.x_warranty`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_warranty" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Garantie</field>
+    <field name="model">product.template</field>
+    <field name="model_id" ref="product.model_product_template"/>
+    <field name="name">x_warranty</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">char</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.product_template.x_warranty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_warranty.xml)
+
 ### X Xml Id  
 ID: `mint_system.ir_model.product_template.x_xml_id`  
 ```xml
@@ -906,22 +1255,114 @@ ID: `mint_system.ir_model.project_task.x_business_requirement_id`
     <field name="model">project.task</field>
     <field name="model_id" ref="project.model_project_task"/>
     <field name="name">x_business_requirement_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
-    <field name="readonly" eval="False"/>
-    <field name="copied" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
     <field name="ttype">many2one</field>
     <field name="relation">business.requirement</field>
-    <field name="depends">project_id,name</field>
-    <field name="compute">for record in self:
-  record['x_business_requirement_id'] = self.env['business.requirement'].search([('x_task_id', '=', record.id)], limit=1)
-    </field>
+    <field name="depends">project_id,name,partner_id</field>
+    <field name="compute">for rec in self:
+      rec['x_business_requirement_id'] = self.env['business.requirement'].search([('x_task_id', '=', rec.id)], limit=1)</field>
   </record>
 
 </odoo>
 
 ```
 Source: [snippets/ir_model.project_task.x_business_requirement_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.project_task.x_business_requirement_id.xml)
+
+### X Lead Id  
+ID: `mint_system.ir_model.project_task.x_lead_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_lead_id" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Lead</field>
+    <field name="model">project.task</field>
+    <field name="model_id" ref="product.model_project_task"/>
+    <field name="name">x_lead_id</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">crm.lead</field>
+    <field name="depends">project_id,name,partner_id</field>
+    <field name="compute">for rec in self:
+  rec['x_lead_id'] = self.env['crm.lead'].search([('x_task_id', '=', rec.id)], limit=1)</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.project_task.x_lead_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.project_task.x_lead_id.xml)
+
+### X Not Billable  
+ID: `mint_system.ir_model.project_task.x_not_billable`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_not_billable" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Nicht Verrechenbar</field>
+    <field name="model">project.task</field>
+    <field name="model_id" ref="product.model_project_task"/>
+    <field name="name">x_not_billable</field>
+    <field name="readonly" eval="False"/>
+    <field name="store" eval="True"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">boolean</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.project_task.x_not_billable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.project_task.x_not_billable.xml)
+
+### X Systemname  
+ID: `mint_system.ir_model.project_task.x_systemname`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_systemname" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Benutzer</field>
+    <field name="model">project.task</field>
+    <field name="model_id" ref="project.model_project_task"/>
+    <field name="ttype">char</field>
+    <field name="name">x_systemname</field>
+    <field name="required" eval="True"/>
+    <field name="store" eval="True"/>
+    <field name="copied" eval="True"/>        
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.project_task.x_systemname.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.project_task.x_systemname.xml)
+
+### X User Text  
+ID: `mint_system.ir_model.project_task.x_user_text`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_user_text" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Benutzer</field>
+    <field name="model">project.task</field>
+    <field name="model_id" ref="project.model_project_task"/>
+    <field name="ttype">char</field>
+    <field name="name">x_user_text</field>
+    <field name="required" eval="True"/>
+    <field name="store" eval="True"/>
+    <field name="copied" eval="True"/>        
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.project_task.x_user_text.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.project_task.x_user_text.xml)
 
 ### X Vehicle Id  
 ID: `mint_system.ir_model.project_task.x_vehicle_id`  
@@ -935,7 +1376,6 @@ ID: `mint_system.ir_model.project_task.x_vehicle_id`
     <field name="model">project.task</field>
     <field name="model_id" ref="product.model_project_task"/>
     <field name="name">x_vehicle_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
@@ -1116,7 +1556,83 @@ ID: `mint_system.ir_model.purchase_order.x_comment`
 ```
 Source: [snippets/ir_model.purchase_order.x_comment.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.purchase_order.x_comment.xml)
 
+## Quality Check  
+### X Active  
+ID: `mint_system.ir_model.quality_check.x_active`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_active" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Aktiv</field>
+    <field name="model">quality.check</field>
+    <field name="model_id" ref="quality.model_quality_check"/>
+    <field name="name">x_active</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">boolean</field>
+    <field name="depends">test_type_id</field>
+    <field name="compute">for rec in self:
+  if rec.test_type_id.technical_name == 'register_consumed_materials':
+    rec['x_active'] = False
+  else:
+    rec['x_active'] = True</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.quality_check.x_active.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.quality_check.x_active.xml)
+
 ## Res Partner  
+### X Birthdate  
+ID: `mint_system.ir_model.res_partner.x_birthdate`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_birthdate" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Geburtstag</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partnee"/>
+    <field name="name">x_birthdate</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">date</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.res_partner.x_birthdate.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.res_partner.x_birthdate.xml)
+
+### X Created On  
+ID: `mint_system.ir_model.res_partner.x_created_on`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_created_on" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Erstellt am</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partnee"/>
+    <field name="name">x_created_on</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">date</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.res_partner.x_created_on.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.res_partner.x_created_on.xml)
+
 ### X External Ref  
 ID: `mint_system.ir_model.res_partner.x_external_ref`  
 ```xml
@@ -1188,31 +1704,33 @@ ID: `mint_system.ir_model.res_partner.x_stock_move_ids`
 ```
 Source: [snippets/ir_model.res_partner.x_stock_move_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.res_partner.x_stock_move_ids.xml)
 
-## Sale Order Line  
-### X Categ Id  
-ID: `mint_system.ir_model.sale_order_line.x_categ_id`  
+## Sale Blanket Order Line  
+### X Product Uom Category Id  
+ID: `mint_system.ir_model.sale_blanket_order_line.x_product_uom_category_id`  
 ```xml
 <?xml version='1.0' encoding='UTF-8' ?>
 <odoo>
 
-  <record id="x_categ_id" model="ir.model.fields">
+  <record id="x_product_uom_category_id" model="ir.model.fields">
     <field name="domain">[]</field>
-    <field name="field_description">Produktkategorie</field>
-    <field name="model">sale.order.line</field>
-    <field name="model_id" ref="sale.model_sale_order_line"/>
-    <field name="name">x_categ_id</field>
-    <field name="store" eval="True"/>
+    <field name="field_description">Kategorie</field>
+    <field name="model">sale.blanket.order.line</field>
+    <field name="model_id" ref="sale.model_sale_blanket_order_line"/>
+    <field name="name">x_product_uom_category_id</field>
+    <field name="store" eval="False"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
-    <field name="ttype">many2one</field>
-    <field name="related">product_id.categ_id</field>
+    <field name="ttype">Many2One</field>
+    <field name="relation">uom.category</field>
+    <field name="related">product_id.uom_id.category_id</field>
   </record>
 
 </odoo>
 
 ```
-Source: [snippets/ir_model.sale_order_line.x_categ_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_categ_id.xml)
+Source: [snippets/ir_model.sale_blanket_order_line.x_product_uom_category_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_blanket_order_line.x_product_uom_category_id.xml)
 
+## Sale Order Line  
 ### X Client Order Ref  
 ID: `mint_system.ir_model.sale_order_line.x_client_order_ref`  
 ```xml
@@ -1388,6 +1906,54 @@ ID: `mint_system.ir_model.sale_order_line.x_pricelist_id`
 ```
 Source: [snippets/ir_model.sale_order_line.x_pricelist_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_pricelist_id.xml)
 
+### X Service Policy  
+ID: `mint_system.ir_model.sale_order_line.x_service_policy`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_service_policy" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Faktierungsregel</field>
+    <field name="model">sale.order.line</field>
+    <field name="model_id" ref="sale.model_sale_order_line"/>
+    <field name="name">x_service_policy</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">selection</field>
+    <field name="related">product_id.service_policy</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.sale_order_line.x_service_policy.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_service_policy.xml)
+
+### X Service Tracking  
+ID: `mint_system.ir_model.sale_order_line.x_service_tracking`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_service_tracking" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Dienstverfolgung</field>
+    <field name="model">sale.order.line</field>
+    <field name="model_id" ref="sale.model_sale_order_line"/>
+    <field name="name">x_service_tracking</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">selection</field>
+    <field name="related">product_id.service_tracking</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.sale_order_line.x_service_tracking.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_service_tracking.xml)
+
 ### X State  
 ID: `mint_system.ir_model.sale_order_line.x_state`  
 ```xml
@@ -1430,13 +1996,65 @@ ID: `mint_system.ir_model.sale_order_line.x_taxed_amount_invoiced`
     <field name="ttype">float</field>
     <field name="depends">untaxed_amount_invoiced,price_tax</field>
     <field name="compute">for rec in self:
-      rec['x_taxed_amount_invoiced'] = rec.price_unit * rec.qty_delivered + rec.price_tax</field>
+  rec['x_taxed_amount_invoiced'] = rec.price_unit * (1 - (rec.discount or 0.0) / 100.0) * (rec.qty_delivered or rec.product_uom_qty) + rec.price_tax</field>
   </record>
 
 </odoo>
 
 ```
 Source: [snippets/ir_model.sale_order_line.x_taxed_amount_invoiced.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_taxed_amount_invoiced.xml)
+
+### X Taxed Amount  
+ID: `mint_system.ir_model.sale_order_line.x_taxed_amount`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_taxed_amount" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Total inkl. MWST</field>
+    <field name="model">sale.order.line</field>
+    <field name="model_id" ref="sale.model_sale_order_line"/>
+    <field name="name">x_taxed_amount</field>
+    <field name="store" eval="True" />
+    <field name="readonly" eval="True" />
+    <field name="copied" eval="False" />
+    <field name="ttype">float</field>
+    <field name="depends">price_unit,discount,qty_delivered,product_uom_qty,price_tax</field>
+    <field name="compute">for rec in self:
+  rec['x_taxed_amount'] = rec.price_unit * (1 - (rec.discount or 0.0) / 100.0) * (rec.qty_delivered or rec.product_uom_qty) + rec.price_tax</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.sale_order_line.x_taxed_amount.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_taxed_amount.xml)
+
+### X Untaxed Amount  
+ID: `mint_system.ir_model.sale_order_line.x_untaxed_amount`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_untaxed_amount" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Total exkl. MWST</field>
+    <field name="model">sale.order.line</field>
+    <field name="model_id" ref="sale.model_sale_order_line"/>
+    <field name="name">x_untaxed_amount</field>
+    <field name="store" eval="True" />
+    <field name="readonly" eval="True" />
+    <field name="copied" eval="False" />
+    <field name="ttype">float</field>
+    <field name="depends">price_unit,discount,qty_delivered,product_uom_qty</field>
+    <field name="compute">for rec in self:
+  rec['x_untaxed_amount'] = rec.price_unit * (1 - (rec.discount or 0.0) / 100.0) * (rec.qty_delivered or rec.product_uom_qty)</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.sale_order_line.x_untaxed_amount.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_untaxed_amount.xml)
 
 ### X Weight Delivered  
 ID: `mint_system.ir_model.sale_order_line.x_weight_delivered`  
@@ -1454,7 +2072,7 @@ ID: `mint_system.ir_model.sale_order_line.x_weight_delivered`
     <field name="readonly" eval="True" />
     <field name="copied" eval="False" />
     <field name="ttype">float</field>
-    <field name="depends">qty_delivered</field>
+    <field name="depends">qty_delivered,product_id.weight</field>
     <field name="compute">for rec in self:
       rec['x_weight_delivered'] = rec.product_id.weight * rec.qty_delivered</field>
   </record>
@@ -1464,6 +2082,54 @@ ID: `mint_system.ir_model.sale_order_line.x_weight_delivered`
 Source: [snippets/ir_model.sale_order_line.x_weight_delivered.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_weight_delivered.xml)
 
 ## Sale Order  
+### X Client Project Ref  
+ID: `mint_system.ir_model.sale_order.x_client_project_ref`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_client_project_ref" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Projektnummer Kunde</field>
+    <field name="model">sale.order</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="name">x_client_project_ref</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">Char</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.sale_order.x_client_project_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order.x_client_project_ref.xml)
+
+### X Incoterm Blanket Order  
+ID: `mint_system.ir_model.sale_order.x_incoterm_blanket_order`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_incoterm_blanket_order" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Incoterm Rahmenauftrag</field>
+    <field name="model">sale.order</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="name">x_incoterm_blanket_order</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">account.incoterms</field>
+    <field name="related">blanket_order_id.incoterm</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.sale_order.x_incoterm_blanket_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order.x_incoterm_blanket_order.xml)
+
 ### X Product Uom Qty  
 ID: `mint_system.ir_model.sale_order.x_product_uom_qty`  
 ```xml
@@ -1476,7 +2142,6 @@ ID: `mint_system.ir_model.sale_order.x_product_uom_qty`
     <field name="model">sale.order</field>
     <field name="model_id" ref="sale.model_sale_order"/>
     <field name="name">x_product_uom_qty</field>
-    <field name="state">manual</field>
     <field name="store" eval="False"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -1504,7 +2169,6 @@ ID: `mint_system.ir_model.sale_order.x_studio_description`
     <field name="model">sale.order</field>
     <field name="model_id" ref="sale.model_sale_order"/>
     <field name="name">x_studio_description</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="ttype">text</field>
     <field name="copied" eval="True"/>
@@ -1514,6 +2178,33 @@ ID: `mint_system.ir_model.sale_order.x_studio_description`
 
 ```
 Source: [snippets/ir_model.sale_order.x_studio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order.x_studio_description.xml)
+
+## Stock Location  
+### X Should Be Valued  
+ID: `mint_system.ir_model.stock_location.x_should_be_valued`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_should_be_valued" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Should be valued</field>
+    <field name="model">stock.location</field>
+    <field name="model_id" ref="stock.model_stock_location"/>
+    <field name="name">x_should_be_valued</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">boolean</field> 
+    <field name="depends">usage</field>
+    <field name="compute">for rec in self:
+      rec['x_should_be_valued'] = rec._should_be_valued()
+    </field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_location.x_should_be_valued.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_location.x_should_be_valued.xml)
 
 ## Stock Move  
 ### X Count Boxes  
@@ -1528,59 +2219,57 @@ ID: `mint_system.ir_model.stock_move.x_count_boxes`
     <field name="model">stock.move</field>
     <field name="model_id" ref="stock.model_stock_move"/>
     <field name="name">x_count_boxes</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
     <field name="ttype">int</field>
     <field name="depends">quantity_done</field>
     <field name="compute"># Count the number of packaging boxes
-        for rec in self:
-            rec['x_count_boxes'] = 0
-            if rec.product_packaging:
-                
-                # Get picking delivery product name
-                delivery_name = rec.picking_id.carrier_id.product_id.name
+for rec in self:
+    rec['x_count_boxes'] = 0
+    if rec.product_packaging:
+        
+        # Get picking delivery product name
+        delivery_name = rec.picking_id.carrier_id.product_id.name
+    
+        # Calculate the number of boxes depending on the selected packaging
+    
+        if rec.product_packaging.name == "Schale Gross":
+            rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
             
-                # qty = rec.product_packaging.qty
-                # qty_up = (qty - 0.1)
-                    
-                # Set factor
-                factor_xs = 6
-                if delivery_name == 'Gebinde':
-                    factor_xs = 6
-                elif delivery_name == 'Gebinde Migros':
-                    factor_xs = 6
-                    
-                if rec.product_packaging.name == "Schale Gross":
-                    rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
-                    
-                elif rec.product_packaging.name == "Schale Klein":
-                    rec['x_count_boxes'] = (rec.quantity_done/factor_xs + 0.9)/1
-                    
-                elif rec.product_packaging.name == "Vakuum Gross":
-                    rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
-                    
-                elif rec.product_packaging.name == "Vakuum Klein":
-                    if rec.product_id.id == 68:
-                        rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
-                    else:
-                        rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
-                        
-                elif rec.product_packaging.name == "Kiste":
-                    # Filet mit Haut Tiefgekühlt
-                    if rec.product_id.id == 68:
-                        rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
-                    # Kopf und Backen
-                    elif rec.product_id.id == 51:
-                        rec['x_count_boxes'] = (rec.product_uom_qty + 99)/100
-                    # Filet mit Haut
-                    elif rec.product_id.id == 33:
-                        rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
-                    # Zander ganz / rund
-                    else:
-                        rec['x_count_boxes'] = (rec.product_uom_qty + 14)/15
-              </field>
+        elif rec.product_packaging.name == "Schale Klein":
+            rec['x_count_boxes'] = (rec.quantity_done/6 + 0.9)/1
+            
+        elif rec.product_packaging.name == "Vakuum Gross":
+            rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
+            
+        elif rec.product_packaging.name == "Aktionären Gutschein":
+            rec['x_count_boxes'] = ((rec.quantity_done + 9)/20)
+            
+        elif rec.product_packaging.name == "Vakuum Klein":
+            if rec.product_id.id == 68: # Filet mit Haut TK
+                rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
+            elif rec.product_id.id == 74: # Filet mit Haut V-Schnitt Tiefgekühlt
+                rec['x_count_boxes'] = (rec.product_uom_qty + 9)/20
+            else:
+                rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
+                
+        elif rec.product_packaging.name == "Karton":
+            rec['x_count_boxes'] = rec.quantity_done/rec.product_packaging.qty
+            
+            if rec.product_packaging.parent_packaging and rec.product_packaging.parent_packaging.qty:
+              rec['x_count_boxes'] = rec.quantity_done/rec.product_packaging.parent_packaging.qty
+            
+        elif rec.product_packaging.name == "Kiste":
+            if rec.product_id.id == 68: # Filet mit Haut TK
+                rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
+            elif rec.product_id.id == 51: # Kopf / Backen
+                rec['x_count_boxes'] = (rec.product_uom_qty + 99)/100
+            elif rec.product_id.id == 33: # Filet mit Haut
+                rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
+            else:
+                rec['x_count_boxes'] = (rec.product_uom_qty + 14)/15
+    </field>
   </record>
 
 </odoo>
@@ -1600,7 +2289,6 @@ ID: `mint_system.ir_model.stock_move.x_count_packaging`
     <field name="model">stock.move</field>
     <field name="model_id" ref="stock.model_stock_move"/>
     <field name="name">x_count_packaging</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -1634,14 +2322,13 @@ ID: `mint_system.ir_model.stock_move.x_operation_qty`
     <field name="model">stock.move</field>
     <field name="model_id" ref="stock.model_stock_move"/>
     <field name="name">x_operation_qty</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
     <field name="ttype">float</field>
     <field name="depends">product_uom_qty</field>
     <field name="compute">for record in self:
-  if (record.location_id.id == self.env.ref('stock.stock_location_stock').id):
+  if (record.location_id.usage == 'internal'):
     record['x_operation_qty'] = -1 * record.product_uom_qty
   else:
     record['x_operation_qty'] = record.product_uom_qty
@@ -1659,13 +2346,12 @@ ID: `mint_system.ir_model.stock_move.x_packaging_uom_id`
 <?xml version='1.0' encoding='UTF-8' ?>
 <odoo>
 
-  <record id="packaging_uom_id" model="ir.model.fields">
+  <record id="x_packaging_uom_id" model="ir.model.fields">
     <field name="domain">[]</field>
     <field name="field_description">Mengeneinheit</field>
     <field name="model">product.packaging</field>
     <field name="model_id" ref="product.model_product_packaging"/>
     <field name="name">x_packaging_uom_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
@@ -1703,6 +2389,52 @@ ID: `mint_system.ir_model.stock_move.x_picking_partner_id`
 ```
 Source: [snippets/ir_model.stock_move.x_picking_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_picking_partner_id.xml)
 
+### X Print Parent Only  
+ID: `mint_system.ir_model.stock_move.x_print_parent_only`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_print_parent_only" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Nur übergeordnete Verpackung drucken</field>
+    <field name="model">product.packaging</field>
+    <field name="model_id" ref="product.model_product_packaging"/>
+    <field name="name">x_print_parent_only</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">boolean</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_move.x_print_parent_only.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_print_parent_only.xml)
+
+### X Print Without Parent  
+ID: `mint_system.ir_model.stock_move.x_print_without_parent`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_print_without_parent" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Ohne übergeordnete Verpackung drucken</field>
+    <field name="model">product.packaging</field>
+    <field name="model_id" ref="product.model_product_packaging"/>
+    <field name="name">x_print_without_parent</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">boolean</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_move.x_print_without_parent.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_print_without_parent.xml)
+
 ### X Scrap Id  
 ID: `mint_system.ir_model.stock_move.x_scrap_id`  
 ```xml
@@ -1715,7 +2447,6 @@ ID: `mint_system.ir_model.stock_move.x_scrap_id`
     <field name="model">product.packaging</field>
     <field name="model_id" ref="product.model_product_packaging"/>
     <field name="name">x_scrap_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="True"/>
@@ -1735,6 +2466,130 @@ ID: `mint_system.ir_model.stock_move.x_scrap_id`
 </odoo>
 ```
 Source: [snippets/ir_model.stock_move.x_scrap_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_scrap_id.xml)
+
+## Stock Picking  
+### X Autocomplete  
+ID: `mint_system.ir_model.stock_picking.x_autocomplete`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_autocomplete" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Automatisch Erledigen</field>
+    <field name="model">stock.picking</field>
+    <field name="model_id" ref="stock.model_stock_picking"/>
+    <field name="name">x_autocomplete</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">boolean</field> 
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_picking.x_autocomplete.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_picking.x_autocomplete.xml)
+
+## Stock Production Lot  
+### X Autoremove  
+ID: `mint_system.ir_model.stock_production_lot.x_autoremove`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_autoremove" model="ir.model.fields">
+    <field name="field_description">Automatisch Entfernen</field>
+    <field name="model">stock.production.lot</field>
+    <field name="model_id" ref="stock.model_stock_production_lot"/>
+    <field name="name">x_autoremove</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">boolean</field> 
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_production_lot.x_autoremove.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_production_lot.x_autoremove.xml)
+
+### X Production Ids  
+ID: `mint_system.ir_model.stock_production_lot.x_production_ids`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_production_ids" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Fertigungsaufträge</field>
+    <field name="model">stock.production.lot</field>
+    <field name="model_id" ref="stock.model_stock_production_lot"/>
+    <field name="name">x_production_ids</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">One2many</field>
+    <field name="relation">mrp.production</field>
+    <field name="relation_field">lot_producing_id</field>    
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_production_lot.x_production_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_production_lot.x_production_ids.xml)
+
+### X Production Id  
+ID: `mint_system.ir_model.stock_production_lot.x_production_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_production_id" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Fertigungsauftrag</field>
+    <field name="model">stock.production.lot</field>
+    <field name="model_id" ref="stock.model_stock_production_lot"/>
+    <field name="name">x_production_id</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field>
+    <field name="depends">x_production_ids</field>
+    <field name="compute">for rec in self:
+      if rec.x_production_ids:
+        rec['x_production_id'] = rec.x_production_ids[0].name.split('-')[0]
+      else:
+        rec['x_production_id'] = ''
+    </field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_production_lot.x_production_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_production_lot.x_production_id.xml)
+
+### X Weight Uom  
+ID: `mint_system.ir_model.stock_production_lot.x_weight_uom`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_weight_uom" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Nettogewicht [kg]</field>
+    <field name="model">stock.production.lot</field>
+    <field name="model_id" ref="stock.model_stock_production_lot"/>
+    <field name="name">x_weight_uom</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">float</field> 
+    <field name="depends">product_qty, product_id.weight, product_id.weight_uom_id</field>
+    <field name="compute">for record in self:
+  record['x_weight_uom'] = record.product_qty * record.product_id.product_tmpl_id.weight_uom_id._compute_quantity(record.product_id.weight, self.env.ref('uom.product_uom_kgm'))
+    </field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_production_lot.x_weight_uom.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_production_lot.x_weight_uom.xml)
 
 ## Stock Quant  
 ### X Last Delivery Partner Id  
@@ -1760,4 +2615,37 @@ ID: `mint_system.ir_model.stock_quant.x_last_delivery_partner_id`
 </odoo>
 ```
 Source: [snippets/ir_model.stock_quant.x_last_delivery_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_quant.x_last_delivery_partner_id.xml)
+
+## Stock Valuation Layer  
+### X Quant Location Id  
+ID: `mint_system.ir_model.stock_valuation_layer.x_quant_location_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+
+  <record id="x_quant_location_id" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Lagerort Bestand</field>
+    <field name="model">stock.valuation.layer</field>
+    <field name="model_id" ref="stock.model_stock_valuation_layer" />
+    <field name="name">x_quant_location_id</field>
+    <field name="store" eval="True" />
+    <field name="readonly" eval="True" />
+    <field name="copied" eval="False" />
+    <field name="ttype">many2one</field>
+    <field name="relation">stock.location</field>
+    <field name="depends">stock_move_id.location_id,stock_move_id.location_dest_id</field>
+    <field name="compute">for record in self:
+      if (record.stock_move_id.picking_code == "outgoing"):
+        record['x_quant_location_id'] = record.stock_move_id.location_id.id
+      elif (record.stock_move_id.picking_code == "incoming"):
+        record['x_quant_location_id'] = record.stock_move_id.location_dest_id.id
+      else:
+        record['x_quant_location_id'] = record.stock_move_id.location_dest_id.id
+    </field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_valuation_layer.x_quant_location_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_valuation_layer.x_quant_location_id.xml)
 

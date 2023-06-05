@@ -1,6 +1,3 @@
----
-prev: ./snippets.md
----
 # Sale Management
 ## Sale Order Form Quote  
 ### Hide Optional Products  

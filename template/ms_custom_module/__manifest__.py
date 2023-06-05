@@ -6,22 +6,22 @@
     "author": "Mint System GmbH, Odoo Community Association (OCA)",
     "website": "https://www.mint-system.ch",
     "category": "Purchase,Technical,Accounting,Invoicing,Sales,Human Resources,Manufacturing,Website,Inventory,Administration,Tools",
-    "version": "14.0.1.0.0",
+    "version": "15.0.1.0.0",
     "license": "AGPL-3",
     "depends": ["base"],
     "data": [
         "security/ir.model.access.csv",
-        "views/report_invoice_document.xml",
+        "report/invoice_document.xml",
         "data/ir_sequence.xml",
         "views/assets.xml",
-        "views/views.xml"
+        "views/sale_order.xml"
     ],
-    "qweb": ["static/src/xml/board.xml"],
-    "demo": ["demo/demo.xml"],
     "installable": True,
     "application": False,
     "auto_install": False,
     "images": ["images/screen.png"],
+    "qweb": ["static/src/xml/board.xml"],
+    "demo": ["demo/demo.xml"],
     "assets": {
         "web.assets_backend": [
             "{{ name }}/static/src/js/action_refresh.js",

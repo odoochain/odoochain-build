@@ -1,8 +1,32 @@
----
-prev: ./snippets.md
----
 # Sale Blanket Order
 ## Report Blanketorder Document  
+### Add Discount  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_discount`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+
+  <xpath expr="//th[@id='price_subtotal']" position="after">
+
+    <!-- Is there a discount on at least one line? -->
+    <t t-set="display_discount" t-value="any(l.discount for l in doc.line_ids)"/>
+
+    <th name="th_discount" t-if="display_discount" class="text-right" groups="product.group_discount_per_so_line">
+      <span>Disc.%</span>
+    </th>
+  </xpath>
+
+  <xpath expr="//td[@id='price_subtotal']" position="after">
+    <td t-if="display_discount" class="text-right" groups="product.group_discount_per_so_line">
+      <span t-field="l.discount"/>%
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.add_discount.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.add_discount.xml)
+
 ### Add Footer  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_footer`  
 ```xml
@@ -85,6 +109,20 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_header_and_
     </t>
   </xpath>
 
+   <!--
+   <xpath expr="//div[@id='informations']" position="after">
+    <t t-if="doc.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="doc.note_header"/>
+    </t>
+  </xpath>
+
+  <xpath expr="//div[@id='summary']" position="after">
+    <t t-if="doc.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="doc.note_footer"/>
+    </t>
+  </xpath>
+  -->
+
 </data>
 
 ```
@@ -132,23 +170,15 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_infotable`
         <td width="44%">
           <span t-field='doc.date_confirmed' t-options='{ "widget": "date" }'/>
         </td>
-        <td width="14%"></td>
-        <td width="25%"></td>
+        <td width="14%">Our Reference</td>
+        <td width="25%">
+          <span t-field='doc.user_id'/>
+        </td>
       </tr>
       <tr>
         <td>Customer No.</td>
         <td>
           <span t-field='doc.partner_id.ref'/>
-        </td>
-        <td>Our Reference</td>
-        <td>
-          <span t-field='doc.user_id'/>
-        </td>
-      </tr>
-      <tr>
-        <td>Order</td>
-        <td>
-          <span t-field='doc.client_order_ref'/>
         </td>
         <td>Delivery Method</td>
         <td>
@@ -156,13 +186,23 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_infotable`
         </td>
       </tr>
       <tr>
-        <td>Reference</td>
+        <td>Order</td>
         <td>
-          <span t-field='doc.comment'/>
+          <span t-field='doc.client_order_ref'/>
         </td>
         <td>Incoterm</td>
         <td>
           <span t-field='doc.incoterm'/>
+        </td>
+      </tr>
+      <tr>
+        <td>Reference</td>
+        <td>
+          <span t-field='doc.comment'/>
+        </td>
+        <td>Validity Date</td>
+        <td>
+          <span t-field='doc.validity_date'/>
         </td>
       </tr>
     </table>
@@ -179,13 +219,31 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.address_block`
 <?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">>
 
-  <xpath expr="/t/t/div/div[2]" position="replace">
-    <t t-set="address">
-            <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-            <p t-if="doc.partner_id.vat"><t t-esc="doc.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="doc.partner_id.vat"/></p>
+    <xpath expr="/t/t/div/div[2]" position="replace">
+        <t t-set="address">
+            <t t-if="doc.partner_contact_id">
+                <div t-esc="doc.partner_contact_id.parent_id.name"/>
+                <div t-esc="doc.partner_contact_id.parent_id.name2"/>
+                <span t-esc="doc.partner_contact_id.title.name"/>
+                <span t-esc="doc.partner_contact_id.name"/>
+                <div t-esc="doc.partner_contact_id.street"/>
+                <div t-esc="doc.partner_contact_id.street2"/>
+                <span t-esc="doc.partner_contact_id.zip"/>
+                <span t-esc="doc.partner_contact_id.city"/>
+                <t t-if="doc.partner_contact_id.country_id.code != 'CH'">
+                    <div t-esc="doc.partner_contact_id.country_id.name"/>
+                </t>
+            </t>
+            <t t-else="">
+                <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                <p t-if="doc.partner_id.vat">
+                    <t t-esc="doc.company_id.country_id.vat_label or 'Tax ID'"/>
+:                    <span t-field="doc.partner_id.vat"/>
+                </p>
+            </t>
         </t>
         <t t-if="doc.partner_shipping_id == doc.partner_invoice_id                              and doc.partner_invoice_id != doc.partner_id                              or doc.partner_shipping_id != doc.partner_invoice_id">
-            <t t-set="information_block"> 
+            <t t-set="information_block">
                 <!--
                 <strong t-if="doc.partner_shipping_id == doc.partner_invoice_id">Invoicing and Shipping Address:</strong>
                 <strong t-if="doc.partner_shipping_id != doc.partner_invoice_id">Invoicing Address:</strong>
@@ -197,7 +255,7 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.address_block`
                 </t>
             </t>
         </t>
-  </xpath>
+    </xpath>
 
 </data>
 ```
@@ -278,6 +336,19 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.get_position`
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.get_position.xml)
 
+### Hide Date Schedule  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.hide_date_schedule`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+  <xpath expr="//th[@id='date_schedule']" position="replace"/>
+  <xpath expr="//td[@id='date_schedule']" position="replace"/>
+  
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.hide_date_schedule.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.hide_date_schedule.xml)
+
 ### Modify Information Block  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.modify_information_block`  
 ```xml
@@ -352,6 +423,55 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.remove_vat`
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.remove_vat.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.remove_vat.xml)
 
+### Replace Infoblock  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_infoblock`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+    <xpath expr="//div[@id='informations']" position="replace">
+
+        <div class="row" id="informations">
+
+            <div class="col-auto col-3 mw-100 mb-2" t-if="doc.client_order_ref">
+                <strong>Your Reference</strong>
+                <p t-field="doc.client_order_ref"/>
+            </div>
+
+            <div class="col-auto col-3 mw-100 mb-2" t-if="doc.partner_contact_id.name and doc.partner_contact_id.parent_id">
+                <strong>Contact</strong>
+                <p t-field="doc.partner_contact_id.name"/>
+            </div>
+
+            <div class="col-auto col-3 mw-100 mb-2">
+                <strong>Order Date</strong>
+                <p t-field="doc.create_date" t-options='{"widget": "date"}'/>
+            </div>
+
+            <div class="col-auto col-3 mw-100 mb-2">
+                <strong>Validity Date</strong>
+                <p t-field="doc.validity_date"/>
+            </div>
+
+            <div class="col-auto col-3 mw-100 mb-2" t-if="doc.incoterm">
+                <strong>Incoterm</strong>
+                <p t-field="doc.incoterm"/>
+            </div>
+
+            <div class="col-auto col-3 mw-100 mb-2" t-if="doc.user_id.name">
+                <strong>Salesperson</strong>
+                <p t-field="doc.user_id"/>
+            </div>
+
+        </div>
+
+    </xpath>
+
+</data>
+
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_infoblock.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.replace_infoblock.xml)
+
 ### Replace Partner Id  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_partner_id`  
 ```xml
@@ -359,11 +479,11 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_partner
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">>
 
  <xpath expr="//div[@t-field='doc.partner_id']" position="replace">    
-      <t t-if="doc.partner_contact_id.parent_name">
-        <div t-field="doc.partner_contact_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" name="partner_contact_id"/>
+      <t t-if="doc.partner_contact_id">
+        <div t-field="doc.partner_contact_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}"/>
       </t>
-      <t t-if="not doc.partner_contact_id.parent_name">
-        <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" name="partner_contact_id"/>
+      <t t-if="not doc.partner_contact_id">
+        <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}"/>
       </t>   
   </xpath>
 
@@ -398,7 +518,7 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_summary
 <?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
 
-  <xpath expr="//div[2]" position="replace">
+  <xpath expr="//span[@t-field='doc.amount_untaxed']/../../../../.." position="replace">
 
      <table id="summary" class="table table-condensed trimada table-borderless" style="margin-top:20px; width:100%; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
       <tr>
@@ -409,7 +529,7 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_summary
           <span t-field="doc.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.currency_id}"/>
         </td>
         <td style="width:12%; text-align:left">
-          <span>VAT 7.7%</span>
+          <span>VAT</span>
         </td>
         <td style="width:17%; text-align:left">
           <span t-field="doc.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.currency_id}"/>
@@ -426,7 +546,6 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_summary
   </xpath>
 
 </data>
-
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.replace_summary.xml)
 
@@ -507,6 +626,25 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.second_row`
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.second_row.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.second_row.xml)
 
+### Set Ids Tissa  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.set_ids_tissa`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+	<xpath expr="//div[@class='page']/div[2]" position="attributes">
+		<attribute name="id">address</attribute>
+		<attribute name="class" separator=" " add="trimada"/>
+	</xpath>
+
+	<xpath expr="//span[@t-field='doc.amount_untaxed']/../../../../.." position="attributes">
+		<attribute name="id">summary</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.set_ids_tissa.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.set_ids_tissa.xml)
+
 ### Set Ids  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.set_ids`  
 ```xml
@@ -552,6 +690,10 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.set_ids`
 	</xpath>
 
 	<xpath expr="//table[2]//th[5]" position="attributes">
+		<attribute name="id">price_subtotal</attribute>
+	</xpath>
+	
+	xpath expr="//table[2]//td[5]" position="attributes">
 		<attribute name="id">price_subtotal</attribute>
 	</xpath>
 	
@@ -610,6 +752,51 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.show_descriptio
 
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.show_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.show_description.xml)
+
+### Style Gelso  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_gelso`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		    div#informations {			
+				font-size: 16px;
+				margin-bottom: 0rem;
+			}			
+		</style>
+	</xpath>
+	
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.style_gelso.xml)
+
+### Style Tissa  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_tissa`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+			.trimada {
+				margin-bottom: 20px;
+			}
+		</style>
+	</xpath>
+
+	<xpath expr="//div[@id='address']/div" position="attributes">
+		<attribute name="class">col-4</attribute>
+	</xpath>
+
+	<xpath expr="//div[@id='summary']/div" position="attributes">
+		<attribute name="t-attf-class">#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.style_tissa.xml)
 
 ### Style Trimada  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_trimada`  
@@ -707,6 +894,24 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_da
 ```
 Source: [snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml)
 
+### X Product Uom Category Id  
+ID: `mint_system.sale_blanket_order.view_blanket_order_form.x_product_uom_category_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.view_blanket_order_form" priority="50">
+
+  <xpath expr="//page[@name='order_lines']//field[@name='product_uom']" position="before">
+    <field name="x_product_uom_category_id" invisible="1" />
+  </xpath>
+
+  <xpath expr="//page[@name='order_lines']//field[@name='product_uom']" position="attributes">
+    <attribute name="domain">[["category_id","=",x_product_uom_category_id]]</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.view_blanket_order_form.x_product_uom_category_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_blanket_order_form.x_product_uom_category_id.xml)
+
 ## View Blanket Order Search  
 ### Replace Filter  
 ID: `mint_system.sale_blanket_order.view_blanket_order_search.replace_filter`  
@@ -738,7 +943,7 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_search.replace_filter`
 
       <!-- Suche -->
       <group>
-        <field name="name" string="Auftrag"/>
+        <field name="name" string="Order" filter_domain="['|', '|', ('name', 'ilike', self), ('client_order_ref', 'ilike', self), ('partner_id', 'child_of', self)]"/>
         <field name="partner_id"/>
         <field name="user_id"/>
         <field name="team_id"/>
@@ -783,4 +988,23 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_tree.reset_view`
 </data>
 ```
 Source: [snippets/sale_blanket_order.view_blanket_order_tree.reset_view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_blanket_order_tree.reset_view.xml)
+
+## View Order Form  
+### Modify Attributes Blanket Order Line  
+ID: `mint_system.sale_blanket_order.view_order_form.modify_attributes_blanket_order_line`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='blanket_order_line']" position="before">
+    <field name="order_partner_id" invisible="1" />
+  </xpath>
+
+  <xpath expr="//field[@name='blanket_order_line']" position="attributes">
+    <attribute name="domain">[["partner_id","=",order_partner_id]]</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.view_order_form.modify_attributes_blanket_order_line.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_order_form.modify_attributes_blanket_order_line.xml)
 
