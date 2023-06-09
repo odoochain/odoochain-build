@@ -246,3 +246,7 @@
 	path = oca/credit-control
 	url = https://github.com/OCA/credit-control
 	branch = 15.0
+[submodule "addons/demodata"]
+	path = addons/demodata
+	url = git@github.com:mint-system/odoo-apps-demodata.git
+	branch = 15.0
