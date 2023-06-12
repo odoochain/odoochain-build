@@ -61,7 +61,7 @@ function get-module-version() {
         echo "\$1 is empty."
     else
         # Get version of module
-        VERSION=$(grep 'version' "$1/__manifest__.py" | sed "s;';\";g"  | sed "s/,//g" )
+        VERSION=$(grep -m 1 version "$1/__manifest__.py" |  sed "s;';\";g"  | sed "s/,//g" )
         VERSION=$(echo "{ $VERSION }" | jq .version | sed 's/"//g' | sed 's/null//g')
 
         # Set default version
@@ -205,9 +205,10 @@ function start() {
     fi
 
     if [[ "$1" =~ "mail" ]]; then
+        echo "Open http://localhost:8025 url in your browser."
         docker-compose up -d mail
-        echo "Run \`docker exec -it mail setup email add odoo@example.com\`"
-        echo "Run \`docker exec -it mail setup email add test@example.com\`"
+        # echo "Run \`docker exec -it mail setup email add odoo@example.com\`"
+        # echo "Run \`docker exec -it mail setup email add test@example.com\`"
     fi
 }
 
