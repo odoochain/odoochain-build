@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data inherit_id="base.view_company_form" priority="50">
+
+  <xpath expr="//field[@name='website']" position="after">
+    <field name="chart_template_id"/>
+  </xpath>
+
+</data>
