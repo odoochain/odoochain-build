@@ -43,17 +43,39 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data/pgdata
   mail:
-    image: docker.io/mailserver/docker-mailserver:latest
+    image: mailhog/mailhog
     container_name: mail
     hostname: mail
-    domainname: localhost
     ports:
-      - "25:25"
-      - "143:143"
-      - "587:587"
-      - "993:993"
+      - "1025:1025"
+      - "8025:8025"
+  dind:
+    image: docker:dind
+    container_name: dind
+    hostname: dind
+    privileged: true
+    environment:
+      DOCKER_TLS_CERTDIR: ''
+    volumes:
+      - cd-data:/var/jenkins_home
+  cd:
+    build:
+      context: build
+      dockerfile: cd.Dockerfile
+    container_name: cd
+    hostname: cd
+    depends_on:
+      - dind
+    privileged: true
+    ports:
+      - "8080:8080"
+    environment:
+      DOCKER_HOST: tcp://dind:2375
+    volumes:
+      - cd-data:/var/jenkins_home
 volumes:
   odoo-data:
   db-data:
   admin-data:
   mail-data:
+  cd-data:
