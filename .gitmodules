@@ -258,3 +258,7 @@
 	path = oca/credit-control
 	url = https://github.com/OCA/credit-control
 	branch = 14.0
+[submodule "oca/maintenance"]
+	path = oca/maintenance
+	url = git@github.com:OCA/maintenance.git
+	branch = 14.0
