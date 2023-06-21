@@ -1494,9 +1494,9 @@ ID: `mint_system.stock.report_delivery_document.backorder_signature_section`
 
   <xpath expr="//table[@name='stock_move_line_table']" position="after">
     <p>Retouren:<br/><br/>
-		KEG:             ___________  Anzahl<br/><br/>
-		Harassen:  ___________  Anzahl<br/><br/>
-		Waren erhalten:   Datum:  ______________________  Unterschrift:  _________________________________
+		KEG:             ___________  Anzahl<br/><br/>
+		Harassen:  ___________  Anzahl<br/><br/>
+		Waren erhalten:   Datum:  ______________________  Unterschrift:  _________________________________
     </p>
   </xpath>
 
@@ -1519,26 +1519,6 @@ ID: `mint_system.stock.report_delivery_document.barcode_customer_reference`
 
 ```
 Source: [snippets/stock.report_delivery_document.barcode_customer_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.barcode_customer_reference.xml)
-
-### Description Sale  
-ID: `mint_system.stock.report_delivery_document.description_sale`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="stock.report_delivery_document" priority="55">
-
-  <xpath expr="//span[@t-field='move.product_id']" position="replace">
-    <t t-if="move.product_id.description_sale">
-      <span t-field="move.product_id.description_sale"/>
-    </t>
-    <t t-else="">
-      <span t-field="move.product_id"/>
-    </t>
-  </xpath>
-
-</data>
-
-```
-Source: [snippets/stock.report_delivery_document.description_sale.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.description_sale.xml)
 
 ### Disable Stock Move Line Table  
 ID: `mint_system.stock.report_delivery_document.disable_stock_move_line_table`  
@@ -2110,6 +2090,25 @@ ID: `mint_system.stock.report_delivery_document.remove_informations`
 ```
 Source: [snippets/stock.report_delivery_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.remove_informations.xml)
 
+### Replace Description Sale  
+ID: `mint_system.stock.report_delivery_document.replace_description_sale`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="55">
+
+    <xpath expr="//span[@t-field='move.product_id']" position="replace">
+        <t t-if="move.product_id.description_sale">
+            <span t-field="move.product_id.description_sale" />
+        </t>
+        <t t-else="">
+            <span t-field="move.product_id" />
+        </t>
+    </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.replace_description_sale.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.replace_description_sale.xml)
+
 ### Replace Header  
 ID: `mint_system.stock.report_delivery_document.replace_header`  
 ```xml
@@ -2466,6 +2465,25 @@ ID: `mint_system.stock.report_delivery_document.replace_product_uom_qty`
 ```
 Source: [snippets/stock.report_delivery_document.replace_product_uom_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.replace_product_uom_qty.xml)
 
+### Replace Sale Line Name  
+ID: `mint_system.stock.report_delivery_document.replace_sale_line_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="55">
+
+    <xpath expr="//span[@t-field='move.product_id']" position="replace">
+        <t t-if="move.sale_line_id">
+            <span t-field="move.sale_line_id.name" />
+        </t>
+        <t t-else="">
+            <span t-field="move.product_id" />
+        </t>
+    </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.replace_sale_line_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.replace_sale_line_name.xml)
+
 ### Replace Table  
 ID: `mint_system.stock.report_delivery_document.replace_table`  
 ```xml
@@ -2789,23 +2807,26 @@ ID: `mint_system.stock.report_delivery_document.show_default_code`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
-  <xpath expr="//table[@name='stock_move_table']/thead/tr/th[1]" position="before">
+  <xpath expr="//table[@name='stock_move_table']//th[@name='th_sm_product']" position="before">
+    <th name="th_default_code">
+      <strong>Referenz</strong>
+    </th>
+  </xpath>
+
+  <!-- <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[1]" position="before">
     <th id="default_code">
       <strong >Nr.</strong>
     </th>
-  </xpath>
-  <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[1]" position="before">
-    <th id="default_code">
-      <strong >Nr.</strong>
-    </th>
-  </xpath>
-  <xpath expr="//table[@name='stock_move_table']/tbody//tr/td[1]" position="before">
-    <td id="default_code">
+  </xpath> -->
+
+  <xpath expr="//table[@name='stock_move_table']//span[@t-field='move.product_id']/.." position="before">
+    <td name="td_default_code">
       <span t-field="move.product_id.default_code"/>
     </td>
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/stock.report_delivery_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.show_default_code.xml)
 
@@ -2815,16 +2836,18 @@ ID: `mint_system.stock.report_delivery_document.show_lot_ids`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
-  <xpath expr="//table[@name='stock_move_table']//th[1]" position="after">
+  <xpath expr="//table[@name='stock_move_table']//th[@name='th_sm_product']" position="after">
     <th name="th_lot_ids">
       <strong>Seriennummer</strong>
     </th>
   </xpath>
 
-  <xpath expr="//table[@name='stock_move_table']//td[1]" position="after">
+  <xpath expr="//table[@name='stock_move_table']//span[@t-field='move.product_id']/.." position="after">
     <td name="td_lots">
-      <ul>
-      <t t-foreach="move.lot_ids" t-as="lot" ><li t-esc="lot.name" /></t>
+      <ul class="list-unstyled">
+        <t t-foreach="move.lot_ids" t-as="lot">
+          <li t-esc="lot.name" />
+        </t>
       </ul>
     </td>
   </xpath>
