@@ -1443,24 +1443,46 @@ ID: `mint_system.stock.report_delivery_document.append_signature_text`
 <data inherit_id="stock.report_delivery_document" priority="50">
 
   <xpath expr="//table[@name='stock_move_line_table']" position="after">
+    <style>
+      div#signature {
+      padding-left: 75px;
+      padding-right: 75px;
+      margin-top: 3rem;
+      }
+    </style>
+    <div id="signature">
+      <p>Hiermit bestätigen wir den Erhalt der Ware gemäss Lieferung.</p>
+      <br />
+      <br />
+      <div class="row">
+        <div class="col-6">
+          <p>Ort/Datum: __________________________________</p>
+        </div>
+        <div class="col-6">
+          <p>Unterschrift Kunde: __________________________________</p>
+        </div>
+      </div>
+    </div>
+  </xpath>
+
+  <xpath expr="//table[@name='stock_move_line_table']" position="after">
     <div class="row" style="margin-top: 3rem;">
       <div class="col-5">
-       <p>Gebinde geliefert: _____</p>
-       <p>Gebinde zurück: _____</p>
-       <br/>
-       <p>Unterschrift Transport: _______________</p>
+        <p>Gebinde geliefert: _____</p>
+        <p>Gebinde zurück: _____</p>
+        <br />
+        <p>Unterschrift Transport: _______________</p>
       </div>
       <div class="col-2" />
       <div class="col-5">
-       <p>Produkte einwandfrei erhalten.</p>
-       <br/>
-       <p>Unterschrift Kunde: _______________</p>
+        <p>Produkte einwandfrei erhalten.</p>
+        <br />
+        <p>Unterschrift Kunde: _______________</p>
       </div>
     </div>
   </xpath>
 
 </data>
-
 ```
 Source: [snippets/stock.report_delivery_document.append_signature_text.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.append_signature_text.xml)
 
@@ -2143,25 +2165,32 @@ ID: `mint_system.stock.report_delivery_document.replace_informations`
             <table class="table table-borderless table-sm">
                 <tr>
                     <td>
-                        <strong>Shipping Date:</strong>
+                        <strong>Versanddatum:</strong>
                         <t t-if="o.state == 'done'">
-                            <p t-field="o.date_done" />
+                            <span t-field="o.date_done" t-options='{"widget": "date"}' />
                         </t>
                         <t t-if="o.state != 'done'">
-                            <p t-field="o.scheduled_date" />
+                            <span t-field="o.scheduled_date" t-options='{"widget": "date"}' />
                         </t>
                     </td>
                     <td>
+                        <strong>Unser Kontakt:</strong>
+                        <span t-field="o.sudo().sale_id.user_id" />
                     </td>
                     <td>
-                        <strong>Customer Reference:</strong>
-                        <p t-field="o.sudo().sale_id.client_order_ref" />
+                        <strong>Ihr Kontakt:</strong>
+                        <span t-field="o.sudo().sale_id.partner_sale_id.name" />
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <strong>&#160;Unsere Referenz:</strong>
-                        <p t-field="o.origin" />
+                        <span t-field="o.origin" />
+                    </td>
+                    <td>
+
+                        <strong>Ihre Referenz:</strong>
+                        <span t-field="o.sudo().sale_id.client_order_ref" />
                     </td>
                 </tr>
             </table>
