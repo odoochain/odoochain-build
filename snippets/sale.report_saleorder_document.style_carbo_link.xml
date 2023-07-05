@@ -1,0 +1,12 @@
+<data inherit_id="sale.report_saleorder_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		.o_company_1_layout {
+        	font-family: Dobra-Book;
+        	font-size: 80%;
+        	}
+		</style>
+	</xpath>
+	
+</data>
