@@ -8,5 +8,9 @@
         	}
 		</style>
 	</xpath>
-	
+
+	<xpath expr="//div/div/div[2]/p" position="attributes">
+		<attribute name="t-options-widget">"date"</attribute>
+	</xpath>
+
 </data>
