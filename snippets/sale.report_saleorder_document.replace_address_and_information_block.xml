@@ -37,7 +37,7 @@
         <span t-field="doc.partner_shipping_id.commercial_company_name"/>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="col-5 offset-7">
         <span t-field="doc.partner_shipping_id" t-options-widget="&quot;contact&quot;" t-options-fields="['address']" t-options-no_marker="True"/>
