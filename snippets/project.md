@@ -15,6 +15,21 @@ ID: `mint_system.project.edit_project.domain_action_view_so`
 ```
 Source: [snippets/project.edit_project.domain_action_view_so.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/project.edit_project.domain_action_view_so.xml)
 
+### Show Collaborator Ids  
+ID: `mint_system.project.edit_project.show_collaborator_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.edit_project" priority="50">
+
+    <field name="privacy_visibility" position="after">
+        <field name="collaborator_ids" />
+    </field>
+
+</data>
+
+```
+Source: [snippets/project.edit_project.show_collaborator_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/project.edit_project.show_collaborator_ids.xml)
+
 ### Show Date Start  
 ID: `mint_system.project.edit_project.show_date_start`  
 ```xml
