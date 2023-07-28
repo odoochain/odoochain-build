@@ -464,6 +464,26 @@ ID: `mint_system.project.view_task_form2.x_vehicle_id`
 ```
 Source: [snippets/project.view_task_form2.x_vehicle_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/project.view_task_form2.x_vehicle_id.xml)
 
+## View Task Kanban  
+### Show Planned Date Begin  
+ID: `mint_system.project.view_task_kanban.show_planned_date_begin`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.view_task_kanban" priority="50">
+
+    <div name="date_deadline" position="replace">
+
+        <div t-if="record.planned_date_begin.raw_value" name="planned_date_begin" attrs="{'invisible': [('is_closed', '=', True)]}">
+            <field name="planned_date_begin" widget="remaining_days"/>
+        </div>
+
+    </div>
+
+</data>
+
+```
+Source: [snippets/project.view_task_kanban.show_planned_date_begin.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/project.view_task_kanban.show_planned_date_begin.xml)
+
 ## View Task Tree2  
 ### Sale Line Optional  
 ID: `mint_system.project.view_task_tree2.sale_line_optional`  
