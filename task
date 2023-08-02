@@ -169,6 +169,10 @@ function open-url-with-delay(){
     xdg-open $1
 }
 
+# function share-filestore(){
+#     sudo chmod o+rwx -R ~/.local/share/Odoo/filestore
+# }
+
 function start() {    
     DATABASE=$2
     # Use default database if second param is not given
@@ -203,6 +207,7 @@ function start() {
     fi
 
     if [[ "$1" =~ "odoo" ]]; then
+        # share-filestore
         docker-compose up -d odoo
         echo "Open http://localhost:8069 url in your browser."
     fi
@@ -273,6 +278,7 @@ function init-db() {
 
     locale
     activate-venv
+    # share-filestore
     echo "Make sure only one odoo process is running when initalizing the database."
     odoo-bin --init base -d $DATABASE --config 'config/odoo-native.conf' --stop-after-init --no-http --load-language $ODOO_LANGUAGE
 }
@@ -440,6 +446,25 @@ function clear-assets() {
     echo "Delete these assets for $DATABASE:"
     docker exec db psql postgres://odoo:odoo@localhost/$DATABASE -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
     docker exec db psql postgres://odoo:odoo@localhost/$DATABASE -c "delete from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
+}
+
+function reset-views() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    DATABASE=$1
+    KEY=$(basename $2)
+
+    # Use default database if second param is not given 
+    if test -z "$2"; then
+        DATABASE="$GIT_BRANCH"
+        KEY=$(basename $1)
+    fi
+
+    locale
+    activate-venv
+    echo "Reset views for key $KEY"
+    echo "self.env['ir.ui.view'].search([('key', 'ilike', '$KEY')]).reset_arch(mode='hard')" |
+    odoo-bin shell -d $DATABASE --config 'config/odoo-native.conf' --no-http
 }
 
 function convert-database() {
@@ -1117,6 +1142,9 @@ case "$1" in
         ;;
     source)
         activate-venv
+        ;;
+    reset-views)
+        reset-views $2 $3
         ;;
     *)
         help task

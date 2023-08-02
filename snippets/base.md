@@ -411,6 +411,21 @@ ID: `mint_system.base.view_partner_form.x_external_ref`
 ```
 Source: [snippets/base.view_partner_form.x_external_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_external_ref.xml)
 
+### X Global Location Number  
+ID: `mint_system.base.view_partner_form.x_global_location_number`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <field name="x_global_location_number"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.x_global_location_number.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_global_location_number.xml)
+
 ### X Packaging Ref  
 ID: `mint_system.base.view_partner_form.x_packaging_ref`  
 ```xml
@@ -425,6 +440,21 @@ ID: `mint_system.base.view_partner_form.x_packaging_ref`
 
 ```
 Source: [snippets/base.view_partner_form.x_packaging_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_packaging_ref.xml)
+
+### X Vst  
+ID: `mint_system.base.view_partner_form.x_vst`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <field name="x_vst"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_vst.xml)
 
 ## View Partner Tree  
 ### Add Ref Zip Type  
@@ -709,4 +739,19 @@ ID: `mint_system.base.view_users_form.write_partner_id`
 </data>
 ```
 Source: [snippets/base.view_users_form.write_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_users_form.write_partner_id.xml)
+
+## View View Form  
+### Add Key  
+ID: `mint_system.base.view_view_form.add_key`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_view_form" priority="50">
+
+  <xpath expr="//group[1]/field[@name='name']" position="before">
+    <field name="key"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/base.view_view_form.add_key.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_view_form.add_key.xml)
 
