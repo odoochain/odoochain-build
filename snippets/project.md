@@ -379,6 +379,19 @@ ID: `mint_system.project.view_task_form2.show_key`
 ```
 Source: [snippets/project.view_task_form2.show_key.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/project.view_task_form2.show_key.xml)
 
+### Show Partner Mobile  
+ID: `mint_system.project.view_task_form2.show_partner_mobile`  
+```xml
+<data inherit_id="project.view_task_form2" priority="50">
+
+    <xpath expr="//field[@name='partner_phone']" position="after">
+        <field name="partner_mobile" widget="phone"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/project.view_task_form2.show_partner_mobile.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/project.view_task_form2.show_partner_mobile.xml)
+
 ### Timesheet Sort Date Desc  
 ID: `mint_system.project.view_task_form2.timesheet_sort_date_desc`  
 ```xml
