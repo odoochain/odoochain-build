@@ -1371,19 +1371,21 @@ ID: `mint_system.sale.report_saleorder_document.add_signature_note`
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
     <p t-field="doc.note" position="after">
-        <style>
+        <t t-if="doc.state != 'sale'">
+            <style>
             div#signature {
                 padding-top: 50px;
                 padding-left: 75px;
                 padding-right: 75px;
             }
-        </style>
-        <div id="signature">
-            <p>Hiermit bestelle wir die Produkte/Dienstleistungen gemäss diesem Angebot.<br />
-            <br />
-            <br />
+            </style>
+            <div id="signature">
+                <p>Hiermit bestelle wir die Produkte/Dienstleistungen gemäss diesem Angebot.<br />
+                <br />
+                <br />
             Ort/Datum: _________________ Unterschrift Kunde: __________________________________ </p>
-        </div>
+            </div>
+        </t>
     </p>
 
 </data>
@@ -3685,6 +3687,20 @@ ID: `mint_system.sale.view_order_form.show_carrier_method`
 ```
 Source: [snippets/sale.view_order_form.show_carrier_method.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.show_carrier_method.xml)
 
+### Show Commitment Date  
+ID: `mint_system.sale.view_order_form.show_commitment_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='date_order']" position="after">
+    <field name="commitment_date" readonly="1"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.show_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.show_commitment_date.xml)
+
 ### Show Order Line Project Id  
 ID: `mint_system.sale.view_order_form.show_order_line_project_id`  
 ```xml
@@ -3864,6 +3880,20 @@ ID: `mint_system.sale.view_order_form.x_order_number`
 </data>
 ```
 Source: [snippets/sale.view_order_form.x_order_number.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.x_order_number.xml)
+
+### X Payment Term Blanket Order  
+ID: `mint_system.sale.view_order_form.x_payment_term_blanket_order`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//group[@name='order_details']/field[@name='payment_term_id']" position="after">
+    <field name="x_payment_term_blanket_order"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.x_payment_term_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.x_payment_term_blanket_order.xml)
 
 ### X Sudio Description  
 ID: `mint_system.sale.view_order_form.x_sudio_description`  
@@ -4239,6 +4269,23 @@ ID: `mint_system.sale.view_order_tree.add_comment`
 ```
 Source: [snippets/sale.view_order_tree.add_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_tree.add_comment.xml)
 
+### Format Delivery Status  
+ID: `mint_system.sale.view_order_tree.format_delivery_status`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_tree" priority="50">
+
+  <xpath expr="//field[@name='delivery_status']" position="attributes">
+    <attribute name="widget">badge</attribute>
+    <attribute name="decoration-success">delivery_status=='full'</attribute>
+    <attribute name="decoration-danger">delivery_status=='pending'</attribute>
+    <attribute name="decoration-warning">delivery_status=='partial'</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_tree.format_delivery_status.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_tree.format_delivery_status.xml)
+
 ### Show Partner Shipping  
 ID: `mint_system.sale.view_order_tree.show_partner_shipping`  
 ```xml
@@ -4326,20 +4373,6 @@ ID: `mint_system.sale.view_quotation_tree.replace_create_date`
 </data>
 ```
 Source: [snippets/sale.view_quotation_tree.replace_create_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_quotation_tree.replace_create_date.xml)
-
-### Show Delivery Status  
-ID: `mint_system.sale.view_quotation_tree.show_delivery_status`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="sale.view_quotation_tree" priority="50">
-
-    <xpath expr="//field[@name='partner_id']" position="after">
-        <field name="delivery_status" optional="show"/>
-    </xpath>
-
-</data>
-```
-Source: [snippets/sale.view_quotation_tree.show_delivery_status.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_quotation_tree.show_delivery_status.xml)
 
 ### Show ​Payment Term Id  
 ID: `mint_system.sale.view_quotation_tree.show_​payment_term_id`  

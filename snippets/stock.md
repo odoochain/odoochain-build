@@ -2469,6 +2469,22 @@ ID: `mint_system.stock.report_delivery_document.replace_infotable`
 ```
 Source: [snippets/stock.report_delivery_document.replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.replace_infotable.xml)
 
+### Replace Name  
+ID: `mint_system.stock.report_delivery_document.replace_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+    <xpath expr="//span[@t-field='o.name']/.." position="replace">
+        <h2>
+            Delivery slip <span t-field="o.name"/>
+        </h2>
+    </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.replace_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.replace_name.xml)
+
 ### Replace Order Definition  
 ID: `mint_system.stock.report_delivery_document.replace_order_definition`  
 ```xml
@@ -5906,6 +5922,22 @@ ID: `mint_system.stock.report_picking.x_packaging_uom_id`
 
 ```
 Source: [snippets/stock.report_picking.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.x_packaging_uom_id.xml)
+
+## Search Product Lot Filter  
+### Filter Active  
+ID: `mint_system.stock.search_product_lot_filter.filter_active`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.search_product_lot_filter" priority="50">
+
+  <field name="product_id" position="after">
+    <filter name="active" string="Archiviert" domain="[('active', '=', False)]"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.search_product_lot_filter.filter_active.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.search_product_lot_filter.filter_active.xml)
 
 ## Stock Report Delivery Aggregated Move Lines  
 ### Add Country Of Origin And Hs Code  
