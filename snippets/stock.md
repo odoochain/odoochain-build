@@ -7085,6 +7085,21 @@ ID: `mint_system.stock.view_stock_quant_tree_editable.show_reserved_quantity`
 ```
 Source: [snippets/stock.view_stock_quant_tree_editable.show_reserved_quantity.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.view_stock_quant_tree_editable.show_reserved_quantity.xml)
 
+### X Expiration Date  
+ID: `mint_system.stock.view_stock_quant_tree_editable.x_expiration_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_stock_quant_tree_editable" priority="50">
+
+    <field name="removal_date" position="after">
+      <field name="x_expiration_date" optional="show"/>
+    </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_stock_quant_tree_editable.x_expiration_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.view_stock_quant_tree_editable.x_expiration_date.xml)
+
 ## View Stock Quant Tree  
 ### Show Reserved Quantity  
 ID: `mint_system.stock.view_stock_quant_tree.show_reserved_quantity`  

@@ -2745,6 +2745,29 @@ ID: `mint_system.ir_model.stock_production_lot.x_weight_uom`
 Source: [snippets/ir_model.stock_production_lot.x_weight_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.stock_production_lot.x_weight_uom.xml)
 
 ## Stock Quant  
+### X Expiration Date  
+ID: `mint_system.ir_model.stock_quant.x_expiration_date`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_expiration_date" model="ir.model.fields">
+    <field name="field_description">Ablaufdatum</field>
+    <field name="model">stock.quant</field>
+    <field name="model_id" ref="stock.model_stock_quant"/>
+    <field name="name">x_expiration_date</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">datetime</field>
+    <field name="relation">stock.lot</field>
+    <field name="related">lot_id.x_expiration_date</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_quant.x_expiration_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.stock_quant.x_expiration_date.xml)
+
 ### X Last Delivery Partner Id  
 ID: `mint_system.ir_model.stock_quant.x_last_delivery_partner_id`  
 ```xml

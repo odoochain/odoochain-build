@@ -2562,6 +2562,22 @@ ID: `mint_system.sale.report_saleorder_document.set_title_font_size`
 ```
 Source: [snippets/sale.report_saleorder_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.set_title_font_size.xml)
 
+### Show Categ Id  
+ID: `mint_system.sale.report_saleorder_document.show_categ_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+  
+  <xpath expr="//span[@t-field='line.name']" position="after">
+    <div>
+      <span t-field="line.product_id.categ_id"/>
+    </div>
+ </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.show_categ_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.show_categ_id.xml)
+
 ### Show Default Code  
 ID: `mint_system.sale.report_saleorder_document.show_default_code`  
 ```xml

@@ -2052,6 +2052,22 @@ ID: `mint_system.account.report_invoice_document.set_title_font_size`
 ```
 Source: [snippets/account.report_invoice_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.set_title_font_size.xml)
 
+### Show Categ Id  
+ID: `mint_system.account.report_invoice_document.show_categ_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+  
+  <xpath expr="//span[@t-field='line.name']" position="after">
+    <div>
+      <span t-field="line.product_id.categ_id"/>
+    </div>
+ </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.show_categ_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_categ_id.xml)
+
 ### Show Customer Info Product Code  
 ID: `mint_system.account.report_invoice_document.show_customer_info_product_code`  
 ```xml
@@ -4688,6 +4704,22 @@ ID: `mint_system.account.report_invoice_document.set_title_font_size`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.set_title_font_size.xml)
+
+### Show Categ Id  
+ID: `mint_system.account.report_invoice_document.show_categ_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+  
+  <xpath expr="//span[@t-field='line.name']" position="after">
+    <div>
+      <span t-field="line.product_id.categ_id"/>
+    </div>
+ </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.show_categ_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_categ_id.xml)
 
 ### Show Customer Info Product Code  
 ID: `mint_system.account.report_invoice_document.show_customer_info_product_code`  
