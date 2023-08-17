@@ -2052,6 +2052,22 @@ ID: `mint_system.account.report_invoice_document.set_title_font_size`
 ```
 Source: [snippets/account.report_invoice_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.set_title_font_size.xml)
 
+### Show Categ Id  
+ID: `mint_system.account.report_invoice_document.show_categ_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+  
+  <xpath expr="//span[@t-field='line.name']" position="after">
+    <div>
+      <span t-field="line.product_id.categ_id"/>
+    </div>
+ </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.show_categ_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_categ_id.xml)
+
 ### Show Customer Info Product Code  
 ID: `mint_system.account.report_invoice_document.show_customer_info_product_code`  
 ```xml
@@ -2133,15 +2149,41 @@ ID: `mint_system.account.report_invoice_document.show_lot_ids`
     <t t-if="lot_ids">
       <br />
       <span>Seriennummern:</span>
-      <ul t-foreach="lot_ids" t-as="lot">
-        <li t-esc="lot.name" />
-      </ul>
+      <t t-esc="', '.join(lot_ids.mapped('name'))" />
+      <!-- <ul class="list-unstyled">
+        <t t-foreach="lot_ids" t-as="lot">
+          <li t-esc="lot.name" />
+        </t>
+      </ul> -->
     </t>
   </xpath>
 
 </data>
 ```
 Source: [snippets/account.report_invoice_document.show_lot_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_lot_ids.xml)
+
+### Show Order Id  
+ID: `mint_system.account.report_invoice_document.show_order_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
+
+    <td name="account_invoice_line_name">
+      <t t-if="not line.sale_line_ids.task_id.sale_line_id.order_id">
+        <span t-field="line.name" t-options="{'widget': 'text'}"/>
+      </t>
+      <t t-if="line.sale_line_ids.task_id.sale_line_id.order_id">
+        Dienstleistung gemäss Rapport # <span t-field="line.sale_line_ids.task_id.sale_line_id.order_id"/>
+      </t>
+    </td>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.show_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_order_id.xml)
 
 ### Show Product Name  
 ID: `mint_system.account.report_invoice_document.show_product_name`  
@@ -2163,6 +2205,28 @@ ID: `mint_system.account.report_invoice_document.show_product_name`
 
 ```
 Source: [snippets/account.report_invoice_document.show_product_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_product_name.xml)
+
+### Show Sale Line Ids  
+ID: `mint_system.account.report_invoice_document.show_sale_line_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="after">
+    <th name="th_hs_code" class="text-right">
+      <span>H.S. Code</span>
+    </th>
+  </xpath>
+
+  <xpath expr="//table[@name='invoice_line_table']//span[@t-field='line.quantity']/.." position="after">
+    <td name="td_hs_code" class="text-right">
+       <span t-esc="line.product_id.intrastat_id.code"/>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.show_sale_line_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_sale_line_ids.xml)
 
 ### Show Shipping Address  
 ID: `mint_system.account.report_invoice_document.show_shipping_address`  
@@ -4641,6 +4705,22 @@ ID: `mint_system.account.report_invoice_document.set_title_font_size`
 ```
 Source: [snippets/account.report_invoice_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.set_title_font_size.xml)
 
+### Show Categ Id  
+ID: `mint_system.account.report_invoice_document.show_categ_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+  
+  <xpath expr="//span[@t-field='line.name']" position="after">
+    <div>
+      <span t-field="line.product_id.categ_id"/>
+    </div>
+ </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.show_categ_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_categ_id.xml)
+
 ### Show Customer Info Product Code  
 ID: `mint_system.account.report_invoice_document.show_customer_info_product_code`  
 ```xml
@@ -4722,15 +4802,41 @@ ID: `mint_system.account.report_invoice_document.show_lot_ids`
     <t t-if="lot_ids">
       <br />
       <span>Seriennummern:</span>
-      <ul t-foreach="lot_ids" t-as="lot">
-        <li t-esc="lot.name" />
-      </ul>
+      <t t-esc="', '.join(lot_ids.mapped('name'))" />
+      <!-- <ul class="list-unstyled">
+        <t t-foreach="lot_ids" t-as="lot">
+          <li t-esc="lot.name" />
+        </t>
+      </ul> -->
     </t>
   </xpath>
 
 </data>
 ```
 Source: [snippets/account.report_invoice_document.show_lot_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_lot_ids.xml)
+
+### Show Order Id  
+ID: `mint_system.account.report_invoice_document.show_order_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
+
+    <td name="account_invoice_line_name">
+      <t t-if="not line.sale_line_ids.task_id.sale_line_id.order_id">
+        <span t-field="line.name" t-options="{'widget': 'text'}"/>
+      </t>
+      <t t-if="line.sale_line_ids.task_id.sale_line_id.order_id">
+        Dienstleistung gemäss Rapport # <span t-field="line.sale_line_ids.task_id.sale_line_id.order_id"/>
+      </t>
+    </td>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.show_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_order_id.xml)
 
 ### Show Product Name  
 ID: `mint_system.account.report_invoice_document.show_product_name`  
@@ -4752,6 +4858,28 @@ ID: `mint_system.account.report_invoice_document.show_product_name`
 
 ```
 Source: [snippets/account.report_invoice_document.show_product_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_product_name.xml)
+
+### Show Sale Line Ids  
+ID: `mint_system.account.report_invoice_document.show_sale_line_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="after">
+    <th name="th_hs_code" class="text-right">
+      <span>H.S. Code</span>
+    </th>
+  </xpath>
+
+  <xpath expr="//table[@name='invoice_line_table']//span[@t-field='line.quantity']/.." position="after">
+    <td name="td_hs_code" class="text-right">
+       <span t-esc="line.product_id.intrastat_id.code"/>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.show_sale_line_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_sale_line_ids.xml)
 
 ### Show Shipping Address  
 ID: `mint_system.account.report_invoice_document.show_shipping_address`  

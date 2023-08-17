@@ -2299,8 +2299,7 @@ ID: `mint_system.stock.report_delivery_document.replace_informations`
                         <strong>&#160;Unsere Referenz:</strong>
                         <span t-field="o.origin" />
                     </td>
-                    <td>
-
+                    <td t-if="o.sudo().sale_id.client_order_ref">
                         <strong>Ihre Referenz:</strong>
                         <span t-field="o.sudo().sale_id.client_order_ref" />
                     </td>
@@ -2469,6 +2468,22 @@ ID: `mint_system.stock.report_delivery_document.replace_infotable`
 </data>
 ```
 Source: [snippets/stock.report_delivery_document.replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.replace_infotable.xml)
+
+### Replace Name  
+ID: `mint_system.stock.report_delivery_document.replace_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+    <xpath expr="//span[@t-field='o.name']/.." position="replace">
+        <h2>
+            Delivery slip <span t-field="o.name"/>
+        </h2>
+    </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.replace_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.replace_name.xml)
 
 ### Replace Order Definition  
 ID: `mint_system.stock.report_delivery_document.replace_order_definition`  
@@ -2920,8 +2935,17 @@ ID: `mint_system.stock.report_delivery_document.show_default_code`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
+  <xpath expr="//table[@name='stock_move_table']" position="before">
+    <style>
+      th#default_code,
+      td#default_code {
+        white-space: nowrap;
+      }
+    </style>
+  </xpath>
+  
   <xpath expr="//table[@name='stock_move_table']//th[@name='th_sm_product']" position="before">
-    <th name="th_default_code">
+    <th id="default_code" name="th_default_code">
       <strong>Referenz</strong>
     </th>
   </xpath>
@@ -2933,7 +2957,7 @@ ID: `mint_system.stock.report_delivery_document.show_default_code`
   </xpath> -->
 
   <xpath expr="//table[@name='stock_move_table']//span[@t-field='move.product_id']/.." position="before">
-    <td name="td_default_code">
+    <td id="default_code"  name="td_default_code">
       <span t-field="move.product_id.default_code"/>
     </td>
   </xpath>
@@ -2949,20 +2973,28 @@ ID: `mint_system.stock.report_delivery_document.show_lot_ids`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
-  <xpath expr="//table[@name='stock_move_table']//th[@name='th_sm_product']" position="after">
+  <!-- <xpath expr="//table[@name='stock_move_table']//th[@name='th_sm_product']" position="after">
     <th name="th_lot_ids">
       <strong>Seriennummer</strong>
     </th>
-  </xpath>
+  </xpath> -->
 
-  <xpath expr="//table[@name='stock_move_table']//span[@t-field='move.product_id']/.." position="after">
-    <td name="td_lots">
-      <ul class="list-unstyled">
+  <xpath expr="//table[@name='stock_move_table']//span[@t-field='move.description_picking']/.." position="after">
+    <t t-if="move.lot_ids">
+      <br />
+      <span>Seriennummern:</span>
+      <t t-esc="', '.join(move.lot_ids.mapped('name'))" />
+    </t>
+
+    <!-- <td name="td_lots"> -->
+      <!-- <t t-esc="', '.join(move.lot_ids.mapped('name'))" /> -->
+      <!-- <ul class="list-unstyled">
         <t t-foreach="move.lot_ids" t-as="lot">
           <li t-esc="lot.name" />
         </t>
-      </ul>
-    </td>
+      </ul> -->
+    <!-- </td> -->
+
   </xpath>
 
 </data>
@@ -5891,6 +5923,22 @@ ID: `mint_system.stock.report_picking.x_packaging_uom_id`
 ```
 Source: [snippets/stock.report_picking.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.x_packaging_uom_id.xml)
 
+## Search Product Lot Filter  
+### Filter Active  
+ID: `mint_system.stock.search_product_lot_filter.filter_active`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.search_product_lot_filter" priority="50">
+
+  <field name="product_id" position="after">
+    <filter name="active" string="Archiviert" domain="[('active', '=', False)]"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.search_product_lot_filter.filter_active.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.search_product_lot_filter.filter_active.xml)
+
 ## Stock Report Delivery Aggregated Move Lines  
 ### Add Country Of Origin And Hs Code  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.add_country_of_origin_and_hs_code`  
@@ -7036,6 +7084,21 @@ ID: `mint_system.stock.view_stock_quant_tree_editable.show_reserved_quantity`
 
 ```
 Source: [snippets/stock.view_stock_quant_tree_editable.show_reserved_quantity.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.view_stock_quant_tree_editable.show_reserved_quantity.xml)
+
+### X Expiration Date  
+ID: `mint_system.stock.view_stock_quant_tree_editable.x_expiration_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_stock_quant_tree_editable" priority="50">
+
+    <field name="removal_date" position="after">
+      <field name="x_expiration_date" optional="show"/>
+    </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_stock_quant_tree_editable.x_expiration_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.view_stock_quant_tree_editable.x_expiration_date.xml)
 
 ## View Stock Quant Tree  
 ### Show Reserved Quantity  
