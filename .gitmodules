@@ -262,3 +262,7 @@
 	path = oca/maintenance
 	url = git@github.com:OCA/maintenance.git
 	branch = 14.0
+[submodule "oca/survey"]
+	path = oca/survey
+	url = git@github.com:OCA/survey.git
+	branch = 14.0
