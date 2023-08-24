@@ -2284,7 +2284,7 @@ ID: `mint_system.ir_model.sale_order.x_payment_state`
     <field name="field_description">Zahlungsstatus</field>
     <field name="model">sale.order</field>
     <field name="model_id" ref="sale.model_sale_order"/>
-    <field name="name">x_product_uom_qty</field>
+    <field name="name">x_payment_state</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -2303,9 +2303,9 @@ ID: `mint_system.ir_model.sale_order.x_payment_state`
       
         if has_only_paid_invoices:
           rec['x_payment_state'] = 'paid'
-        if has_in_payment_invoices:
+        elif has_in_payment_invoices:
           rec['x_payment_state'] = 'in_payment'
-        if has_not_paid_invoices:
+        elif has_not_paid_invoices:
           rec['x_payment_state'] = 'not_paid'
       else:
         rec['x_payment_state'] = 'not_paid' </field>
