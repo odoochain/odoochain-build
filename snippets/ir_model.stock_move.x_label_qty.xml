@@ -13,6 +13,7 @@
     <field name="depends">product_uom_qty</field>
     <field name="compute">for rec in self:
       rec['x_label_qty'] = 1
+    </field>
   </record>
 
 </odoo>
