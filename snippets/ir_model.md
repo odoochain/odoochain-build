@@ -2515,6 +2515,32 @@ ID: `mint_system.ir_model.stock_move.x_count_packaging`
 ```
 Source: [snippets/ir_model.stock_move.x_count_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.stock_move.x_count_packaging.xml)
 
+### X Label Qty  
+ID: `mint_system.ir_model.stock_move.x_label_qty`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_label_qty" model="ir.model.fields">
+    <field name="field_description">Anzahl Etiketten</field>
+    <field name="model">stock.move</field>
+    <field name="model_id" ref="stock.model_stock_move"/>
+    <field name="name">x_label_qty</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">int</field>
+    <field name="depends">product_uom_qty</field>
+    <field name="compute">for rec in self:
+      rec['x_label_qty'] = 1
+    </field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_move.x_label_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.stock_move.x_label_qty.xml)
+
 ### X Operation Qty  
 ID: `mint_system.ir_model.stock_move.x_operation_qty`  
 ```xml
