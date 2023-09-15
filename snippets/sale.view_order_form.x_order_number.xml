@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.view_order_form" priority="50">
 
-  <xpath expr="//page[@name='other_information']//field[@name='client_order_ref']" position="after">
+  <xpath expr="//group[@name='order_details']//field[@name='payment_term_id']" position="after">
     <field name="x_order_number"/>
   </xpath>
 
