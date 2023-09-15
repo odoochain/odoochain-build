@@ -35,6 +35,11 @@ function set-addons-path() {
     # Append env var
     ADDONS_PATH="${ADDONS_PATH}${ODOO_ADDONS_PATH}"
 
+    EXCLUDES="addons/theme_mint_system addons/company addons/web"
+    for EXCLUDE in $EXCLUDES; do
+        ADDONS_PATH=$(echo "$ADDONS_PATH" | sed "s|${EXCLUDE},||g")
+    done
+
     # Check if dir exists
     for ADDON in $ADDONS_PATH; do
         if [ -d "$ADDON" ]; then
@@ -352,6 +357,12 @@ function generate-module-translation() {
     echo "Generate $LANGUAGE tranlsation file for $MODULE_NAME on $DATABASE ..."
     mkdir -p "$MODULE_PATH/i18n/"
     odoo-bin -d "$DATABASE" --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --modules "$MODULE_NAME" -l "$LANGUAGE" --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
+}
+
+function list-addons() {
+    activate-venv
+    set-addons-path
+    echo "$ADDONS_PATH"
 }
 
 function install-module() {
@@ -1062,6 +1073,9 @@ case "$1" in
         ;;
     list-odoo-env)
         ls -f "$ODOO_DEVELOPMENT_CONFIG_DIR"
+        ;;
+    list-addons)
+        list-addons
         ;;
     edit-env)
         edit-env "$2"

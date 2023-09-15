@@ -137,10 +137,6 @@
 	path = oca/rest-framework
 	url = git@github.com:OCA/rest-framework.git
 	branch = 14.0
-[submodule "addons/demodata"]
-	path = addons/demodata
-	url = git@github.com:Mint-System/Odoo-Apps-Demodata.git
-	branch = 14.0
 [submodule "addons/partner_contact"]
 	path = addons/partner_contact
 	url = git@github.com:Mint-System/Odoo-Apps-Partner-Contact.git
