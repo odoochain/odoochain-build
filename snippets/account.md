@@ -2075,7 +2075,7 @@ ID: `mint_system.account.report_invoice_document.show_customer_info_product_code
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <span t-field="line.name" position="before">
-    <t t-set="customer_info" t-value="line.product_id._select_customerinfo(partner=o.commercial_partner_id)" />
+    <t t-if="line.product_id" t-set="customer_info" t-value="line.product_id._select_customerinfo(partner=o.commercial_partner_id)" />
     <t t-if="customer_info">
       <span t-esc="'[%s] ' % customer_info[0].product_code" />
     </t>
@@ -4728,7 +4728,7 @@ ID: `mint_system.account.report_invoice_document.show_customer_info_product_code
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <span t-field="line.name" position="before">
-    <t t-set="customer_info" t-value="line.product_id._select_customerinfo(partner=o.commercial_partner_id)" />
+    <t t-if="line.product_id" t-set="customer_info" t-value="line.product_id._select_customerinfo(partner=o.commercial_partner_id)" />
     <t t-if="customer_info">
       <span t-esc="'[%s] ' % customer_info[0].product_code" />
     </t>
@@ -5711,6 +5711,20 @@ ID: `mint_system.account.view_move_form.show_line_partner_id`
 </data>
 ```
 Source: [snippets/account.view_move_form.show_line_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_form.show_line_partner_id.xml)
+
+### Show Payment State  
+ID: `mint_system.account.view_move_form.show_payment_state`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <field name="payment_reference" position="after">
+        <field name="x_payment_state" />
+    </field>
+
+</data>
+```
+Source: [snippets/account.view_move_form.show_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_form.show_payment_state.xml)
 
 ### Show Posted Before  
 ID: `mint_system.account.view_move_form.show_posted_before`  

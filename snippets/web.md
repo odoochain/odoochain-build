@@ -546,6 +546,21 @@ ID: `mint_system.web.external_layout_standard.set_header_footer_font_size`
 ```
 Source: [snippets/web.external_layout_standard.set_header_footer_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/web.external_layout_standard.set_header_footer_font_size.xml)
 
+### Show Sale Order In Footer  
+ID: `mint_system.web.external_layout_standard.show_sale_order_in_footer`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="50">
+
+  <xpath expr="//div[3]/div[1]" position="before">
+    <span t-if="xmlid == 'sale.report_saleorder'" /> 
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/web.external_layout_standard.show_sale_order_in_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/web.external_layout_standard.show_sale_order_in_footer.xml)
+
 ### Tissa Layout  
 ID: `mint_system.web.external_layout_standard.tissa_layout`  
 ```xml
@@ -778,6 +793,46 @@ ID: `mint_system.web.login_layout.disable_footer`
 
 ```
 Source: [snippets/web.login_layout.disable_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/web.login_layout.disable_footer.xml)
+
+## Login  
+### Remove Login Form  
+ID: `mint_system.web.login.remove_login_form`  
+```xml
+<data inherit_id="web.login" priority="50">
+
+  <xpath expr="//form/div[1]" position="attributes">
+    <attribute name="t-if">'debug=1' in request.httprequest.url</attribute>
+  </xpath>
+
+  <xpath expr="//form/div[2]" position="attributes">
+    <attribute name="t-if">'debug=1' in request.httprequest.url</attribute>
+  </xpath>
+
+  <xpath expr="//form/div[3]" position="attributes">
+    <attribute name="t-if">'debug=1' in request.httprequest.url</attribute>
+  </xpath>
+
+  <xpath expr="//form/div/button[1]" position="attributes">
+    <attribute name="t-if">'debug=1' in request.httprequest.url</attribute>
+  </xpath>
+
+  <xpath expr="//button[@type='submit']/../div[1]" position="attributes">
+    <attribute name="t-if">'debug=1' in request.httprequest.url</attribute>
+  </xpath>
+
+  <xpath expr="//form/div/t/button[1]" position="attributes">
+    <attribute name="t-if">'debug=1' in request.httprequest.url</attribute>
+  </xpath>
+  
+  <xpath expr="//form" position="before">
+    <style>
+      .d-block {display: none !important;}
+    </style>
+  </xpath>
+
+</data>
+```
+Source: [snippets/web.login.remove_login_form.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/web.login.remove_login_form.xml)
 
 ## Styles Company Report  
 ### Set Font  
