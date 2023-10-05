@@ -21,40 +21,4 @@
     </div>
   </xpath>
 
-
-  <!-- Variante
-  <xpath expr="/t/t/div/p[2]" position="after">
-      <div class="row">
-      <div class="col">
-          
-          <div>
-            <t t-if="o.currency_id.name=='CHF'">
-            <t t-set="account" t-value="o.company_id.bank_ids.browse(40)"/>
-            </t>
-            <t t-if="o.currency_id.name=='EUR'">
-                <t t-set="account" t-value="o.company_id.bank_ids.browse(1)"/>
-            </t>
-            <t t-if="o.currency_id.name=='USD'">
-                <t t-set="account" t-value="o.company_id.bank_ids.browse(41)"/>
-            </t>
-            <div class="row">
-              <div class="col">
-                <span>IBAN: </span>
-                <span t-field="account.acc_number"/>
-                <br/>
-                <span>Bank/BIC: </span>
-                <span t-field="account.bank_id.display_name"/>
-                <br/>
-                <br/>
-              </div>
-            </div>
-          </div>
-          
-          <br/>
-          <br/>
-      </div>
-      </div>
-  </xpath>
-  -->
-
 </data>
