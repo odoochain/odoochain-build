@@ -3175,6 +3175,20 @@ ID: `mint_system.sale.sale_order_line_view_form_readonly.show_invoice_lines`
 ```
 Source: [snippets/sale.sale_order_line_view_form_readonly.show_invoice_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.sale_order_line_view_form_readonly.show_invoice_lines.xml)
 
+### Show Is Downpayment  
+ID: `mint_system.sale.sale_order_line_view_form_readonly.show_is_downpayment`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.sale_order_line_view_form_readonly" priority="50" >
+
+    <field name="product_id" position="after">
+        <field name="is_downpayment"/>
+    </field>
+
+</data>
+```
+Source: [snippets/sale.sale_order_line_view_form_readonly.show_is_downpayment.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.sale_order_line_view_form_readonly.show_is_downpayment.xml)
+
 ### Show Project Id  
 ID: `mint_system.sale.sale_order_line_view_form_readonly.show_project_id`  
 ```xml
