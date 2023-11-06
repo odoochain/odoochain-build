@@ -26,7 +26,7 @@ The Odoo development environment has the following requirements:
 
 ## Usage
 
-The usage section is a set of workflows. Pick the one required by your scenario. See `task help` or [task](./task.md) for details about the projects commands.
+The usage section is a set of workflows. Pick the one required by your scenario. See `task help` or [task](./task.md) for details about the project commands.
 
 Clone this repository.
 
@@ -105,7 +105,7 @@ task create-module addons/project_report
 To load modules from a thirdparty folder, set this env var in your `.env` file
 
 ```
-ODOO_ADDONS_PATH=,path/to/module/folder
+ODOO_ADDONS_PATH=,thirdparty/modules/
 ```
 
 ### Docker
