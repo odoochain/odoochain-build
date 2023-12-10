@@ -237,5 +237,9 @@
 [submodule "odoochain/app-odoo"]
 	path = odoochain/app-odoo
 	url = https://gitee.com/odoochain/app-odoo.git
+	branch = 16.0-chain
+[submodule "odoochain/addons-cybro"]
+	path = odoochain/addons-cybro
+	url = git@github.com:odoochain/addons-cybro.git
 	branch = 16.0-chain	
 	
