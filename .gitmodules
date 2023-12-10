@@ -8,7 +8,7 @@
 	branch = 16.0-chain
 [submodule "odoo"]
 	path = odoo
-	url = git@gitee.com:odoochain/odoochain.git
+	url = https://gitee.com/odoochain/odoochain.git
 	branch = 16.0-chain
 [submodule "odoochain/oca-partner-contact"]
 	path = odoochain/oca-partner-contact
@@ -236,6 +236,6 @@
 	branch = 16.0-chain
 [submodule "odoochain/app-odoo"]
 	path = odoochain/app-odoo
-	url = git@github.com:odoochain/app-odoo.git
+	url = https://gitee.com/odoochain/app-odoo.git
 	branch = 16.0-chain	
 	
