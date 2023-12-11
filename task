@@ -20,7 +20,7 @@ PATH="$PATH:./odoo"
 OS_RELEASE=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
 ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
-ODOO_LANGUAGE=de_CH
+ODOO_LANGUAGE=zh_CN
 ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-build"
 DOCKER_TAG="odoo:$ODOO_REVISION"
 : ${DOCKER_REGISTRY:=""}
@@ -137,7 +137,8 @@ function build() {
 }
 
 function install-odoo-scripts() {
-    curl -L https://raw.githubusercontent.com/mint-system/ansible-build/master/roles/odoo_scripts/files/install | bash
+	# Source:https://raw.githubusercontent.com/mint-system/ansible-build/master/roles/odoo_scripts/files/install
+    curl -L https://raw.githubusercontent.com/odoochain/ansible-build/main/roles/odoo_scripts/files/install | bash
 }
 
 function install-native() {    
@@ -179,7 +180,7 @@ function install-native() {
     pip install cerberus pyquerystring parse-accept-language apispec\>=4.0.0 marshmallow marshmallow-objects\>=2.0.0 jsondiff
 
     echo "Install openupgrade functions"
-    pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib
+    pip install git+https://github.com/odoochain/openupgradelib.git@master#egg=openupgradelib
 
     echo "Install addon dependencies"
     pip install prometheus_client pika

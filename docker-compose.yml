@@ -19,7 +19,7 @@ services:
     volumes:
       - odoo-data:/var/lib/odoo
       - ./addons:/mnt/addons
-      - ./oca:/mnt/oca
+      - ./odoochain:/mnt/odoochain
       - ./enterprise:/mnt/enterprise
       - ./themes:/mnt/themes
   admin:
@@ -37,7 +37,7 @@ services:
       - ./config/servers.json:/pgadmin4/servers.json
   db:
     container_name: db
-    image: postgres:12-alpine
+    image: postgres:16
     ports:
       - "127.0.0.1:5432:5432"
     environment:
