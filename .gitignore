@@ -1,7 +1,6 @@
 __pycache__
 .DS_Store
 .env*
-addons
 tmp
 default.vim
 managed-modules
