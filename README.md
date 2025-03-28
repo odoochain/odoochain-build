@@ -52,6 +52,8 @@ task checkout 17.0
 
 Install [Odoo scripts](https://ansible.build/roles/odoo_scripts/)
 
+in ansible-build\roles\odoo_scripts\files\install-odoo-scripts
+
 ```bash
 task install-odoo-scripts
 ```
